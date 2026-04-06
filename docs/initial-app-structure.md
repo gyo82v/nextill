@@ -1,9 +1,9 @@
 INITIAL APP STRUCTURE:
 
-
 FEATURES:
 - [Darkmode]
 - [Languages]
+- [Progressive-web-app] make it installable and add an icon;
 - [Users] one account with pssw and username. Multiple users?
 - [start/end-day] in the homepage the till will be available only when the 
                   day is active
@@ -14,7 +14,15 @@ FEATURES:
 - [Menu/categories] diplay the current dishes on the menu in each category;
 - [Menu/add-dish] the user can add a dish to the menu, it can choose the name, price, cetegories and 
                   ingredients from the one available in the stock; 
-
+- [Stock/categories] diplay items in the stock and its quantity;
+- [Stock/add-item] the user can add item to the stock, with neam, quantity, category;
+- [Reports/daily] display the statistic for the active  current day, total earning, total transactions,
+                  an array of the daily transactions, items sold etc;
+- [Reports/globals] display the statistic  of all time same as daily, not the array of all the transactions;
+- [Reports/overview] display thtotla earnings and total number of transactions for each day, optionally 
+                     clicking on each day will show the array of transactions for that day;
+- [Account/options] the user can delete the account or reset the password;
+- [Account/app-options] the user can reset the menu, stock and reports;
 
 
 PAGES:
@@ -24,7 +32,7 @@ PAGES:
           existing item;
 - [Reports] display data like quantity of each item sold, each day earning, totla earning etc..;
 - [Account] display account information , delete account, reset pssw, reset menu, reset stock etc...;
-
+- [Initial-page] diplay log in, sign-in, title, description etc..;
 
 
 STYLE:
@@ -45,6 +53,9 @@ COMPONENTS:
 EXTRA:
 - [print-option]
 - [Custom-categories] give the user the option to create custom categories instead of the preset;
+- [reports] add the best selling item per category;
+- [Account] add additional palette colors
+- [Icons] Create custom icon for the installable version;
 
 DECISIONS:
 - [Server/client] which component servers and which client;
