@@ -1,26 +1,115 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html, body, #__next {
+    @apply m-0 p-0 ;
+    line-height: 1.5;
+    font-weight: 400;
+
+    /* MOBILE-FIRST: visually hide scrollbars (keep scrolling functional) */
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;     /* IE/Edge */
+  }
+
+  /* WebKit browsers (Chrome, Safari) — hide on mobile by disabling the pseudo element */
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Keep defaults for images/buttons */
+  img {
+    @apply max-w-full h-auto;
+  }
+  button {
+    @apply cursor-pointer;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* utility to hide scrollbar on any element (mobile-first) */
+  .scrollbar-hide {
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;     /* IE/Edge */
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;                /* WebKit */
+  }
+
+  /* utility to hide scrollbar (alternate name) */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE/Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* WebKit */
+  }
+
 }
+
+@media (min-width: 1024px) {
+  html, body, #__next {
+    /* allow the browser to render normal scrollbars again */
+    scrollbar-width: auto;        /* Firefox */
+    -ms-overflow-style: auto;     /* IE/Edge */
+
+    /* Reserve gutter to avoid layout shift when scrollbar appears (where supported) */
+    scrollbar-gutter: stable;
+  }
+
+  /* WebKit scrollbar sizing */
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: block;    /* re-enable */
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Track (behind the thumb) */
+  html::-webkit-scrollbar-track,
+  body::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Thumb (the draggable piece) */
+  html::-webkit-scrollbar-thumb,
+  body::-webkit-scrollbar-thumb {
+    background-color: rgba(107, 70, 61, 0.35); /* subtle brown/orange tint matching theme */
+    border-radius: 9999px;
+    border: 3px solid rgba(0,0,0,0); /* create padding so thumb doesn't touch track */
+    background-clip: padding-box;
+  }
+
+  /* Hover state for thumb for better affordance */
+  html::-webkit-scrollbar-thumb:hover,
+  body::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(107, 70, 61, 0.55);
+  }
+
+  /* Firefox: set thumb color & track */
+  /* 'scrollbar-color: thumbColor trackColor' */
+  html, body {
+    scrollbar-color: rgba(107, 70, 61, 0.35) transparent;
+  }
+}
+
+@layer components {
+}
+
+
+
+
