@@ -51,11 +51,14 @@ COMPONENTS:
 
 
 EXTRA:
-- [print-option]
+- [print-option] add a print option in the complete order page;
 - [Custom-categories] give the user the option to create custom categories instead of the preset;
 - [reports] add the best selling item per category;
 - [Account] add additional palette colors
 - [Icons] Create custom icon for the installable version;
+- [feature] add the undo-last-sale option to be able to delete the most recent transaction;
+- [feature] add low-stock warning for items in the stock page;
+- [feature] search bar in the stock and menu page;
 
 DECISIONS:
 - [Server/client] which component servers and which client;
