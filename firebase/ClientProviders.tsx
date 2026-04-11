@@ -1,13 +1,23 @@
+// components/ClientProviders.tsx
 "use client";
 
 import React from "react";
-import { AuthProvider } from "./authProvider"; 
+import { ThemeProvider } from "next-themes";
+import { AuthProvider } from "./authProvider";
 
 type Props = {
-  children : React.ReactNode
-}
+  children: React.ReactNode;
+};
 
-
-export default function ClientProviders({children}:Props) {
-  return <AuthProvider>{children}</AuthProvider>;
+export default function ClientProviders({ children }: Props) {
+  return (
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <AuthProvider>{children}</AuthProvider>
+    </ThemeProvider>
+  );
 }

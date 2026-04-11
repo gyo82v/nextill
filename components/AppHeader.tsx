@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useMemo } from "react";
 import { useAuth } from "@/firebase/authProvider";
+import ThemeToggle from "@/components/ThemeToggle";
 
 type AppHeaderProps = {
   onToggleTheme?: () => void;
@@ -50,6 +51,7 @@ export default function AppHeader({
           <Link href="/till" className="text-lg font-semibold tracking-tight">
             Nextill
           </Link>
+          <ThemeToggle />
 
           <nav className="hidden items-center gap-2 md:flex">
             {navItems.map((item) => {
