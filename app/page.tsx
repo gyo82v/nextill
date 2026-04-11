@@ -1,7 +1,22 @@
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/firebase/authProvider";
+
 export default function Home() {
-  return (
-    <div >
-      <h1>main page here</h1>
-    </div>
-  );
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (loading) return;
+
+    if (user) {
+      router.replace("/till");
+    } else {
+      router.replace("/sign-in");
+    }
+  }, [user, loading, router]);
+
+  return null;
 }

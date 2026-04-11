@@ -28,7 +28,7 @@ export default function AppHeader({
 }: AppHeaderProps) {
   const pathname = usePathname();
   const router = useRouter();
-  const { profile, signOut, loading } = useAuth();
+  const { profile, signOut, loading, user } = useAuth();
 
   const displayName = useMemo(() => {
     return profile?.displayName?.trim() || "User";
@@ -37,7 +37,7 @@ export default function AppHeader({
   async function handleSignOut() {
     try {
       await signOut();
-      router.replace("/login");
+      router.replace("/sign-in");
     } catch (error) {
       console.error("Sign out failed:", error);
     }

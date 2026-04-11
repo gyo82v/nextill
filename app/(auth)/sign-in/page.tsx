@@ -17,7 +17,7 @@ export default function LoginPage() {
   // If already logged in, redirect to app
   useEffect(() => {
     if (!loading && user) {
-      router.replace("/app");
+      router.replace("/till");
     }
   }, [loading, user, router]);
 
@@ -28,7 +28,7 @@ export default function LoginPage() {
 
     try {
       await signIn(email, password);
-      router.replace("/app");
+      router.replace("/till");
     } catch (err: unknown) {
       setError((err as Error).message ?? "Failed to sign in");
     } finally {

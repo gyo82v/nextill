@@ -18,7 +18,7 @@ export default function SignUpPage() {
   // If already logged in, redirect to app
   useEffect(() => {
     if (!loading && user) {
-      router.replace("/app");
+      router.replace("/till");
     }
   }, [loading, user, router]);
 
