@@ -31,7 +31,7 @@ export interface UserProfile {
     jadeLilyCreditUsed : number
     nextillApp: {
         settings: {
-            darkMode: boolean
+            darkmode: boolean
             language: string
             dayActive: boolean
             dayDate: string | null
@@ -134,7 +134,7 @@ export async function createUserProfileIfNotExists(user:FirebaseUser, name:strin
             jadeLilyCreditUsed : 0,
             nextillApp: {
                 settings: {
-                    darkMode: false,
+                    darkmode: false,
                     language: "en",
                     dayActive: false,
                     dayDate: null

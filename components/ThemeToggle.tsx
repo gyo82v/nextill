@@ -1,23 +1,41 @@
 "use client";
 
 import { useTheme } from "next-themes";
+import { updateDarkMode } from "@/firebase/userSettings";
+import { useAuth } from "@/firebase/authProvider";
 
 export default function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
+  const { user } = useAuth();
 
-  // Avoid rendering until theme is resolved
   if (!resolvedTheme) return null;
+
+  const isDark = resolvedTheme === "dark";
+
+  async function toggleTheme() {
+    const nextIsDark = !isDark;
+
+    // 1. Always update UI
+    setTheme(nextIsDark ? "dark" : "light");
+
+    // 2. Persist ONLY if logged in
+    if (!user) return;
+
+    try {
+      await updateDarkMode(user.uid, nextIsDark);
+    } catch (err) {
+      console.error("Failed to save theme preference", err);
+    }
+  }
 
   return (
     <button
       type="button"
-      onClick={() =>
-        setTheme(resolvedTheme === "dark" ? "light" : "dark")
-      }
+      onClick={toggleTheme}
       className="px-3 py-1 rounded border"
       suppressHydrationWarning
     >
-      {resolvedTheme === "dark" ? "Light mode" : "Dark mode"}
+      {isDark ? "Light mode" : "Dark mode"}
     </button>
   );
 }

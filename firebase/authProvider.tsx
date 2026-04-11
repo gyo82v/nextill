@@ -12,6 +12,7 @@ import {
         UserProfile,
         deleteAccountWithPassword
     } from "./authClient"
+import { useTheme } from "next-themes";
 
 
 type AuthContextValue = {
@@ -38,6 +39,15 @@ export function AuthProvider({children}:{children: React.ReactNode}){
     const [user, setUser] = useState<FirebaseUser | null>(null)
     const [profile, setProfile] = useState<UserProfile | null>(null)
     const [loading, setLoading] = useState(true)
+    const { setTheme } = useTheme();
+
+    useEffect(() => {
+      if (!profile) return;
+
+      const prefersDark = profile.nextillApp.settings.darkmode;
+
+      setTheme(prefersDark ? "dark" : "light");
+    }, [profile, setTheme]);
   
     useEffect(() => {
         let profileUnsub: (() => void) | null = null

@@ -1,3 +1,5 @@
+import ThemeToggle from "@/components/ThemeToggle"
+
 export default function AuthLayout({
   children,
 }: {
@@ -5,7 +7,9 @@ export default function AuthLayout({
 }) {
   return (
     <main>
-      {/* Logo, language switch, dark mode */}
+       <div className="p-4">
+        <ThemeToggle />
+      </div>
       {children}
     </main>
   )
