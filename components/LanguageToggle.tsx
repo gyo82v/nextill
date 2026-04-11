@@ -1,12 +1,12 @@
 "use client";
 
-import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useAuth } from "@/firebase/authProvider";
-import { updateDarkMode } from "@/firebase/userSettings";
+import { updateLanguage } from "@/firebase/userSettings";
 
-export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+export default function LanguageToggle() {
+  const { i18n } = useTranslation();
   const { user } = useAuth();
   const [mounted, setMounted] = useState(false);
 
@@ -16,21 +16,22 @@ export default function ThemeToggle() {
 
   if (!mounted) return null;
 
-  const isDark = theme === "dark";
+  const isIt = i18n.language === "it";
 
   async function toggle() {
-    const next = !isDark;
+    const next = isIt ? "en" : "it";
 
-    setTheme(next ? "dark" : "light");
+    i18n.changeLanguage(next);
+    localStorage.setItem("language", next);
 
     if (user) {
-      await updateDarkMode(user.uid, next);
+      await updateLanguage(user.uid, next);
     }
   }
 
   return (
     <button onClick={toggle} className="px-3 py-1 border rounded">
-      {isDark ? "Light mode" : "Dark mode"}
+      {isIt ? "IT" : "EN"}
     </button>
   );
 }

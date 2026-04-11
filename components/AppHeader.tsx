@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useMemo } from "react";
 import { useAuth } from "@/firebase/authProvider";
 import ThemeToggle from "@/components/ThemeToggle";
+import LanguageToggle from "@/components/LanguageToggle";
 
 type AppHeaderProps = {
   onToggleTheme?: () => void;
@@ -52,6 +53,7 @@ export default function AppHeader({
             Nextill
           </Link>
           <ThemeToggle />
+          <LanguageToggle />
 
           <nav className="hidden items-center gap-2 md:flex">
             {navItems.map((item) => {

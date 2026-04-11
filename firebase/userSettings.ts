@@ -11,3 +11,11 @@ export async function updateDarkMode(
     "nextillApp.settings.darkmode": darkmode,
   });
 }
+
+export async function updateLanguage(uid:string, nextLang:string){
+    const ref = doc(db, "users", uid);
+
+    await updateDoc(ref, {
+        "nextillApp.settings.language": nextLang,
+    });
+}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import ClientProviders from "@/firebase/ClientProviders";
+import AppShell from "@/lib/Appshell";
 import "./globals.css";
 
 const inter = Inter({
@@ -25,7 +26,9 @@ export default function RootLayout({
       className={`${inter.className} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col"><ClientProviders>{children}</ClientProviders></body>
+      <body className="min-h-full flex flex-col"><ClientProviders>
+        <AppShell>{children}</AppShell>
+      </ClientProviders></body>
     </html>
   );
 }
