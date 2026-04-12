@@ -1,0 +1,19 @@
+{
+  "signIn": "Accedi",
+  "signUp": "Crea account",
+  "email": "Email",
+  "password": "Password",
+  "logout": "Esci",
+  "language": "Lingua",
+  "darkMode": "Tema scuro",
+  "lightMode": "Tema chiaro",
+  "till": "Cassa",
+  "menu": "Menu",
+  "stock": "Magazzino",
+  "items_one": "{{count}} articolo",
+  "items_other": "{{count}} articoli",
+  "test": {
+    "title": "Pagina di test lingua",
+    "description": "Se puoi leggere questo, l'italiano è attivo."
+  }
+}

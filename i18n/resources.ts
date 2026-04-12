@@ -1,27 +1,11 @@
-// i18n/resources.ts
+import enCommon from "./locales/en/common.json";
+import itCommon from "./locales/it/common.json";
+
 export const resources = {
   en: {
-    translation: {
-      signIn: "Sign in",
-      signUp: "Create account",
-      email: "Email",
-      password: "Password",
-      logout: "Logout",
-      till: "Till",
-      menu: "Menu",
-      stock: "Stock",
-    },
+    common: enCommon,
   },
   it: {
-    translation: {
-      signIn: "Accedi",
-      signUp: "Crea account",
-      email: "Email",
-      password: "Password",
-      logout: "Esci",
-      till: "Cassa",
-      menu: "Menu",
-      stock: "Magazzino",
-    },
+    common: itCommon,
   },
-};
+} as const;

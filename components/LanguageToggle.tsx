@@ -4,34 +4,56 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "@/firebase/authProvider";
 import { updateLanguage } from "@/firebase/userSettings";
+import {
+  SUPPORTED_LANGUAGES,
+  type LanguageCode,
+} from "@/i18n/languages";
 
-export default function LanguageToggle() {
-  const { i18n } = useTranslation();
-  const { user } = useAuth();
-  const [mounted, setMounted] = useState(false);
+function useHydrated() {
+  const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const id = window.requestAnimationFrame(() => setHydrated(true));
+    return () => window.cancelAnimationFrame(id);
   }, []);
 
-  if (!mounted) return null;
+  return hydrated;
+}
 
-  const isIt = i18n.language === "it";
+export default function LanguageToggle() {
+  const hydrated = useHydrated();
+  const { i18n } = useTranslation();
+  const { user } = useAuth();
 
-  async function toggle() {
-    const next = isIt ? "en" : "it";
+  const currentLanguage = (i18n.resolvedLanguage || i18n.language || "en") as LanguageCode;
 
-    i18n.changeLanguage(next);
-    localStorage.setItem("language", next);
+  async function handleChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    const nextLanguage = e.target.value as LanguageCode;
+
+    await i18n.changeLanguage(nextLanguage);
+    localStorage.setItem("language", nextLanguage);
 
     if (user) {
-      await updateLanguage(user.uid, next);
+      await updateLanguage(user.uid, nextLanguage);
     }
   }
 
+  if (!hydrated) return null;
+
   return (
-    <button onClick={toggle} className="px-3 py-1 border rounded">
-      {isIt ? "IT" : "EN"}
-    </button>
+    <label className="inline-flex items-center gap-2 rounded border px-3 py-1">
+      <span className="sr-only">Language</span>
+      <select
+        value={currentLanguage}
+        onChange={handleChange}
+        className="bg-transparent outline-none"
+      >
+        {SUPPORTED_LANGUAGES.map((lang) => (
+          <option key={lang.code} value={lang.code}>
+            {lang.label}
+          </option>
+        ))}
+      </select>
+    </label>
   );
 }
