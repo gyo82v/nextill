@@ -40,7 +40,8 @@ export interface UserProfile {
             active: boolean
             startedAt: unknown | null
             endedAt: unknown | null
-            dayKey: string | null
+            openingBalance: number | null
+            closingBalance: number | null
         }
     }
 }
@@ -143,7 +144,8 @@ export async function createUserProfileIfNotExists(user:FirebaseUser, name:strin
                     active: false,
                     startedAt: null,
                     endedAt: null,
-                    dayKey: null
+                    openingBalance: null,
+                    closingBalance: null,
                 }
             }
         }
