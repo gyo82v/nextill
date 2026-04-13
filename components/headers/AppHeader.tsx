@@ -34,8 +34,8 @@ export default function AppHeader() {
   }
 
   return (
-    <header className="border-2 border-red-500 ">
-      <div className="border-2 border-green-500 mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
+    <header className="border-b-2 border-neutral-600 ">
+      <div className=" mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
         <div className="flex items-center gap-4">
           <h1 className="font-bold text-2xl" >
             Nextill
@@ -43,7 +43,7 @@ export default function AppHeader() {
           <ThemeToggle />
           <LanguageToggle />
 
-          <nav className="items-center gap-2 md:flex border-2 border-yellow-500">
+          <nav className="items-center gap-2 md:flex ">
             {navItems.map((item) => {
               const isActive =
                 pathname === item.href || pathname.startsWith(`${item.href}/`);

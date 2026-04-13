@@ -1,20 +1,16 @@
 "use client"
 
-import ThemeToggle from "@/components/ThemeToggle"
-import LanguageToggle from "@/components/LanguageToggle"
+import Footer from "@/components/Footer"
+import AuthHeader from "@/components/headers/AuthHeader"
 
-export default function AuthLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function AuthLayout({children}: { children: React.ReactNode }) {
   return (
-    <main>
-       <div className="p-4">
-        <ThemeToggle />
-        <LanguageToggle />
-      </div>
-      {children}
-    </main>
+    <>
+      <AuthHeader />
+      <main className="flex-1 flex min-w-0 w-full">
+        {children}
+      </main>
+      <Footer />
+    </>
   )
 }

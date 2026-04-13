@@ -25,10 +25,11 @@ export default function RootLayout({
       className={`${inter.className} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-screen flex flex-col">
         <ClientProviders>
           {children}
-        </ClientProviders></body>
+        </ClientProviders>
+      </body>
     </html>
   );
 }

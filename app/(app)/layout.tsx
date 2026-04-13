@@ -4,7 +4,8 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/firebase/authProvider";
-import AppHeader from "@/components/AppHeader";
+import AppHeader from "@/components/headers/AppHeader";
+import Footer from "@/components/Footer";
 
 export default function AppLayout({
   children,
@@ -29,9 +30,12 @@ export default function AppLayout({
   }
 
   return (
-    <div className="min-h-screen">
+    <>
       <AppHeader />
-      <main>{children}</main>
-    </div>
+      <main className="flex-1 flex min-w-0 w-full">
+        {children}
+      </main>
+      <Footer />
+    </>
   );
 }
