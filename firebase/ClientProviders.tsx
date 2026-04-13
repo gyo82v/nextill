@@ -1,16 +1,12 @@
 "use client";
 
-import React from "react";
+import { ReactNode } from "react";
 import { ThemeProvider } from "next-themes";
 import { AuthProvider } from "./authProvider";
 import { I18nextProvider } from "react-i18next";
 import i18n from "@/i18n";
 
-type Props = {
-  children: React.ReactNode;
-};
-
-export default function ClientProviders({ children }: Props) {
+export default function ClientProviders({ children }: { children: ReactNode }) {
   return (
     <ThemeProvider
       attribute="class"

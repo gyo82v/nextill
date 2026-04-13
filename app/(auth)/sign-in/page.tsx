@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/firebase/authProvider";
 
+
 export default function LoginPage() {
   const { signIn, user, loading } = useAuth();
   const router = useRouter();
@@ -21,7 +22,7 @@ export default function LoginPage() {
     }
   }, [loading, user, router]);
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit( e: React.FormEvent) {
     e.preventDefault();
     setError(null);
     setSubmitting(true);

@@ -24,7 +24,7 @@ export default function ThemeToggle() {
     setTheme(next ? "dark" : "light");
 
     if (user) {
-      await updateDarkMode(user.uid, next);
+      await updateDarkMode({uid: user.uid, darkmode: next});
     }
   }
 

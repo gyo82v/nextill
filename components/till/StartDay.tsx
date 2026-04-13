@@ -16,7 +16,7 @@ export default function StartDay() {
     if (isNaN(value) || !user) return;
 
     setLoading(true);
-    await startDay(user.uid, value);
+    await startDay({uid: user.uid, openingBalance: value});
     setLoading(false);
   }
 

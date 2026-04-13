@@ -16,7 +16,7 @@ export default function EndDay() {
     if (isNaN(value) || !user) return;
 
     setLoading(true);
-    await endDay(user.uid, value);
+    await endDay({uid: user.uid, closingBalance: value});
     setLoading(false);
   }
 

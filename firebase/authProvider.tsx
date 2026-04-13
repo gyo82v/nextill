@@ -3,6 +3,7 @@
 import { createContext, useEffect, useState, useContext } from "react"
 import { useLanguageSync } from "@/hooks/useLanguageSync";
 import type { User as FirebaseUser } from "firebase/auth"
+import type {AuthContextValue} from "@/types/firebase"
 import {
         onAuthStateChangedListener,
         subscribeToUserProfile, 
@@ -14,19 +15,6 @@ import {
         deleteAccountWithPassword
     } from "./authClient"
 import { useTheme } from "next-themes";
-
-
-type AuthContextValue = {
-    user : FirebaseUser | null
-    profile : UserProfile | null
-    loading : boolean
-    signIn : (email:string, password:string) => Promise<FirebaseUser>
-    signOut : () => Promise<void>
-    getIdToken : (force?: boolean) => Promise<string | null>
-    createUser : (email:string, password:string, name:string) => Promise<FirebaseUser>
-    deleteAccount : (password: string) => Promise<void>
-}
-
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined)
 

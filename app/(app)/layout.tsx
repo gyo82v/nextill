@@ -7,11 +7,7 @@ import { useAuth } from "@/firebase/authProvider";
 import AppHeader from "@/components/headers/AppHeader";
 import Footer from "@/components/Footer";
 
-export default function AppLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function AppLayout({children}: {children: React.ReactNode;}) {
   const { user, loading } = useAuth();
   const router = useRouter();
 

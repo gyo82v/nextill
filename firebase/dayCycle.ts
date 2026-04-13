@@ -1,7 +1,8 @@
 import { doc, updateDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "./firebase";
+import type { StartDayProps, EndDayProps } from "@/types";
 
-export async function startDay(uid: string, openingBalance: number) {
+export async function startDay({uid, openingBalance}: StartDayProps) {
   const ref = doc(db, "users", uid);
 
   await updateDoc(ref, {
@@ -15,7 +16,7 @@ export async function startDay(uid: string, openingBalance: number) {
   });
 }
 
-export async function endDay(uid: string, closingBalance: number) {
+export async function endDay({uid, closingBalance}: EndDayProps) {
   const ref = doc(db, "users", uid);
 
   await updateDoc(ref, {

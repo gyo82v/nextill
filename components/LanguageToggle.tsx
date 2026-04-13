@@ -34,7 +34,7 @@ export default function LanguageToggle() {
     localStorage.setItem("language", nextLanguage);
 
     if (user) {
-      await updateLanguage(user.uid, nextLanguage);
+      await updateLanguage({uid: user.uid, nextLang: nextLanguage});
     }
   }
 
