@@ -119,6 +119,7 @@ export async function createUserProfileIfNotExists(user:FirebaseUser, name:strin
                     endedAt: null,
                     openingBalance: null,
                     closingBalance: null,
+                    dayKey: null
                 }
             }
         }

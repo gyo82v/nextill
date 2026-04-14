@@ -21,6 +21,7 @@ export interface UserProfile {
             endedAt: unknown | null
             openingBalance: number | null
             closingBalance: number | null
+            dayKey: string | null
         }
     }
 }
