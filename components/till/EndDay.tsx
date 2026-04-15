@@ -3,11 +3,13 @@
 import { useState } from "react";
 import { endDay } from "@/firebase/dayCycle";
 import { useAuth } from "@/firebase/authProvider";
+import { useCartStore } from "@/store/useCartStore";
 
 export default function EndDay() {
   const { user } = useAuth();
   const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
+  const { clearCart } = useCartStore();
 
   if (!user) return null;
 
@@ -17,6 +19,7 @@ export default function EndDay() {
 
     setLoading(true);
     await endDay({uid: user.uid, closingBalance: value});
+    clearCart();
     setLoading(false);
   }
 

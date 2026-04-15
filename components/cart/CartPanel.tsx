@@ -1,18 +1,19 @@
 "use client";
 
 import CartItemRow from "./CartItemRow";
-import type { CartItem } from "@/store/useCartStore";
+import type { CartItem } from "@/types";
+import { formatMoney } from "@/lib/money";
 
 type Props = {
   items: CartItem[];
-  total: number;
+  totalMinor: number;
   onAdd: (id: string) => void;
   onRemove: (id: string) => void;
 };
 
 export default function CartPanel({
   items,
-  total,
+  totalMinor,
   onAdd,
   onRemove,
 }: Props) {
@@ -36,7 +37,7 @@ export default function CartPanel({
       )}
 
       <div className="pt-2 border-t font-medium">
-        Total: €{total.toFixed(2)}
+        {formatMoney(totalMinor, "EUR")}
       </div>
     </div>
   );

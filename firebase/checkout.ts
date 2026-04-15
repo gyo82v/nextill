@@ -4,7 +4,6 @@ import { db } from "./firebase";
 export type CheckoutItem = {
   id: string;
   name: string;
-  price: number;
   quantity: number;
 };
 
@@ -12,14 +11,14 @@ type CompleteCheckoutParams = {
   uid: string;
   dayKey: string;
   items: CheckoutItem[];
-  total: number;
+  totalMinor: number;
 };
 
 export async function completeCheckout({
   uid,
   dayKey,
   items,
-  total,
+  totalMinor,
 }: CompleteCheckoutParams) {
   if (!uid) throw new Error("Missing user id.");
   if (!dayKey) throw new Error("Missing day key.");
@@ -70,14 +69,14 @@ export async function completeCheckout({
 
     const currentStats = userData.nextillApp?.statistics;
 
-    const nextTotalEarnings = Number(currentStats?.totalEarnings ?? 0) + total;
+    const nextTotalEarnings = Number(currentStats?.totalEarnings ?? 0) + totalMinor;
     const nextTotalTransactions =
       Number(currentStats?.totalTransactionsNumber ?? 0) + 1;
 
     tx.set(transactionRef, {
       createdAt: serverTimestamp(),
       dayKey,
-      total,
+      totalMinor,
       items,
       itemCount: items.reduce((sum, item) => sum + item.quantity, 0),
       status: "completed",
@@ -87,7 +86,7 @@ export async function completeCheckout({
       daySummaryRef,
       {
         date: dayKey,
-        earnings: currentEarnings + total,
+        earnings: currentEarnings + totalMinor,
         transactions: currentTransactions + 1,
         updatedAt: serverTimestamp(),
       },

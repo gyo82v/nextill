@@ -1,6 +1,7 @@
 "use client";
 
-import type { CartItem } from "@/store/useCartStore";
+import type { CartItem } from "@/types";
+import { formatMoney } from "@/lib/money";
 
 type Props = {
   item: CartItem;
@@ -18,7 +19,7 @@ export default function CartItemRow({
       <div>
         <div className="font-medium">{item.name}</div>
         <div className="text-sm text-muted-foreground">
-          {item.quantity} × €{item.price.toFixed(2)}
+          {item.quantity} × {formatMoney(item.priceMinor, "EUR")}
         </div>
       </div>
 

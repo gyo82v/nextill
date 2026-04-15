@@ -4,6 +4,7 @@ import { createContext, useEffect, useState, useContext } from "react"
 import { useLanguageSync } from "@/hooks/useLanguageSync";
 import type { User as FirebaseUser } from "firebase/auth"
 import type {AuthContextValue} from "@/types/firebase"
+import type { UserProfile } from "@/types"
 import {
         onAuthStateChangedListener,
         subscribeToUserProfile, 
@@ -11,10 +12,10 @@ import {
         signOut as fbSignOut, 
         createUser as createFbUser, 
         getIdToken, 
-        UserProfile,
         deleteAccountWithPassword
     } from "./authClient"
 import { useTheme } from "next-themes";
+import { useCartStore } from "@/store/useCartStore";
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined)
 
@@ -30,6 +31,7 @@ export function AuthProvider({children}:{children: React.ReactNode}){
     const [loading, setLoading] = useState(true)
     useLanguageSync(profile);
     const { setTheme } = useTheme();
+    const clearCart = useCartStore().clearCart;
 
     useEffect(() => {
       if (!profile) return;
@@ -87,6 +89,7 @@ export function AuthProvider({children}:{children: React.ReactNode}){
     async function signOut(){
         setLoading(true)
         try{
+            clearCart()
             await fbSignOut()
         }finally{
             setLoading(false)

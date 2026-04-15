@@ -6,11 +6,15 @@ import { completeCheckout, type CheckoutItem } from "@/firebase/checkout";
 
 type Props = {
   items: CheckoutItem[];
-  total: number;
+  totalMinor: number;
   onSuccess: () => void;
 };
 
-export default function CheckoutButton({ items, total, onSuccess }: Props) {
+export default function CheckoutButton({
+  items,
+  totalMinor,
+  onSuccess,
+}: Props) {
   const { user, profile } = useAuth();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -28,6 +32,11 @@ export default function CheckoutButton({ items, total, onSuccess }: Props) {
       return;
     }
 
+    if (items.length === 0) {
+      setError("Cart is empty.");
+      return;
+    }
+
     setLoading(true);
     setError(null);
 
@@ -36,13 +45,12 @@ export default function CheckoutButton({ items, total, onSuccess }: Props) {
         uid: user.uid,
         dayKey,
         items,
-        total,
+        totalMinor,
       });
 
       onSuccess();
     } catch (err) {
-      const message =
-        err instanceof Error ? err.message : "Checkout failed.";
+      const message = err instanceof Error ? err.message : "Checkout failed.";
       setError(message);
     } finally {
       setLoading(false);
@@ -64,3 +72,4 @@ export default function CheckoutButton({ items, total, onSuccess }: Props) {
     </div>
   );
 }
+

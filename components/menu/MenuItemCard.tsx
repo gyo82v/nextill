@@ -1,6 +1,7 @@
 "use client";
 
 import type { MenuItem } from "@/types";
+import { formatMoney } from "@/lib/money";
 
 type Props = {
   item: MenuItem;
@@ -15,7 +16,7 @@ export default function MenuItemCard({ item, onAdd }: Props) {
     >
       <div className="font-medium">{item.name}</div>
       <div className="text-sm text-muted-foreground">
-        €{item.price.toFixed(2)}
+        {formatMoney(item.priceMinor, "EUR")}
       </div>
     </button>
   );
