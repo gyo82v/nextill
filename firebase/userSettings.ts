@@ -1,6 +1,6 @@
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "./firebase";
-import type { DarkmodeProps, LanguageProps } from "@/types";
+import type { DarkmodeProps, LanguageProps, CurrencyProps } from "@/types";
 
 export async function updateDarkMode({uid, darkmode}: DarkmodeProps) {
   const ref = doc(db, "users", uid);
@@ -16,4 +16,12 @@ export async function updateLanguage({uid, nextLang}: LanguageProps) {
     await updateDoc(ref, {
         "nextillApp.settings.language": nextLang,
     });
+}
+
+export async function updateCurrency({uid, currency}: CurrencyProps) {
+  const ref = doc(db, "users", uid);
+
+  await updateDoc(ref, {
+    "nextillApp.settings.currency": currency,
+  });
 }

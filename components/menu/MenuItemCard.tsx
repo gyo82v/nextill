@@ -2,6 +2,7 @@
 
 import type { MenuItem } from "@/types";
 import { formatMoney } from "@/lib/money";
+import { useAuth } from "@/firebase/authProvider";
 
 type Props = {
   item: MenuItem;
@@ -9,6 +10,8 @@ type Props = {
 };
 
 export default function MenuItemCard({ item, onAdd }: Props) {
+  const { profile } = useAuth();
+  const currency = profile?.nextillApp.settings.currency ?? "EUR";
   return (
     <button
       onClick={() => onAdd(item)}
@@ -16,7 +19,7 @@ export default function MenuItemCard({ item, onAdd }: Props) {
     >
       <div className="font-medium">{item.name}</div>
       <div className="text-sm text-muted-foreground">
-        {formatMoney(item.priceMinor, "EUR")}
+        {formatMoney(item.priceMinor, currency)}
       </div>
     </button>
   );

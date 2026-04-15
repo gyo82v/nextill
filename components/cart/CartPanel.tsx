@@ -3,6 +3,7 @@
 import CartItemRow from "./CartItemRow";
 import type { CartItem } from "@/types";
 import { formatMoney } from "@/lib/money";
+import { useAuth } from "@/firebase/authProvider";
 
 type Props = {
   items: CartItem[];
@@ -17,6 +18,8 @@ export default function CartPanel({
   onAdd,
   onRemove,
 }: Props) {
+  const { profile } = useAuth();
+  const currency = profile?.nextillApp.settings.currency ?? "EUR";
   return (
     <div className="border rounded p-4 space-y-4">
       <h2 className="font-semibold">Cart</h2>
@@ -37,7 +40,7 @@ export default function CartPanel({
       )}
 
       <div className="pt-2 border-t font-medium">
-        {formatMoney(totalMinor, "EUR")}
+        {formatMoney(totalMinor, currency)}
       </div>
     </div>
   );

@@ -1,6 +1,10 @@
-export function formatMoney(amountMinor: number, currency: string, locale = "en-US") {
-
-  return new Intl.NumberFormat(locale, {style: "currency",currency})
-  .format(amountMinor / 100);
-
+export function formatMoney(amountMinor: number, currency: string) {
+  return new Intl.NumberFormat(undefined, {
+    style: "currency",
+    currency,
+    minimumFractionDigits: 2,
+    currencyDisplay: "symbol"
+  }).format(amountMinor / 100);
 }
+
+

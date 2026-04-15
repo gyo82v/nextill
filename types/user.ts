@@ -14,6 +14,7 @@ export interface UserProfile {
             language: string
             dayActive: boolean
             dayDate: string | null
+            currency: string
         }
         dayCycle: {
             active: boolean

@@ -22,6 +22,11 @@ export type LanguageProps = {
     nextLang: string
 }
 
+export type CurrencyProps = {
+    uid: string,
+    currency: string
+}
+
 export type StartDayProps = {
     uid: string,
     openingBalance: number

@@ -111,7 +111,8 @@ export async function createUserProfileIfNotExists(user:FirebaseUser, name:strin
                     darkmode: false,
                     language: "en",
                     dayActive: false,
-                    dayDate: null
+                    dayDate: null,
+                    currency: "EUR"
                 },
                 dayCycle: {
                     active: false,

@@ -2,6 +2,7 @@
 
 import type { CartItem } from "@/types";
 import { formatMoney } from "@/lib/money";
+import { useAuth } from "@/firebase/authProvider";
 
 type Props = {
   item: CartItem;
@@ -9,17 +10,15 @@ type Props = {
   onRemove: () => void;
 };
 
-export default function CartItemRow({
-  item,
-  onAdd,
-  onRemove,
-}: Props) {
+export default function CartItemRow({item, onAdd, onRemove}: Props) {
+  const { profile } = useAuth();
+  const currency = profile?.nextillApp.settings.currency ?? "EUR";
   return (
     <div className="flex justify-between items-center">
       <div>
         <div className="font-medium">{item.name}</div>
         <div className="text-sm text-muted-foreground">
-          {item.quantity} × {formatMoney(item.priceMinor, "EUR")}
+          {item.quantity} × {formatMoney(item.priceMinor, currency)}
         </div>
       </div>
 
