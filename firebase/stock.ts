@@ -6,17 +6,52 @@ import {
   getDocs,
   orderBy,
   query,
+  runTransaction,
   serverTimestamp,
-  updateDoc,
+  type Timestamp,
+  onSnapshot
 } from "firebase/firestore";
 import { db } from "./firebase";
-import type { StockActivity, StockItem } from "@/types/nextill";
 
-const stockCol = (uid: string) => collection(db, "users", uid, "stockItems");
-const activityCol = (uid: string) => collection(db, "users", uid, "stockActivity");
+export type StockCategory = "food" | "drink";
+export type StockAction = "add" | "remove";
+
+export interface StockItem {
+  id: string;
+  name: string;
+  category: StockCategory;
+  quantity: number;
+  unit: string;
+  createdAt: Timestamp;
+  updatedAt: Timestamp;
+}
+
+export interface StockActivity {
+  id: string;
+  stockId: string;
+  itemName: string;
+  action: StockAction;
+  quantityDelta: number;
+  quantityBefore: number;
+  quantityAfter: number;
+  createdAt: Timestamp;
+}
+
+export type CreateStockItemInput = {
+  name: string;
+  category: StockCategory;
+  quantity: number;
+  unit: string;
+};
+
+const stockItemsCol = (uid: string) =>
+  collection(db, "users", uid, "stock");
+
+const stockActivityCol = (uid: string) =>
+  collection(db, "users", uid, "stockActivity");
 
 export async function listStockItems(uid: string) {
-  const q = query(stockCol(uid), orderBy("createdAt", "desc"));
+  const q = query(stockItemsCol(uid), orderBy("createdAt", "desc"));
   const snap = await getDocs(q);
 
   return snap.docs.map((d) => ({
@@ -25,110 +60,185 @@ export async function listStockItems(uid: string) {
   })) as StockItem[];
 }
 
-async function addStockActivity(
-  uid: string,
-  activity: Omit<StockActivity, "id" | "createdAt">
-) {
-  await addDoc(activityCol(uid), {
-    ...activity,
-    createdAt: serverTimestamp(),
-  });
-}
-
-export async function createStockItem(
-  uid: string,
-  data: Omit<StockItem, "id" | "createdAt" | "updatedAt">
-) {
-  const ref = await addDoc(stockCol(uid), {
-    ...data,
-    createdAt: serverTimestamp(),
-    updatedAt: serverTimestamp(),
-  });
-
-  await addStockActivity(uid, {
-    stockId: ref.id,
-    stockName: data.name,
-    type: "added",
-    deltaQty: data.qty,
-    beforeQty: 0,
-    afterQty: data.qty,
-  });
-
-  return ref.id;
-}
-
-export async function updateStockItem(
-  uid: string,
-  stockId: string,
-  patch: Partial<Omit<StockItem, "id" | "createdAt" | "updatedAt">>
-) {
-  const ref = doc(stockCol(uid), stockId);
-  await updateDoc(ref, {
-    ...patch,
-    updatedAt: serverTimestamp(),
-  });
-
-  if (typeof patch.qty === "number") {
-    await addStockActivity(uid, {
-      stockId,
-      stockName: patch.name ?? stockId,
-      type: "updated",
-      deltaQty: 0,
-      beforeQty: patch.qty,
-      afterQty: patch.qty,
-    });
-  }
-}
-
-export async function adjustStockQty(
-  uid: string,
-  stockId: string,
-  stockName: string,
-  beforeQty: number,
-  deltaQty: number
-) {
-  const ref = doc(stockCol(uid), stockId);
-  const afterQty = beforeQty + deltaQty;
-
-  await updateDoc(ref, {
-    qty: afterQty,
-    updatedAt: serverTimestamp(),
-  });
-
-  await addStockActivity(uid, {
-    stockId,
-    stockName,
-    type: deltaQty >= 0 ? "added" : "removed",
-    deltaQty,
-    beforeQty,
-    afterQty,
-  });
-}
-
-export async function deleteStockItem(
-  uid: string,
-  stockId: string,
-  stockName: string,
-  qty: number
-) {
-  await deleteDoc(doc(stockCol(uid), stockId));
-
-  await addStockActivity(uid, {
-    stockId,
-    stockName,
-    type: "deleted",
-    deltaQty: -qty,
-    beforeQty: qty,
-    afterQty: 0,
-  });
-}
-
 export async function listStockActivity(uid: string) {
-  const q = query(activityCol(uid), orderBy("createdAt", "desc"));
+  const q = query(stockActivityCol(uid), orderBy("createdAt", "desc"));
   const snap = await getDocs(q);
 
   return snap.docs.map((d) => ({
     id: d.id,
     ...d.data(),
   })) as StockActivity[];
+}
+
+export async function createStockItem(
+  uid: string,
+  input: CreateStockItemInput
+) {
+  if (!uid) throw new Error("Missing user id.");
+  if (!input.name.trim()) throw new Error("Stock name is required.");
+  if (!Number.isInteger(input.quantity) || input.quantity < 0) {
+    throw new Error("Quantity must be a non-negative integer.");
+  }
+
+  const stockRef = doc(stockItemsCol(uid));
+  const activityRef = doc(stockActivityCol(uid));
+
+  await runTransaction(db, async (tx) => {
+    tx.set(stockRef, {
+      name: input.name.trim(),
+      category: input.category,
+      quantity: input.quantity,
+      unit: input.unit.trim(),
+      createdAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
+    });
+
+    tx.set(activityRef, {
+      stockId: stockRef.id,
+      itemName: input.name.trim(),
+      action: "add",
+      quantityDelta: input.quantity,
+      quantityBefore: 0,
+      quantityAfter: input.quantity,
+      createdAt: serverTimestamp(),
+    });
+  });
+
+  return stockRef.id;
+}
+
+export async function confirmStockAdjustment(
+  uid: string,
+  stockId: string,
+  delta: number
+) {
+  if (!uid) throw new Error("Missing user id.");
+  if (!stockId) throw new Error("Missing stock id.");
+  if (!Number.isInteger(delta) || delta === 0) {
+    throw new Error("Adjustment must be a non-zero integer.");
+  }
+
+  const stockRef = doc(stockItemsCol(uid), stockId);
+  const activityRef = doc(stockActivityCol(uid));
+
+  await runTransaction(db, async (tx) => {
+    const snap = await tx.get(stockRef);
+
+    if (!snap.exists()) {
+      throw new Error("Stock item not found.");
+    }
+
+    const current = snap.data() as Omit<StockItem, "id">;
+    const quantityBefore = Number(current.quantity ?? 0);
+    const quantityAfter = quantityBefore + delta;
+
+    if (quantityAfter < 0) {
+      throw new Error("Stock cannot go below zero.");
+    }
+
+    tx.update(stockRef, {
+      quantity: quantityAfter,
+      updatedAt: serverTimestamp(),
+    });
+
+    tx.set(activityRef, {
+      stockId,
+      itemName: current.name,
+      action: delta > 0 ? "add" : "remove",
+      quantityDelta: delta,
+      quantityBefore,
+      quantityAfter,
+      createdAt: serverTimestamp(),
+    });
+  });
+}
+
+export async function deleteStockItem(uid: string, stockId: string) {
+  if (!uid) throw new Error("Missing user id.");
+  if (!stockId) throw new Error("Missing stock id.");
+
+  const stockRef = doc(stockItemsCol(uid), stockId);
+  const activityRef = doc(stockActivityCol(uid));
+
+  await runTransaction(db, async (tx) => {
+    const snap = await tx.get(stockRef);
+
+    if (!snap.exists()) {
+      throw new Error("Stock item not found.");
+    }
+
+    const current = snap.data() as Omit<StockItem, "id">;
+    const quantityBefore = Number(current.quantity ?? 0);
+
+    tx.delete(stockRef);
+
+    tx.set(activityRef, {
+      stockId,
+      itemName: current.name,
+      action: "remove",
+      quantityDelta: -quantityBefore,
+      quantityBefore,
+      quantityAfter: 0,
+      createdAt: serverTimestamp(),
+    });
+  });
+}
+
+export async function deleteStockActivity(
+  uid: string,
+  activityId: string
+) {
+  if (!uid) throw new Error("Missing user id.");
+  if (!activityId) throw new Error("Missing activity id.");
+
+  const ref = doc(stockActivityCol(uid), activityId);
+  await deleteDoc(ref);
+}
+
+export async function clearStockActivity(uid: string) {
+  if (!uid) throw new Error("Missing user id.");
+
+  const snap = await getDocs(stockActivityCol(uid));
+
+  const deletions = snap.docs.map((d) =>
+    deleteDoc(doc(stockActivityCol(uid), d.id))
+  );
+
+  await Promise.all(deletions);
+}
+
+/* -------------------------
+   Realtime subscriptions
+-------------------------- */
+
+export function subscribeStockItems(
+  uid: string,
+  onChange: (items: StockItem[]) => void
+) {
+  const q = query(stockItemsCol(uid), orderBy("createdAt", "desc"));
+
+  return onSnapshot(q, (snap) => {
+    const items = snap.docs.map((d) => ({
+      id: d.id,
+      ...d.data(),
+    })) as StockItem[];
+
+    onChange(items);
+  });
+}
+
+export function subscribeStockActivity(
+  uid: string,
+  onChange: (activity: StockActivity[]) => void
+) {
+  const q = query(stockActivityCol(uid), orderBy("createdAt", "desc"));
+
+  return onSnapshot(q, (snap) => {
+    const activity = snap.docs.map((d) => ({
+      id: d.id,
+      ...d.data(),
+    })) as StockActivity[];
+
+    onChange(activity);
+  });
 }
