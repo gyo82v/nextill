@@ -5,6 +5,9 @@ import CartPanel from "@/components/cart/CartPanel";
 import CheckoutButton from "@/components/cart/CheckoutButton";
 import { useCartStore } from "@/store/useCartStore";
 import type { MenuItem } from "@/types";
+import EndDay from "@/components/till/EndDay";
+import StartDay from "@/components/till/StartDay";
+import { useAuth } from "@/firebase/authProvider";
 
 const MOCK_MENU: MenuItem[] = [
   { id: "1", name: "Coffee", priceMinor: 150 },
@@ -14,6 +17,7 @@ const MOCK_MENU: MenuItem[] = [
 
 export default function TillPage() {
   const cart = useCartStore();
+  const { profile } = useAuth();
 
   if (!cart.hydrated) {
     return (
@@ -25,7 +29,9 @@ export default function TillPage() {
 
   return (
     <div className="grid grid-cols-3 gap-6 p-6">
-      <div className="col-span-2">
+      {profile?.nextillApp.dayCycle.active ?  (
+        <>
+         <div className="col-span-2">
         <MenuList items={MOCK_MENU} onAdd={cart.addItem} />
       </div>
 
@@ -47,6 +53,9 @@ export default function TillPage() {
           onSuccess={cart.clearCart}
         />
       </div>
+      <EndDay />       
+        </>
+      ) : <StartDay />}
     </div>
   );
 }
