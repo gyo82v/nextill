@@ -9,7 +9,8 @@ import {
   runTransaction,
   serverTimestamp,
   type Timestamp,
-  onSnapshot
+  onSnapshot,
+  writeBatch
 } from "firebase/firestore";
 import { db } from "./firebase";
 
@@ -241,4 +242,58 @@ export function subscribeStockActivity(
 
     onChange(activity);
   });
+}
+
+export async function deductStockFromSale(
+  uid: string,
+  items: {
+    stockId: string;
+    quantity: number;
+    itemName?: string;
+  }[]
+) {
+  if (!uid) throw new Error("Missing user id.");
+  if (!items.length) return;
+
+  const batch = writeBatch(db);
+
+  const activityCol = stockActivityCol(uid);
+
+  for (const item of items) {
+    const stockRef = doc(stockItemsCol(uid), item.stockId);
+
+    // We need to read current state first → transaction safety
+    const snap = await getDocs(stockItemsCol(uid));
+    const stock = snap.docs.find((d) => d.id === item.stockId);
+
+    if (!stock) continue;
+
+    const current = stock.data() as StockItem;
+
+    const quantityBefore = current.quantity;
+    const quantityAfter = quantityBefore - item.quantity;
+
+    if (quantityAfter < 0) {
+      throw new Error(`Not enough stock for ${current.name}`);
+    }
+
+    batch.update(stockRef, {
+      quantity: quantityAfter,
+      updatedAt: serverTimestamp(),
+    });
+
+    const activityRef = doc(activityCol);
+
+    batch.set(activityRef, {
+      stockId: item.stockId,
+      itemName: current.name,
+      action: "remove",
+      quantityDelta: -item.quantity,
+      quantityBefore,
+      quantityAfter,
+      createdAt: serverTimestamp(),
+    });
+  }
+
+  await batch.commit();
 }

@@ -1,5 +1,6 @@
 import { collection, doc, runTransaction, serverTimestamp } from "firebase/firestore";
 import { db } from "./firebase";
+import { deductStockFromSale } from "./stock";
 
 export type CheckoutItem = {
   id: string;
@@ -28,6 +29,11 @@ export async function completeCheckout({
   const daySummaryRef = doc(collection(userRef, "dailySummaries"), dayKey);
   const transactionsColRef = collection(daySummaryRef, "transactions");
   const transactionRef = doc(transactionsColRef);
+
+  let stockItemsToDeduct: {
+    stockId: string;
+    quantity: number;
+  }[] = [];
 
   await runTransaction(db, async (tx) => {
     const userSnap = await tx.get(userRef);
@@ -69,10 +75,13 @@ export async function completeCheckout({
 
     const currentStats = userData.nextillApp?.statistics;
 
-    const nextTotalEarnings = Number(currentStats?.totalEarnings ?? 0) + totalMinor;
+    const nextTotalEarnings =
+      Number(currentStats?.totalEarnings ?? 0) + totalMinor;
+
     const nextTotalTransactions =
       Number(currentStats?.totalTransactionsNumber ?? 0) + 1;
 
+    // 1. write transaction
     tx.set(transactionRef, {
       createdAt: serverTimestamp(),
       dayKey,
@@ -82,6 +91,7 @@ export async function completeCheckout({
       status: "completed",
     });
 
+    // 2. update daily summary
     tx.set(
       daySummaryRef,
       {
@@ -93,12 +103,22 @@ export async function completeCheckout({
       { merge: true }
     );
 
-    // Optional: keep cached global totals in the user profile
+    // 3. update user stats
     tx.update(userRef, {
       "nextillApp.statistics.totalEarnings": nextTotalEarnings,
-      "nextillApp.statistics.totalTransactionsNumber": nextTotalTransactions,
+      "nextillApp.statistics.totalTransactionsNumber":
+        nextTotalTransactions,
     });
+
+    // 4. prepare stock deduction (NO FIREBASE CALL HERE)
+    stockItemsToDeduct = items.map((i) => ({
+      stockId: i.id,
+      quantity: i.quantity,
+    }));
   });
+
+  // 5. AFTER transaction → side effect
+  await deductStockFromSale(uid, stockItemsToDeduct);
 
   return true;
 }
