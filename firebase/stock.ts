@@ -10,7 +10,8 @@ import {
   serverTimestamp,
   type Timestamp,
   onSnapshot,
-  writeBatch
+  writeBatch,
+  updateDoc 
 } from "firebase/firestore";
 import { db } from "./firebase";
 
@@ -25,6 +26,7 @@ export interface StockItem {
   unit: string;
   createdAt: Timestamp;
   updatedAt: Timestamp;
+  minQty: number;
 }
 
 export interface StockActivity {
@@ -43,6 +45,7 @@ export type CreateStockItemInput = {
   category: StockCategory;
   quantity: number;
   unit: string;
+  minQty?: number;  
 };
 
 const stockItemsCol = (uid: string) =>
@@ -90,6 +93,7 @@ export async function createStockItem(
       category: input.category,
       quantity: input.quantity,
       unit: input.unit.trim(),
+      minQty: input.minQty ?? 5,
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
     });
@@ -154,7 +158,7 @@ export async function confirmStockAdjustment(
   });
 }
 
-export async function deleteStockItem(uid: string, stockId: string) {
+export async function archiveStockItem(uid: string, stockId: string) {
   if (!uid) throw new Error("Missing user id.");
   if (!stockId) throw new Error("Missing stock id.");
 
@@ -169,17 +173,28 @@ export async function deleteStockItem(uid: string, stockId: string) {
     }
 
     const current = snap.data() as Omit<StockItem, "id">;
+
+    if (current.active === false) {
+      // already archived → no-op
+      return;
+    }
+
     const quantityBefore = Number(current.quantity ?? 0);
 
-    tx.delete(stockRef);
+    tx.update(stockRef, {
+      active: false,
+      quantity: quantityBefore, // keep last known quantity
+      archivedAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
+    });
 
     tx.set(activityRef, {
       stockId,
       itemName: current.name,
-      action: "remove",
-      quantityDelta: -quantityBefore,
+      action: "archive",
+      quantityDelta: 0,
       quantityBefore,
-      quantityAfter: 0,
+      quantityAfter: quantityBefore,
       createdAt: serverTimestamp(),
     });
   });
@@ -208,6 +223,25 @@ export async function clearStockActivity(uid: string) {
   await Promise.all(deletions);
 }
 
+export async function updateStockMinQty(
+  uid: string,
+  stockId: string,
+  minQty: number
+) {
+  if (!uid) throw new Error("Missing user id.");
+  if (!stockId) throw new Error("Missing stock id.");
+  if (!Number.isInteger(minQty) || minQty < 0) {
+    throw new Error("minQty must be a non-negative integer.");
+  }
+
+  const ref = doc(db, "users", uid, "stock", stockId);
+
+  await updateDoc(ref, {
+    minQty,
+    updatedAt: serverTimestamp(),
+  });
+}
+
 /* -------------------------
    Realtime subscriptions
 -------------------------- */
@@ -216,13 +250,18 @@ export function subscribeStockItems(
   uid: string,
   onChange: (items: StockItem[]) => void
 ) {
-  const q = query(stockItemsCol(uid), orderBy("createdAt", "desc"));
+  const q = query(
+    stockItemsCol(uid),
+    orderBy("createdAt", "desc")
+  );
 
   return onSnapshot(q, (snap) => {
-    const items = snap.docs.map((d) => ({
-      id: d.id,
-      ...d.data(),
-    })) as StockItem[];
+    const items = snap.docs
+      .map((d) => ({
+        id: d.id,
+        ...(d.data() as Omit<StockItem, "id">),
+      }))
+      .filter((item) => item.active !== false) as StockItem[];
 
     onChange(items);
   });
@@ -297,3 +336,45 @@ export async function deductStockFromSale(
 
   await batch.commit();
 }
+
+
+/*
+
+export async function deleteStockItem(uid: string, stockId: string) {
+  if (!uid) throw new Error("Missing user id.");
+  if (!stockId) throw new Error("Missing stock id.");
+
+  const stockRef = doc(stockItemsCol(uid), stockId);
+  const activityRef = doc(stockActivityCol(uid));
+
+  await runTransaction(db, async (tx) => {
+    const snap = await tx.get(stockRef);
+
+    if (!snap.exists()) {
+      throw new Error("Stock item not found.");
+    }
+
+    const current = snap.data() as Omit<StockItem, "id">;
+    const quantityBefore = Number(current.quantity ?? 0);
+
+    tx.delete(stockRef);
+
+    tx.set(activityRef, {
+      stockId,
+      itemName: current.name,
+      action: "remove",
+      quantityDelta: -quantityBefore,
+      quantityBefore,
+      quantityAfter: 0,
+      createdAt: serverTimestamp(),
+    });
+  });
+}
+
+
+
+
+
+
+
+*/ 
