@@ -26,7 +26,7 @@ export default function MenuPage() {
   const [loading, setLoading] = useState(true);
 
   const [name, setName] = useState("");
-  const [priceDisplay, setPriceDisplay] = useState(""); // 👈 FIX
+  const [priceDisplay, setPriceDisplay] = useState("");
   const [category, setCategory] = useState<MenuCategory>("food");
   const [ingredientRows, setIngredientRows] = useState<IngredientRow[]>([]);
 
@@ -47,8 +47,11 @@ export default function MenuPage() {
       ingredients: Array.isArray(item.ingredients) ? item.ingredients : [],
     }));
 
+    // ✅ ONLY CHANGE: remove archived stock items
+    const activeStockItems = stock.filter((item) => item.active !== false);
+
     setMenuItems(safeMenus);
-    setStockItems(stock);
+    setStockItems(activeStockItems);
     setLoading(false);
   }, [user]);
 
@@ -78,7 +81,6 @@ export default function MenuPage() {
     const price = Number(priceDisplay);
     if (!Number.isFinite(price) || price <= 0) return;
 
-    // 👇 FIX: convert display price → minor units
     const priceMinor = Math.round(price * 100);
 
     const ingredients: MenuIngredient[] = ingredientRows
@@ -123,7 +125,6 @@ export default function MenuPage() {
             onChange={(e) => setName(e.target.value)}
           />
 
-          {/* 👇 FIXED PRICE INPUT */}
           <input
             className="rounded border px-3 py-2"
             type="number"
