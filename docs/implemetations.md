@@ -20,7 +20,7 @@ NEXTILL IMPLEMENTATION LIST
                    separate in section drinks and food;
 - [Refactor] [Header] modify the darkmode toggle to use icons instead of text, add accessibility
                       and decide if while in logged in mode it should be in the Header or Account page;
-- [Refactor] [Header] Remove the language toggle from the Header in logged in mode;
+- [✅] {Refactor} {Header} Remove the language toggle from the Header in logged in mode;
 - [Style] [Header] Style the Header for mobile/desktop in logged in/off mode;
 - [Style] [Header] Style the navigation bar for desktop;
 - [Style] [Header] Style the sign out button and the username;
@@ -87,6 +87,8 @@ NEXTILL IMPLEMENTATION LIST
 - [Utils] [App] add nextill app icon in the title instad of the next.js icons;
 - [Utils] [App] create a reusable spinner;
 - [Utils] [App] create reusable dividers;
+- [Utils] [App] Add spinnes in all async buttons;
+- [Utils] [App] Add spinnesr in all pages instead of the text loading;
 - [Localization] [Till] Add localization to the till page;
 - [Localization] [Menu] Add localization to the menu page;
 - [Localization] [Stock] Add localization to the stock page;
@@ -95,6 +97,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Localization] [Header] Add localization to the Header;
 - [Localization] [Footer] Add localization to the footer;
 - [Localization] [Intro] Add localization to the Intro page;
+- [Delete] [App] delete the unused test language page;
 - [A11y] [Till] Add accessibility to the Till page;
 - [A11y] [Menu] Add accessibility to the Menu page;
 - [A11y] [Stock] Add accessibility to the stock page;
@@ -124,3 +127,4 @@ NEXTILL IMPLEMENTATION LIST
 - [Optional] [App] Add the option to undo the last transactions;
 - [Optional] [App] Give the user the option to create custom categories instead of the default
                    food and drinks;
+- [Optional] [Menu] add the optiona to edit the price of each exisitng dish;

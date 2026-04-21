@@ -5,7 +5,6 @@ import { usePathname, useRouter } from "next/navigation";
 import { useMemo } from "react";
 import { useAuth } from "@/firebase/authProvider";
 import ThemeToggle from "@/components/ThemeToggle";
-import LanguageToggle from "@/components/LanguageToggle";
 
 const navItems = [
   { href: "/till", label: "Till" },
@@ -41,7 +40,6 @@ export default function AppHeader() {
             Nextill
           </h1>
           <ThemeToggle />
-          <LanguageToggle />
 
           <nav className="items-center gap-2 md:flex ">
             {navItems.map((item) => {
