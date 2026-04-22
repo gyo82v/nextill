@@ -20,7 +20,7 @@ NEXTILL IMPLEMENTATION LIST
                    separate in section drinks and food;
 - [Refactor] [Header] modify the darkmode toggle to use icons instead of text, add accessibility
                       and decide if while in logged in mode it should be in the Header or Account page;
-- [✅] {Refactor} {Header} Remove the language toggle from the Header in logged in mode;
+- [✅] {Refactor}{Header} Remove the language toggle from the Header in logged in mode;
 - [Style] [Header] Style the Header for mobile/desktop in logged in/off mode;
 - [Style] [Header] Style the navigation bar for desktop;
 - [Style] [Header] Style the sign out button and the username;
@@ -76,8 +76,8 @@ NEXTILL IMPLEMENTATION LIST
 - [Refactor] [Header] Refactor the Header page: types, enslint errors, separate components;
 - [Refactor] [Firebase] Refactor the firebase files, types, enslint erros;
 - [Content] [App] Add the feature password forgotten;
-- [Utils] [App] Create a reusable focus style;
-- [Utils] [App] Create a reusable pattern style with transitions;
+- [✅] {Utils}{App} Create a reusable focus style;
+- [✅] {Utils}{App} Create a reusable pattern style with transitions;
 - [Utils] [App] Import two font form google fonts. a main font and a secondary;
 - [Utils] [App] Add a global and local notFound page, add localization to it;
 - [✅] {Utils}{App} Decide the colors palette to use and set the default in global.css;
