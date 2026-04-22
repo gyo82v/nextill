@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
   :root {
@@ -9,6 +10,36 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    --background: theme(colors.slate.100);
+    --foreground: theme(colors.slate.800);
+
+    --surface: theme(colors.white);
+    --surface-2: theme(colors.slate.100);
+    --border: theme(colors.slate.200);
+
+    --primary: theme(colors.teal.600);
+    --primary-hover: theme(colors.teal.700);
+    --primary-foreground: theme(colors.white);
+
+    --muted: theme(colors.slate.600);
+    --muted-foreground: theme(colors.slate.500);
+  }
+
+  .dark {
+    --background: theme(colors.slate.800);
+    --foreground: theme(colors.slate.100);
+
+    --surface: theme(colors.slate.800);
+    --surface-2: theme(colors.slate.700);
+    --border: theme(colors.slate.700);
+
+    --primary: theme(colors.teal.400);
+    --primary-hover: theme(colors.teal.300);
+    --primary-foreground: theme(colors.slate.950);
+
+    --muted: theme(colors.slate.400);
+    --muted-foreground: theme(colors.slate.500);
   }
 
   *, *::before, *::after {
@@ -23,6 +54,10 @@
     /* MOBILE-FIRST: visually hide scrollbars (keep scrolling functional) */
     scrollbar-width: none;        /* Firefox */
     -ms-overflow-style: none;     /* IE/Edge */
+  }
+
+  html, body {
+    @apply bg-[var(--background)] text-[var(--foreground)];
   }
 
   /* WebKit browsers (Chrome, Safari) — hide on mobile by disabling the pseudo element */
@@ -57,6 +92,32 @@
   }
   .no-scrollbar::-webkit-scrollbar {
     display: none; /* WebKit */
+  }
+  .text-primary {
+    color: var(--primary);
+  }
+
+  .text-muted {
+    color: var(--muted);
+  }
+
+  /* Surfaces */
+  .bg-surface-1 {
+    background-color: var(--surface);
+  }
+
+  .bg-surface-2 {
+    background-color: var(--surface-2);
+  }
+
+  /* Borders */
+  .border-default {
+    border-color: var(--border);
+  }
+
+  .hover-primary:hover {
+    background-color: var(--primary-hover);
+    color: var(--primary-foreground);
   }
 
 }

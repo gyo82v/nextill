@@ -66,7 +66,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Style] [Account] Style each section in the account page: profile,security,export data,
                     preferences and mantainance;
 - [Style] [Account] Style the modal section when the user try to clear all data;
-- [Refactor] [App] Refactor the language feature to support spanish, french and german;
+- [✅] {Refactor}{App} Refactor the language feature to support spanish, french and german;
 - [Refactor] [Intro] Refactor the intro page: types, enslint errors, separate components;
 - [Refactor] [Till] Refactor the Till page: types, enslint errors, separate components;
 - [Refactor] [Menu] Refactor the Menu page: types, enslint errors, separate components;
@@ -80,7 +80,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Utils] [App] Create a reusable pattern style with transitions;
 - [Utils] [App] Import two font form google fonts. a main font and a secondary;
 - [Utils] [App] Add a global and local notFound page, add localization to it;
-- [Utils] [App] Decide the colors palette to use and set the default in global.css;
+- [✅] {Utils}{App} Decide the colors palette to use and set the default in global.css;
 - [Utils] [Layout] update the main layout page with sr-only section and anything useful;
 - [Utils] [Html] update the html page with meta descriptions, title, and anything useful;
 - [Utils] [Globals.css] update the global.css with all the necessary default styles;
