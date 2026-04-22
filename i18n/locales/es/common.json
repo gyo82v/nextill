@@ -1,0 +1,19 @@
+{
+  "signIn": "Sign in",
+  "signUp": "Create account",
+  "email": "Email",
+  "password": "Password",
+  "logout": "Logout",
+  "language": "Language",
+  "darkMode": "Dark mode",
+  "lightMode": "Light mode",
+  "till": "Till",
+  "menu": "Menu",
+  "stock": "Stock",
+  "items_one": "{{count}} item",
+  "items_other": "{{count}} items",
+  "test": {
+    "title": "Language test page",
+    "description": "If you can read this, Spanish is active."
+  }
+}

@@ -75,6 +75,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Refactor] [Account] Refactor the Account page: types, enslint errors, separate components;
 - [Refactor] [Header] Refactor the Header page: types, enslint errors, separate components;
 - [Refactor] [Firebase] Refactor the firebase files, types, enslint erros;
+- [Content] [App] Add the feature password forgotten;
 - [Utils] [App] Create a reusable focus style;
 - [Utils] [App] Create a reusable pattern style with transitions;
 - [Utils] [App] Import two font form google fonts. a main font and a secondary;
@@ -127,4 +128,5 @@ NEXTILL IMPLEMENTATION LIST
 - [Optional] [App] Add the option to undo the last transactions;
 - [Optional] [App] Give the user the option to create custom categories instead of the default
                    food and drinks;
-- [Optional] [Menu] add the optiona to edit the price of each exisitng dish;
+- [Optional] [Menu] add the option to edit the price of each exisitng dish;
+- [Optional] [App] Add options for cash/cards payment;
