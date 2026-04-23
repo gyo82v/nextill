@@ -12,6 +12,10 @@
   "stock": "Stock",
   "items_one": "{{count}} item",
   "items_other": "{{count}} items",
+  "theme" : {
+    "switchToLight" : "Zum hellen Modus wechseln",
+    "switchToDark" : "Zum dunklen Modus wechseln"
+  },
   "test": {
     "title": "Language test page",
     "description": "If you can read this, German is active."

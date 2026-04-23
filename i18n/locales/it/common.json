@@ -12,6 +12,10 @@
   "stock": "Magazzino",
   "items_one": "{{count}} articolo",
   "items_other": "{{count}} articoli",
+  "theme" : {
+    "switchToLight" : "Passa alla modalità chiara",
+    "switchToDark" : "Passa alla modalità scura"
+  },
   "test": {
     "title": "Pagina di test lingua",
     "description": "Se puoi leggere questo, l'italiano è attivo."
