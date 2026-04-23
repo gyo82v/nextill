@@ -1,5 +1,7 @@
 "use client";
 
+import { SimpleDivider, SectionDivider, GradientDivider, IconDivider, DotLineDivider, Divider, GradientLine, IconSeparator} from "@/components/ui/dividers/Dividers";
+
 import { useTranslation } from "react-i18next";
 
 export default function TestLanguagePage() {
@@ -10,6 +12,14 @@ export default function TestLanguagePage() {
       <h1 className="text-xl font-bold">
         {t("test.title")}
       </h1>
+      <SimpleDivider />
+      <SectionDivider />
+      <GradientDivider />
+      <IconDivider icon="🚀" />
+      <DotLineDivider />
+      <Divider variant="item" />
+      <GradientLine />
+      <IconSeparator icon="🚀" />
 
       <p>{t("test.description")}</p>
 

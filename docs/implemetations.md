@@ -86,7 +86,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Utils] [Globals.css] update the global.css with all the necessary default styles;
 - [Utils] [App] make the vertical scrollbar visible in desktops and not visible in mobile;
 - [Utils] [App] add nextill app icon in the title instad of the next.js icons;
-- [Utils] [App] create a reusable spinner;
+- [✅] {Utils}{App} create a reusable spinner;
 - [Utils] [App] create reusable dividers;
 - [Utils] [App] Add spinnes in all async buttons;
 - [Utils] [App] Add spinnesr in all pages instead of the text loading;
@@ -117,6 +117,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Test] [App] Test the start/end day cycle;
 - [Test] [App] Test the till, menu , stock and stats;
 - [Test] [App] Run the lighthouse test;
+- [Clean] [Dividers] Clean the unused dividers;
 - [Optional] [Account] improve the export data feature, instead of a json file use pdf or other formats;
 - [Optional] [Account] add an accessibility option to disable motion;
 - [Optional] [App] add sounds effects to the till and an option in the account page to disable it;
@@ -130,3 +131,4 @@ NEXTILL IMPLEMENTATION LIST
                    food and drinks;
 - [Optional] [Menu] add the option to edit the price of each exisitng dish;
 - [Optional] [App] Add options for cash/cards payment;
+- [Optional] [Stock] Add in the stock activity cards the date;
