@@ -15,7 +15,7 @@
     --foreground: theme(colors.slate.800);
 
     --surface: theme(colors.white);
-    --surface-2: theme(colors.slate.100);
+    --surface-2: theme(colors.slate.200);
     --border: theme(colors.slate.200);
 
     --primary: theme(colors.teal.600);

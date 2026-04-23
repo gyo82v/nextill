@@ -18,7 +18,7 @@ NEXTILL IMPLEMENTATION LIST
                    if possible print automatically;
 - [Content] [Till] create the ticket component that will have the items bought, name, price, quantity,
                    separate in section drinks and food;
-- [Refactor] [Header] modify the darkmode toggle to use icons instead of text, add accessibility
+- [✅] {Refactor}{Header} modify the darkmode toggle to use icons instead of text, add accessibility
                       and decide if while in logged in mode it should be in the Header or Account page;
 - [✅] {Refactor}{Header} Remove the language toggle from the Header in logged in mode;
 - [Style] [Header] Style the Header for mobile/desktop in logged in/off mode;
@@ -87,7 +87,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Utils] [App] make the vertical scrollbar visible in desktops and not visible in mobile;
 - [Utils] [App] add nextill app icon in the title instad of the next.js icons;
 - [✅] {Utils}{App} create a reusable spinner;
-- [Utils] [App] create reusable dividers;
+- [✅] {Utils}{App} create reusable dividers;
 - [Utils] [App] Add spinnes in all async buttons;
 - [Utils] [App] Add spinnesr in all pages instead of the text loading;
 - [Localization] [Till] Add localization to the till page;
