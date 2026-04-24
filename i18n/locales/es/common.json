@@ -16,6 +16,11 @@
     "switchToLight" : "Cambiar al modo claro",
     "switchToDark" : "Cambiar al modo oscuro"
   },
+  "account": {
+    "label": "Cuenta de usuario",
+    "signedInAs": "Conectado como",
+    "signOut": "Cerrar sesión"
+  },
   "test": {
     "title": "Language test page",
     "description": "If you can read this, Spanish is active."

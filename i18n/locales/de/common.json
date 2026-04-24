@@ -16,6 +16,11 @@
     "switchToLight" : "Zum hellen Modus wechseln",
     "switchToDark" : "Zum dunklen Modus wechseln"
   },
+  "account": {
+    "label": "Benutzerkonto",
+    "signedInAs": "Angemeldet als",
+    "signOut": "Abmelden"
+  },
   "test": {
     "title": "Language test page",
     "description": "If you can read this, German is active."

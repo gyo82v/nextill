@@ -4,10 +4,12 @@ import { useAuth } from "@/firebase/authProvider";
 import { transitions, activePress, focusRing } from "@/styles";
 import { useRouter } from "next/navigation";
 import { FiLogOut } from "react-icons/fi";
+import { useTranslation } from "react-i18next";
 
 export default function UserSection() {
   const { profile, signOut, loading } = useAuth();
   const router = useRouter();
+  const { t } = useTranslation();
 
   const displayName = profile?.displayName?.trim() || "User";
 
@@ -27,12 +29,12 @@ export default function UserSection() {
                   border border-default bg-surface-1 px-3 py-2 shadow-sm`}
     >
       <h2 id="user-section-heading" className="sr-only">
-        User account
+        {t("account.label")}
       </h2>
 
       <div className="min-w-0 leading-tight">
         <span className="block text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
-          Signed in as
+          {t("account.signedInAs")}
         </span>
         <span className={`block max-w-[10rem] truncate text-sm font-semibold
                           tracking-tight text-foreground sm:max-w-none`}>
@@ -62,7 +64,7 @@ export default function UserSection() {
           className={`h-4 w-4 shrink-0 transition-transform duration-200
                       ease-out group-hover:-translate-x-0.5`}
         />
-        <span>Sign out</span>
+        <span>{t("account.signOut")}</span>
       </button>
     </section>
   );

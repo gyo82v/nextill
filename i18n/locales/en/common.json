@@ -16,6 +16,11 @@
     "switchToLight" : "Switch to light mode",
     "switchToDark" : "Switch to dark mode"
   },
+  "account": {
+    "label": "User account",
+    "signedInAs": "Signed in as",
+    "signOut": "Sign out"
+  },
   "test": {
     "title": "Language test page",
     "description": "If you can read this, English is active."
