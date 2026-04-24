@@ -18,13 +18,14 @@ NEXTILL IMPLEMENTATION LIST
                    if possible print automatically;
 - [Content] [Till] create the ticket component that will have the items bought, name, price, quantity,
                    separate in section drinks and food;
+- [Style] [App] Style the language toggle;
 - [✅] {Refactor}{Header} modify the darkmode toggle to use icons instead of text, add accessibility
                       and decide if while in logged in mode it should be in the Header or Account page;
 - [✅] {Refactor}{Header} Remove the language toggle from the Header in logged in mode;
 - [Style] [Header] Style the Header for mobile/desktop in logged in/off mode;
 - [Style] [Header] Style the navigation bar for desktop;
-- [Style] [Header] Style the sign out button and the username;
-- [Content] [Header] Add a confirmation modal when the user clicks the sign out button;
+- [✅] {Style}{Header} Style the sign out button and the username;
+- [✅] {Content}{Header} Add a confirmation modal when the user clicks the sign out button;
 - [Style] [Header] Style the language and darkmode toggles in the header in logged off mode;
 - [Content] [Footer] Add information in the footer like: project-demo, @nextill, a mail option etc;
 - [Style] [footer] Style the footer for mobile/desktop;
@@ -132,3 +133,4 @@ NEXTILL IMPLEMENTATION LIST
 - [Optional] [Menu] add the option to edit the price of each exisitng dish;
 - [Optional] [App] Add options for cash/cards payment;
 - [Optional] [Stock] Add in the stock activity cards the date;
+- [Optional] [Stats] add a delete option for each Daily overview card,

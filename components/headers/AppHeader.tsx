@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { useMemo } from "react";
-import { useAuth } from "@/firebase/authProvider";
-import ThemeToggle from "@/components/ThemeToggle";
+import { usePathname } from "next/navigation";
+import ThemeToggle from "@/components/headers/ThemeToggle";
+import UserSection from "@/components/headers/UserSection";
 
 const navItems = [
   { href: "/till", label: "Till" },
@@ -16,21 +15,6 @@ const navItems = [
 
 export default function AppHeader() {
   const pathname = usePathname();
-  const router = useRouter();
-  const { profile, signOut, loading } = useAuth();
-
-  const displayName = useMemo(() => {
-    return profile?.displayName?.trim() || "User";
-  }, [profile]);
-
-  async function handleSignOut() {
-    try {
-      await signOut();
-      router.replace("/sign-in");
-    } catch (error) {
-      console.error("Sign out failed:", error);
-    }
-  }
 
   return (
     <header className="border-b-2 border-neutral-600  ">
@@ -39,8 +23,6 @@ export default function AppHeader() {
           <h1 className="font-bold text-2xl" >
             Nextill
           </h1>
-          <ThemeToggle />
-
           <nav className="items-center gap-2 md:flex ">
             {navItems.map((item) => {
               const isActive =
@@ -63,17 +45,9 @@ export default function AppHeader() {
             })}
           </nav>
         </div>
-
-        <div>
-          <button
-            type="button"
-            onClick={handleSignOut}
-            disabled={loading}
-            className="rounded-lg bg-neutral-900 px-3 py-2 text-sm font-medium text-red-500 hover:bg-neutral-700 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200"
-          >
-            {displayName}
-            Sign out
-          </button>
+        <div className="flex gap-5">
+          <ThemeToggle />
+          <UserSection />
         </div>
       </div>
     </header>

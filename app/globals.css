@@ -120,6 +120,13 @@
     color: var(--primary-foreground);
   }
 
+  .hover-surface-1:hover {
+    background-color: var(--surface);
+  }
+
+  .hover-surface-2:hover {
+    background-color: var(--surface-2);  
+  }
 }
 
 @media (min-width: 1024px) {

@@ -43,7 +43,7 @@ export default function ThemeToggle() {
       className={`group relative inline-flex h-11 w-11 items-center justify-center rounded-2xl
                   bg-surface-2 text-muted border border-default shadow-sm
                   ${transitions} ${activePress} ${focusRing}
-                  hover:-translate-y-0.5 hover:shadow-md hover:bg-surface-1
+                  hover:-translate-y-0.5 hover:shadow-md hover-surface-1
                   dark:hover:shadow-black/20`}
     >
       <span className="relative h-5 w-5">

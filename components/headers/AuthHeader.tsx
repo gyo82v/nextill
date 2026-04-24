@@ -1,4 +1,4 @@
-import ThemeToggle from "@/components/ThemeToggle";
+import ThemeToggle from "@/components/headers/ThemeToggle";
 import LanguageToggle from "@/components/LanguageToggle";
 
 export default function AuthHeader() {
