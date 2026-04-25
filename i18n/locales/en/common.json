@@ -21,6 +21,13 @@
     "signedInAs": "Signed in as",
     "signOut": "Sign out"
   },
+  "nav": {
+    "pos": "POS",
+    "menu": "Menu",
+    "stock": "Stock",
+    "reports": "Reports",
+    "account": "Account"
+  },
   "test": {
     "title": "Language test page",
     "description": "If you can read this, English is active."

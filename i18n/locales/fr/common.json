@@ -21,6 +21,13 @@
     "signedInAs": "Connecté en tant que",
     "signOut": "Se déconnecter"
   },
+   "nav": {
+    "pos": "Caisse",
+    "menu": "Menu",
+    "stock": "Stock",
+    "reports": "Rapports",
+    "account": "Compte"
+  },
   "test": {
     "title": "Language test page",
     "description": "If you can read this, French is active."

@@ -21,6 +21,13 @@
     "signedInAs": "Accesso come",
     "signOut": "Disconnetti"
   },
+  "nav": {
+    "pos": "Cassa",
+    "menu": "Menu",
+    "stock": "Magazzino",
+    "reports": "Report",
+    "account": "Account"
+  },
   "test": {
     "title": "Pagina di test lingua",
     "description": "Se puoi leggere questo, l'italiano è attivo."

@@ -1,55 +1,70 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
+
 import ThemeToggle from "@/components/headers/ThemeToggle";
 import UserSection from "@/components/headers/UserSection";
-
-const navItems = [
-  { href: "/till", label: "Till" },
-  { href: "/menu", label: "Menu" },
-  { href: "/stock", label: "Stock" },
-  { href: "/statistics", label: "Stats" },
-  { href: "/account", label: "Account" },
-];
+import Navbar from "@/components/headers/Navbar";
+import { GradientDivider } from "../ui/dividers/Dividers";
+import { focusRing, transitions, activePress } from "@/styles";
 
 export default function AppHeader() {
-  const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="border-b-2 border-neutral-600  ">
-      <div className=" mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
-        <div className="flex items-center gap-4">
-          <h1 className="font-bold text-2xl" >
+    <header className="sticky top-0 z-50  bg-slate-100/90 backdrop-blur dark:bg-slate-800/90">
+      <div className="mx-auto max-w-screen-3xl px-4 sm:px-6 lg:px-8 py-2">
+        <div className="flex h-16 items-center justify-between gap-3">
+          <span className="select-none text-xl xl:text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-50">
             Nextill
-          </h1>
-          <nav className="items-center gap-2 md:flex ">
-            {navItems.map((item) => {
-              const isActive =
-                pathname === item.href || pathname.startsWith(`${item.href}/`);
+          </span>
 
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={[
-                    "rounded-lg px-3 py-2 text-sm transition",
-                    isActive
-                      ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900"
-                      : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-900 dark:hover:text-white",
-                  ].join(" ")}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
+          <div className="hidden flex-1 md:flex md:justify-center">
+            <Navbar />
+          </div>
+
+          <div className="flex items-center gap-2 lg:gap-4 xl:gap-10">
+            <ThemeToggle />
+
+            <div className="hidden md:block">
+              <UserSection />
+            </div>
+
+            <button
+              type="button"
+              className={`inline-flex  h-11 w-11 items-center justify-center rounded-xl 
+                          bg-surface-2 text-muted border border-default shadow-sm 
+                          hover:-translate-y-0.5 hover:shadow-md hover-surface-1
+                          dark:hover:shadow-black/20
+                          md:hidden ${focusRing} ${transitions} ${activePress}`}
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-header-menu"
+              onClick={() => setMobileMenuOpen((open) => !open)}
+            >
+              {mobileMenuOpen ? (
+                <FiX className="h-5 w-5" aria-hidden="true" />
+              ) : (
+                <FiMenu className="h-5 w-5" aria-hidden="true" />
+              )}
+            </button>
+          </div>
         </div>
-        <div className="flex gap-5">
-          <ThemeToggle />
-          <UserSection />
+
+        <div
+          id="mobile-header-menu"
+          className={`${mobileMenuOpen ? "pb-4" : "hidden"} md:hidden`}
+          aria-hidden={!mobileMenuOpen}
+        >
+          <div className="rounded-2xl border border-slate-300/70 bg-white/70 p-3 shadow-sm dark:border-slate-600/70 dark:bg-slate-700/70">
+            {/* Mobile navigation will go here later */}
+          </div>
         </div>
       </div>
+      <GradientDivider />
     </header>
   );
 }
+
+

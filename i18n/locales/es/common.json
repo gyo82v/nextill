@@ -21,6 +21,13 @@
     "signedInAs": "Conectado como",
     "signOut": "Cerrar sesión"
   },
+  "nav": {
+    "pos": "TPV",
+    "menu": "Menú",
+    "stock": "Inventario",
+    "reports": "Informes",
+    "account": "Konto"
+  },
   "test": {
     "title": "Language test page",
     "description": "If you can read this, Spanish is active."

@@ -36,6 +36,7 @@ NEXTILL IMPLEMENTATION LIST
 - [style] [Intro] Style the create new account form component;
 - [Fix] [Till] fix a visual bug, when a user sign in and the day is not active the till page 
                should immediately render the not active section and not briefly the active section;
+- [Fix] [App] Fix all the url to match the updated path => till => pos, statistics => reports etc;
 - [Style] [Till] Style the till page while the day is not active;
 - [Content] [Till] Add a description in the till page while the day is not active;
 - [Style] [Till] Style the item card element;
@@ -119,6 +120,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Test] [App] Test the till, menu , stock and stats;
 - [Test] [App] Run the lighthouse test;
 - [Clean] [Dividers] Clean the unused dividers;
+- [Clean] [AppHeader] Clean the unused code;
 - [Optional] [Account] improve the export data feature, instead of a json file use pdf or other formats;
 - [Optional] [Account] add an accessibility option to disable motion;
 - [Optional] [App] add sounds effects to the till and an option in the account page to disable it;

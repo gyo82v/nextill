@@ -1,4 +1,3 @@
-import React from "react";
 import type { DividerProps, DotLineDividerProps, IconDividerProps } from "@/types";
 
 export function SimpleDivider({className}: DividerProps) {
@@ -7,16 +6,6 @@ export function SimpleDivider({className}: DividerProps) {
 
 export function SectionDivider({className}: DividerProps) {
   return <hr aria-hidden="true" className={`my-8 h-px w-full border-0 bg-slate-300 ${className}`}/>;
-}
-
-export function GradientDivider({className}: DividerProps) {
-  return (
-    <hr
-      aria-hidden="true"
-      className={`my-6 h-[2px] w-full border-0 bg-gradient-to-r 
-                  from-transparent via-slate-300 to-transparent ${className}`}
-    />
-  );
 }
 
 export function DotLineDivider({ className, dotClassName, lineClassName }: DotLineDividerProps) {
@@ -95,8 +84,16 @@ export function IconSeparator({ icon, className = "", }: IconDividerProps) {
 
 export function GradientLine({ className = "" }: { className?: string }) {
   return (
-    <div className={`my-6 ${className}`} aria-hidden="true">
+    <div className={`my-4 ${className}`} aria-hidden="true">
       <div className="h-0.5 w-full bg-gradient-to-r from-slate-300/80 via-slate-200/60 to-slate-300/80" />
+    </div>
+  );
+}
+
+export function GradientDivider({ className = "" }: { className?: string }) {
+  return (
+    <div className={` ${className}`} aria-hidden="true">
+      <div className="h-0.5 w-full border-0 bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
     </div>
   );
 }
