@@ -23,7 +23,7 @@ NEXTILL IMPLEMENTATION LIST
                       and decide if while in logged in mode it should be in the Header or Account page;
 - [✅] {Refactor}{Header} Remove the language toggle from the Header in logged in mode;
 - [Style] [Header] Style the Header for mobile/desktop in logged in/off mode;
-- [Style] [Header] Style the navigation bar for desktop;
+- [✅] {Style}{Header} Style the navigation bar for desktop;
 - [✅] {Style}{Header} Style the sign out button and the username;
 - [✅] {Content}{Header} Add a confirmation modal when the user clicks the sign out button;
 - [Style] [Header] Style the language and darkmode toggles in the header in logged off mode;

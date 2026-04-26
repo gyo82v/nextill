@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { useEffect, useRef, useState } from "react";
 import { focusRing, transitions } from "@/styles";
+import { navItems } from "@/components/headers/navItems";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -13,15 +14,6 @@ export default function Navbar() {
   const containerRef = useRef<HTMLUListElement>(null);
   const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
   const [indicator, setIndicator] = useState({ width: 0, left: 0 });
-
-  // ✅ stable data
-  const navItems = [
-    { href: "/till", key: "nav.pos" },
-    { href: "/menu", key: "nav.menu" },
-    { href: "/stock", key: "nav.stock" },
-    { href: "/statistics", key: "nav.reports" },
-    { href: "/account", key: "nav.account" },
-  ];
 
   useEffect(() => {
     const index = navItems.findIndex(
@@ -42,7 +34,7 @@ export default function Navbar() {
     <nav aria-label="Primary" className="hidden md:flex">
       <ul
         ref={containerRef}
-        className="relative flex items-center  lg:gap-5 xl:gap-10 rounded-xl bg-surface-1 p-2 xl:px-4"
+        className="relative flex items-center lg:gap-5 xl:gap-10 rounded-xl bg-surface-1 p-2 xl:px-4"
       >
         {/* Sliding indicator */}
         <span
