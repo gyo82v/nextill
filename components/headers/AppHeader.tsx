@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiMenu } from "react-icons/fi";
 
 import ThemeToggle from "@/components/headers/ThemeToggle";
 import UserSection from "@/components/headers/UserSection";
 import Navbar from "@/components/headers/Navbar";
 import { GradientDivider } from "../ui/dividers/Dividers";
-import { focusRing, transitions, activePress } from "@/styles";
+import { iconsBtn } from "@/styles";
 import MobileHeaderMenu from "./MobileHeaderMenu";
 
 export default function AppHeader() {
@@ -37,21 +37,14 @@ export default function AppHeader() {
 
             <button
               type="button"
-              className={`inline-flex  h-11 w-11 items-center justify-center rounded-xl 
-                          bg-surface-2 text-muted border border-default shadow-sm 
-                          hover:-translate-y-0.5 hover:shadow-md hover-surface-1
-                          dark:hover:shadow-black/20
-                          md:hidden ${focusRing} ${transitions} ${activePress}`}
+              className={`hover:-translate-y-0.5 hover:shadow-md dark:hover:shadow-black/20                  
+                         ${iconsBtn} md:hidden`}
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-header-menu"
               onClick={() => setMobileMenuOpen((open) => !open)}
             >
-              {mobileMenuOpen ? (
-                <FiX className="h-5 w-5" aria-hidden="true" />
-              ) : (
-                <FiMenu className="h-5 w-5" aria-hidden="true" />
-              )}
+              <FiMenu className="h-5 w-5" aria-hidden="true" />             
             </button>
           </div>
         </div>
