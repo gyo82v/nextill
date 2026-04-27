@@ -26,7 +26,8 @@
     "menu": "Speisekarte",
     "stock": "Lager",
     "reports": "Berichte",
-    "account": "Konto"
+    "account": "Konto",
+    "labelMobile": "Navigation"
   },
   "test": {
     "title": "Language test page",

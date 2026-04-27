@@ -26,7 +26,8 @@
     "menu": "Menu",
     "stock": "Stock",
     "reports": "Rapports",
-    "account": "Compte"
+    "account": "Compte",
+    "labelMobile": "Navigation"
   },
   "test": {
     "title": "Language test page",
