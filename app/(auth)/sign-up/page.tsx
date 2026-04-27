@@ -18,7 +18,7 @@ export default function SignUpPage() {
   // If already logged in, redirect to app
   useEffect(() => {
     if (!loading && user) {
-      router.replace("/till");
+      router.replace("/pos");
     }
   }, [loading, user, router]);
 
@@ -29,7 +29,7 @@ export default function SignUpPage() {
 
     try {
       await createUser(email, password, name);
-      router.replace("/till");
+      router.replace("/pos");
     } catch (err: unknown) {
       setError((err as Error).message ?? "Failed to create account");
     } finally {
