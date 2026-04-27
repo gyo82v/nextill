@@ -23,3 +23,8 @@ export interface Sale {
   itemCount: number;
   items: SaleItem[];
 }
+
+export type MobileHeaderMenuProps = {
+  open: boolean;
+  onClose: () => void;
+};

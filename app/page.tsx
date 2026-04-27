@@ -12,7 +12,7 @@ export default function Home() {
     if (loading) return;
 
     if (user) {
-      router.replace("/till");
+      router.replace("/pos");
     } else {
       router.replace("/sign-in");
     }
