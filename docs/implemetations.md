@@ -28,12 +28,16 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Content}{Header} Add a confirmation modal when the user clicks the sign out button;
 - [✅] {Style}{Header} Style the language and darkmode toggles in the header in logged off mode;
 - [Content] [Footer] Add information in the footer like: project-demo, @nextill, a mail option etc;
+- [Content] [Account] Add privacy policy;
+- [Content] [App] create a privacy policy page;
 - [Style] [footer] Style the footer for mobile/desktop;
 - [Content] [Intro] add an introduction description in the intro page with h1, p ... it should 
                     describe what this app does, welcome the user, that is a free app, add more 
                     content in the desktop version;
 - [Style] [Intro] Style the sign in form component;
 - [style] [Intro] Style the create new account form component;
+- [Content] [intro] Add in the create new acoount component a By creating an account,
+                    you agree to the Privacy Policy. with link to the page;
 - [Fix] [Till] fix a visual bug, when a user sign in and the day is not active the till page 
                should immediately render the not active section and not briefly the active section;
 - [Fix] [App] Fix all the url to match the updated path => till => pos, statistics => reports etc;
@@ -97,6 +101,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Localization] [Stock] Add localization to the stock page;
 - [Localization] [Stats] Add localization to the Stats page;
 - [Localization] [Account] Add localization to the account page;
+- [Localization] [Privacy-policy] add localization to the privacy policy page;
 - [✅] {Localization}{Header} Add localization to the Header;
 - [Localization] [Footer] Add localization to the footer;
 - [Localization] [Intro] Add localization to the Intro page;
@@ -108,6 +113,7 @@ NEXTILL IMPLEMENTATION LIST
 - [A11y] [Account] Add accessibility to the account page;
 - [A11y] [Header/footer] add accessibility to the Header and Footer;
 - [A11y] [Intro] Add accessibility to the intro page;
+- [A11y] [Privacy-policy] add accessibility to the privacy-policy page;
 - [Test] [Account] Test the delete account feature;
 - [Test] [Account] Test the reset password feature;
 - [Test] [Account] Test the clear all data feature;
@@ -136,3 +142,6 @@ NEXTILL IMPLEMENTATION LIST
 - [Optional] [App] Add options for cash/cards payment;
 - [Optional] [Stock] Add in the stock activity cards the date;
 - [Optional] [Stats] add a delete option for each Daily overview card,
+- [Optional/Fix] [Header] fix the navbar animation pill; when the sixe on the navbars links changes, 
+                          the pill should resize corretly automatically.
+                          example: changing language in the account page;

@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/firebase/authProvider";
 import AppHeader from "@/components/headers/AppHeader";
-import Footer from "@/components/Footer";
+import AppFooter from "@/components/footer/AppFooter";
 
 export default function AppLayout({children}: {children: React.ReactNode;}) {
   const { user, loading } = useAuth();
@@ -31,7 +31,7 @@ export default function AppLayout({children}: {children: React.ReactNode;}) {
       <main className="flex-1 flex min-w-0 w-full">
         {children}
       </main>
-      <Footer />
+      <AppFooter />
     </>
   );
 }

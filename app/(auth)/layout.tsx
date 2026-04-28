@@ -1,6 +1,6 @@
 "use client"
 
-import Footer from "@/components/Footer"
+import PublicFooter from "@/components/footer/PublicFooter"
 import AuthHeader from "@/components/headers/AuthHeader"
 
 export default function AuthLayout({children}: { children: React.ReactNode }) {
@@ -10,7 +10,7 @@ export default function AuthLayout({children}: { children: React.ReactNode }) {
       <main className="flex-1 flex min-w-0 w-full">
         {children}
       </main>
-      <Footer />
+      <PublicFooter />
     </>
   )
 }
