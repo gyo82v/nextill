@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useAuth } from "@/firebase/authProvider";
-import LanguageToggle from "@/components/LanguageToggle";
+import LanguageToggle from "@/components/language-toggle";
 import { db } from "@/firebase/firebase";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { exportUserData } from "@/firebase/exportData";
