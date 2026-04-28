@@ -4,12 +4,12 @@ NEXTILL IMPLEMENTATION LIST
 - [Content] [App] Make the app Progressive  web App, add a manifest file, icons, html etc;
 - [Design] [App] Design the icon app used when the app is installed;
 - [Refactor] [Firestore] Modify the create new account function to add email confirmation;
-- [Content] [Header] build the navigation bar for mobile, add icon, when clicked open the 
+- [✅] {Content}{Header} build the navigation bar for mobile, add icon, when clicked open the 
                      navigation menu;
 - [Content] [Menu] Add the feature in the Menu page to clear all menu with a button;
 - [Content] [Stock] Add the feature in the Stock page to clear all stock with a button;
 - [Content] [Stats] Add a feature in the Stats page to clear all stats with a button;
-- [Style] [Header] style the mobile navigation menu;
+- [✅] {Style}{Header} style the mobile navigation menu;
 - [Content] [Till] create a confirm order modal/page; when the user clicks on the checkout button
                    the modal/page opens; it has a recap of the order, buttons to proceed or cancel;
                    option to print the ticket;
@@ -18,15 +18,15 @@ NEXTILL IMPLEMENTATION LIST
                    if possible print automatically;
 - [Content] [Till] create the ticket component that will have the items bought, name, price, quantity,
                    separate in section drinks and food;
-- [Style] [App] Style the language toggle;
+- [✅] {Style}{App} Style the language toggle;
 - [✅] {Refactor}{Header} modify the darkmode toggle to use icons instead of text, add accessibility
                       and decide if while in logged in mode it should be in the Header or Account page;
 - [✅] {Refactor}{Header} Remove the language toggle from the Header in logged in mode;
-- [Style] [Header] Style the Header for mobile/desktop in logged in/off mode;
+- [✅] {Style}{Header} Style the Header for mobile/desktop in logged in/off mode;
 - [✅] {Style}{Header} Style the navigation bar for desktop;
 - [✅] {Style}{Header} Style the sign out button and the username;
 - [✅] {Content}{Header} Add a confirmation modal when the user clicks the sign out button;
-- [Style] [Header] Style the language and darkmode toggles in the header in logged off mode;
+- [✅] {Style}{Header} Style the language and darkmode toggles in the header in logged off mode;
 - [Content] [Footer] Add information in the footer like: project-demo, @nextill, a mail option etc;
 - [Style] [footer] Style the footer for mobile/desktop;
 - [Content] [Intro] add an introduction description in the intro page with h1, p ... it should 
@@ -75,7 +75,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Refactor] [Stock] Refactor the Stock page: types, enslint errors, separate components;
 - [Refactor] [Stats] Refactor the Stats page: types, enslint errors, separate components;
 - [Refactor] [Account] Refactor the Account page: types, enslint errors, separate components;
-- [Refactor] [Header] Refactor the Header page: types, enslint errors, separate components;
+- [✅] {Refactor}{Header} Refactor the Header page: types, enslint errors, separate components;
 - [Refactor] [Firebase] Refactor the firebase files, types, enslint erros;
 - [Content] [App] Add the feature password forgotten;
 - [✅] {Utils}{App} Create a reusable focus style;
@@ -91,13 +91,13 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Utils}{App} create a reusable spinner;
 - [✅] {Utils}{App} create reusable dividers;
 - [Utils] [App] Add spinnes in all async buttons;
-- [Utils] [App] Add spinnesr in all pages instead of the text loading;
+- [Utils] [App] Add spinners in all pages instead of the text loading;
 - [Localization] [Till] Add localization to the till page;
 - [Localization] [Menu] Add localization to the menu page;
 - [Localization] [Stock] Add localization to the stock page;
 - [Localization] [Stats] Add localization to the Stats page;
 - [Localization] [Account] Add localization to the account page;
-- [Localization] [Header] Add localization to the Header;
+- [✅] {Localization}{Header} Add localization to the Header;
 - [Localization] [Footer] Add localization to the footer;
 - [Localization] [Intro] Add localization to the Intro page;
 - [Delete] [App] delete the unused test language page;
