@@ -36,3 +36,7 @@ export const drawerPanel =
 export const disclosurePanel =
   `transition-[grid-template-rows,opacity,transform] duration-200 ease-out
    motion-reduce:transition-none motion-reduce:transform-none`;
+
+// language toggle button
+export const toggleButton = 
+`transition-transform duration-200 ease-out motion-reduce:transition-none`

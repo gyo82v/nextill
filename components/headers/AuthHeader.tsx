@@ -1,5 +1,4 @@
 import ThemeToggle from "@/components/headers/ThemeToggle";
-//import LanguageToggle from "@/components/LanguageToggle";
 import { GradientDivider } from "../ui/dividers/Dividers";
 import LanguageToggle from "@/components/language-toggle";
 
@@ -14,7 +13,7 @@ export default function AuthHeader() {
                   >
                     Nextill
                   </span>                  
-                  <div className="flex items-center gap-2 lg:gap-4 xl:gap-10">
+                  <div className="flex items-center gap-2 lg:gap-4 xl:gap-6 xl:mr-8">
                     <LanguageToggle /> 
                     <ThemeToggle />     
                   </div>
