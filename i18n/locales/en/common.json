@@ -29,6 +29,11 @@
     "account": "Account",
     "labelMobile": "Navigation"
   },
+  "footer": {
+    "mailText": "Have feedback or suggestions? Contact us at",
+    "privacy": "Privacy Policy",
+    "builtWith": "Built with Next.js"
+  },
   "test": {
     "title": "Language test page",
     "description": "If you can read this, English is active."

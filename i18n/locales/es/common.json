@@ -29,6 +29,12 @@
     "account": "Cuenta",
     "labelMobile": "Navegación"
   },
+  "footer": {
+    "mailText": "¿Tienes comentarios o sugerencias? Contáctanos en",
+    "privacy": "Política de privacidad",
+    "builtWith": "Creado con Next.js"
+    
+  },
   "test": {
     "title": "Language test page",
     "description": "If you can read this, Spanish is active."
