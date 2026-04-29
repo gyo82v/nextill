@@ -98,4 +98,14 @@ export function GradientDivider({ className = "" }: { className?: string }) {
   );
 }
 
+export function FooterDivider() {
+  return (
+     <div
+      aria-hidden="true"
+      className={`h-px w-[60%] mx-auto bg-[color:var(--divider)] 
+                  md:h-auto md:w-px my-4 md:my-0`}
+    />
+  )
+}
+
 
