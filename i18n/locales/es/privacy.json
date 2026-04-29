@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "title": "Política de Privacidad",
+    "lastUpdated": "2026-04-29"
+  },
+  "intro": {
+    "title": "Introducción",
+    "text": "Nextill es un proyecto personal desarrollado y mantenido dentro de la Unión Europea. Esta Política de Privacidad explica cómo recopilamos, usamos y protegemos tus datos personales de conformidad con el Reglamento General de Protección de Datos (RGPD)."
+  },
+  "controller": {
+    "title": "Responsable del tratamiento",
+    "text": "El responsable del tratamiento encargado del procesamiento de tus datos es el desarrollador de Nextill, un proyecto personal con sede en la Unión Europea.",
+    "email": "Puedes contactarnos en: gyo82v@gmail.com"
+  },
+  "data": {
+    "personal": {
+      "title": "Datos personales que recopilamos",
+      "email": "Recopilamos tu dirección de correo electrónico para la creación de la cuenta y la autenticación.",
+      "password": "Almacenamos tu contraseña en formato cifrado. Las contraseñas nunca se almacenan ni se transmiten en texto plano.",
+      "note": "No recopilamos otros datos personales, como nombre, dirección o información de pago."
+    },
+    "app": {
+      "title": "Datos de la aplicación",
+      "description": "Nextill permite a los usuarios crear y gestionar datos operativos relacionados con su actividad.",
+      "types": "Esto incluye elementos como menús, productos, niveles de inventario y registros internos de transacciones. Estos datos son creados por el usuario y se utilizan únicamente para proporcionar las funciones principales de la aplicación."
+    }
+  },
+  "purpose": {
+    "title": "Finalidad del tratamiento",
+    "account": "Tratamos tus datos personales para crear y gestionar tu cuenta de usuario.",
+    "functionality": "Tratamos los datos de la aplicación para habilitar las funciones principales de la aplicación, como la gestión de inventario y de caja."
+  },
+  "legal": {
+    "title": "Base jurídica del tratamiento",
+    "contract": "Tratamos tus datos sobre la base de la necesidad de ejecutar un contrato. Sin estos datos, la aplicación no puede funcionar."
+  },
+  "security": {
+    "title": "Almacenamiento y seguridad de los datos",
+    "storage": "Tus datos se almacenan utilizando una infraestructura en la nube segura.",
+    "measures": "Aplicamos medidas técnicas y organizativas adecuadas para proteger tus datos contra el acceso no autorizado, la pérdida o el uso indebido."
+  },
+  "sharing": {
+    "title": "Compartición de datos",
+    "statement": "No vendemos, alquilamos ni intercambiamos tus datos personales.",
+    "providers": "Algunos datos pueden ser tratados por proveedores externos de confianza (como servicios de autenticación o alojamiento) únicamente con fines operativos."
+  },
+  "retention": {
+    "title": "Conservación y eliminación de datos",
+    "text": "Tus datos se conservan mientras tu cuenta permanezca activa.",
+    "deletion": "Puedes solicitar la eliminación de tu cuenta en cualquier momento. Una vez eliminada, tus datos personales y los datos de la aplicación se eliminarán de forma permanente, salvo que existan obligaciones legales que exijan su conservación."
+  },
+  "rights": {
+    "title": "Tus derechos según el RGPD",
+    "access": "Tienes derecho a acceder a tus datos personales.",
+    "rectification": "Tienes derecho a solicitar la corrección de los datos inexactos.",
+    "deletion": "Tienes derecho a solicitar la eliminación de tus datos.",
+    "withdrawal": "Tienes derecho a retirar tu consentimiento, cuando sea aplicable.",
+    "authority": "Tienes derecho a presentar una reclamación ante una autoridad de protección de datos en tu país."
+  },
+  "contact": {
+    "title": "Contacto",
+    "text": "Para cualquier pregunta o solicitud relacionada con tus datos, puedes contactarnos en: ",
+    "email": "gyo82v@gmail.com"
+  },
+  "changes": {
+    "title": "Cambios en esta política",
+    "text": "Podemos actualizar esta Política de Privacidad de vez en cuando. Cualquier cambio se publicará en esta página con una fecha de revisión actualizada."
+  }
+}

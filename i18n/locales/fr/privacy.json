@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "title": "Politique de confidentialité",
+    "lastUpdated": "2026-04-29"
+  },
+  "intro": {
+    "title": "Introduction",
+    "text": "Nextill est un projet personnel développé et maintenu au sein de l'Union européenne. La présente Politique de confidentialité explique comment nous collectons, utilisons et protégeons vos données personnelles conformément au Règlement général sur la protection des données (RGPD)."
+  },
+  "controller": {
+    "title": "Responsable du traitement",
+    "text": "Le responsable du traitement chargé du traitement de vos données est le développeur de Nextill, un projet personnel basé dans l'Union européenne.",
+    "email": "Vous pouvez nous contacter à l'adresse suivante : gyo82v@gmail.com"
+  },
+  "data": {
+    "personal": {
+      "title": "Données personnelles que nous collectons",
+      "email": "Nous collectons votre adresse e-mail pour la création du compte et l'authentification.",
+      "password": "Nous stockons votre mot de passe sous une forme chiffrée. Les mots de passe ne sont jamais stockés ou transmis en clair.",
+      "note": "Aucune autre donnée personnelle, comme le nom, l'adresse ou les informations de paiement, n'est collectée."
+    },
+    "app": {
+      "title": "Données de l'application",
+      "description": "Nextill permet aux utilisateurs de créer et de gérer des données opérationnelles liées à l'activité.",
+      "types": "Cela inclut des éléments tels que les menus, les produits, les niveaux de stock et les enregistrements internes de transactions. Ces données sont créées par l'utilisateur et sont utilisées uniquement pour fournir les fonctionnalités principales de l'application."
+    }
+  },
+  "purpose": {
+    "title": "Finalité du traitement",
+    "account": "Nous traitons vos données personnelles afin de créer et de gérer votre compte utilisateur.",
+    "functionality": "Nous traitons les données de l'application afin d'activer les fonctionnalités principales de l'application, comme la gestion du stock et de la caisse."
+  },
+  "legal": {
+    "title": "Base juridique du traitement",
+    "contract": "Nous traitons vos données sur la base de la nécessité d'exécuter un contrat. Sans ces données, l'application ne peut pas fonctionner."
+  },
+  "security": {
+    "title": "Stockage et sécurité des données",
+    "storage": "Vos données sont stockées à l'aide d'une infrastructure cloud sécurisée.",
+    "measures": "Nous appliquons des mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, toute perte ou toute utilisation abusive."
+  },
+  "sharing": {
+    "title": "Partage des données",
+    "statement": "Nous ne vendons, ne louons ni n'échangeons vos données personnelles.",
+    "providers": "Certaines données peuvent être traitées par des prestataires tiers de confiance (comme des services d'authentification ou d'hébergement) uniquement à des fins opérationnelles."
+  },
+  "retention": {
+    "title": "Conservation et suppression des données",
+    "text": "Vos données sont conservées tant que votre compte reste actif.",
+    "deletion": "Vous pouvez demander la suppression de votre compte à tout moment. Une fois supprimé, vos données personnelles et les données de l'application seront définitivement supprimées, sauf si une obligation légale impose leur conservation."
+  },
+  "rights": {
+    "title": "Vos droits au titre du RGPD",
+    "access": "Vous avez le droit d'accéder à vos données personnelles.",
+    "rectification": "Vous avez le droit de demander la correction des données inexactes.",
+    "deletion": "Vous avez le droit de demander la suppression de vos données.",
+    "withdrawal": "Vous avez le droit de retirer votre consentement, lorsque cela est applicable.",
+    "authority": "Vous avez le droit d'introduire une réclamation auprès d'une autorité de protection des données dans votre pays."
+  },
+  "contact": {
+    "title": "Contact",
+    "text": "Pour toute question ou demande concernant vos données, vous pouvez nous contacter à l'adresse suivante :",
+    "email": "gyo82v@gmail.com"
+  },
+  "changes": {
+    "title": "Modifications de cette politique",
+    "text": "Nous pouvons mettre à jour cette Politique de confidentialité de temps à autre. Toute modification sera publiée sur cette page avec une date de révision mise à jour."
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "title": "Informativa sulla Privacy",
+    "lastUpdated": "2026-04-29"
+  },
+  "intro": {
+    "title": "Introduzione",
+    "text": "Nextill è un progetto personale sviluppato e mantenuto all'interno dell'Unione Europea. Questa Informativa sulla Privacy spiega come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali in conformità con il Regolamento Generale sulla Protezione dei Dati (GDPR)."
+  },
+  "controller": {
+    "title": "Titolare del trattamento",
+    "text": "Il titolare del trattamento responsabile del trattamento dei tuoi dati è lo sviluppatore di Nextill, un progetto personale con sede nell'Unione Europea.",
+    "email": "Puoi contattarci all'indirizzo: gyo82v@gmail.com"
+  },
+  "data": {
+    "personal": {
+      "title": "Dati personali che raccogliamo",
+      "email": "Raccogliamo il tuo indirizzo email per la creazione dell'account e per l'autenticazione.",
+      "password": "Memorizziamo la tua password in formato crittografato. Le password non vengono mai memorizzate o trasmesse in testo leggibile.",
+      "note": "Non raccogliamo altri dati personali come nome, indirizzo o informazioni di pagamento."
+    },
+    "app": {
+      "title": "Dati dell'app",
+      "description": "Nextill consente agli utenti di creare e gestire dati operativi legati all'attività.",
+      "types": "Questo include elementi come menu, prodotti, livelli di magazzino e registrazioni interne delle transazioni. Questi dati sono creati dall'utente e vengono utilizzati esclusivamente per fornire le funzionalità principali dell'applicazione."
+    }
+  },
+  "purpose": {
+    "title": "Finalità del trattamento",
+    "account": "Trattiamo i tuoi dati personali per creare e gestire il tuo account utente.",
+    "functionality": "Trattiamo i dati dell'app per abilitare le funzionalità principali dell'applicazione, come la gestione del magazzino e della cassa."
+  },
+  "legal": {
+    "title": "Base giuridica del trattamento",
+    "contract": "Trattiamo i tuoi dati sulla base della necessità di eseguire un contratto. Senza questi dati, l'applicazione non può funzionare."
+  },
+  "security": {
+    "title": "Archiviazione e sicurezza dei dati",
+    "storage": "I tuoi dati sono archiviati utilizzando infrastrutture cloud sicure.",
+    "measures": "Applichiamo misure tecniche e organizzative adeguate per proteggere i tuoi dati da accessi non autorizzati, perdita o uso improprio."
+  },
+  "sharing": {
+    "title": "Condivisione dei dati",
+    "statement": "Non vendiamo, affittiamo né scambiamo i tuoi dati personali.",
+    "providers": "Alcuni dati possono essere trattati da fornitori terzi fidati (come servizi di autenticazione o hosting) esclusivamente per finalità operative."
+  },
+  "retention": {
+    "title": "Conservazione e cancellazione dei dati",
+    "text": "I tuoi dati vengono conservati per tutto il tempo in cui il tuo account rimane attivo.",
+    "deletion": "Puoi richiedere la cancellazione del tuo account in qualsiasi momento. Una volta eliminato, i tuoi dati personali e i dati dell'app verranno rimossi in modo permanente, salvo obblighi di legge che ne richiedano la conservazione."
+  },
+  "rights": {
+    "title": "I tuoi diritti ai sensi del GDPR",
+    "access": "Hai il diritto di accedere ai tuoi dati personali.",
+    "rectification": "Hai il diritto di richiedere la correzione dei dati inesatti.",
+    "deletion": "Hai il diritto di richiedere la cancellazione dei tuoi dati.",
+    "withdrawal": "Hai il diritto di revocare il consenso, quando applicabile.",
+    "authority": "Hai il diritto di presentare un reclamo a un'autorità per la protezione dei dati nel tuo Paese."
+  },
+  "contact": {
+    "title": "Contatti",
+    "text": "Per qualsiasi domanda o richiesta relativa ai tuoi dati, puoi contattarci all'indirizzo:",
+    "email": "gyo82v@gmail.com"
+  },
+  "changes": {
+    "title": "Modifiche a questa informativa",
+    "text": "Potremmo aggiornare questa Informativa sulla Privacy di tanto in tanto. Eventuali modifiche saranno pubblicate su questa pagina con una data di revisione aggiornata."
+  }
+}

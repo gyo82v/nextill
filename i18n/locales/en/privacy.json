@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "title": "Privacy Policy",
+    "lastUpdated": "2026-04-29"
+  },
+
+  "intro": {
+    "title": "Introduction",
+    "text": "Nextill is a personal project developed and maintained within the European Union. This Privacy Policy explains how we collect, use, and protect your personal data in accordance with the General Data Protection Regulation (GDPR)."
+  },
+
+  "controller": {
+    "title": "Data Controller",
+    "text": "The data controller responsible for processing your data is the developer of Nextill, a personal project based in the European Union.",
+    "email": "You can contact us at: gyo82v@gmail.com"
+  },
+
+  "data": {
+    "personal": {
+      "title": "Personal Data We Collect",
+      "email": "We collect your email address for account creation and authentication purposes.",
+      "password": "We store your password in an encrypted format. Passwords are never stored or transmitted in plain text.",
+      "note": "No additional personal data such as name, address, or payment information is collected."
+    },
+
+    "app": {
+      "title": "App Data",
+      "description": "Nextill allows users to create and manage business-related operational data.",
+      "types": "This includes items such as menus, products, stock levels, and internal transaction records. This data is created by the user and is used solely to provide the core functionality of the application."
+    }
+  },
+
+  "purpose": {
+    "title": "Purpose of Processing",
+    "account": "We process your personal data to create and manage your user account.",
+    "functionality": "We process app data to enable the core features of the application, such as inventory and till management."
+  },
+
+  "legal": {
+    "title": "Legal Basis for Processing",
+    "contract": "We process your data based on the necessity to perform a contract. Without this data, the application cannot function."
+  },
+
+  "security": {
+    "title": "Data Storage and Security",
+    "storage": "Your data is stored using secure cloud infrastructure.",
+    "measures": "We apply appropriate technical and organizational measures to protect your data against unauthorized access, loss, or misuse."
+  },
+
+  "sharing": {
+    "title": "Data Sharing",
+    "statement": "We do not sell, rent, or trade your personal data.",
+    "providers": "Some data may be processed by trusted third-party service providers (such as authentication or hosting services) strictly for operational purposes."
+  },
+
+  "retention": {
+    "title": "Data Retention and Deletion",
+    "text": "Your data is retained as long as your account remains active.",
+    "deletion": "You may request deletion of your account at any time. Once deleted, your personal and app data will be permanently removed unless legal obligations require retention."
+  },
+
+  "rights": {
+    "title": "Your Rights Under GDPR",
+    "access": "You have the right to access your personal data.",
+    "rectification": "You have the right to request correction of inaccurate data.",
+    "deletion": "You have the right to request deletion of your data.",
+    "withdrawal": "You have the right to withdraw consent where applicable.",
+    "authority": "You have the right to lodge a complaint with a data protection authority in your country."
+  },
+
+  "contact": {
+    "title": "Contact Information",
+    "text": "For any questions or requests regarding your data, you can contact us at:",
+    "email": "gyo82v@gmail.com"
+  },
+
+  "changes": {
+    "title": "Changes to This Policy",
+    "text": "We may update this Privacy Policy from time to time. Any changes will be published on this page with an updated revision date."
+  }
+}

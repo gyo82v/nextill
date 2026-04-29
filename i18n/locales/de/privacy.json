@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "title": "Datenschutzerklärung",
+    "lastUpdated": "2026-04-29"
+  },
+  "intro": {
+    "title": "Einleitung",
+    "text": "Nextill ist ein persönliches Projekt, das innerhalb der Europäischen Union entwickelt und gepflegt wird. Diese Datenschutzerklärung erläutert, wie wir Ihre personenbezogenen Daten gemäß der Datenschutz-Grundverordnung (DSGVO) erheben, verwenden und schützen."
+  },
+  "controller": {
+    "title": "Verantwortlicher",
+    "text": "Der für die Verarbeitung Ihrer Daten verantwortliche Verantwortliche ist der Entwickler von Nextill, einem persönlichen Projekt mit Sitz in der Europäischen Union.",
+    "email": "Sie können uns unter folgender Adresse kontaktieren: gyo82v@gmail.com"
+  },
+  "data": {
+    "personal": {
+      "title": "Von uns erhobene personenbezogene Daten",
+      "email": "Wir erheben Ihre E-Mail-Adresse zur Erstellung Ihres Kontos und zur Authentifizierung.",
+      "password": "Wir speichern Ihr Passwort in verschlüsselter Form. Passwörter werden niemals im Klartext gespeichert oder übertragen.",
+      "note": "Weitere personenbezogene Daten wie Name, Adresse oder Zahlungsinformationen werden nicht erhoben."
+    },
+    "app": {
+      "title": "App-Daten",
+      "description": "Nextill ermöglicht es Nutzern, betriebliche Daten zu erstellen und zu verwalten.",
+      "types": "Dazu gehören beispielsweise Menüs, Produkte, Lagerbestände und interne Transaktionsaufzeichnungen. Diese Daten werden vom Nutzer erstellt und ausschließlich zur Bereitstellung der Kernfunktionen der Anwendung verwendet."
+    }
+  },
+  "purpose": {
+    "title": "Zweck der Verarbeitung",
+    "account": "Wir verarbeiten Ihre personenbezogenen Daten, um Ihr Benutzerkonto zu erstellen und zu verwalten.",
+    "functionality": "Wir verarbeiten App-Daten, um die Kernfunktionen der Anwendung zu ermöglichen, z. B. Lager- und Kassenverwaltung."
+  },
+  "legal": {
+    "title": "Rechtsgrundlage der Verarbeitung",
+    "contract": "Wir verarbeiten Ihre Daten auf Grundlage der Erforderlichkeit zur Erfüllung eines Vertrags. Ohne diese Daten kann die Anwendung nicht funktionieren."
+  },
+  "security": {
+    "title": "Datenspeicherung und Sicherheit",
+    "storage": "Ihre Daten werden mithilfe einer sicheren Cloud-Infrastruktur gespeichert.",
+    "measures": "Wir ergreifen geeignete technische und organisatorische Maßnahmen, um Ihre Daten vor unbefugtem Zugriff, Verlust oder Missbrauch zu schützen."
+  },
+  "sharing": {
+    "title": "Datenweitergabe",
+    "statement": "Wir verkaufen, vermieten oder tauschen Ihre personenbezogenen Daten nicht.",
+    "providers": "Einige Daten können von vertrauenswürdigen Drittanbietern (z. B. Authentifizierungs- oder Hosting-Diensten) ausschließlich zu betrieblichen Zwecken verarbeitet werden."
+  },
+  "retention": {
+    "title": "Datenspeicherung und Löschung",
+    "text": "Ihre Daten werden so lange gespeichert, wie Ihr Konto aktiv ist.",
+    "deletion": "Sie können jederzeit die Löschung Ihres Kontos verlangen. Nach der Löschung werden Ihre personenbezogenen Daten und App-Daten dauerhaft entfernt, sofern keine gesetzlichen Aufbewahrungspflichten bestehen."
+  },
+  "rights": {
+    "title": "Ihre Rechte gemäß DSGVO",
+    "access": "Sie haben das Recht, auf Ihre personenbezogenen Daten zuzugreifen.",
+    "rectification": "Sie haben das Recht, die Berichtigung unrichtiger Daten zu verlangen.",
+    "deletion": "Sie haben das Recht, die Löschung Ihrer Daten zu verlangen.",
+    "withdrawal": "Sie haben das Recht, Ihre Einwilligung zu widerrufen, soweit anwendbar.",
+    "authority": "Sie haben das Recht, bei einer Datenschutzbehörde in Ihrem Land Beschwerde einzulegen."
+  },
+  "contact": {
+    "title": "Kontakt",
+    "text": "Bei Fragen oder Anliegen zu Ihren Daten können Sie uns unter folgender Adresse kontaktieren:",
+    "email": "gyo82v@gmail.com"
+  },
+  "changes": {
+    "title": "Änderungen an dieser Richtlinie",
+    "text": "Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Änderungen werden auf dieser Seite mit einem aktualisierten Datum veröffentlicht."
+  }
+}
