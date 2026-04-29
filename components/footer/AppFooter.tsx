@@ -1,36 +1,45 @@
 import { FiMail } from "react-icons/fi";
 import { focusRing, transitions } from "@/styles"
+import { useTranslation } from "react-i18next";
+import { FooterDivider } from "@/components/ui/dividers/Dividers";
 
 export default function AppFooter() {
+  const { t } = useTranslation();
   return (
-    <footer className="border-t border-[color:var(--border)] bg-[var(--background)] px-4 py-5 text-[0.875rem] text-[var(--foreground)] sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-3 text-center md:flex-row md:justify-between md:gap-6 md:text-left">
-        <div className="flex flex-col items-center gap-2 md:items-start">
-          <p className="flex flex-col items-center gap-1 text-[var(--muted)] sm:flex-row sm:flex-wrap sm:justify-center md:justify-start">
-            <span className="inline-flex items-center gap-2">
-              <FiMail
-                className="mt-0.5 shrink-0 text-[var(--primary)]"
-                aria-hidden="true"
-              />
-              <span>Have feedback or suggestions? Contact us at</span>
-            </span>
+    <footer className={`border-t-2 border-[color:var(--border)] bg-[var(--background)] 
+                        md:py-6 lg:py-7 xl:py-8
+                        px-4 py-4 text-[0.875rem] text-[var(--foreground)] sm:px-6 lg:px-8`}>
+      <div className="mx-auto flex max-w-7xl flex-col md:flex-row md:items-stretch">
+        <div className="flex flex-1 items-center justify-center py-3 md:justify-start md:px-4 md:py-0">
+          <span className="text-[var(--muted)]">{t("footer.builtWith")}</span>
+        </div>
+
+        <FooterDivider />
+
+       <div className="flex flex-1 items-center justify-center py-4 text-center md:px-4 md:py-0">
+          <div className="flex flex-col items-center gap-1.5 text-[var(--muted)]">
+            <FiMail
+              className="h-5 w-5 text-[var(--primary)]"
+              aria-hidden="true"
+            />
+            <span className="leading-snug">{t("footer.mailText")}</span>
             <a
-              href={`mailto:gyo82v@gmail.com`}
-              className={[
-                "font-medium text-[var(--foreground)] underline underline-offset-4",
-                "hover:text-[var(--primary)]",
-                transitions,
-                focusRing,
-              ].join(" ")}
+              href="mailto:gyo82v@gmail.com"
+              className={`font-medium text-[var(--foreground)] underline underline-offset-4
+                          hover:text-[var(--primary-hover)] ${transitions} ${focusRing}`}
             >
               gyo82v@gmail.com
             </a>
-          </p>
+          </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 md:justify-end">
-          <span className="text-[var(--muted)]">Built with Next.js</span>
-          <span className="text-[var(--muted)]">©Copyright 2026 Nextill</span>
+        <FooterDivider />
+
+        <div className={`flex flex-1 items-center justify-center py-3 text-center
+                         md:justify-end md:px-4 md:py-0 md:text-right`}>
+          <span className="text-[var(--muted)]">
+            © 2026 Nextill
+          </span>
         </div>
       </div>
     </footer>
