@@ -24,6 +24,7 @@
 
     --muted: theme(colors.slate.600);
     --muted-foreground: theme(colors.slate.500);
+    --divider: theme(colors.slate.300);
   }
 
   .dark {
@@ -40,6 +41,7 @@
 
     --muted: theme(colors.slate.400);
     --muted-foreground: theme(colors.slate.500);
+    --divider: theme(colors.slate.700);
   }
 
   *, *::before, *::after {

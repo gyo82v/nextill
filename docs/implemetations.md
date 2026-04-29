@@ -27,10 +27,10 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Style}{Header} Style the sign out button and the username;
 - [✅] {Content}{Header} Add a confirmation modal when the user clicks the sign out button;
 - [✅] {Style}{Header} Style the language and darkmode toggles in the header in logged off mode;
-- [Content] [Footer] Add information in the footer like: project-demo, @nextill, a mail option etc;
+- [✅] {Content}{Footer} Add information in the footer like: project-demo, @nextill, a mail option etc;
 - [Content] [Account] Add privacy policy;
 - [Content] [App] create a privacy policy page;
-- [Style] [footer] Style the footer for mobile/desktop;
+- [✅] {Style}{Footer} Style the footer for mobile/desktop;
 - [Content] [Intro] add an introduction description in the intro page with h1, p ... it should 
                     describe what this app does, welcome the user, that is a free app, add more 
                     content in the desktop version;
@@ -103,7 +103,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Localization] [Account] Add localization to the account page;
 - [Localization] [Privacy-policy] add localization to the privacy policy page;
 - [✅] {Localization}{Header} Add localization to the Header;
-- [Localization] [Footer] Add localization to the footer;
+- [✅] {Localization}{Footer} Add localization to the footer;
 - [Localization] [Intro] Add localization to the Intro page;
 - [Delete] [App] delete the unused test language page;
 - [A11y] [Till] Add accessibility to the Till page;
@@ -111,7 +111,7 @@ NEXTILL IMPLEMENTATION LIST
 - [A11y] [Stock] Add accessibility to the stock page;
 - [A11y] [Stats] Add accessibility to the Stats page;
 - [A11y] [Account] Add accessibility to the account page;
-- [A11y] [Header/footer] add accessibility to the Header and Footer;
+- [✅] {A11y}{Header/Footer} add accessibility to the Header and Footer;
 - [A11y] [Intro] Add accessibility to the intro page;
 - [A11y] [Privacy-policy] add accessibility to the privacy-policy page;
 - [Test] [Account] Test the delete account feature;
@@ -126,7 +126,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Test] [App] Test the till, menu , stock and stats;
 - [Test] [App] Run the lighthouse test;
 - [Clean] [Dividers] Clean the unused dividers;
-- [Clean] [AppHeader] Clean the unused code;
+- [Clean] [AppHeader] Clean the unused code in the Navbar component;
 - [Optional] [Account] improve the export data feature, instead of a json file use pdf or other formats;
 - [Optional] [Account] add an accessibility option to disable motion;
 - [Optional] [App] add sounds effects to the till and an option in the account page to disable it;
@@ -145,3 +145,5 @@ NEXTILL IMPLEMENTATION LIST
 - [Optional/Fix] [Header] fix the navbar animation pill; when the sixe on the navbars links changes, 
                           the pill should resize corretly automatically.
                           example: changing language in the account page;
+- [optional/Fix] [Footer] Fix the footer height, on mobile device, in particular the AppFooter. 
+                          
