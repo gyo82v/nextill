@@ -28,7 +28,7 @@ function List({ items }: { items: string[] }) {
 }
 
 export default function PrivacyPolicyPage() {
-  const { t } = useTranslation("privacy");
+  const { t } = useTranslation(["privacy", "common"]);
 
   const lastUpdated = t("meta.lastUpdated");
   const introTitle = t("intro.title");
@@ -101,7 +101,7 @@ export default function PrivacyPolicyPage() {
               href="/"
               className="inline-flex items-center rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100"
             >
-              ← {t("common.back", { defaultValue: "Back" })}
+              ← {t("common:back")}
             </Link>
           </div>
         </header>

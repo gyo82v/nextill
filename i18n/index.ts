@@ -9,7 +9,7 @@ if (!i18n.isInitialized) {
     resources,
     fallbackLng: "en",
     defaultNS: "common",
-    ns: ["common"],
+    ns: ["common", "privacy"],
     interpolation: { escapeValue: false },
     react: { useSuspense: false },
   });

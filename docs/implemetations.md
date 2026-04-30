@@ -118,13 +118,18 @@ NEXTILL IMPLEMENTATION LIST
 - [Test] [Account] Test the reset password feature;
 - [Test] [Account] Test the clear all data feature;
 - [Test] [Account] Test the currency toggle feature;
-- [Test] [Account] Test the language toggle feature;
+- [✅] {Test}{Account} Test the language toggle feature;
 - [Test] [App] Test the darkmode in all pages;
 - [Test] [App] Test the email confirmation feature;
 - [Test] [Till] Test how the opening and closing balance works;
 - [Test] [App] Test the start/end day cycle;
 - [Test] [App] Test the till, menu , stock and stats;
 - [Test] [App] Run the lighthouse test;
+- [Fix] [Account] Fix the delete account function; at the moment it deletes only the auth.
+                  it should delete the firestore users doc associated;
+- [Fix] [Account] Fix the clear all data function; it should reset the data of the entire app.
+                  at the moment it just clear the stock collections and nothing else;
+- [✅] {Fix}{Languages} fix the issue when there are multiple files common and privacy in the same page;
 - [Clean] [Dividers] Clean the unused dividers;
 - [Clean] [AppHeader] Clean the unused code in the Navbar component;
 - [Optional] [Account] improve the export data feature, instead of a json file use pdf or other formats;

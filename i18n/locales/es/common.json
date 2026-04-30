@@ -12,6 +12,7 @@
   "stock": "Stock",
   "items_one": "{{count}} item",
   "items_other": "{{count}} items",
+  "back": "Volver",
   "theme" : {
     "switchToLight" : "Cambiar al modo claro",
     "switchToDark" : "Cambiar al modo oscuro"
