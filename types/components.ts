@@ -28,3 +28,13 @@ export type MobileHeaderMenuProps = {
   open: boolean;
   onClose: () => void;
 };
+
+export type AuthDescriptionProps = {
+  title: string;
+  description: string;
+  benefit: string;
+  freeNote: string;
+  cta: string;
+  features?: string[];
+  featuresTitle?: string;
+};
