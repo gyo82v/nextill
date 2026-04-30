@@ -96,6 +96,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Utils}{App} create reusable dividers;
 - [Utils] [App] Add spinnes in all async buttons;
 - [Utils] [App] Add spinners in all pages instead of the text loading;
+- [Utils] [Inputs] Add the show pssw icon in the pssw inputs field;
 - [Localization] [Till] Add localization to the till page;
 - [Localization] [Menu] Add localization to the menu page;
 - [Localization] [Stock] Add localization to the stock page;
@@ -105,7 +106,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Localization}{Header} Add localization to the Header;
 - [✅] {Localization}{Footer} Add localization to the footer;
 - [Localization] [Intro] Add localization to the Intro page;
-- [Delete] [App] delete the unused test language page;
+- [✅] {Delete}{App} delete the unused test language page;
 - [A11y] [Till] Add accessibility to the Till page;
 - [A11y] [Menu] Add accessibility to the Menu page;
 - [A11y] [Stock] Add accessibility to the stock page;
@@ -151,4 +152,6 @@ NEXTILL IMPLEMENTATION LIST
                           the pill should resize corretly automatically.
                           example: changing language in the account page;
 - [optional/Fix] [Footer] Fix the footer height, on mobile device, in particular the AppFooter. 
+- [Optional] [Intro] if possible add a remember me option in the intro page;
+- [optional] [App] Add the option to register a second email or the option to update the current email;
                           
