@@ -31,12 +31,12 @@ NEXTILL IMPLEMENTATION LIST
 - [Content] [Account] Add privacy policy;
 - [✅] {Content}{App} create a privacy policy page;
 - [✅] {Style}{Footer} Style the footer for mobile/desktop;
-- [Content] [Intro] add an introduction description in the intro page with h1, p ... it should 
-                    describe what this app does, welcome the user, that is a free app, add more 
-                    content in the desktop version;
-- [Style] [Intro] Style the sign in form component;
-- [style] [Intro] Style the create new account form component;
-- [Content] [intro] Add in the create new acoount component a By creating an account,
+- [✅] {Content}{Intro} add an introduction description in the intro page with h1, p ... it should 
+        describe what this app does, welcome the user, that is a free app, add more 
+        content in the desktop version;
+- [✅] {Style}{Intro} Style the sign in form component;
+- [✅] {Style}{Intro} Style the create new account form component;
+- [✅] {Content}{Intro} Add in the create new acoount component a By creating an account,
                     you agree to the Privacy Policy. with link to the page;
 - [Fix] [Till] fix a visual bug, when a user sign in and the day is not active the till page 
                should immediately render the not active section and not briefly the active section;
@@ -73,7 +73,7 @@ NEXTILL IMPLEMENTATION LIST
                     preferences and mantainance;
 - [Style] [Account] Style the modal section when the user try to clear all data;
 - [✅] {Refactor}{App} Refactor the language feature to support spanish, french and german;
-- [Refactor] [Intro] Refactor the intro page: types, enslint errors, separate components;
+- [✅] {Refactor}{Intro} Refactor the intro page: types, enslint errors, separate components;
 - [Refactor] [Till] Refactor the Till page: types, enslint errors, separate components;
 - [Refactor] [Menu] Refactor the Menu page: types, enslint errors, separate components;
 - [Refactor] [Stock] Refactor the Stock page: types, enslint errors, separate components;
@@ -96,7 +96,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Utils}{App} create reusable dividers;
 - [Utils] [App] Add spinnes in all async buttons;
 - [Utils] [App] Add spinners in all pages instead of the text loading;
-- [Utils] [Inputs] Add the show pssw icon in the pssw inputs field;
+- [✅] {Utils}{Inputs} Add the show pssw icon in the pssw inputs field;
 - [Localization] [Till] Add localization to the till page;
 - [Localization] [Menu] Add localization to the menu page;
 - [Localization] [Stock] Add localization to the stock page;
@@ -105,7 +105,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Localization}{Privacy-Policy} add localization to the privacy policy page;
 - [✅] {Localization}{Header} Add localization to the Header;
 - [✅] {Localization}{Footer} Add localization to the footer;
-- [Localization] [Intro] Add localization to the Intro page;
+- [✅] {Localization}{Intro} Add localization to the Intro page;
 - [✅] {Delete}{App} delete the unused test language page;
 - [A11y] [Till] Add accessibility to the Till page;
 - [A11y] [Menu] Add accessibility to the Menu page;
@@ -113,7 +113,7 @@ NEXTILL IMPLEMENTATION LIST
 - [A11y] [Stats] Add accessibility to the Stats page;
 - [A11y] [Account] Add accessibility to the account page;
 - [✅] {A11y}{Header/Footer} add accessibility to the Header and Footer;
-- [A11y] [Intro] Add accessibility to the intro page;
+- [✅] {A11y}{Intro} Add accessibility to the intro page;
 - [✅] {A11y}{Privacy-Policy} add accessibility to the privacy-policy page;
 - [Test] [Account] Test the delete account feature;
 - [Test] [Account] Test the reset password feature;

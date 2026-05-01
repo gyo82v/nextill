@@ -3,7 +3,7 @@ import type { AuthPageLayoutProps } from "@/types";
 export default function AuthLayout({ description, form, className = "" }: AuthPageLayoutProps) {
   return (
     <section
-      className={`w-full px-4 py-12 sm:px-6 lg:px-8  xl:py-16 ${className}`}
+      className={`w-full px-4 py-12 lg:py-16 sm:px-6 lg:px-8  xl:py-20 ${className}`}
       aria-labelledby="auth-page-title"
     >
       <div className="mx-auto flex w-full max-w-7xl items-center justify-center">
