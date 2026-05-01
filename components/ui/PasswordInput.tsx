@@ -3,17 +3,8 @@
 import { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
-import { inputBaseStyle } from "@/styles";
-import { focusRingInset } from "@/styles/focus";
-
-type PasswordInputProps = {
-  id: string;
-  label: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  required?: boolean;
-  autoComplete?: string;
-};
+import { inputBaseStyle, focusRingInset  } from "@/styles";
+import type { PasswordInputProps } from "@/types/ui";
 
 export default function PasswordInput({
   id,
@@ -32,7 +23,8 @@ export default function PasswordInput({
       </label>
 
       <div
-        className={`relative flex items-center rounded-xl border border-default bg-surface-1 ${focusRingInset}`}
+        className={`relative flex items-center rounded-xl border border-default
+                    bg-surface-1 ${focusRingInset}`}
       >
         <input
           id={id}
@@ -47,7 +39,8 @@ export default function PasswordInput({
         <button
           type="button"
           onClick={() => setShowPassword((v) => !v)}
-          className="absolute right-3 inline-flex items-center justify-center rounded-md p-1 text-muted transition hover:text-[var(--foreground)]"
+          className={`absolute right-3 inline-flex items-center justify-center ${focusRingInset}
+                      rounded-md p-1 text-muted transition hover:text-[var(--foreground)]`}
           aria-label={showPassword ? "Hide password" : "Show password"}
         >
           {showPassword ? <FiEyeOff size={18} /> : <FiEye size={18} />}
