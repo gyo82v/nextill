@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/firebase/authProvider";
+import { useTranslation } from "react-i18next";
 
 import {
   formContainerStyle,
@@ -21,6 +22,7 @@ import Button from "../ui/Button";
 export default function SignInForm() {
   const { signIn, user, loading } = useAuth();
   const router = useRouter();
+  const { t } = useTranslation("auth");
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -61,7 +63,7 @@ export default function SignInForm() {
               Nextill
             </p>
             <h1 className="text-2xl font-semibold tracking-tight text-[var(--foreground)] sm:text-3xl">
-              Sign in to Nextill
+              {t("signIn.title")}
             </h1>
           </div>
 
@@ -74,7 +76,7 @@ export default function SignInForm() {
 
           <div className={formFieldStyle}>
             <label htmlFor="email" className={formLabelStyle}>
-              Email
+              {t("signIn.email")}
             </label>
             <input
               id="email"
@@ -84,13 +86,13 @@ export default function SignInForm() {
               onChange={(e) => setEmail(e.target.value)}
               className={inputBaseStyle}
               autoComplete="email"
-              placeholder="you@example.com"
+              placeholder={t("signIn.emailPlaceholder")}
             />
           </div>
 
           <PasswordInput
             id="password"
-            label="Password"
+            label={t("signIn.password")}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -102,19 +104,19 @@ export default function SignInForm() {
           <Button
             type="submit"
             loading={submitting}
-            loadingText="Signing in…"
+            loadingText={t("signIn.submitting")}
             className="w-full"
           >
-            Sign in
+            {t("signIn.submit")}
           </Button>
 
           <div className="flex flex-col items-center gap-2 text-center text-sm text-muted ">
             <p>
-              Don&apos;t have an account?{" "}
+              {t("signIn.noAccount")}{" "}
               <Link 
                 href="/sign-up" 
                 className={`font-medium text-primary underline-offset-4 hover:underline ${focusRing}`}>
-                Create one
+                {t("signIn.createOne")}
               </Link>
             </p>
 
@@ -122,7 +124,7 @@ export default function SignInForm() {
               href="/forgot-password" 
               className={`font-medium text-primary underline-offset-4 hover:underline ${focusRing}`}
             >
-              Forgot password?
+              {t("signIn.forgotPassword")}
             </Link>
           </div>
         </div>

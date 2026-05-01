@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/firebase/authProvider";
+import { useTranslation } from "react-i18next";
 
 import {
   formContainerStyle,
@@ -21,6 +22,7 @@ import Button from "../ui/Button";
 export default function SignUpForm() {
   const { createUser, user, loading } = useAuth();
   const router = useRouter();
+  const { t } = useTranslation("auth");
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -66,7 +68,7 @@ export default function SignUpForm() {
             <h1 
               className="text-2xl font-semibold tracking-tight text-[var(--foreground)] sm:text-3xl"
             >
-              Create your Nextill account
+              {t("signUp.title")}
             </h1>
           </div>
 
@@ -79,7 +81,7 @@ export default function SignUpForm() {
 
           <div className={formFieldStyle}>
             <label htmlFor="name" className={formLabelStyle}>
-              Name
+              {t("signUp.name")}
             </label>
             <input
               id="name"
@@ -89,13 +91,13 @@ export default function SignUpForm() {
               onChange={(e) => setName(e.target.value)}
               className={inputBaseStyle}
               autoComplete="name"
-              placeholder="Your name"
+              placeholder={t("signUp.namePlaceholder")}
             />
           </div>
 
           <div className={formFieldStyle}>
             <label htmlFor="email" className={formLabelStyle}>
-              Email
+              {t("signUp.email")}
             </label>
             <input
               id="email"
@@ -105,13 +107,13 @@ export default function SignUpForm() {
               onChange={(e) => setEmail(e.target.value)}
               className={inputBaseStyle}
               autoComplete="email"
-              placeholder="you@example.com"
+              placeholder={t("signUp.emailPlaceholder")}
             />
           </div>
 
           <PasswordInput
             id="password"
-            label="Password"
+            label={t("signUp.password")}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -129,13 +131,13 @@ export default function SignUpForm() {
                             accent-[var(--primary)] ${focusRingInset}`}
               />
               <span className="leading-6">
-                I have read and agree to the{" "}
+                {t("signUp.privacyConsent")}{" "}
                 <Link
                   href="/privacy-policy"
                   className={`font-medium text-primary underline-offset-4 hover:underline
                               ${focusRing}`}
                 >
-                  Privacy Policy
+                  {t("signUp.privacyPolicy")}
                 </Link>
                 .
               </span>
@@ -147,20 +149,20 @@ export default function SignUpForm() {
           <Button
             type="submit"
             loading={submitting}
-            loadingText="Signing up…"
+            loadingText={t("signUp.submitting")}
             className="w-full"
           >
-            Sign up
+            {t("signUp.submit")}
           </Button>
 
           <p className="text-center text-sm text-muted">
-            Already have an account?{" "}
+            {t("signUp.alreadyHaveAccount")}{" "}
             <Link
               href="/sign-in"
               className={`font-medium text-primary underline-offset-4 hover:underline
                           ${focusRing}`}
             >
-              Sign in
+              {t("signUp.signIn")}
             </Link>
           </p>
         </div>
