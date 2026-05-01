@@ -12,13 +12,18 @@ export default function AuthDescription({
   return (
     <div className="flex h-full flex-col justify-between gap-8">
       <div className="space-y-6">
-        <div className="inline-flex items-center gap-2 rounded-full border border-default bg-surface-2 px-3 py-1 text-xs font-medium text-muted">
+        <div className={`inline-flex items-center gap-2 rounded-full border
+                         border-default bg-surface-2 px-3 py-1 text-xs font-medium text-muted`}>
           <span className="h-2 w-2 rounded-full bg-[var(--primary)]" />
           Nextill
         </div>
 
         <div className="space-y-4">
-          <h1 id="auth-page-title" className="text-3xl font-semibold tracking-tight text-[var(--foreground)] sm:text-4xl lg:text-5xl">
+          <h1 
+            id="auth-page-title" 
+            className={`text-3xl font-semibold tracking-tight text-[var(--foreground)]
+                        sm:text-4xl lg:text-5xl`}
+          >
             {title}
           </h1>
 
@@ -44,7 +49,8 @@ export default function AuthDescription({
             {features.map((feature, index) => (
               <li
                 key={index}
-                className="rounded-2xl border border-default bg-surface-2 px-4 py-3 text-sm leading-6 text-[var(--foreground)] shadow-sm"
+                className={`rounded-2xl border border-default bg-surface-2 px-4 py-3
+                            text-sm leading-6 text-[var(--foreground)] shadow-sm`}
               >
                 {feature}
               </li>
@@ -54,7 +60,9 @@ export default function AuthDescription({
       </div>
 
       <div className="rounded-2xl border border-default bg-surface-2 px-4 py-4 shadow-sm">
-        <p className="text-sm font-medium text-primary">{cta}</p>
+        <p className="text-sm font-medium text-primary">
+          {cta}
+        </p>
       </div>
     </div>
   );
