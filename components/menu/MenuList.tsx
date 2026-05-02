@@ -1,23 +1,44 @@
 "use client";
 
-import MenuItemCard from "./MenuItemCard";
-import type { MenuItem } from "@/types";
+import type { StockItem } from "@/firebase/stock";
+import type { MenuItem as MenuItemData } from "@/firebase/menu";
+import MenuItem from "./MenuItem";
 
 type Props = {
-  items: MenuItem[];
-  onAdd: (item: MenuItem) => void;
+  loading: boolean;
+  menuItems: MenuItemData[];
+  stockItems: StockItem[];
+  currency: string;
+  onDelete: (menuId: string) => void;
 };
 
-export default function MenuList({ items, onAdd }: Props) {
+export default function MenuList({
+  loading,
+  menuItems,
+  stockItems,
+  currency,
+  onDelete,
+}: Props) {
   return (
-    <div className="grid grid-cols-2 gap-4">
-      {items.map((item) => (
-        <MenuItemCard
-          key={item.id}
-          item={item}
-          onAdd={onAdd}
-        />
-      ))}
+    <div className="space-y-3">
+
+      {loading ? (
+        <p className="opacity-70">Loading…</p>
+      ) : menuItems.length === 0 ? (
+        <p className="opacity-70">No menu items.</p>
+      ) : (
+        <div className="space-y-3">
+          {menuItems.map((item) => (
+            <MenuItem
+              key={item.id}
+              item={item}
+              stockItems={stockItems}
+              currency={currency}
+              onDelete={onDelete}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
