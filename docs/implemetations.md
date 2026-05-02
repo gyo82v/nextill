@@ -115,7 +115,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {A11y}{Header/Footer} add accessibility to the Header and Footer;
 - [✅] {A11y}{Intro} Add accessibility to the intro page;
 - [✅] {A11y}{Privacy-Policy} add accessibility to the privacy-policy page;
-- [Test] [Account] Test the delete account feature;
+- [✅] {Test}{Account} Test the delete account feature;
 - [Test] [Account] Test the reset password feature;
 - [Test] [Account] Test the clear all data feature;
 - [Test] [Account] Test the currency toggle feature;
@@ -126,7 +126,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Test] [App] Test the start/end day cycle;
 - [Test] [App] Test the till, menu , stock and stats;
 - [Test] [App] Run the lighthouse test;
-- [Fix] [Account] Fix the delete account function; at the moment it deletes only the auth.
+- [✅] {Fix}{Account} Fix the delete account function; at the moment it deletes only the auth.
                   it should delete the firestore users doc associated;
 - [Fix] [Account] Fix the clear all data function; it should reset the data of the entire app.
                   at the moment it just clear the stock collections and nothing else;
@@ -154,4 +154,6 @@ NEXTILL IMPLEMENTATION LIST
 - [optional/Fix] [Footer] Fix the footer height, on mobile device, in particular the AppFooter. 
 - [Optional] [Intro] if possible add a remember me option in the intro page;
 - [optional] [App] Add the option to register a second email or the option to update the current email;
+- [Optional] [App] Create a custom modal component for the confirmation action like 
+                   delete account, clear menu, clear stock, clear all etc;
                           

@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useAuth } from "@/firebase/authProvider";
 import { listMenuItems, type MenuItem } from "@/firebase/menu";
-import MenuList from "@/components/menu/MenuList";
+import MenuList from "@/components/pos/MenuList";
 import CartPanel from "@/components/cart/CartPanel";
 import CheckoutButton from "@/components/cart/CheckoutButton";
 import StartDay from "@/components/till/StartDay";
