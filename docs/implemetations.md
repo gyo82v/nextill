@@ -6,7 +6,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Refactor] [Firestore] Modify the create new account function to add email confirmation;
 - [✅] {Content}{Header} build the navigation bar for mobile, add icon, when clicked open the 
                      navigation menu;
-- [Content] [Menu] Add the feature in the Menu page to clear all menu with a button;
+- [✅] {Content}{Menu} Add the feature in the Menu page to clear all menu with a button;
 - [Content] [Stock] Add the feature in the Stock page to clear all stock with a button;
 - [Content] [Stats] Add a feature in the Stats page to clear all stats with a button;
 - [✅] {Style}{Header} style the mobile navigation menu;

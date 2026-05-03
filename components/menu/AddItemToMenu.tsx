@@ -43,10 +43,10 @@ export default function AddItemToMenu({
     <div className="rounded-2xl border border-default bg-surface-1 p-4 shadow-sm sm:p-5 md:p-6">
       <div className="space-y-1.5">
         <h2 className="text-lg font-semibold tracking-tight text-[var(--foreground)]">
-          Add menu item
+          Add item
         </h2>
         <p className="text-sm text-muted">
-          Create a new item and optionally connect stock ingredients.
+          Select name, price, category and optionally ingredients.
         </p>
       </div>
 
