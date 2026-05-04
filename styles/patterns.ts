@@ -8,6 +8,10 @@ export const transitions =
 export const hoverPrimary =
   "hover:bg-[var(--primary-hover)] hover:text-[var(--primary-foreground)]";
 
+//button hover danger
+export const hoverDanger =
+  "hover:bg-red-600 dark:hover:bg-red-600 hover:text-white";
+
 //buttons, darkmode toggle
 export const activePress =
   "active:scale-[0.98] active:translate-y-px active:shadow-none";

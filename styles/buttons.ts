@@ -1,5 +1,5 @@
 import { focusRing } from "./focus"
-import { transitions, activePress, hoverPrimary } from "./patterns"
+import { transitions, activePress, hoverPrimary, hoverDanger } from "./patterns"
 
 export const iconsBtn = `inline-flex h-11 w-11 items-center justify-center rounded-xl
                          bg-surface-2 text-muted border border-default shadow-sm
@@ -11,7 +11,7 @@ export const iconsBtn = `inline-flex h-11 w-11 items-center justify-center round
    Base button (do NOT use alone)
 ====================================================== */
 export const buttonBaseStyle = `
-  inline-flex items-center justify-center gap-2
+  inline-flex items-center justify-center gap-1
   rounded-2xl px-4 py-3
   text-sm font-medium
   outline-none
@@ -35,8 +35,8 @@ export const buttonPrimaryStyle = `
 ====================================================== */
 export const buttonSecondaryStyle = `
   ${buttonBaseStyle}
-  border border-default bg-surface-1 text-[var(--foreground)]
-  hover:bg-surface-2
+  border border-default bg-surface-2 text-[var(--foreground)]
+  hover:bg-slate-300 dark:hover:bg-slate-600
 `;
 
 /* ======================================================
@@ -53,8 +53,8 @@ export const buttonGhostStyle = `
 ====================================================== */
 export const buttonDangerStyle = `
   ${buttonBaseStyle}
-  bg-red-600 text-white
-  hover:bg-red-700
+  border border-default bg-surface-2 text-[var(--foreground)]
+  ${hoverDanger}
 `;
 
 /* ======================================================

@@ -11,8 +11,9 @@ import {
   type Timestamp,
 } from "firebase/firestore";
 import { db } from "./firebase";
+import type { MenuCategory } from "@/types/menu";
 
-export type MenuCategory = "food" | "drink";
+
 
 export interface MenuIngredient {
   stockId: string;
