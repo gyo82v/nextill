@@ -5,6 +5,7 @@ import { inputBaseStyle, selectStyle } from "@/styles";
 import Button from "../ui/Button";
 import IngredientDraftCard from "./IngredientdraftCard";
 import IngredientRowCard from "./IngredientRowCard";
+import { DotLineDivider } from "../ui/dividers/Dividers";
 
 export default function AddItemToMenu({
   currency,
@@ -23,7 +24,7 @@ export default function AddItemToMenu({
   return (
     <div className="rounded-2xl border border-default bg-surface-1 p-4 shadow-sm sm:p-5 md:p-6">
       {/* Title and description */}
-      <div className="space-y-1.5">
+      <div className="">
         <h2 className="text-lg font-semibold tracking-tight text-[var(--foreground)]">
           Add item
         </h2>
@@ -59,18 +60,21 @@ export default function AddItemToMenu({
           value={category}
           onChange={(e) => setCategory(e.target.value as MenuCategory)}
         >
+          <option value=""> Select category</option>
           <option value="food">Food</option>
           <option value="drink">Drink</option>
         </select>
       </div>
 
+      <DotLineDivider className="my-12 xl:my-14" />
+
       {/* Ingredients section */}
-      <div className="mt-6 space-y-3">
+      <div className="space-y-3">
         {/* Section title, description and add button */}
-        <div className="flex items-center justify-between gap-3">
+        <div className="mb-6">
           <div>
-            <h3 className="font-medium text-[var(--foreground)]">
-              Ingredients (optional)
+            <h3 className="font-extralight text-[var(--foreground)]">
+              {`${"ingredients ".toUpperCase()}(optional)`}
             </h3>
             <p className="text-sm text-muted">
               Link stock items to keep menu and inventory connected.
@@ -83,8 +87,14 @@ export default function AddItemToMenu({
           onAdd={onAddIngredient}
         />
 
+        {ingredientRows.length > 0 && <DotLineDivider className="my-10 " />}
+
         {ingredientRows.length > 0 && (
-          <div className="space-y-3">
+          <div className="space-y-3 mb-12 xl:mb-14">
+            <h4 className="font-extralight text-[var(--foreground)]">
+              {`${"ingredients added:".toUpperCase()}`}
+            </h4>
+
             {ingredientRows.map((row, index) => (
               <IngredientRowCard
                 key={`${row.stockId}-${index}`}

@@ -102,6 +102,9 @@
   .text-muted {
     color: var(--muted);
   }
+  .text-muted-foreground {
+    color: var(--muted-foreground);
+  }
 
   /* Surfaces */
   .bg-surface-1 {

@@ -1,20 +1,11 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-import type { StockItem } from "@/firebase/stock";
+import { useState } from "react";
+import type { IngredientDraftCardProps } from "@/types";
 import { inputBaseStyle, selectStyle } from "@/styles";
 import Button from "../ui/Button";
 import { FiPlus } from "react-icons/fi";
 
-type IngredientDraft = {
-  stockId: string;
-  quantity: number;
-};
-
-type IngredientDraftCardProps = {
-  stockItems: StockItem[];
-  onAdd: (ingredient: IngredientDraft) => void;
-};
 
 export default function IngredientDraftCard({
   stockItems,
@@ -25,7 +16,7 @@ export default function IngredientDraftCard({
 
   const canAdd = stockId.trim().length > 0 && quantity > 0;
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  function handleSubmit(e:React.SyntheticEvent) {
     e.preventDefault();
 
     if (!canAdd) return;
@@ -58,24 +49,26 @@ export default function IngredientDraftCard({
           ))}
         </select>
 
-        <input
-          className={inputBaseStyle}
-          type="number"
-          min={1}
-          value={quantity}
-          onChange={(e) => setQuantity(Number(e.target.value))}
-        />
+        <div className="flex flex-col md:flex-row gap-2">
+          <input
+            className={`${inputBaseStyle} flex-1`}
+            type="number"
+            min={1}
+            value={quantity}
+            onChange={(e) => setQuantity(Number(e.target.value))}
+          />
 
-        <Button
-          type="submit"
-          variant="secondary"
-          className="w-full md:w-auto"
-          loading={false}
-          loadingText="adding"
-        >
-          <FiPlus className="h-4 w-4" />
-          <span>Add</span>
-        </Button>
+          <Button
+            type="submit"
+            variant="secondary"
+            className="flex-1"
+            loading={false}
+            loadingText="adding"
+          >
+            <FiPlus className="h-4 w-4" />
+            <span>Add</span>
+          </Button>
+        </div>
       </div>
     </form>
   );

@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useAuth } from "@/firebase/authProvider";
 import { listStockItems, type StockItem } from "@/firebase/stock";
+import { SectionDivider } from "@/components/ui/dividers/Dividers";
 import {
   createMenuItem,
   deleteMenuItem,
@@ -129,11 +130,11 @@ export default function MenuPage() {
   }
 
   return (
-    <div className="min-h-screen w-full bg-[var(--background)] px-4 py-6 text-[var(--foreground)] sm:px-6 lg:px-8">
-      <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-2 lg:items-start">
+    <div className="min-h-screen w-full bg-[var(--background)] px-4 py-10 text-[var(--foreground)] sm:px-6 lg:px-8 lg:py-14">
+      <div className="grid w-full grid-cols-1 gap-14  lg:grid-cols-2 lg:items-start">
         <section className="flex w-full justify-center">
           <div className="w-full max-w-2xl">
-            <div className="mb-4">
+            <div className="mb-6 xl:mb-8">
               <h1 className="text-2xl font-semibold tracking-tight">
                 Create menu item
               </h1>
@@ -159,9 +160,11 @@ export default function MenuPage() {
           </div>
         </section>
 
+        <SectionDivider className="lg:hidden" />
+
         <section className="flex w-full justify-center">
           <div className="w-full max-w-2xl">
-            <div className="mb-4 flex justify-between items-center">
+            <div className="mb-6 flex justify-between items-center xl:mb-8">
               <div>
                 <h1 className="text-2xl font-semibold tracking-tight">Menu</h1>
                 <p className="mt-1 text-sm text-muted">

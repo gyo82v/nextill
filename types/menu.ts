@@ -42,3 +42,20 @@ export type AddItemToMenuProps = {
 
   onSave: () => void;
 };
+
+export type IngredientRowCardProps = {
+  stockId: string;
+  quantity: number;
+  stockItems: StockItem[];
+  onRemove: () => void;
+};
+
+export type IngredientDraft = {
+  stockId: string;
+  quantity: number;
+};
+
+export type IngredientDraftCardProps = {
+  stockItems: StockItem[];
+  onAdd: (ingredient: IngredientDraft) => void;
+};
