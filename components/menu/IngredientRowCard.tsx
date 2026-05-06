@@ -1,16 +1,9 @@
 "use client";
 
-import type { StockItem } from "@/firebase/stock";
 import { pillTextStyle } from "@/styles";
 import Button from "../ui/Button";
 import { FiTrash2 } from "react-icons/fi";
-
-type IngredientRowCardProps = {
-  stockId: string;
-  quantity: number;
-  stockItems: StockItem[];
-  onRemove: () => void;
-};
+import type { IngredientRowCardProps } from "@/types/menu";
 
 export default function IngredientRowCard({
   stockId,

@@ -21,6 +21,7 @@ type StockItemWithActive = StockItem & {
   active?: boolean;
 };
 
+
 export default function MenuPage() {
   const { user, profile } = useAuth();
 
