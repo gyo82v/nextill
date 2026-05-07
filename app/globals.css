@@ -31,9 +31,9 @@
     --background: theme(colors.slate.800);
     --foreground: theme(colors.slate.100);
 
-    --surface: theme(colors.slate.800);
-    --surface-2: theme(colors.slate.700);
-    --border: theme(colors.slate.700);
+    --surface: theme(colors.slate.700);
+    --surface-2: theme(colors.slate.600);
+    --border: theme(colors.slate.500);
 
     --primary: theme(colors.teal.400);
     --primary-hover: theme(colors.teal.300);
@@ -41,7 +41,7 @@
 
     --muted: theme(colors.slate.400);
     --muted-foreground: theme(colors.slate.500);
-    --divider: theme(colors.slate.700);
+    --divider: theme(colors.slate.500);
   }
 
   *, *::before, *::after {
