@@ -131,6 +131,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Fix] [Account] Fix the clear all data function; it should reset the data of the entire app.
                   at the moment it just clear the stock collections and nothing else;
 - [Fix] [Stats] when a menu item is deleted, in the stats page it show the id and not the name;
+- [Fix] [Header] fix the text color of the navbar links for the darkmode;
 - [✅] {Fix}{Languages} fix the issue when there are multiple files common and privacy in the same page;
 - [Clean] [Dividers] Clean the unused dividers;
 - [Clean] [AppHeader] Clean the unused code in the Navbar component;
