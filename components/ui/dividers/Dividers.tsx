@@ -108,4 +108,26 @@ export function FooterDivider() {
   )
 }
 
+export function MenuSectionDivider({ className = "" }: DividerProps) {
+  return (
+    <div
+      aria-hidden="true"
+      className={`
+        my-8 h-px w-full bg-slate-300
+
+        lg:my-0
+        lg:absolute
+        lg:top-0
+        lg:bottom-0
+        lg:left-1/2
+        lg:w-px
+        lg:h-auto
+        lg:-translate-x-1/2
+
+        ${className}
+      `}
+    />
+  );
+}
+
 
