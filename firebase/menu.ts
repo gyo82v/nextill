@@ -8,41 +8,10 @@ import {
   query,
   serverTimestamp,
   updateDoc,
-  type Timestamp,
 } from "firebase/firestore";
 import { db } from "./firebase";
-import type { MenuCategory } from "@/types/menu";
+import type { MenuIngredient, MenuItem, CreateMenuItemInput, UpdateMenuItemInput } from "@/types/menu";
 
-
-
-export interface MenuIngredient {
-  stockId: string;
-  quantity: number;
-}
-
-export interface MenuItem {
-  id: string;
-  name: string;
-  priceMinor: number;
-  category: MenuCategory;
-  ingredients: MenuIngredient[];
-  createdAt: Timestamp;
-  updatedAt: Timestamp;
-}
-
-export type CreateMenuItemInput = {
-  name: string;
-  priceMinor: number;
-  category: MenuCategory;
-  ingredients?: MenuIngredient[];
-};
-
-export type UpdateMenuItemInput = Partial<{
-  name: string;
-  priceMinor: number;
-  category: MenuCategory;
-  ingredients: MenuIngredient[];
-}>;
 
 const menuCol = (uid: string) => collection(db, "users", uid, "menuItems");
 
@@ -82,7 +51,6 @@ export async function createMenuItem(uid: string, input: CreateMenuItemInput) {
   });
 }
 
-
 export async function updateMenuItem(
   uid: string,
   menuId: string,
@@ -105,51 +73,3 @@ export async function clearMenuItems(uid: string) {
   const items = await listMenuItems(uid);
   await Promise.all(items.map((item) => deleteDoc(doc(menuCol(uid), item.id))));
 }
-
-
-
-/*
-export async function createMenuItem(
-  uid: string,
-  data: Omit<MenuItem, "id" | "createdAt" | "updatedAt">
-) {
-  const ref = await addDoc(menuCol(uid), {
-    ...data,
-    createdAt: serverTimestamp(),
-    updatedAt: serverTimestamp(),
-  });
-
-  return ref.id;
-}
-
-export async function createMenuItem(
-  uid: string,
-  input: {
-    name: string;
-    priceMinor: number;
-    category: MenuCategory;
-  }
-) {
-  if (!uid) throw new Error("Missing user id.");
-  if (!input.name.trim()) throw new Error("Name required.");
-  if (!Number.isInteger(input.priceMinor) || input.priceMinor <= 0) {
-    throw new Error("Invalid price.");
-  }
-
-export async function updateMenuItem(
-  uid: string,
-  menuId: string,
-  patch: Partial<Pick<MenuItem, "name" | "priceMinor" | "category" | "ingredients">>
-) {
-  const ref = doc(menuCol(uid), menuId);
-
-  await updateDoc(ref, {
-    ...patch,
-    updatedAt: serverTimestamp(),
-  });
-}
-
-
-
-
-*/
