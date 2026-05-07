@@ -15,10 +15,12 @@ import type { StockItem } from "@/types";
 import type { IngredientRow, MenuCategory, StockItemWithActive, MenuItem, MenuIngredient } from "@/types/menu";
 import Button from "@/components/ui/Button";
 import { MenuSectionDivider } from "@/components/ui/dividers/Dividers";
+import { useTranslation } from "react-i18next";
 
 
 export default function MenuPage() {
   const { user, profile } = useAuth();
+  const { t } = useTranslation("menu");
 
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [stockItems, setStockItems] = useState<StockItem[]>([]);
@@ -143,10 +145,10 @@ export default function MenuPage() {
           <div className="w-full max-w-2xl">
             <div className="mb-6 lg:mb-10">
               <h1 className="text-2xl font-semibold tracking-tight">
-                Create menu item
+                {t("createSection.title")}
               </h1>
               <p className="mt-1 text-sm text-muted">
-                Create a new menu item and link it to stock ingredients when needed.
+                {t("createSection.description")}
               </p>
             </div>
 
@@ -174,18 +176,17 @@ export default function MenuPage() {
           <div className="w-full max-w-2xl">
             <div className="mb-6 flex justify-between items-center lg:mb-10">
               <div>
-                <h1 className="text-2xl font-semibold tracking-tight">Menu</h1>
+                <h1 className="text-2xl font-semibold tracking-tight">{t("listSection.title")}</h1>
                 <p className="mt-1 text-sm text-muted">
-                  Review menu items and remove anything you no longer need.
+                  {t("listSection.description")}
                 </p>
               </div>
               <Button 
                 variant="primary"
                 loading={clearMenuLoading}
-                loadingText=""
                 onClick={handleClearMenu}
               >
-                Clear menu
+                {t("listSection.clearAll")}
               </Button>
             </div>
 

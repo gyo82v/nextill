@@ -2,6 +2,7 @@
 
 import type { MenuListProps } from "@/types/menu";
 import MenuItem from "./MenuItem";
+import { useTranslation } from "react-i18next";
 
 export default function MenuList({
   loading,
@@ -11,13 +12,14 @@ export default function MenuList({
   loadingDelete,
   onDelete,
 }: MenuListProps) {
+  const { t } = useTranslation("menu");
   return (
     <div className="space-y-3">
 
       {loading ? (
-        <p className="opacity-70">Loading…</p>
+        <p className="opacity-70">{t("listSection.loading")}</p>
       ) : menuItems.length === 0 ? (
-        <p className="opacity-70">No menu items.</p>
+        <p className="opacity-70">{t("listSection.emptyState")}</p>
       ) : (
         <div className="space-y-3">
           {menuItems.map((item) => (

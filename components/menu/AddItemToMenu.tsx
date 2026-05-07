@@ -6,6 +6,7 @@ import Button from "../ui/Button";
 import IngredientDraftCard from "./IngredientdraftCard";
 import IngredientRowCard from "./IngredientRowCard";
 import { DotLineDivider } from "../ui/dividers/Dividers";
+import { useTranslation } from "react-i18next";
 import Select from "../ui/select";
 
 export default function AddItemToMenu({
@@ -23,16 +24,17 @@ export default function AddItemToMenu({
   loading,
   onSave,
 }: AddItemToMenuProps) {
+  const { t } = useTranslation("menu");
 
   return (
     <div className="rounded-2xl border border-default bg-surface-1 p-4 shadow-sm sm:p-5 md:p-6 ">
       {/* Title and description */}
       <div className="">
         <h2 className="text-lg font-semibold tracking-tight text-[var(--foreground)]">
-          Add item
+          {t("createSection.form.title")}
         </h2>
         <p className="text-sm text-muted">
-          Select name, price, category and optionally ingredients.
+          {t("createSection.form.description")}
         </p>
       </div>
 
@@ -40,7 +42,7 @@ export default function AddItemToMenu({
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         <input
           className={`${inputBaseStyle}`}
-          placeholder="Name"
+          placeholder={t("createSection.form.namePlaceholder")}
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
@@ -50,7 +52,7 @@ export default function AddItemToMenu({
           type="number"
           step="0.01"
           min="0"
-          placeholder={`Price (${currency})`}
+          placeholder={t("createSection.form.pricePlaceholder", { currency })}
           value={priceDisplay}
           onChange={(e) => setPriceDisplay(e.target.value)}
         />
@@ -61,8 +63,8 @@ export default function AddItemToMenu({
         <Select.Root value={category} onValueChange={setCategory} className="w-full" >
           <Select.Trigger />
           <Select.Content>
-            <Select.Item value="food">Food</Select.Item>
-            <Select.Item value="drink">Drink</Select.Item>
+            <Select.Item value="food">{t("createSection.form.categories.food")}</Select.Item>
+            <Select.Item value="drink">{t("createSection.form.categories.drinks")}</Select.Item>
           </Select.Content>
         </Select.Root>
       </div>
@@ -75,10 +77,11 @@ export default function AddItemToMenu({
         <div className="mb-6">
           <div>
             <h3 className="font-extralight text-[var(--foreground)]">
-              {`${"ingredients ".toUpperCase()}(optional)`}
+              <span className="mr-1">{t("createSection.form.ingredientsTitle").toUpperCase()}</span>
+              <span>{t("createSection.form.ingredientsOptional")}</span>
             </h3>
             <p className="text-sm text-muted">
-              Link stock items to keep menu and inventory connected.
+              {t("createSection.form.ingredientsDescription")}
             </p>
           </div>
         </div>

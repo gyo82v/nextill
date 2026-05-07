@@ -6,6 +6,7 @@ import { inputBaseStyle } from "@/styles";
 import Button from "../ui/Button";
 import { FiPlus } from "react-icons/fi";
 import Select from "../ui/select";
+import { useTranslation } from "react-i18next";
 
 export default function IngredientDraftCard({
   stockItems,
@@ -13,6 +14,7 @@ export default function IngredientDraftCard({
 }: IngredientDraftCardProps) {
   const [stockId, setStockId] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const { t } = useTranslation("menu");
 
   const canAdd = stockId.trim().length > 0 && quantity > 0;
 
@@ -40,7 +42,7 @@ export default function IngredientDraftCard({
       <div className="grid gap-2 md:grid-cols-[minmax(0,1fr),120px,auto]">
         <Select.Root value={stockId} onValueChange={setStockId} className="w-full">
           <Select.Trigger
-            placeholder="Select stock item"
+            placeholder={t("createSection.form.stockSelectPlaceholder")}
             label={
               selectedStock
                 ? `${selectedStock.name} (${selectedStock.quantity} ${selectedStock.unit})`
@@ -71,7 +73,7 @@ export default function IngredientDraftCard({
             className="flex-1"
           >
             <FiPlus className="h-4 w-4" />
-            <span>Add</span>
+            <span>{t("createSection.form.addIngredient")}</span>
           </Button>
         </div>
       </div>

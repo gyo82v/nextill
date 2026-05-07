@@ -1,0 +1,31 @@
+{
+  "loading": "Loading…",
+  "createSection": {
+    "title": "Create a new menu item",
+    "description": "Add a new item to your menu and link stock ingredients when needed.",
+
+    "form": {
+      "title": "Item details",
+      "description": "Choose the name, price, category, and any ingredients if needed.",
+      "namePlaceholder": "Item name",
+      "pricePlaceholder": "Price ({{currency}})",
+      "categories": {
+        "food": "Food",
+        "drinks": "Drinks"
+      },
+      "ingredientsTitle": "Ingredients",
+      "ingredientsOptional": "(optional)",
+      "ingredientsDescription": "Link stock items to keep your menu and inventory connected.",
+      "stockSelectPlaceholder": "Select a stock item",
+      "addIngredient": "Add"
+
+    }
+  },
+
+  "listSection": {
+    "title": "Menu items",
+    "description": "Review your menu items and remove any you no longer need.",
+    "emptyState": "No menu items yet. Create your first menu item to get started!",
+    "clearAll": "Clear all items"
+  }
+}
