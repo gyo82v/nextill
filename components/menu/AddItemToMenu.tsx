@@ -24,7 +24,7 @@ export default function AddItemToMenu({
 }: AddItemToMenuProps) {
 
   return (
-    <div className="rounded-2xl border border-default bg-surface-1 p-4 shadow-sm sm:p-5 md:p-6">
+    <div className="rounded-2xl border border-default bg-surface-1 p-4 shadow-sm sm:p-5 md:p-6 ">
       {/* Title and description */}
       <div className="">
         <h2 className="text-lg font-semibold tracking-tight text-[var(--foreground)]">
@@ -56,7 +56,7 @@ export default function AddItemToMenu({
       </div>
 
       {/* Category selector */}
-      <div className="mt-4">
+      <div className="mt-4 ">
         <Select.Root value={category} onValueChange={setCategory} className="w-full" >
           <Select.Trigger />
           <Select.Content>

@@ -1,14 +1,8 @@
 "use client";
 
-import type { ReactNode } from "react";
 import { modalPanel } from "@/styles";
 import { useSelect } from "./Select-root";
-
-type SelectContentProps = {
-  children: ReactNode;
-  className?: string;
-  "aria-label"?: string;
-};
+import type { SelectContentProps } from "@/types/select";
 
 export default function SelectContent({
   children,
@@ -23,7 +17,7 @@ export default function SelectContent({
       aria-label={ariaLabel}
       aria-hidden={!open}
       className={`
-        absolute left-0 top-full z-50 mt-2 min-w-[11rem] overflow-hidden
+        absolute left-0 top-full z-50 mt-2 w-full overflow-hidden
         rounded-xl border border-default bg-surface-1 p-2 shadow-lg
         ${modalPanel} origin-top-left
         ${

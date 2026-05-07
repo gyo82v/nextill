@@ -4,4 +4,5 @@ export * from "./components";
 export * from "./ui";
 export * from "./languageToggle";
 export * from "./layout";
-export * from "./menu";
+
+export * from "./select";

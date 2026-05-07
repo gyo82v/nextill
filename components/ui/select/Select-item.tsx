@@ -4,12 +4,7 @@ import { forwardRef } from "react";
 import { HiCheck } from "react-icons/hi2";
 import { activePress, transitions, overlay, focusRing } from "@/styles";
 import { useSelect } from "./Select-root";
-
-type SelectItemProps = {
-  value: string;
-  children: React.ReactNode;
-  className?: string;
-};
+import type { SelectItemProps } from "@/types/select";
 
 const SelectItem = forwardRef<HTMLButtonElement, SelectItemProps>(
   function SelectItem({ value, children, className }, ref) {
@@ -30,7 +25,8 @@ const SelectItem = forwardRef<HTMLButtonElement, SelectItemProps>(
         aria-selected={selected}
         onClick={handleSelect}
         className={`
-          flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm text-foreground
+          flex w-full items-center justify-between rounded-lg px-3 py-2
+          text-left text-sm text-foreground my-1
           ${selected ? "bg-surface-2 font-medium" : "bg-transparent"}
           hover-surface-2 ${focusRing} ${transitions} ${activePress}
           ${className ?? ""}
