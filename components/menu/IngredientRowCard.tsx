@@ -28,8 +28,6 @@ export default function IngredientRowCard({
         onClick={onRemove}
         type="button"
         className="w-full"
-        loading={false}
-        loadingText="removing"
       >
         <FiTrash2 className="h-4 w-4" />
         <span className="hidden lg:block">Remove</span>

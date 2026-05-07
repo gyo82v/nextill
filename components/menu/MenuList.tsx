@@ -1,24 +1,16 @@
 "use client";
 
-import type { StockItem } from "@/firebase/stock";
-import type { MenuItem as MenuItemData } from "@/firebase/menu";
+import type { MenuListProps } from "@/types/menu";
 import MenuItem from "./MenuItem";
-
-type Props = {
-  loading: boolean;
-  menuItems: MenuItemData[];
-  stockItems: StockItem[];
-  currency: string;
-  onDelete: (menuId: string) => void;
-};
 
 export default function MenuList({
   loading,
   menuItems,
   stockItems,
   currency,
+  loadingDelete,
   onDelete,
-}: Props) {
+}: MenuListProps) {
   return (
     <div className="space-y-3">
 
@@ -34,6 +26,7 @@ export default function MenuList({
               item={item}
               stockItems={stockItems}
               currency={currency}
+              loading={loadingDelete}
               onDelete={onDelete}
             />
           ))}
