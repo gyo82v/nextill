@@ -1,1 +1,40 @@
-{}
+{
+  "loading": "Cargando…",
+  "createSection": {
+    "title": "Crear un nuevo elemento del menú",
+    "description": "Añade un nuevo elemento a tu menú y vincula los ingredientes del inventario cuando sea necesario.",
+
+    "form": {
+      "title": "Detalles del elemento",
+      "description": "Elige el nombre, el precio, la categoría y los ingredientes si es necesario.",
+      "namePlaceholder": "Nombre del artículo",
+      "pricePlaceholder": "Precio ({{currency}})",
+      "categoryPlaceholder": "Selecciona una categoría",
+      "categories": {
+        "food": "Comida",
+        "drinks": "Bebidas",
+        "drink": "Bebidas"
+      },
+      "ingredientsTitle": "Ingredientes",
+      "ingredientsOptional": "(opcional)",
+      "ingredientsDescription": "Vincula los artículos del inventario para mantener el menú y el stock conectados.",
+      "stockSelectPlaceholder": "Seleccionar un artículo del inventario",
+      "addIngredient": "Añadir",
+      "addedIngredientsTitle": "Ingredientes añadidos",
+      "removeIngredient": "Eliminar",
+      "submit": "Guardar elemento",
+      "submitting": "Guardando elemento…"
+    }
+  },
+
+  "listSection": {
+    "title": "Elementos del menú",
+    "description": "Revisa los elementos de tu menú y elimina los que ya no necesites.",
+    "emptyState": "Aún no hay elementos en el menú. ¡Crea tu primer elemento para empezar!",
+    "clearAll": "Vaciar el menú",
+    "deleteItem": "Eliminar {{name}}",
+    "ingredientsLabel": "Ingredientes",
+    "noIngredients": "No hay ingredientes vinculados",
+    "ingredientItem": "{{name}} × {{quantity}}"
+  }
+}

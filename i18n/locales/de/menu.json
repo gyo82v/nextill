@@ -1,1 +1,40 @@
-{}
+{
+  "loading": "Wird geladen…",
+  "createSection": {
+    "title": "Neues Menüelement erstellen",
+    "description": "Füge deinem Menü ein neues Element hinzu und verknüpfe bei Bedarf Lagerzutaten.",
+
+    "form": {
+      "title": "Details zum Element",
+      "description": "Wähle Name, Preis, Kategorie und bei Bedarf Zutaten aus.",
+      "namePlaceholder": "Artikelname",
+      "pricePlaceholder": "Preis ({{currency}})",
+      "categoryPlaceholder": "Kategorie auswählen",
+      "categories": {
+        "food": "Essen",
+        "drinks": "Getränke",
+        "drink": "Getränke"
+      },
+      "ingredientsTitle": "Zutaten",
+      "ingredientsOptional": "(optional)",
+      "ingredientsDescription": "Verknüpfe Lagerartikel, um Menü und Bestand miteinander zu verbinden.",
+      "stockSelectPlaceholder": "Einen Lagerartikel auswählen",
+      "addIngredient": "Hinzufügen",
+      "addedIngredientsTitle": "Hinzugefügte Zutaten",
+      "removeIngredient": "Entfernen",
+      "submit": "Element speichern",
+      "submitting": "Element wird gespeichert…"
+    }
+  },
+
+  "listSection": {
+    "title": "Menüelemente",
+    "description": "Überprüfe deine Menüelemente und entferne alles, was du nicht mehr brauchst.",
+    "emptyState": "Noch keine Menüelemente vorhanden. Erstelle dein erstes Menüelement, um zu beginnen!",
+    "clearAll": "Alle Elemente löschen",
+    "deleteItem": "{{name}} löschen",
+    "ingredientsLabel": "Zutaten",
+    "noIngredients": "Keine Zutaten verknüpft",
+    "ingredientItem": "{{name}} × {{quantity}}"
+  }
+}

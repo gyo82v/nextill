@@ -9,16 +9,21 @@
       "description": "Choose the name, price, category, and any ingredients if needed.",
       "namePlaceholder": "Item name",
       "pricePlaceholder": "Price ({{currency}})",
+      "categoryPlaceholder": "Select a category",
       "categories": {
         "food": "Food",
-        "drinks": "Drinks"
+        "drinks": "Drinks",
+        "drink": "Drinks"
       },
       "ingredientsTitle": "Ingredients",
       "ingredientsOptional": "(optional)",
       "ingredientsDescription": "Link stock items to keep your menu and inventory connected.",
       "stockSelectPlaceholder": "Select a stock item",
-      "addIngredient": "Add"
-
+      "addIngredient": "Add",
+      "addedIngredientsTitle": "Added ingredients",
+      "removeIngredient": "Remove",
+      "submit": "Save item",
+      "submitting": "Saving item…"
     }
   },
 
@@ -26,6 +31,10 @@
     "title": "Menu items",
     "description": "Review your menu items and remove any you no longer need.",
     "emptyState": "No menu items yet. Create your first menu item to get started!",
-    "clearAll": "Clear all items"
+    "clearAll": "Clear all items",
+    "deleteItem": "Delete {{name}}",
+    "ingredientsLabel": "Ingredients",
+    "noIngredients": "No ingredients linked",
+    "ingredientItem": "{{name}} × {{quantity}}"
   }
 }
