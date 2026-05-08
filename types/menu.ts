@@ -12,7 +12,7 @@ export interface MenuItem {
   id: string;
   name: string;
   priceMinor: number;
-  category: MenuCategory;
+  category: MenuCategory | "";
   ingredients: MenuIngredient[];
   createdAt: Timestamp;
   updatedAt: Timestamp;
@@ -24,6 +24,8 @@ export type IngredientRow = {
   quantity: number;
 };
 
+export type DraftMenuCategory = MenuCategory | "";
+
 export type AddItemToMenuProps = {
   currency: string;
   stockItems: StockItem[];
@@ -34,8 +36,8 @@ export type AddItemToMenuProps = {
   priceDisplay: string;
   setPriceDisplay: (value: string) => void;
 
-  category: MenuCategory;
-  setCategory: (value: MenuCategory) => void;
+  category: DraftMenuCategory;
+  setCategory: (value: DraftMenuCategory) => void;
 
   ingredientRows: IngredientRow[];
   onAddIngredient: (ingredient: IngredientRow) => void;
@@ -98,7 +100,7 @@ export type MenuListProps = {
   menuItems: MenuItem[];
   stockItems: StockItem[];
   currency: string;
-  loadingDelete: boolean;
+  deletingMenuId: string | null;
   onDelete: (menuId: string) => void;
 };
 
