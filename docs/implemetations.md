@@ -49,10 +49,10 @@ NEXTILL IMPLEMENTATION LIST
 - [Style] [Till] Style the end day section in the till page;
 - [Style] [Till] Style the Till page and the layout of the page for mobile/desktops;
 - [Content] [Till] Add a title and brief description in the till page;
-- [Content] [Menu] Add a title and a brief description in the menu page;
-- [Style] [Menu] Style the add new item in the menu form component;
-- [Style] [Menu] Style the current menu list section;
-- [Style] [Menu] Style the menu page and layout for desktop/mobile;
+- [✅] {Content}{Menu} Add a title and a brief description in the menu page;
+- [✅] {Style}{Menu} Style the add new item in the menu form component;
+- [✅] {Style}{Menu} Style the current menu list section;
+- [✅] {Style}{Menu} Style the menu page and layout for desktop/mobile;
 - [Fix] [App] Fix the bug where some currency(usd) do not render the symbol but the text;
 - [Style] [Stock] Style the add new item to the stock form in the stock page;
 - [Style] [Stock] Style the current stock items list, search bar and filters in the current items 
@@ -75,7 +75,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Refactor}{App} Refactor the language feature to support spanish, french and german;
 - [✅] {Refactor}{Intro} Refactor the intro page: types, enslint errors, separate components;
 - [Refactor] [Till] Refactor the Till page: types, enslint errors, separate components;
-- [Refactor] [Menu] Refactor the Menu page: types, enslint errors, separate components;
+- [✅] {Refactor}{Menu} Refactor the Menu page: types, enslint errors, separate components;
 - [Refactor] [Stock] Refactor the Stock page: types, enslint errors, separate components;
 - [Refactor] [Stats] Refactor the Stats page: types, enslint errors, separate components;
 - [Refactor] [Account] Refactor the Account page: types, enslint errors, separate components;
@@ -98,7 +98,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Utils] [App] Add spinners in all pages instead of the text loading;
 - [✅] {Utils}{Inputs} Add the show pssw icon in the pssw inputs field;
 - [Localization] [Till] Add localization to the till page;
-- [Localization] [Menu] Add localization to the menu page;
+- [✅] {Localization}{Menu} Add localization to the menu page;
 - [Localization] [Stock] Add localization to the stock page;
 - [Localization] [Stats] Add localization to the Stats page;
 - [Localization] [Account] Add localization to the account page;
@@ -108,7 +108,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Localization}{Intro} Add localization to the Intro page;
 - [✅] {Delete}{App} delete the unused test language page;
 - [A11y] [Till] Add accessibility to the Till page;
-- [A11y] [Menu] Add accessibility to the Menu page;
+- [✅] {A11y}{Menu} Add accessibility to the Menu page;
 - [A11y] [Stock] Add accessibility to the stock page;
 - [A11y] [Stats] Add accessibility to the Stats page;
 - [A11y] [Account] Add accessibility to the account page;
@@ -132,6 +132,11 @@ NEXTILL IMPLEMENTATION LIST
                   at the moment it just clear the stock collections and nothing else;
 - [Fix] [Stats] when a menu item is deleted, in the stats page it show the id and not the name;
 - [Fix] [Header] fix the text color of the navbar links for the darkmode;
+- [Fix] [Select-component] Fix the select compound component. When too many elements are in the options
+                           there should be a scroll sidebar, this will fix the height issue in 
+                           the menu page;
+- [Fix] [Menu/Style] fix the style for the menu page when the content is stacked vertically for mobile
+                     and small screens;
 - [✅] {Fix}{Languages} fix the issue when there are multiple files common and privacy in the same page;
 - [Clean] [Dividers] Clean the unused dividers;
 - [Clean] [AppHeader] Clean the unused code in the Navbar component;
