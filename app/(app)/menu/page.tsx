@@ -12,7 +12,7 @@ import {
 import MenuList from "@/components/menu/MenuList";
 import AddItemToMenu from "@/components/menu/AddItemToMenu";
 import type { StockItem } from "@/types";
-import type { IngredientRow, MenuCategory, StockItemWithActive, MenuItem, MenuIngredient } from "@/types/menu";
+import type { IngredientRow, StockItemWithActive, MenuItem, MenuIngredient, DraftMenuCategory } from "@/types/menu";
 import Button from "@/components/ui/Button";
 import { MenuSectionDivider } from "@/components/ui/dividers/Dividers";
 import { useTranslation } from "react-i18next";
@@ -27,11 +27,11 @@ export default function MenuPage() {
   const [pageLoading, setPageLoading] = useState(true);
   const [clearMenuLoading, setClearMenuLoading] = useState(false);
   const [saveItemLoading, setSaveItemLoading] = useState(false);
-  const [deleteItemLoading, setDeleteItemLoading] = useState(false);
+  const [deletingMenuId, setDeletingMenuId] = useState<string | null>(null);
 
   const [name, setName] = useState("");
   const [priceDisplay, setPriceDisplay] = useState("");
-  const [category, setCategory] = useState<MenuCategory>("food");
+  const [category, setCategory] = useState<DraftMenuCategory>("");
   const [ingredientRows, setIngredientRows] = useState<IngredientRow[]>([]);
 
   const currency = profile?.nextillApp?.settings?.currency ?? "EUR";
@@ -92,6 +92,7 @@ export default function MenuPage() {
   async function handleCreateMenuItem() {
     if (!name.trim()) return;
     if (!user) return;
+    if (!category) return;
 
     const price = Number(priceDisplay);
     if (!Number.isFinite(price) || price <= 0) return;
@@ -116,7 +117,7 @@ export default function MenuPage() {
 
       setName("");
       setPriceDisplay("");
-      setCategory("food");
+      setCategory("");
       setIngredientRows([]);
       await load();
 
@@ -129,19 +130,19 @@ export default function MenuPage() {
     if (!user) return;
 
     try{
-      setDeleteItemLoading(true);
+      setDeletingMenuId(menuId);
       await deleteMenuItem(user.uid, menuId);
       await load();
     }finally{
-      setDeleteItemLoading(false);
+      setDeletingMenuId(null);
     }
   }
 
   return (
-    <div className={`min-h-screen w-full bg-[var(--background)] px-4 py-10
+    <div className={`w-full bg-[var(--background)] px-4 py-10
                      text-[var(--foreground)] sm:px-6 lg:px-8 lg:py-14 xl:py-16`}>
-      <div className="relative grid w-full grid-cols-1 gap-14  lg:grid-cols-2 lg:items-start">
-        <section className="flex w-full justify-center">
+      <div className="relative grid w-full grid-cols-1 gap-14 lg:grid-cols-2 lg:items-start ">
+        <section className="flex w-full justify-center ">
           <div className="w-full max-w-2xl">
             <div className="mb-6 lg:mb-10">
               <h1 className="text-2xl font-semibold tracking-tight">
@@ -151,7 +152,7 @@ export default function MenuPage() {
                 {t("createSection.description")}
               </p>
             </div>
-
+        
             <AddItemToMenu
               currency={currency}
               stockItems={stockItems}
@@ -167,12 +168,13 @@ export default function MenuPage() {
               loading={saveItemLoading}
               onSave={handleCreateMenuItem}
             />
+
           </div>
         </section>
 
-        <MenuSectionDivider />
+        <MenuSectionDivider /> 
 
-        <section className="flex w-full justify-center">
+        <section className="flex w-full justify-center ">
           <div className="w-full max-w-2xl">
             <div className="mb-6 flex justify-between items-center lg:mb-10">
               <div>
@@ -195,7 +197,7 @@ export default function MenuPage() {
               menuItems={menuItems}
               stockItems={stockItems}
               currency={currency}
-              loadingDelete={deleteItemLoading}
+              deletingMenuId={deletingMenuId}
               onDelete={handleDelete}
             />
           </div>
@@ -204,6 +206,7 @@ export default function MenuPage() {
     </div>
   );
 }
+
 
 
 

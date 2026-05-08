@@ -28,7 +28,7 @@ export default function AppLayout({children}: {children: React.ReactNode;}) {
   return (
     <>
       <AppHeader />
-      <main className="flex-1 flex min-w-0 w-full">
+      <main className="flex-1 min-w-0 w-full">
         {children}
       </main>
       <AppFooter />
