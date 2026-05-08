@@ -25,9 +25,15 @@ export default function AddItemToMenu({
   onSave,
 }: AddItemToMenuProps) {
   const { t } = useTranslation("menu");
+  const categoryLabel =
+  category === "food"
+    ? t("createSection.form.categories.food")
+    : category === "drink"
+      ? t("createSection.form.categories.drinks")
+      : undefined;
 
   return (
-    <div className="rounded-2xl border border-default bg-surface-1 p-4 shadow-sm sm:p-5 md:p-6 ">
+    <div className=" rounded-2xl border border-default bg-surface-1 p-4 shadow-sm sm:p-5 md:p-6  ">
       {/* Title and description */}
       <div className="">
         <h2 className="text-lg font-semibold tracking-tight text-[var(--foreground)]">
@@ -61,14 +67,14 @@ export default function AddItemToMenu({
       {/* Category selector */}
       <div className="mt-4 ">
         <Select.Root value={category} onValueChange={setCategory} className="w-full" >
-          <Select.Trigger />
+          <Select.Trigger placeholder={t("createSection.form.categoryPlaceholder")} label={categoryLabel} />
           <Select.Content>
             <Select.Item value="food">{t("createSection.form.categories.food")}</Select.Item>
             <Select.Item value="drink">{t("createSection.form.categories.drinks")}</Select.Item>
           </Select.Content>
         </Select.Root>
       </div>
-
+     
       <DotLineDivider className="my-12 xl:my-16" />
 
       {/* Ingredients section */}
@@ -96,7 +102,7 @@ export default function AddItemToMenu({
         {ingredientRows.length > 0 && (
           <div className="space-y-3 mb-12 xl:mb-14">
             <h4 className="font-extralight text-[var(--foreground)] mb-6">
-              {`${"ingredients added:".toUpperCase()}`}
+              {`${t("createSection.form.addedIngredientsTitle").toUpperCase()}`}
             </h4>
 
             {ingredientRows.map((row, index) => (
@@ -115,13 +121,14 @@ export default function AddItemToMenu({
       <Button
         type="button"
         onClick={onSave}
-        loadingText="saving item..."
+        loadingText={t("createSection.form.submitting")}
         loading={loading}
         className="w-full mt-6"
         disabled={!name.trim() || !priceDisplay.trim() || !category}
       >
-        Save item
+        {t("createSection.form.submit")}
       </Button>
     </div>
   );
 }
+

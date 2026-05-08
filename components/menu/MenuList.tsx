@@ -9,15 +9,15 @@ export default function MenuList({
   menuItems,
   stockItems,
   currency,
-  loadingDelete,
+  deletingMenuId,
   onDelete,
 }: MenuListProps) {
   const { t } = useTranslation("menu");
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 ">
 
       {loading ? (
-        <p className="opacity-70">{t("listSection.loading")}</p>
+        <p className="opacity-70">{t("loading")}</p>
       ) : menuItems.length === 0 ? (
         <p className="opacity-70">{t("listSection.emptyState")}</p>
       ) : (
@@ -28,7 +28,7 @@ export default function MenuList({
               item={item}
               stockItems={stockItems}
               currency={currency}
-              loading={loadingDelete}
+              loading={deletingMenuId === item.id}
               onDelete={onDelete}
             />
           ))}

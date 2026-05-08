@@ -57,7 +57,7 @@ export default function IngredientDraftCard({
             ))}
           </Select.Content>
         </Select.Root>
-
+         
         <div className="flex flex-col gap-2 md:flex-row">
           <input
             className={`${inputBaseStyle} flex-1`}
@@ -76,7 +76,10 @@ export default function IngredientDraftCard({
             <span>{t("createSection.form.addIngredient")}</span>
           </Button>
         </div>
+       
       </div>
     </form>
   );
 }
+
+
