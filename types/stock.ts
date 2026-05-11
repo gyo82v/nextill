@@ -3,6 +3,7 @@ import type {Timestamp} from "firebase/firestore";
 
 export type StockCategory = "food" | "drink";
 export type StockAction = "add" | "remove";
+export type DraftStockCategory = StockCategory | "";
 
 export interface StockItem {
   id: string;
@@ -28,8 +29,13 @@ export interface StockActivity {
 
 export type CreateStockItemInput = {
   name: string;
-  category: StockCategory;
+  category: DraftStockCategory;
   quantity: number;
   unit: string;
   minQty?: number;  
 };
+
+export type StockFormProps = {
+  uid: string;
+};
+
