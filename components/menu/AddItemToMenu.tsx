@@ -35,7 +35,7 @@ export default function AddItemToMenu({
   return (
     <div className=" rounded-2xl border border-default bg-surface-1 p-4 shadow-sm sm:p-5 md:p-6  ">
       {/* Title and description */}
-      <div className="">
+      <div>
         <h2 className="text-lg font-semibold tracking-tight text-[var(--foreground)]">
           {t("createSection.form.title")}
         </h2>
