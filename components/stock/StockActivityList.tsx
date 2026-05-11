@@ -1,17 +1,19 @@
 "use client";
 
-import type { StockActivity } from "@/firebase/stock";
+import type { StockActivity } from "@/types";
 
 type Props = {
   activity: StockActivity[];
   onDelete: (activityId: string) => void;
   onClearAll: () => void;
+  loading: boolean;
 };
 
 export default function StockActivityList({
   activity,
   onDelete,
   onClearAll,
+  loading
 }: Props) {
   return (
     <div className="space-y-3">

@@ -2,14 +2,15 @@
 
 import { useMemo, useState } from "react";
 import StockItemCard from "./StockItemCard";
-import type { StockItem } from "@/firebase/stock";
+import type { StockItem } from "@/types";
 
 type Props = {
   uid: string;
   items: StockItem[];
+  loading: boolean;
 };
 
-export default function StockList({ uid, items }: Props) {
+export default function StockList({ uid, items, loading }: Props) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<"all" | "food" | "drink">("all");
 

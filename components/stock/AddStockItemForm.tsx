@@ -2,20 +2,28 @@
 
 import { useState } from "react";
 import { createStockItem } from "@/firebase/stock";
+import type { StockFormProps, DraftStockCategory } from "@/types";
+import { inputBaseStyle } from "@/styles";
+import Select from "../ui/select";
+import Button from "../ui/Button";
 
-type Props = {
-  uid: string;
-};
 
-export default function AddStockItemForm({ uid }: Props) {
+export default function AddStockItemForm({ uid }: StockFormProps) {
   const [name, setName] = useState("");
-  const [category, setCategory] = useState<"food" | "drink">("food");
+  const [category, setCategory] = useState<DraftStockCategory>("");
   const [quantity, setQuantity] = useState(0);
   const [unit, setUnit] = useState("");
   const [minQty, setMinQty] = useState(5);
   const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent) {
+  const categoryLabel =
+    category === "food"
+    ? "food"
+    : category === "drink"
+      ? "drink"
+      : undefined;
+
+  async function handleSubmit(e:React.SyntheticEvent) {
     e.preventDefault();
     if (!name.trim()) return;
 
@@ -30,7 +38,7 @@ export default function AddStockItemForm({ uid }: Props) {
     });
 
     setName("");
-    setCategory("food");
+    setCategory("");
     setQuantity(0);
     setUnit("");
     setMinQty(5);
@@ -41,66 +49,73 @@ export default function AddStockItemForm({ uid }: Props) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-xl rounded border p-4 space-y-4"
+      className="w-full space-y-4 rounded-2xl border border-default bg-surface-1 p-4 shadow-sm sm:p-5 md:p-6"
     >
-      <h2 className="text-lg font-medium">Add stock item</h2>
-
-      <input
-        className="w-full rounded border px-3 py-2"
-        placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-
-      <div className="grid gap-3 md:grid-cols-2">
-        <select
-          className="rounded border px-3 py-2"
-          value={category}
-          onChange={(e) => setCategory(e.target.value as "food" | "drink")}
-        >
-          <option value="food">Food</option>
-          <option value="drink">Drink</option>
-        </select>
-
-        <input
-          className="rounded border px-3 py-2"
-          placeholder="Unit (e.g. pcs, ml, g)"
-          value={unit}
-          onChange={(e) => setUnit(e.target.value)}
-        />
+      <div className="mb-8">
+        <h2 className="text-lg font-medium">Add stock item</h2>
+        <p>description here</p>
       </div>
 
-      <div className="grid gap-3 md:grid-cols-3">
+      <div className="xl:my-8 space-y-4">
         <input
-          type="number"
-          min={0}
-          className="rounded border px-3 py-2"
-          placeholder="Initial quantity"
-          value={quantity}
-          onChange={(e) => setQuantity(Number(e.target.value))}
+          className={`${inputBaseStyle}`}
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
 
-        <input
-          type="number"
-          min={0}
-          className="rounded border px-3 py-2"
-          placeholder="Low stock threshold"
-          value={minQty}
-          onChange={(e) => setMinQty(Number(e.target.value))}
-        />
+        <div className="grid gap-3 md:grid-cols-2">
+          <Select.Root value={category} onValueChange={setCategory}>
+            <Select.Trigger placeholder="Select category" label={categoryLabel}/>
+            <Select.Content>
+              <Select.Item value="food">Food</Select.Item>
+              <Select.Item value="drink">Drink</Select.Item>
+            </Select.Content>
+          </Select.Root>
 
-        <div className="text-sm opacity-70 flex items-center">
-          Warn at ≤ {minQty}
+          <input
+            className={`${inputBaseStyle}`}
+            placeholder="Unit (e.g. pcs, ml, g)"
+            value={unit}
+            onChange={(e) => setUnit(e.target.value)}
+          />
+        </div>
+
+        <div className="grid gap-3 md:grid-cols-2">
+          <div className="">
+             <label className="text-sm  ml-3" htmlFor="quantity">Initial quantity</label>
+              <input
+                type="number"
+                id="quantity"
+                min={0}
+                className={`${inputBaseStyle}`}
+                value={quantity}
+                onChange={(e) => setQuantity(Number(e.target.value))}
+              />
+          </div>
+          <div className="">
+            <label className="text-sm  ml-3" htmlFor="minQty">Low stock threshold</label>
+            <input
+              type="number"
+              id="minQty"
+              min={0}
+              className={`${inputBaseStyle}`}
+              value={minQty}
+              onChange={(e) => setMinQty(Number(e.target.value))}
+            />
+          </div>
         </div>
       </div>
 
-      <button
+      <Button
         type="submit"
-        disabled={loading}
-        className="rounded bg-black px-4 py-2 text-white disabled:opacity-50"
+        loading={loading}
+        loadingText="Creating..."
+        className="w-full mt-8"
+        disabled={loading || !category || !name || !quantity || !minQty || !unit}
       >
-        {loading ? "Saving…" : "Create stock item"}
-      </button>
+        Create Stock Item
+      </Button>
     </form>
   );
 }
