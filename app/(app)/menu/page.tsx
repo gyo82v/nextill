@@ -139,8 +139,7 @@ export default function MenuPage() {
   }
 
   return (
-    <div className={`w-full bg-[var(--background)] px-4 py-14
-                     text-[var(--foreground)] sm:px-6 lg:px-8 lg:py-16`}>
+    <div className={`w-full  px-4 py-14 sm:px-6 lg:px-8 lg:py-16`}>
       <div className="relative grid w-full grid-cols-1 gap-14 lg:grid-cols-2 lg:items-start ">
         <section className="flex w-full justify-center ">
           <div className="w-full max-w-2xl">
@@ -178,7 +177,7 @@ export default function MenuPage() {
           <div className="w-full max-w-2xl">
             <div className="mb-14 sm:mb-6 flex flex-col gap-6 sm:gap-4 lg:gap-8 xl:gap-10 sm:flex-row sm:justify-between sm:items-center lg:mb-10">
               <div className="flex-2 lg:flex-3">
-                <h1 className="text-2xl font-semibold tracking-tight">{t("listSection.title")}</h1>
+                <h2 className="text-2xl font-semibold tracking-tight">{t("listSection.title")}</h2>
                 <p className="mt-1 text-sm text-muted">
                   {t("listSection.description")}
                 </p>
