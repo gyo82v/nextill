@@ -2,15 +2,12 @@
 
 import { useMemo, useState } from "react";
 import StockItemCard from "./StockItemCard";
-import type { StockItem } from "@/types";
+import type { StockListProps } from "@/types";
+import Select from "../ui/select";
+import { inputBaseStyle } from "@/styles";
 
-type Props = {
-  uid: string;
-  items: StockItem[];
-  loading: boolean;
-};
 
-export default function StockList({ uid, items, loading }: Props) {
+export default function StockList({ uid, items, loading }: StockListProps) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<"all" | "food" | "drink">("all");
 
@@ -28,8 +25,6 @@ export default function StockList({ uid, items, loading }: Props) {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-lg font-medium">Current stock</h2>
-
       {/* Search + filter */}
       <div className="flex gap-2 max-w-lg">
         <input
@@ -37,35 +32,30 @@ export default function StockList({ uid, items, loading }: Props) {
           placeholder="Search item…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="flex-1 border rounded px-3 py-2"
+          className={`${inputBaseStyle} flex-2`}
         />
 
-        <select
-          value={category}
-          onChange={(e) =>
-            setCategory(e.target.value as "all" | "food" | "drink")
-          }
-          className="border rounded px-3 py-2"
-        >
-          <option value="all">All</option>
-          <option value="food">Food</option>
-          <option value="drink">Drink</option>
-        </select>
+        <Select.Root value={category} onValueChange={setCategory} className="flex-1">
+          <Select.Trigger />
+          <Select.Content>
+            <Select.Item value="all">All</Select.Item>
+            <Select.Item value="food">Food</Select.Item>
+            <Select.Item value="drink">Drinks</Select.Item>
+          </Select.Content>
+        </Select.Root>
       </div>
 
       {/* List */}
       {filteredItems.length === 0 ? (
         <p className="opacity-70">No stock items found.</p>
       ) : (
-        <div className="space-y-3">
+        <ul className="space-y-3">
           {filteredItems.map((item) => (
-            <StockItemCard
-              key={item.id}
-              uid={uid}
-              item={item}
-            />
+            <li key={item.id}>
+              <StockItemCard uid={uid} item={item}/>
+            </li>
           ))}
-        </div>
+        </ul>
       )}
     </div>
   );

@@ -1,52 +1,29 @@
 "use client";
 
 import { useState } from "react";
-import {
-  confirmStockAdjustment,
-  archiveStockItem,
-  updateStockMinQty,
-  type StockItem,
-} from "@/firebase/stock";
+import {confirmStockAdjustment, archiveStockItem, updateStockMinQty} from "@/firebase/stock";
+import type { StockItemProps } from "@/types";
+import Button from "../ui/Button";
+import { FiTrash2 } from "react-icons/fi";
+import { cardBaseStyle } from "@/styles";
 
-type Props = {
-  uid: string;
-  item: StockItem;
-};
 
-const DEFAULT_LOW_STOCK_THRESHOLD = 5;
-
-export default function StockItemCard({ uid, item }: Props) {
+export default function StockItemCard({ uid, item }: StockItemProps) {
   const [delta, setDelta] = useState(0);
   const [loading, setLoading] = useState(false);
   const [isEditingThreshold, setIsEditingThreshold] = useState(false);
-  const [minQtyDraft, setMinQtyDraft] = useState(
-    item.minQty ?? DEFAULT_LOW_STOCK_THRESHOLD
-  );
+  const [minQtyDraft, setMinQtyDraft] = useState(item.minQty);
   const [savingThreshold, setSavingThreshold] = useState(false);
 
-  const lowStockThreshold = item.minQty ?? DEFAULT_LOW_STOCK_THRESHOLD;
-
   const isNegativeStock = item.quantity < 0;
-  const isLowStock = item.quantity >= 0 && item.quantity <= lowStockThreshold;
-  const isNormalStock = item.quantity > lowStockThreshold;
+  const isLowStock = item.quantity >= 0 && item.quantity <= item.minQty;
 
-  const statusClass = isNegativeStock
-    ? "border-red-500 bg-red-50"
-    : isLowStock
-      ? "border-yellow-400 bg-yellow-50"
-      : "border-green-400 bg-green-50";
+  const statusBadgeClass = isNegativeStock ? "text-red-700 border-red-300" :
+                           isLowStock ? "text-yellow-800 border-yellow-300":
+                                        "text-green-700 border-green-300";
 
-  const statusBadgeClass = isNegativeStock
-    ? "text-red-700 border-red-300"
-    : isLowStock
-      ? "text-yellow-800 border-yellow-300"
-      : "text-green-700 border-green-300";
-
-  const statusLabel = isNegativeStock
-    ? "Negative stock"
-    : isLowStock
-      ? "Low stock"
-      : "In stock";
+  const statusLabel = isNegativeStock ? "Negative stock" : 
+                      isLowStock ? "Low stock" : "In stock";
 
   async function handleConfirm() {
     if (delta === 0) return;
@@ -58,8 +35,6 @@ export default function StockItemCard({ uid, item }: Props) {
   }
 
   async function handleDelete() {
-    if (!confirm("Delete this stock item?")) return;
-
     setLoading(true);
     await archiveStockItem(uid, item.id);
     setLoading(false);
@@ -73,13 +48,13 @@ export default function StockItemCard({ uid, item }: Props) {
   }
 
   function handleCancelThresholdEdit() {
-    setMinQtyDraft(item.minQty ?? DEFAULT_LOW_STOCK_THRESHOLD);
+    setMinQtyDraft(item.minQty);
     setIsEditingThreshold(false);
   }
 
   return (
-    <div className={`rounded p-4 flex justify-between items-center border ${statusClass}`}>
-      <div className="space-y-2">
+    <article className={` p-4 flex items-center justify-between ${cardBaseStyle} `}>
+      <div className="space-y-2 border-2 border-red-500">
         <div className="font-medium flex items-center gap-2">
           {item.name}
 
@@ -93,7 +68,7 @@ export default function StockItemCard({ uid, item }: Props) {
         </div>
 
         <div className="text-sm opacity-70 flex items-center gap-2">
-          <span>Low stock threshold: {lowStockThreshold}</span>
+          <span>Low stock threshold: {item.minQty}</span>
 
           <button
             type="button"
@@ -105,7 +80,7 @@ export default function StockItemCard({ uid, item }: Props) {
         </div>
 
         {isEditingThreshold && (
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 border-2 border-blue-500">
             <input
               type="number"
               min={0}
@@ -134,40 +109,48 @@ export default function StockItemCard({ uid, item }: Props) {
         )}
       </div>
 
-      <div className="flex items-center gap-2">
-        <button
-          onClick={() => setDelta((d) => d - 1)}
-          className="border rounded px-2"
-        >
-          −
-        </button>
+      <div className="flex items-center gap-10 ">
+        <div className="border-2 border-yellow-500 flex flex-col items-center gap-2">
+          <div>
+            <button
+              onClick={() => setDelta((d) => d - 1)}
+              className="border rounded px-2"
+            >
+              −
+            </button>
 
-        <span className="min-w-[2rem] text-center">{delta}</span>
+            <span className="min-w-[2rem] text-center">{delta}</span>
 
-        <button
-          onClick={() => setDelta((d) => d + 1)}
-          className="border rounded px-2"
-        >
-          +
-        </button>
+            <button
+              onClick={() => setDelta((d) => d + 1)}
+              className="border rounded px-2"
+            >
+             +
+            </button>
+          </div>
 
-        <button
-          onClick={handleConfirm}
-          disabled={loading || delta === 0}
-          className="rounded bg-black text-white px-3 py-1 disabled:opacity-50"
-        >
-          Confirm
-        </button>
+          <button
+            onClick={handleConfirm}
+            disabled={loading || delta === 0}
+            className="rounded bg-black text-white px-3 py-1 disabled:opacity-50"
+          >
+            Confirm
+          </button>
+        </div>
 
-        <button
-          onClick={handleDelete}
+        <Button
+          type="button"
+          variant="danger"
           disabled={loading}
-          className="text-red-600 text-sm"
+          loading={false}
+          aria-label={`Delete ${item.name}`}
+          title={`Delete ${item.name}`}
+          onClick={handleDelete}  
         >
-          Delete
-        </button>
+          <FiTrash2 className="h-4 w-4" />
+        </Button>
       </div>
-    </div>
+    </article>
   );
 }
 

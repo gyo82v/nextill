@@ -1,33 +1,81 @@
 "use client";
 
-import type { StockActivity } from "@/types";
-
-type Props = {
-  activity: StockActivity[];
-  onDelete: (activityId: string) => void;
-  onClearAll: () => void;
-  loading: boolean;
-};
+import type { StockActivityListProps } from "@/types";
+import Button from "../ui/Button";
+import StockActivityCard from "./StockActivityCard";
 
 export default function StockActivityList({
   activity,
   onDelete,
   onClearAll,
   loading
-}: Props) {
+}: StockActivityListProps) {
   return (
-    <div className="space-y-3">
+    <section className="space-y-4 lg:space-y-6">
       <div className="flex items-center justify-between gap-4">
-        <h2 className="text-lg font-medium">Stock activity</h2>
+        <div>
+          <h3 className="text-lg font-medium">Stock activity</h3>
+          <p>description here</p>
+        </div>
 
-        <button
+        <Button
           type="button"
           onClick={onClearAll}
           disabled={activity.length === 0}
-          className="rounded border px-3 py-2 text-sm text-red-600 disabled:opacity-50"
+          loading={false}
+          loadingText="clearing"
         >
           Clear all
-        </button>
+        </Button>
+      </div>
+
+      {activity.length === 0 ? (
+        <p className="opacity-70">No activity yet...</p>
+      ) : (
+        <ul className="space-y-2">
+          {activity.map((a) => (
+            <li
+              key={a.id}
+              className=" rounded-2xl border border-default bg-surface-1 p-4 shadow-sm"
+            >
+              <StockActivityCard activity={a} onDelete={onDelete} />
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+  );
+}
+/*
+"use client";
+
+import type { StockActivityListProps } from "@/types";
+import Button from "../ui/Button";
+import StockActivityCard from "./StockActivityCard";
+
+export default function StockActivityList({
+  activity,
+  onDelete,
+  onClearAll,
+  loading
+}: StockActivityListProps) {
+  return (
+    <section className="space-y-4 lg:space-y-6">
+      <div className="flex items-center justify-between gap-4">
+        <div>
+          <h3 className="text-lg font-medium">Stock activity</h3>
+          <p>description here</p>
+        </div>
+
+        <Button
+          type="button"
+          onClick={onClearAll}
+          disabled={activity.length === 0}
+          loading={false}
+          loadingText="clearing"
+        >
+          Clear all
+        </Button>
       </div>
 
       {activity.length === 0 ? (
@@ -58,36 +106,6 @@ export default function StockActivityList({
           ))}
         </ul>
       )}
-    </div>
+    </section>
   );
-}
-/*
-"use client";
-
-import type { StockActivity } from "@/firebase/stock";
-
-type Props = {
-  activity: StockActivity[];
-};
-
-export default function StockActivityList({ activity }: Props) {
-  return (
-    <div className="space-y-2">
-      <h2 className="text-lg font-medium">Stock activity</h2>
-
-      {activity.length === 0 ? (
-        <p className="opacity-70">No activity yet.</p>
-      ) : (
-        <ul className="space-y-1 text-sm">
-          {activity.map((a) => (
-            <li key={a.id} className="opacity-80">
-              {a.itemName} — {a.action} {Math.abs(a.quantityDelta)} (
-              {a.quantityBefore} → {a.quantityAfter})
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-}
   */
