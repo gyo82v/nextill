@@ -39,3 +39,26 @@ export type StockFormProps = {
   uid: string;
 };
 
+export type StockActivityListProps = {
+  activity: StockActivity[];
+  onDelete: (activityId: string) => void;
+  onClearAll: () => void;
+  loading: boolean;
+};
+
+export type StockActivityItemProps = {
+  activity: StockActivity;
+  onDelete: (activityId: string) => void;
+}
+
+export type StockListProps = {
+  uid: string;
+  items: StockItem[];
+  loading: boolean;
+}
+
+export type StockItemProps = {
+  uid: string;
+  item: StockItem;
+}
+
