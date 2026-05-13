@@ -4,8 +4,9 @@ import { useState } from "react";
 import {confirmStockAdjustment, archiveStockItem, updateStockMinQty} from "@/firebase/stock";
 import type { StockItemProps } from "@/types";
 import Button from "../ui/Button";
-import { FiTrash2 } from "react-icons/fi";
-import { cardBaseStyle } from "@/styles";
+import { FiTrash2, FiMinus, FiPlus } from "react-icons/fi";
+import { cardBaseStyle, pillTextStyle } from "@/styles";
+import ThresholdEdit from "./ThresholdEdit";
 
 
 export default function StockItemCard({ uid, item }: StockItemProps) {
@@ -53,8 +54,102 @@ export default function StockItemCard({ uid, item }: StockItemProps) {
   }
 
   return (
-    <article className={` p-4 flex items-center justify-between ${cardBaseStyle} `}>
-      <div className="space-y-2 border-2 border-red-500">
+    <article className={`${cardBaseStyle} p-4`}>
+      <header className="flex items-center justify-between">
+        <div className="font-medium flex items-center gap-2">
+          {item.name}
+
+          <span className={`text-xs border px-2 py-0.5 rounded ${statusBadgeClass}`}>
+            {statusLabel}
+          </span>
+        </div>
+
+        <Button
+          type="button"
+          variant="danger"
+          disabled={loading}
+          loading={false}
+          aria-label={`Delete ${item.name}`}
+          title={`Delete ${item.name}`}
+          onClick={handleDelete}  
+        >
+          <FiTrash2 className="h-4 w-4" />
+        </Button>
+      </header>
+
+      <div className="my-5 h-px bg-[var(--divider)] opacity-60" />
+
+      <section className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <div className="text-sm opacity-70">
+            {item.category} · {item.quantity} {item.unit}
+          </div>
+
+          <div className="text-sm opacity-70 flex items-center gap-2">
+            <span>Low stock threshold: {item.minQty}</span>
+          </div>
+
+          <button
+              type="button"
+              onClick={() => setIsEditingThreshold((prev) => !prev)}
+              className="text-xs underline hover:font-bold"
+          >
+            Edit
+          </button>
+        </div>
+
+        <div className="my-5 h-px bg-[var(--divider)] opacity-60 sm:hidden" />
+
+        <div className="text-center mb-5 sm:mb-0">
+         <div>
+            <Button 
+              type="button"
+              variant="ghost"
+              onClick={() => setDelta((d) => d - 1)}>
+              <FiMinus className="h-4 w-4" />
+            </Button>
+
+
+            <span className={pillTextStyle}>{delta}</span>
+
+            <Button 
+              variant="ghost"
+              type="button"
+              onClick={() => setDelta((d) => d + 1)}>
+              <FiPlus className="h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+
+        <Button
+          type="button"
+          variant="confirm"
+          onClick={handleConfirm}
+          disabled={loading || delta === 0}
+          loading={false}
+        >
+          {delta >= 0 ? "Add" : "Remove"}
+        </Button>
+      </section>
+
+      {isEditingThreshold && 
+        <ThresholdEdit 
+          minQty={minQtyDraft} 
+          setMinQty={(e) => setMinQtyDraft(Number(e.target.value))}
+          handleCancel={handleCancelThresholdEdit}
+          handleSave={handleSaveThreshold} 
+          savingThreshold={savingThreshold}
+          />
+        }
+    </article>
+  );
+}
+
+
+/*
+
+<article className={` p-4 flex items-center justify-between ${cardBaseStyle} `}>
+      <div className="space-y-2 ">
         <div className="font-medium flex items-center gap-2">
           {item.name}
 
@@ -80,7 +175,7 @@ export default function StockItemCard({ uid, item }: StockItemProps) {
         </div>
 
         {isEditingThreshold && (
-          <div className="flex items-center gap-2 border-2 border-blue-500">
+          <div className="flex items-center gap-2 ">
             <input
               type="number"
               min={0}
@@ -109,169 +204,51 @@ export default function StockItemCard({ uid, item }: StockItemProps) {
         )}
       </div>
 
-      <div className="flex items-center gap-10 ">
-        <div className="border-2 border-yellow-500 flex flex-col items-center gap-2">
-          <div>
-            <button
-              onClick={() => setDelta((d) => d - 1)}
-              className="border rounded px-2"
-            >
-              −
-            </button>
-
-            <span className="min-w-[2rem] text-center">{delta}</span>
-
-            <button
-              onClick={() => setDelta((d) => d + 1)}
-              className="border rounded px-2"
-            >
-             +
-            </button>
-          </div>
-
-          <button
+      <div className="flex flex-col items-center gap-2">
+          <Button
+            type="button"
+            variant="confirm"
             onClick={handleConfirm}
             disabled={loading || delta === 0}
-            className="rounded bg-black text-white px-3 py-1 disabled:opacity-50"
+            loading={false}
           >
             Confirm
-          </button>
-        </div>
+          </Button>
 
-        <Button
-          type="button"
-          variant="danger"
-          disabled={loading}
-          loading={false}
-          aria-label={`Delete ${item.name}`}
-          title={`Delete ${item.name}`}
-          onClick={handleDelete}  
-        >
-          <FiTrash2 className="h-4 w-4" />
-        </Button>
+         <div>
+            <Button 
+              type="button"
+              variant="ghost"
+              onClick={() => setDelta((d) => d - 1)}>
+              <FiMinus className="h-4 w-4" />
+            </Button>
+
+
+            <span className={pillTextStyle}>{delta}</span>
+
+            <Button 
+              variant="ghost"
+              type="button"
+              onClick={() => setDelta((d) => d + 1)}>
+              <FiPlus className="h-4 w-4" />
+            </Button>
+          </div>
       </div>
+
+
+      <Button
+        type="button"
+        variant="danger"
+        disabled={loading}
+        loading={false}
+        aria-label={`Delete ${item.name}`}
+        title={`Delete ${item.name}`}
+        onClick={handleDelete}  
+      >
+        <FiTrash2 className="h-4 w-4" />
+      </Button>
     </article>
-  );
-}
 
-
-/*
-
-"use client";
-
-import { useState } from "react";
-import {
-  confirmStockAdjustment,
-  deleteStockItem,
-  type StockItem,
-} from "@/firebase/stock";
-
-type Props = {
-  uid: string;
-  item: StockItem;
-};
-
-const DEFAULT_LOW_STOCK_THRESHOLD = 10;
-
-export default function StockItemCard({ uid, item }: Props) {
-  const [delta, setDelta] = useState(0);
-  const [loading, setLoading] = useState(false);
-
-  const lowStockThreshold = item.minQty ?? DEFAULT_LOW_STOCK_THRESHOLD;
-
-  const isNegativeStock = item.quantity < 0;
-  const isLowStock = item.quantity >= 0 && item.quantity <= lowStockThreshold;
-  const isNormalStock = item.quantity > lowStockThreshold;
-
-  const statusClass = isNegativeStock
-    ? "border-red-500 bg-red-50"
-    : isLowStock
-      ? "border-yellow-400 bg-yellow-50"
-      : "border-green-400 bg-green-50";
-
-  const statusBadgeClass = isNegativeStock
-    ? "text-red-700 border-red-300"
-    : isLowStock
-      ? "text-yellow-800 border-yellow-300"
-      : "text-green-700 border-green-300";
-
-  const statusLabel = isNegativeStock
-    ? "Negative stock"
-    : isLowStock
-      ? "Low stock"
-      : "In stock";
-
-  async function handleConfirm() {
-    if (delta === 0) return;
-
-    setLoading(true);
-    await confirmStockAdjustment(uid, item.id, delta);
-    setDelta(0);
-    setLoading(false);
-  }
-
-  async function handleDelete() {
-    if (!confirm("Delete this stock item?")) return;
-
-    setLoading(true);
-    await deleteStockItem(uid, item.id);
-    setLoading(false);
-  }
-
-  return (
-    <div className={`rounded p-4 flex justify-between items-center border ${statusClass}`}>
-      <div>
-        <div className="font-medium flex items-center gap-2">
-          {item.name}
-
-          <span className={`text-xs border px-2 py-0.5 rounded ${statusBadgeClass}`}>
-            {statusLabel}
-          </span>
-        </div>
-
-        <div className="text-sm opacity-70">
-          {item.category} · {item.quantity} {item.unit}
-          {" · "}
-          threshold: {lowStockThreshold}
-        </div>
-      </div>
-
-      <div className="flex items-center gap-2">
-        <button
-          onClick={() => setDelta((d) => d - 1)}
-          className="border rounded px-2"
-        >
-          −
-        </button>
-
-        <span className="min-w-[2rem] text-center">{delta}</span>
-
-        <button
-          onClick={() => setDelta((d) => d + 1)}
-          className="border rounded px-2"
-        >
-          +
-        </button>
-
-        <button
-          onClick={handleConfirm}
-          disabled={loading || delta === 0}
-          className="rounded bg-black text-white px-3 py-1 disabled:opacity-50"
-        >
-          Confirm
-        </button>
-
-        <button
-          onClick={handleDelete}
-          disabled={loading}
-          className="text-red-600 text-sm"
-        >
-          Delete
-        </button>
-      </div>
-    </div>
-  );
-}
 
 
 
