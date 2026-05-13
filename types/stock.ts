@@ -1,4 +1,5 @@
 import type {Timestamp} from "firebase/firestore";
+import type { ChangeEventHandler } from "react";
 
 
 export type StockCategory = "food" | "drink";
@@ -61,4 +62,12 @@ export type StockItemProps = {
   uid: string;
   item: StockItem;
 }
+
+export type StockThresholdEditProps = {
+  minQty: number;
+  setMinQty: (value: number) => void;
+  handleSave: () => void | Promise<void>;
+  handleCancel: () => void;
+  savingThreshold: boolean;
+};
 
