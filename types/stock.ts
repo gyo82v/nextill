@@ -65,7 +65,7 @@ export type StockItemProps = {
 
 export type StockThresholdEditProps = {
   minQty: number;
-  setMinQty: (value: number) => void;
+  setMinQty: ChangeEventHandler<HTMLInputElement>;
   handleSave: () => void | Promise<void>;
   handleCancel: () => void;
   savingThreshold: boolean;

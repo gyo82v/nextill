@@ -36,7 +36,14 @@ export const buttonPrimaryStyle = `
 export const buttonSecondaryStyle = `
   ${buttonBaseStyle}
   border border-default bg-surface-2 text-[var(--foreground)]
-  hover:bg-slate-300 dark:hover:bg-slate-600
+  hover:bg-slate-300 dark:hover:bg-slate-700
+`;
+
+
+export const buttonConfirmStyle = `
+  ${buttonBaseStyle}
+  border border-default bg-surface-2 text-[var(--foreground)]
+  hover:bg-teal-500 dark:hover:bg-teal-400 hover:text-white
 `;
 
 /* ======================================================
@@ -45,7 +52,7 @@ export const buttonSecondaryStyle = `
 export const buttonGhostStyle = `
   ${buttonBaseStyle}
   bg-transparent text-[var(--foreground)]
-  hover:bg-surface-2
+  
 `;
 
 /* ======================================================

@@ -9,6 +9,7 @@ import {
   buttonDangerStyle,
   buttonIconStyle,
   buttonSmallStyle,
+  buttonConfirmStyle
 } from "@/styles";
 import type { ButtonProps, ButtonVariant } from "@/types";
 
@@ -18,6 +19,7 @@ const variantStyles: Record<ButtonVariant, string> = {
   ghost: buttonGhostStyle,
   danger: buttonDangerStyle,
   icon: buttonIconStyle,
+  confirm: buttonConfirmStyle
 };
 
 const sizeStyles: Record<"default" | "small", string> = {
