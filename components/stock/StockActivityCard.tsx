@@ -2,7 +2,7 @@ import type { StockActivityItemProps } from "@/types"
 import Button from "../ui/Button"
 import { FiTrash2 } from "react-icons/fi";
 
-export default function StockActivityCard({activity, onDelete}:StockActivityItemProps){
+export default function StockActivityCard({activity, onDelete, loading}:StockActivityItemProps){
     return(
         <article className="flex justify-between w-full">
             <div className="space-y-1">
@@ -17,8 +17,7 @@ export default function StockActivityCard({activity, onDelete}:StockActivityItem
               variant="danger"
               type="button"
               onClick={() => onDelete(activity.id)}
-              loading={false}
-              loadingText="deleting"
+              loading={loading}
               title="delete activity"
               aria-label="delete activity"
             >

@@ -98,10 +98,24 @@ export default function StockItemCard({ uid, item }: StockItemProps) {
           </button>
         </div>
 
+        {isEditingThreshold && 
+        <>
+        <div className="my-5 h-px bg-[var(--divider)] opacity-60 sm:hidden" />
+        <ThresholdEdit 
+          minQty={minQtyDraft} 
+          setMinQty={(e) => setMinQtyDraft(Number(e.target.value))}
+          handleCancel={handleCancelThresholdEdit}
+          handleSave={handleSaveThreshold} 
+          savingThreshold={savingThreshold}
+          className="sm:hidden"
+          />
+        </>
+        }
+
         <div className="my-5 h-px bg-[var(--divider)] opacity-60 sm:hidden" />
 
         <div className="text-center mb-5 sm:mb-0">
-         <div>
+         <div className="flex items-center gap-1">
             <Button 
               type="button"
               variant="ghost"
@@ -123,23 +137,28 @@ export default function StockItemCard({ uid, item }: StockItemProps) {
 
         <Button
           type="button"
-          variant="confirm"
+          variant={delta >= 0 ? "confirm" : "danger"}
           onClick={handleConfirm}
           disabled={loading || delta === 0}
           loading={false}
+          className="w-full sm:w-2/12"
         >
           {delta >= 0 ? "Add" : "Remove"}
         </Button>
       </section>
 
       {isEditingThreshold && 
+        <>
+        <div className="my-5 h-px bg-[var(--divider)] opacity-60 hidden sm:block" />
         <ThresholdEdit 
           minQty={minQtyDraft} 
           setMinQty={(e) => setMinQtyDraft(Number(e.target.value))}
           handleCancel={handleCancelThresholdEdit}
           handleSave={handleSaveThreshold} 
           savingThreshold={savingThreshold}
+          className="hidden sm:flex"
           />
+        </>
         }
     </article>
   );

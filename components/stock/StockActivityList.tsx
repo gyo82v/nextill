@@ -8,7 +8,9 @@ export default function StockActivityList({
   activity,
   onDelete,
   onClearAll,
-  loading
+  loading,
+  loadingClearActivity,
+  deletingActivityId
 }: StockActivityListProps) {
   return (
     <section className="space-y-4 lg:space-y-6">
@@ -22,8 +24,7 @@ export default function StockActivityList({
           type="button"
           onClick={onClearAll}
           disabled={activity.length === 0}
-          loading={false}
-          loadingText="clearing"
+          loading={loadingClearActivity}
         >
           Clear all
         </Button>
@@ -32,13 +33,13 @@ export default function StockActivityList({
       {activity.length === 0 ? (
         <p className="opacity-70">No activity yet...</p>
       ) : (
-        <ul className="space-y-2">
+        <ul className="space-y-2 lg:space-y-3 xl:space-y-4">
           {activity.map((a) => (
             <li
               key={a.id}
               className=" rounded-2xl border border-default bg-surface-1 p-4 shadow-sm"
             >
-              <StockActivityCard activity={a} onDelete={onDelete} />
+              <StockActivityCard activity={a} onDelete={onDelete} loading={deletingActivityId === a.id} />
             </li>
           ))}
         </ul>

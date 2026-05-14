@@ -5,6 +5,7 @@ import StockItemCard from "./StockItemCard";
 import type { StockListProps } from "@/types";
 import Select from "../ui/select";
 import { inputBaseStyle } from "@/styles";
+import { DotLineDivider } from "@/components/ui/dividers/Dividers";
 
 
 export default function StockList({ uid, items, loading }: StockListProps) {
@@ -45,11 +46,13 @@ export default function StockList({ uid, items, loading }: StockListProps) {
         </Select.Root>
       </div>
 
+      <DotLineDivider className="my-10 hidden lg:inline-flex" />
+
       {/* List */}
       {filteredItems.length === 0 ? (
         <p className="opacity-70">No stock items found.</p>
       ) : (
-        <ul className="space-y-3">
+        <ul className="space-y-3 lg:space-y-4 xl:space-y-5">
           {filteredItems.map((item) => (
             <li key={item.id}>
               <StockItemCard uid={uid} item={item}/>

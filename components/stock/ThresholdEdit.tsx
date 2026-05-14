@@ -3,10 +3,10 @@ import type { StockThresholdEditProps } from "@/types"
 import { inputBaseStyle } from "@/styles"
 
 export default function ThresholdEdit({
-    minQty, setMinQty, handleSave, handleCancel, savingThreshold
+    minQty, setMinQty, handleSave, handleCancel, savingThreshold, className
 }:StockThresholdEditProps){
     return(
-        <div className="flex items-center gap-2 ">
+        <div className={`flex items-center gap-2 ${className}`}>
             <input
               type="number"
               min={0}
@@ -20,7 +20,7 @@ export default function ThresholdEdit({
               onClick={handleSave}
               disabled={savingThreshold}
               loading={false}
-              variant="secondary"
+              variant="confirm"
             >
                 Save
             </Button>
