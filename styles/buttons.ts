@@ -52,6 +52,7 @@ export const buttonConfirmStyle = `
 export const buttonGhostStyle = `
   ${buttonBaseStyle}
   bg-transparent text-[var(--foreground)]
+  hover:bg-slate-200 dark:hover:bg-slate-600
   
 `;
 

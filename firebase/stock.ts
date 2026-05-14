@@ -1,5 +1,4 @@
 import {
-  addDoc,
   collection,
   deleteDoc,
   doc,
@@ -10,7 +9,8 @@ import {
   serverTimestamp,
   onSnapshot,
   writeBatch,
-  updateDoc 
+  updateDoc,
+  where
 } from "firebase/firestore";
 import { db } from "./firebase";
 import type { StockItem, StockActivity, CreateStockItemInput } from "@/types/stock";
@@ -21,6 +21,8 @@ const stockItemsCol = (uid: string) =>
 
 const stockActivityCol = (uid: string) =>
   collection(db, "users", uid, "stockActivity");
+
+const BATCH_LIMIT = 250; // 1 stock update + 1 activity write per item = 2 writes/item
 
 export async function listStockItems(uid: string) {
   const q = query(stockItemsCol(uid), orderBy("createdAt", "desc"));
@@ -126,6 +128,11 @@ export async function confirmStockAdjustment(
   });
 }
 
+/* -------------------------
+   delete function
+-------------------------- */
+
+
 export async function archiveStockItem(uid: string, stockId: string) {
   if (!uid) throw new Error("Missing user id.");
   if (!stockId) throw new Error("Missing stock id.");
@@ -189,6 +196,57 @@ export async function clearStockActivity(uid: string) {
   );
 
   await Promise.all(deletions);
+}
+
+export async function clearStockItems(uid: string) {
+  if (!uid) throw new Error("Missing user id.");
+
+  const snap = await getDocs(query(stockItemsCol(uid)));
+
+  const items = snap.docs
+    .map((d) => ({
+      id: d.id,
+      ...(d.data() as Omit<StockItem, "id">),
+    }))
+    .filter((item) => item.active !== false); // includes missing active field
+
+  if (items.length === 0) return 0;
+
+  let processed = 0;
+
+  for (let i = 0; i < items.length; i += BATCH_LIMIT) {
+    const chunk = items.slice(i, i + BATCH_LIMIT);
+    const batch = writeBatch(db);
+
+    for (const item of chunk) {
+      const stockRef = doc(stockItemsCol(uid), item.id);
+      const activityRef = doc(stockActivityCol(uid));
+
+      const quantityBefore = Number(item.quantity ?? 0);
+
+      batch.update(stockRef, {
+        active: false,
+        quantity: quantityBefore,
+        archivedAt: serverTimestamp(),
+        updatedAt: serverTimestamp(),
+      });
+
+      batch.set(activityRef, {
+        stockId: item.id,
+        itemName: item.name,
+        action: "archive",
+        quantityDelta: 0,
+        quantityBefore,
+        quantityAfter: quantityBefore,
+        createdAt: serverTimestamp(),
+      });
+    }
+
+    await batch.commit();
+    processed += chunk.length;
+  }
+
+  return processed;
 }
 
 export async function updateStockMinQty(

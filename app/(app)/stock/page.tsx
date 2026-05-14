@@ -7,6 +7,7 @@ import {
   subscribeStockActivity,
   deleteStockActivity,
   clearStockActivity,
+  clearStockItems
 } from "@/firebase/stock";
 import AddStockItemForm from "@/components/stock/AddStockItemForm";
 import StockList from "@/components/stock/StockList";
@@ -14,6 +15,7 @@ import StockActivityList from "@/components/stock/StockActivityList";
 import type { StockItem, StockActivity } from "@/types";
 import { MenuSectionDivider } from "@/components/ui/dividers/Dividers";
 import { DotLineDivider } from "@/components/ui/dividers/Dividers";
+import Button from "@/components/ui/Button";
 
 
 export default function StockPage() {
@@ -21,6 +23,9 @@ export default function StockPage() {
   const [items, setItems] = useState<StockItem[]>([]);
   const [activity, setActivity] = useState<StockActivity[]>([]);
   const [loading, setLoading] = useState(true);
+  const [clearStockLoading, setclearStockLoading] = useState(false)
+  const [clearActivityLoading, setClearActivityLoading] = useState(false)
+  const [deletingActivityId, setDeletingActivityId] = useState<string | null>(null);
 
   useEffect(() => {
     if (!user) return;
@@ -42,13 +47,33 @@ export default function StockPage() {
 
   async function handleDeleteActivity(id: string) {
     if (!user) return;
-    await deleteStockActivity(user.uid, id);
+
+    try {
+      setDeletingActivityId(id);
+      await deleteStockActivity(user.uid, id);
+    } finally {
+      setDeletingActivityId(null);
+    }
   }
 
   async function handleClearActivity() {
     if (!user) return;
-    if (!confirm("Clear all stock activity?")) return;
-    await clearStockActivity(user.uid);
+    try{
+      setClearActivityLoading(true)
+      await clearStockActivity(user.uid)
+    }finally{
+      setClearActivityLoading(false)
+    }
+  }
+
+  async function handleClearStock(){
+    if(!user) return
+    try{
+      setclearStockLoading(true)
+      await clearStockItems(user.uid)
+    }finally{
+      setclearStockLoading(false)
+    }
   }
 
   if (!user) return null;
@@ -82,6 +107,8 @@ export default function StockPage() {
                 onDelete={handleDeleteActivity}
                 onClearAll={handleClearActivity}
                 loading={loading}
+                loadingClearActivity={clearActivityLoading}
+                deletingActivityId={deletingActivityId}
               />
             </div>
           </div>
@@ -91,13 +118,25 @@ export default function StockPage() {
 
         <section className="flex w-full justify-center ">
           <div className="w-full max-w-2xl">
-            <div className="mb-10 sm:mb-6 lg:mb-10">
-              <h2 className="text-2xl font-semibold tracking-tight">
-                title
-              </h2>
-              <p className="mt-1 text-sm text-muted">
+            <div className={`mb-14 sm:mb-6 flex flex-col gap-6 sm:gap-4 lg:gap-8
+                             xl:gap-10 sm:flex-row sm:justify-between sm:items-center lg:mb-10`}>
+              <div className="flex-2 lg:flex-3">
+                <h2 className="text-2xl font-semibold tracking-tight">
+                  title 2
+                </h2>
+                <p className="mt-1 text-sm text-muted">
                   description
-              </p>
+                </p>
+              </div>
+
+              <Button
+                type="button"
+                loading={clearStockLoading}
+                className="flex-1 w-1/2 sm:w-auto"
+                onClick={handleClearStock}
+              >
+                Clear Stock
+              </Button> 
             </div>
 
             <div className="hidden lg:block">
@@ -110,6 +149,8 @@ export default function StockPage() {
                 onDelete={handleDeleteActivity}
                 onClearAll={handleClearActivity}
                 loading={loading}
+                loadingClearActivity={clearActivityLoading}
+                deletingActivityId={deletingActivityId}
               />
             </div>
           </div>

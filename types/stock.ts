@@ -45,11 +45,14 @@ export type StockActivityListProps = {
   onDelete: (activityId: string) => void;
   onClearAll: () => void;
   loading: boolean;
+  loadingClearActivity: boolean
+  deletingActivityId: string | null;
 };
 
 export type StockActivityItemProps = {
   activity: StockActivity;
   onDelete: (activityId: string) => void;
+  loading?: boolean;
 }
 
 export type StockListProps = {
@@ -69,5 +72,5 @@ export type StockThresholdEditProps = {
   handleSave: () => void | Promise<void>;
   handleCancel: () => void;
   savingThreshold: boolean;
-};
-
+  className: string;
+}

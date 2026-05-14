@@ -183,7 +183,6 @@ export default function MenuPage() {
                 </p>
               </div>
               <Button 
-                variant="primary"
                 loading={clearMenuLoading}
                 onClick={handleClearMenu}
                 className="flex-1 w-1/2 sm:w-auto"
