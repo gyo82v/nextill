@@ -163,4 +163,6 @@ NEXTILL IMPLEMENTATION LIST
 - [optional] [App] Add the option to register a second email or the option to update the current email;
 - [Optional] [App] Create a custom modal component for the confirmation action like 
                    delete account, clear menu, clear stock, clear all etc;
+- [Optional] [Account] Add a function that will clear all archived items in the stock;
+- [Optional] [Stock] add a default unit when creating a new stock item. example: "unit", "pcs"
                           
