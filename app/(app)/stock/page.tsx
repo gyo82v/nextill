@@ -98,7 +98,7 @@ export default function StockPage() {
             <DotLineDivider className="my-14" />
 
             <div className="lg:hidden ">
-               <StockList uid={user.uid} items={items} loading={loading} />
+               <StockList uid={user.uid} items={items} />
             </div>
 
             <div className="hidden lg:block">
@@ -106,7 +106,6 @@ export default function StockPage() {
                 activity={activity}
                 onDelete={handleDeleteActivity}
                 onClearAll={handleClearActivity}
-                loading={loading}
                 loadingClearActivity={clearActivityLoading}
                 deletingActivityId={deletingActivityId}
               />
@@ -140,7 +139,7 @@ export default function StockPage() {
             </div>
 
             <div className="hidden lg:block">
-              <StockList uid={user.uid} items={items} loading={loading} />
+              <StockList uid={user.uid} items={items}/>
             </div>
 
             <div className="lg:hidden">
@@ -148,7 +147,6 @@ export default function StockPage() {
                 activity={activity}
                 onDelete={handleDeleteActivity}
                 onClearAll={handleClearActivity}
-                loading={loading}
                 loadingClearActivity={clearActivityLoading}
                 deletingActivityId={deletingActivityId}
               />

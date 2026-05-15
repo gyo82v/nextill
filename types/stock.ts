@@ -44,7 +44,6 @@ export type StockActivityListProps = {
   activity: StockActivity[];
   onDelete: (activityId: string) => void;
   onClearAll: () => void;
-  loading: boolean;
   loadingClearActivity: boolean
   deletingActivityId: string | null;
 };
@@ -58,7 +57,6 @@ export type StockActivityItemProps = {
 export type StockListProps = {
   uid: string;
   items: StockItem[];
-  loading: boolean;
 }
 
 export type StockItemProps = {

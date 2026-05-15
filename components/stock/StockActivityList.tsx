@@ -8,7 +8,6 @@ export default function StockActivityList({
   activity,
   onDelete,
   onClearAll,
-  loading,
   loadingClearActivity,
   deletingActivityId
 }: StockActivityListProps) {

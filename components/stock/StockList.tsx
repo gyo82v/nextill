@@ -8,7 +8,7 @@ import { inputBaseStyle } from "@/styles";
 import { DotLineDivider } from "@/components/ui/dividers/Dividers";
 
 
-export default function StockList({ uid, items, loading }: StockListProps) {
+export default function StockList({ uid, items }: StockListProps) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<"all" | "food" | "drink">("all");
 
