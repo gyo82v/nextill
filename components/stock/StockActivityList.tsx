@@ -9,7 +9,6 @@ export default function StockActivityList({
   onDelete,
   onClearAll,
   loadingClearActivity,
-  deletingActivityId
 }: StockActivityListProps) {
   return (
     <section className="space-y-4 lg:space-y-6">
@@ -38,7 +37,7 @@ export default function StockActivityList({
               key={a.id}
               className=" rounded-2xl border border-default bg-surface-1 p-4 shadow-sm"
             >
-              <StockActivityCard activity={a} onDelete={onDelete} loading={deletingActivityId === a.id} />
+              <StockActivityCard activity={a} onDelete={onDelete} />
             </li>
           ))}
         </ul>

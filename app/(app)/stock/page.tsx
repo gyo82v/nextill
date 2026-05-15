@@ -25,7 +25,6 @@ export default function StockPage() {
   const [loading, setLoading] = useState(true);
   const [clearStockLoading, setclearStockLoading] = useState(false)
   const [clearActivityLoading, setClearActivityLoading] = useState(false)
-  const [deletingActivityId, setDeletingActivityId] = useState<string | null>(null);
 
   useEffect(() => {
     if (!user) return;
@@ -47,13 +46,7 @@ export default function StockPage() {
 
   async function handleDeleteActivity(id: string) {
     if (!user) return;
-
-    try {
-      setDeletingActivityId(id);
-      await deleteStockActivity(user.uid, id);
-    } finally {
-      setDeletingActivityId(null);
-    }
+    await deleteStockActivity(user.uid, id);
   }
 
   async function handleClearActivity() {
@@ -107,7 +100,6 @@ export default function StockPage() {
                 onDelete={handleDeleteActivity}
                 onClearAll={handleClearActivity}
                 loadingClearActivity={clearActivityLoading}
-                deletingActivityId={deletingActivityId}
               />
             </div>
           </div>
@@ -148,7 +140,6 @@ export default function StockPage() {
                 onDelete={handleDeleteActivity}
                 onClearAll={handleClearActivity}
                 loadingClearActivity={clearActivityLoading}
-                deletingActivityId={deletingActivityId}
               />
             </div>
           </div>

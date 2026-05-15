@@ -45,7 +45,6 @@ export type StockActivityListProps = {
   onDelete: (activityId: string) => void;
   onClearAll: () => void;
   loadingClearActivity: boolean
-  deletingActivityId: string | null;
 };
 
 export type StockActivityItemProps = {
