@@ -1,3 +1,59 @@
 {
-    
+  "createSection": {
+    "title": "Crea articolo di magazzino",
+    "description": "Aggiungi un nuovo articolo al magazzino",
+    "form": {
+      "title": "Aggiungi articolo al magazzino",
+      "description": "Scegli nome, categoria, unità e quantità",
+      "name": "Nome",
+      "placeholder": "Seleziona categoria",
+      "food": "Cibo",
+      "drink": "Bevanda",
+      "unit": "Unità (es. pz, ml, g)",
+      "quantity": "Quantità iniziale",
+      "lowStock": "Soglia di scorte basse",
+      "createItem": "Crea articolo",
+      "createItemLoading": "Creazione in corso..."
+    }
+  },
+  "stockSection": {
+    "title": "Magazzino",
+    "description": "Visualizza e gestisci tutti gli articoli di magazzino",
+    "clearStockItems": "Svuota magazzino",
+    "emptyStock": "Nessun articolo di magazzino trovato.",
+    "searchBar": "Cerca articoli…",
+    "all": "Tutti",
+    "food": "Cibo",
+    "drink": "Bevanda",
+    "item": {
+      "inStock": "Disponibile",
+      "lowStock": "Scorte basse",
+      "negativeStock": "Scorte negative",
+      "deleteItem": "Elimina {{name}}",
+      "lowStockThreshold": "Soglia di scorte basse",
+      "editThreshold": "Modifica",
+      "addLabel": "Aumenta quantità",
+      "removeLabel": "Riduci quantità",
+      "confirmAdd": "Aggiungi",
+      "confirmRemove": "Rimuovi",
+      "categories": {
+        "food": "Cibo",
+        "drink": "Bevanda"
+      }
+    }
+  },
+  "activitySection": {
+    "title": "Registro attività",
+    "description": "Controlla le attività recenti del magazzino",
+    "clearActivityLogs": "Cancella tutti i registri",
+    "emptyActivityLog": "Nessuna attività registrata.",
+    "deleteActivity": "Elimina",
+    "deleteActivityLabel": "Elimina voce attività",
+    "actions": {
+      "add": "Aggiunto",
+      "remove": "Rimosso",
+      "archive": "Archiviato"
+    },
+    "activityLine": "{{action}} {{quantity}} ({{before}} → {{after}})"
+  }
 }

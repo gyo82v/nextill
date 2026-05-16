@@ -1,3 +1,59 @@
 {
-    
+  "createSection": {
+    "title": "Crear artículo de inventario",
+    "description": "Añadir un nuevo artículo al inventario",
+    "form": {
+      "title": "Añadir artículo al inventario",
+      "description": "Elige un nombre, categoría, unidad y cantidad",
+      "name": "Nombre",
+      "placeholder": "Seleccionar categoría",
+      "food": "Comida",
+      "drink": "Bebida",
+      "unit": "Unidad (p. ej. uds., ml, g)",
+      "quantity": "Cantidad inicial",
+      "lowStock": "Umbral de stock bajo",
+      "createItem": "Crear artículo",
+      "createItemLoading": "Creando..."
+    }
+  },
+  "stockSection": {
+    "title": "Inventario",
+    "description": "Ver y gestionar todos los artículos del inventario",
+    "clearStockItems": "Vaciar inventario",
+    "emptyStock": "No se encontraron artículos en el inventario.",
+    "searchBar": "Buscar artículos…",
+    "all": "Todos",
+    "food": "Comida",
+    "drink": "Bebida",
+    "item": {
+      "inStock": "En stock",
+      "lowStock": "Stock bajo",
+      "negativeStock": "Stock negativo",
+      "deleteItem": "Eliminar {{name}}",
+      "lowStockThreshold": "Umbral de stock bajo",
+      "editThreshold": "Editar",
+      "addLabel": "Aumentar cantidad",
+      "removeLabel": "Reducir cantidad",
+      "confirmAdd": "Añadir",
+      "confirmRemove": "Eliminar",
+      "categories": {
+        "food": "Comida",
+        "drink": "Bebida"
+      }
+    }
+  },
+  "activitySection": {
+    "title": "Registro de actividad",
+    "description": "Revisar la actividad reciente del inventario",
+    "clearActivityLogs": "Eliminar todos los registros",
+    "emptyActivityLog": "Aún no se ha registrado ninguna actividad.",
+    "deleteActivity": "Eliminar",
+    "deleteActivityLabel": "Eliminar entrada de actividad",
+    "actions": {
+      "add": "Añadido",
+      "remove": "Retirado",
+      "archive": "Archivado"
+    },
+    "activityLine": "{{action}} {{quantity}} ({{before}} → {{after}})"
+  }
 }

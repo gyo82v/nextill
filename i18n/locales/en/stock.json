@@ -1,3 +1,61 @@
 {
-    
+    "createSection": {
+        "title": "Create stock item",
+        "description": "Add a new item to stock",
+        "form": {
+            "title": "Add item to stock",
+            "description": "Choose a name, category, unit, and quantity",
+            "name": "Name",
+            "placeholder": "Select category",
+            "food": "Food",
+            "drink": "Drink",
+            "unit": "Unit (e.g. pcs, ml, g)",
+            "quantity": "Initial quantity",
+            "lowStock": "Low stock threshold",
+            "createItem": "Create item",
+            "createItemLoading": "Creating..."
+        }
+
+    },
+    "stockSection" : {
+        "title": "Stock",
+        "description": "View and manage all stock items",
+        "clearStockItems": "Clear stock",
+        "emptyStock": "No stock items found.",
+        "searchBar": "Search items…",
+        "all": "all",
+        "food": "food",
+        "drink": "drink",
+        "item": {
+            "inStock": "In stock",
+            "lowStock": "Low stock",
+            "negativeStock": "Negative stock",
+            "deleteItem": "Delete {{name}}",
+            "lowStockThreshold": "Low stock threshold",
+            "editThreshold": "Edit",
+            "addLabel": "Increase quantity",
+            "removeLabel": "Decrease quantity",
+            "confirmAdd": "Add",
+            "confirmRemove": "Remove",
+            "categories": {
+                "food": "Food",
+                "drink": "Drink"
+            }
+        }
+
+    },
+    "activitySection": {
+        "title": "Activity log",
+        "description": "Review recent stock activity",
+        "clearActivityLogs": "Clear all logs",
+        "emptyActivityLog": "No activity recorded yet.",
+        "deleteActivity": "Delete",
+        "deleteActivityLabel": "Delete activity entry",
+        "actions": {
+            "add": "Added",
+            "remove": "Removed",
+            "archive": "Archived"
+        },
+        "activityLine": "{{action}} {{quantity}} ({{before}} → {{after}})"
+    }
 }

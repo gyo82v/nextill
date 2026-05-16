@@ -1,3 +1,59 @@
 {
-    
+  "createSection": {
+    "title": "Créer un article de stock",
+    "description": "Ajouter un nouvel article au stock",
+    "form": {
+      "title": "Ajouter un article au stock",
+      "description": "Choisissez un nom, une catégorie, une unité et une quantité",
+      "name": "Nom",
+      "placeholder": "Sélectionner une catégorie",
+      "food": "Aliment",
+      "drink": "Boisson",
+      "unit": "Unité (ex. pièces, ml, g)",
+      "quantity": "Quantité initiale",
+      "lowStock": "Seuil de stock bas",
+      "createItem": "Créer l’article",
+      "createItemLoading": "Création en cours..."
+    }
+  },
+  "stockSection": {
+    "title": "Stock",
+    "description": "Afficher et gérer tous les articles en stock",
+    "clearStockItems": "Vider le stock",
+    "emptyStock": "Aucun article en stock trouvé.",
+    "searchBar": "Rechercher des articles…",
+    "all": "Tous",
+    "food": "Aliment",
+    "drink": "Boisson",
+    "item": {
+      "inStock": "En stock",
+      "lowStock": "Stock faible",
+      "negativeStock": "Stock négatif",
+      "deleteItem": "Supprimer {{name}}",
+      "lowStockThreshold": "Seuil de stock bas",
+      "editThreshold": "Modifier",
+      "addLabel": "Augmenter la quantité",
+      "removeLabel": "Diminuer la quantité",
+      "confirmAdd": "Ajouter",
+      "confirmRemove": "Retirer",
+      "categories": {
+        "food": "Aliment",
+        "drink": "Boisson"
+      }
+    }
+  },
+  "activitySection": {
+    "title": "Journal d’activité",
+    "description": "Consulter l’activité récente du stock",
+    "clearActivityLogs": "Supprimer tous les journaux",
+    "emptyActivityLog": "Aucune activité enregistrée pour le moment.",
+    "deleteActivity": "Supprimer",
+    "deleteActivityLabel": "Supprimer l’entrée d’activité",
+    "actions": {
+      "add": "Ajouté",
+      "remove": "Retiré",
+      "archive": "Archivé"
+    },
+    "activityLine": "{{action}} {{quantity}} ({{before}} → {{after}})"
+  }
 }

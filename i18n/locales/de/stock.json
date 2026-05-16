@@ -1,3 +1,59 @@
 {
-    
+  "createSection": {
+    "title": "Lagerartikel erstellen",
+    "description": "Einen neuen Artikel zum Bestand hinzufügen",
+    "form": {
+      "title": "Artikel zum Bestand hinzufügen",
+      "description": "Name, Kategorie, Einheit und Menge auswählen",
+      "name": "Name",
+      "placeholder": "Kategorie auswählen",
+      "food": "Lebensmittel",
+      "drink": "Getränk",
+      "unit": "Einheit (z. B. Stk., ml, g)",
+      "quantity": "Anfangsbestand",
+      "lowStock": "Niedrigbestandsgrenze",
+      "createItem": "Artikel erstellen",
+      "createItemLoading": "Wird erstellt..."
+    }
+  },
+  "stockSection": {
+    "title": "Bestand",
+    "description": "Alle Lagerartikel anzeigen und verwalten",
+    "clearStockItems": "Bestand leeren",
+    "emptyStock": "Keine Lagerartikel gefunden.",
+    "searchBar": "Artikel suchen…",
+    "all": "Alle",
+    "food": "Lebensmittel",
+    "drink": "Getränk",
+    "item": {
+      "inStock": "Auf Lager",
+      "lowStock": "Niedriger Bestand",
+      "negativeStock": "Negativer Bestand",
+      "deleteItem": "{{name}} löschen",
+      "lowStockThreshold": "Niedrigbestandsgrenze",
+      "editThreshold": "Bearbeiten",
+      "addLabel": "Menge erhöhen",
+      "removeLabel": "Menge verringern",
+      "confirmAdd": "Hinzufügen",
+      "confirmRemove": "Entfernen",
+      "categories": {
+        "food": "Lebensmittel",
+        "drink": "Getränk"
+      }
+    }
+  },
+  "activitySection": {
+    "title": "Aktivitätsprotokoll",
+    "description": "Aktuelle Bestandsaktivitäten prüfen",
+    "clearActivityLogs": "Alle Einträge löschen",
+    "emptyActivityLog": "Noch keine Aktivitäten erfasst.",
+    "deleteActivity": "Löschen",
+    "deleteActivityLabel": "Aktivitätseintrag löschen",
+    "actions": {
+      "add": "Hinzugefügt",
+      "remove": "Entfernt",
+      "archive": "Archiviert"
+    },
+    "activityLine": "{{action}} {{quantity}} ({{before}} → {{after}})"
+  }
 }
