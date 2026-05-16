@@ -90,9 +90,31 @@ export default function StockPage() {
 
             <DotLineDivider className="my-14" />
 
+            {/* mobile/small screens*/}
+            <div className={`mb-14 lg:hidden flex flex-col gap-6`}>
+              <div className="flex-2 lg:flex-3 ">
+                <h2 className="text-2xl font-semibold tracking-tight">
+                  title 2
+                </h2>
+                <p className="mt-1 text-sm text-muted">
+                  description
+                </p>
+              </div>
+
+              <Button
+                type="button"
+                loading={clearStockLoading}
+                className="flex-1 w-1/2 "
+                onClick={handleClearStock}
+              >
+                Clear Stock
+              </Button> 
+            </div>
+
             <div className="lg:hidden ">
                <StockList uid={user.uid} items={items} />
             </div>
+            {/*end mobile/small screens */}
 
             <div className="hidden lg:block">
               <StockActivityList
@@ -109,9 +131,10 @@ export default function StockPage() {
 
         <section className="flex w-full justify-center ">
           <div className="w-full max-w-2xl">
-            <div className={`mb-14 sm:mb-6 flex flex-col gap-6 sm:gap-4 lg:gap-8
-                             xl:gap-10 sm:flex-row sm:justify-between sm:items-center lg:mb-10`}>
-              <div className="flex-2 lg:flex-3">
+            {/* desktop screens */}
+            <div className={`hidden  lg:flex lg:justify-between lg:items-center
+                             lg:gap-8 xl:gap-10 lg:mb-10`}>
+              <div className="flex-2 lg:flex-3 ">
                 <h2 className="text-2xl font-semibold tracking-tight">
                   title 2
                 </h2>
@@ -133,6 +156,7 @@ export default function StockPage() {
             <div className="hidden lg:block">
               <StockList uid={user.uid} items={items}/>
             </div>
+            {/*end desktop screens */}
 
             <div className="lg:hidden">
               <StockActivityList
@@ -151,6 +175,27 @@ export default function StockPage() {
 
 
 /*
+
+ <div className={`mb-14 sm:mb-6 hidden flex flex-col gap-6 sm:gap-4 lg:gap-8
+                             xl:gap-10 lg:flex-row lg:justify-between lg::items-center lg:mb-10`}>
+              <div className="flex-2 lg:flex-3 ">
+                <h2 className="text-2xl font-semibold tracking-tight">
+                  title 2
+                </h2>
+                <p className="mt-1 text-sm text-muted">
+                  description
+                </p>
+              </div>
+
+              <Button
+                type="button"
+                loading={clearStockLoading}
+                className="flex-1 w-1/2 sm:w-auto"
+                onClick={handleClearStock}
+              >
+                Clear Stock
+              </Button> 
+            </div>
 
 
  
