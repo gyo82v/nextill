@@ -167,4 +167,5 @@ NEXTILL IMPLEMENTATION LIST
 - [Optional] [Stock] add a default unit when creating a new stock item. example: "unit", "pcs"
 - [Optional] [Stock] add a show button to the stock activity section and render the section
                      dinamicaly;
+- [Optional] [Stock/Menu] Check with ai which of the pages menu and stock is better built;
                           

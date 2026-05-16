@@ -6,6 +6,7 @@ import type { StockFormProps, DraftStockCategory } from "@/types";
 import { inputBaseStyle } from "@/styles";
 import Select from "../ui/select";
 import Button from "../ui/Button";
+import { useTranslation } from "react-i18next";
 
 
 export default function AddStockItemForm({ uid }: StockFormProps) {
@@ -15,12 +16,13 @@ export default function AddStockItemForm({ uid }: StockFormProps) {
   const [unit, setUnit] = useState("");
   const [minQty, setMinQty] = useState(5);
   const [loading, setLoading] = useState(false);
+  const {t} = useTranslation("stock")
 
   const categoryLabel =
     category === "food"
-    ? "food"
+    ? t("createSection.form.food")
     : category === "drink"
-      ? "drink"
+      ? t("createSection.form.drink")
       : undefined;
 
   async function handleSubmit(e:React.SyntheticEvent) {
@@ -52,30 +54,30 @@ export default function AddStockItemForm({ uid }: StockFormProps) {
       className="w-full space-y-4 rounded-2xl border border-default bg-surface-1 p-4 shadow-sm sm:p-5 md:p-6"
     >
       <div className="mb-8">
-        <h2 className="text-lg font-medium">Add stock item</h2>
-        <p>description here</p>
+        <h2 className="text-lg font-medium">{t("createSection.form.title")}</h2>
+        <p>{t("createSection.form.description")}</p>
       </div>
 
       <div className="xl:my-8 space-y-4">
         <input
           className={`${inputBaseStyle}`}
-          placeholder="Name"
+          placeholder={t("createSection.form.name")}
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
 
         <div className="grid gap-3 md:grid-cols-2">
           <Select.Root value={category} onValueChange={setCategory}>
-            <Select.Trigger placeholder="Select category" label={categoryLabel}/>
+            <Select.Trigger placeholder={t("createSection.form.placeholder")} label={categoryLabel}/>
             <Select.Content>
-              <Select.Item value="food">Food</Select.Item>
-              <Select.Item value="drink">Drink</Select.Item>
+              <Select.Item value="food">{t("createSection.form.food")}</Select.Item>
+              <Select.Item value="drink">{t("createSection.form.drink")}</Select.Item>
             </Select.Content>
           </Select.Root>
 
           <input
             className={`${inputBaseStyle}`}
-            placeholder="Unit (e.g. pcs, ml, g)"
+            placeholder={t("createSection.form.unit")}
             value={unit}
             onChange={(e) => setUnit(e.target.value)}
           />
@@ -83,7 +85,9 @@ export default function AddStockItemForm({ uid }: StockFormProps) {
 
         <div className="grid gap-3 md:grid-cols-2">
           <div className="">
-             <label className="text-sm  ml-3" htmlFor="quantity">Initial quantity</label>
+             <label className="text-sm  ml-3" htmlFor="quantity">
+              {t("createSection.form.quantity")}
+             </label>
               <input
                 type="number"
                 id="quantity"
@@ -94,7 +98,9 @@ export default function AddStockItemForm({ uid }: StockFormProps) {
               />
           </div>
           <div className="">
-            <label className="text-sm  ml-3" htmlFor="minQty">Low stock threshold</label>
+            <label className="text-sm  ml-3" htmlFor="minQty">
+              {t("createSection.form.lowStock")}
+            </label>
             <input
               type="number"
               id="minQty"
@@ -110,11 +116,11 @@ export default function AddStockItemForm({ uid }: StockFormProps) {
       <Button
         type="submit"
         loading={loading}
-        loadingText="Creating..."
+        loadingText={t("createSection.form.createItemLoading")}
         className="w-full mt-8"
         disabled={loading || !category || !name || !quantity || !minQty || !unit}
       >
-        Create Stock Item
+        {t("createSection.form.createItem")}
       </Button>
     </form>
   );

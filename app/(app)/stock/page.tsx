@@ -16,6 +16,7 @@ import type { StockItem, StockActivity } from "@/types";
 import { MenuSectionDivider } from "@/components/ui/dividers/Dividers";
 import { DotLineDivider } from "@/components/ui/dividers/Dividers";
 import Button from "@/components/ui/Button";
+import { useTranslation } from "react-i18next";
 
 
 export default function StockPage() {
@@ -25,6 +26,7 @@ export default function StockPage() {
   const [loading, setLoading] = useState(true);
   const [clearStockLoading, setclearStockLoading] = useState(false)
   const [clearActivityLoading, setClearActivityLoading] = useState(false)
+  const {t} = useTranslation("stock")
 
   useEffect(() => {
     if (!user) return;
@@ -79,10 +81,10 @@ export default function StockPage() {
           <div className="w-full max-w-2xl">
             <div className="mb-10 sm:mb-6 lg:mb-10">
               <h1 className="text-2xl font-semibold tracking-tight">
-                title
+                {t("createSection.title")}
               </h1>
               <p className="mt-1 text-sm text-muted xl:max-w-[80%]">
-                description
+                {t("createSection.description")}
               </p>
             </div>
 
@@ -94,10 +96,10 @@ export default function StockPage() {
             <div className={`mb-14 lg:hidden flex flex-col gap-6`}>
               <div className="flex-2 lg:flex-3 ">
                 <h2 className="text-2xl font-semibold tracking-tight">
-                  title 2
+                  {t("stockSection.title")}
                 </h2>
                 <p className="mt-1 text-sm text-muted">
-                  description
+                  {t("stockSection.description")}
                 </p>
               </div>
 
@@ -107,7 +109,7 @@ export default function StockPage() {
                 className="flex-1 w-1/2 "
                 onClick={handleClearStock}
               >
-                Clear Stock
+                {t("stockSection.clearStockItems")}
               </Button> 
             </div>
 
@@ -136,10 +138,10 @@ export default function StockPage() {
                              lg:gap-8 xl:gap-10 lg:mb-10`}>
               <div className="flex-2 lg:flex-3 ">
                 <h2 className="text-2xl font-semibold tracking-tight">
-                  title 2
+                  {t("stockSection.title")}
                 </h2>
                 <p className="mt-1 text-sm text-muted">
-                  description
+                  {t("stockSection.description")}
                 </p>
               </div>
 
@@ -149,7 +151,7 @@ export default function StockPage() {
                 className="flex-1 w-1/2 sm:w-auto"
                 onClick={handleClearStock}
               >
-                Clear Stock
+                {t("stockSection.clearStockItems")}
               </Button> 
             </div>
 

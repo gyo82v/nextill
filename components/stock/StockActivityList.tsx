@@ -3,6 +3,7 @@
 import type { StockActivityListProps } from "@/types";
 import Button from "../ui/Button";
 import StockActivityCard from "./StockActivityCard";
+import { useTranslation } from "react-i18next";
 
 export default function StockActivityList({
   activity,
@@ -10,12 +11,15 @@ export default function StockActivityList({
   onClearAll,
   loadingClearActivity,
 }: StockActivityListProps) {
+  const {t} = useTranslation("stock")
   return (
     <section className="space-y-4 lg:space-y-6">
       <div className="flex items-center justify-between gap-4">
         <div>
-          <h3 className="text-lg font-medium">Stock activity</h3>
-          <p>description here</p>
+          <h3 className="text-lg font-medium">
+            {t("activitySection.title")}
+          </h3>
+          <p>{t("activitySection.description")}</p>
         </div>
 
         <Button
@@ -24,12 +28,12 @@ export default function StockActivityList({
           disabled={activity.length === 0}
           loading={loadingClearActivity}
         >
-          Clear all
+          {t("activitySection.clearActivityLogs")}
         </Button>
       </div>
 
       {activity.length === 0 ? (
-        <p className="opacity-70">No activity yet...</p>
+        <p className="opacity-70">{t("activitySection.emptyActivityLog")}</p>
       ) : (
         <ul className="space-y-2 lg:space-y-3 xl:space-y-4">
           {activity.map((a) => (

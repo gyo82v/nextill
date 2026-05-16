@@ -11,6 +11,7 @@ import Button from "../ui/Button";
 import { FiTrash2, FiMinus, FiPlus } from "react-icons/fi";
 import { cardBaseStyle, pillTextStyle } from "@/styles";
 import ThresholdEdit from "./ThresholdEdit";
+import { useTranslation } from "react-i18next";
 
 export default function StockItemCard({ uid, item }: StockItemProps) {
   const [delta, setDelta] = useState(0);
@@ -19,6 +20,10 @@ export default function StockItemCard({ uid, item }: StockItemProps) {
   const [isEditingThreshold, setIsEditingThreshold] = useState(false);
   const [minQtyDraft, setMinQtyDraft] = useState(item.minQty);
   const [savingThreshold, setSavingThreshold] = useState(false);
+  const {t} = useTranslation("stock")
+  const categoryLabel = t(`stockSection.item.categories.${item.category}`, {
+     defaultValue: item.category,
+    });
 
   const isNegativeStock = item.quantity < 0;
   const isLowStock = item.quantity >= 0 && item.quantity <= item.minQty;
@@ -30,10 +35,10 @@ export default function StockItemCard({ uid, item }: StockItemProps) {
     : "text-green-700 border-green-300";
 
   const statusLabel = isNegativeStock
-    ? "Negative stock"
+    ? t("stockSection.item.negativeStock")
     : isLowStock
-    ? "Low stock"
-    : "In stock";
+    ? t("stockSection.item.lowStock")
+    : t("stockSection.item.inStock")
 
   async function handleConfirm() {
     if (delta === 0 || updatingQuantity) return;
@@ -91,8 +96,8 @@ export default function StockItemCard({ uid, item }: StockItemProps) {
           variant="danger"
           disabled={deleting}
           loading={deleting}
-          aria-label={`Delete ${item.name}`}
-          title={`Delete ${item.name}`}
+          aria-label={t("stockSection.item.deleteItem", { name: item.name })}
+          title={t("stockSection.item.deleteItem", { name: item.name })}
           onClick={handleDelete}
         >
           <FiTrash2 className="h-4 w-4" />
@@ -104,11 +109,11 @@ export default function StockItemCard({ uid, item }: StockItemProps) {
       <section className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
         <div>
           <div className="text-sm opacity-70">
-            {item.category} · {item.quantity} {item.unit}
+            {categoryLabel} · {item.quantity} {item.unit}
           </div>
 
           <div className="text-sm opacity-70 flex items-center gap-2">
-            <span>Low stock threshold: {item.minQty}</span>
+            <span>{t("stockSection.item.lowStockThreshold")}: {item.minQty}</span>
           </div>
 
           <button
@@ -116,7 +121,7 @@ export default function StockItemCard({ uid, item }: StockItemProps) {
             onClick={() => setIsEditingThreshold((prev) => !prev)}
             className="text-xs underline hover:font-bold"
           >
-            Edit
+            {t("stockSection.item.editThreshold")}
           </button>
         </div>
 
@@ -143,6 +148,8 @@ export default function StockItemCard({ uid, item }: StockItemProps) {
               variant="ghost"
               onClick={() => setDelta((d) => d - 1)}
               disabled={updatingQuantity}
+              title={t("stockSection.item.removeLabel")}
+              aria-label={t("stockSection.item.removeLabel")}
             >
               <FiMinus className="h-4 w-4" />
             </Button>
@@ -154,6 +161,8 @@ export default function StockItemCard({ uid, item }: StockItemProps) {
               type="button"
               onClick={() => setDelta((d) => d + 1)}
               disabled={updatingQuantity}
+              title={t("stockSection.item.addLabel")}
+              aria-label={t("stockSection.item.addLabel")}
             >
               <FiPlus className="h-4 w-4" />
             </Button>
@@ -168,7 +177,7 @@ export default function StockItemCard({ uid, item }: StockItemProps) {
           loading={false}
           className="w-full sm:w-2/12"
         >
-          {delta >= 0 ? "Add" : "Remove"}
+          {delta >= 0 ? t("stockSection.item.confirmAdd") : t("stockSection.item.confirmRemove")}
         </Button>
       </section>
 

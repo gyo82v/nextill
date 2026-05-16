@@ -6,11 +6,13 @@ import type { StockListProps } from "@/types";
 import Select from "../ui/select";
 import { inputBaseStyle } from "@/styles";
 import { DotLineDivider } from "@/components/ui/dividers/Dividers";
+import { useTranslation } from "react-i18next";
 
 
 export default function StockList({ uid, items }: StockListProps) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<"all" | "food" | "drink">("all");
+  const {t} = useTranslation("stock")
 
   const filteredItems = useMemo(() => {
     return items.filter((item) => {
@@ -30,7 +32,7 @@ export default function StockList({ uid, items }: StockListProps) {
       <div className="flex gap-2 max-w-lg">
         <input
           type="text"
-          placeholder="Search item…"
+          placeholder={t("stockSection.searchBar")}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className={`${inputBaseStyle} flex-2`}
@@ -39,9 +41,9 @@ export default function StockList({ uid, items }: StockListProps) {
         <Select.Root value={category} onValueChange={setCategory} className="flex-1">
           <Select.Trigger />
           <Select.Content>
-            <Select.Item value="all">All</Select.Item>
-            <Select.Item value="food">Food</Select.Item>
-            <Select.Item value="drink">Drinks</Select.Item>
+            <Select.Item value="all">{t("stockSection.all")}</Select.Item>
+            <Select.Item value="food">{t("stockSection.food")}</Select.Item>
+            <Select.Item value="drink">{t("stockSection.drink")}</Select.Item>
           </Select.Content>
         </Select.Root>
       </div>
@@ -50,7 +52,7 @@ export default function StockList({ uid, items }: StockListProps) {
 
       {/* List */}
       {filteredItems.length === 0 ? (
-        <p className="opacity-70">No stock items found.</p>
+        <p className="opacity-70">{t("stockSection.emptyStock")}.</p>
       ) : (
         <ul className="space-y-3 lg:space-y-4 xl:space-y-5">
           {filteredItems.map((item) => (
