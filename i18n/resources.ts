@@ -18,6 +18,11 @@ import itMenu from "./locales/it/menu.json";
 import esMenu from "./locales/es/menu.json";
 import frMenu from "./locales/fr/menu.json";
 import deMenu from "./locales/de/menu.json";
+import enStock from "./locales/en/stock.json";
+import itStock from "./locales/it/stock.json";
+import esStock from "./locales/es/stock.json";
+import frStock from "./locales/fr/stock.json";
+import deStock from "./locales/de/stock.json";
 
 
 export const resources = {
@@ -26,29 +31,34 @@ export const resources = {
     privacy: enPrivacy,
     auth: enAuth,
     menu: enMenu,
+    stock: enStock
   },
   it: {
     common: itCommon,
     privacy: itPrivacy,
     auth: itAuth,
     menu: itMenu,
+    stock: itStock
   },
   es: {
     common: esCommon,
     privacy: esPrivacy,
     auth: esAuth,
     menu: esMenu,
+    stock: esStock
   },
   fr: {
     common: frCommon,
     privacy: frPrivacy,
     auth: frAuth,
     menu: frMenu,
+    stock: frStock
   },
   de: {
     common: deCommon,
     privacy: dePrivacy,
     auth: deAuth,
     menu: deMenu,
+    stock: deStock
   },
 } as const;
