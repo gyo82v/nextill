@@ -14,6 +14,13 @@ export default function StockList({ uid, items }: StockListProps) {
   const [category, setCategory] = useState<"all" | "food" | "drink">("all");
   const {t} = useTranslation("stock")
 
+  const categoryLabel =
+    category === "food"
+    ? t("stockSection.food")
+    : category === "drink"
+      ? t("stockSection.drink")
+      : t("stockSection.all");
+
   const filteredItems = useMemo(() => {
     return items.filter((item) => {
       const matchesQuery =
@@ -39,7 +46,7 @@ export default function StockList({ uid, items }: StockListProps) {
         />
 
         <Select.Root value={category} onValueChange={setCategory} className="flex-1">
-          <Select.Trigger />
+          <Select.Trigger label={categoryLabel} />
           <Select.Content>
             <Select.Item value="all">{t("stockSection.all")}</Select.Item>
             <Select.Item value="food">{t("stockSection.food")}</Select.Item>
