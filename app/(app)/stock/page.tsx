@@ -23,7 +23,6 @@ export default function StockPage() {
   const { user } = useAuth();
   const [items, setItems] = useState<StockItem[]>([]);
   const [activity, setActivity] = useState<StockActivity[]>([]);
-  const [loading, setLoading] = useState(true);
   const [clearStockLoading, setclearStockLoading] = useState(false)
   const [clearActivityLoading, setClearActivityLoading] = useState(false)
   const {t} = useTranslation("stock")
@@ -33,7 +32,6 @@ export default function StockPage() {
 
     const unsubItems = subscribeStockItems(user.uid, (items) => {
       setItems(items);
-      setLoading(false);
     });
 
     const unsubActivity = subscribeStockActivity(user.uid, (activity) => {
@@ -175,38 +173,4 @@ export default function StockPage() {
   );
 }
 
-
-/*
-
- <div className={`mb-14 sm:mb-6 hidden flex flex-col gap-6 sm:gap-4 lg:gap-8
-                             xl:gap-10 lg:flex-row lg:justify-between lg::items-center lg:mb-10`}>
-              <div className="flex-2 lg:flex-3 ">
-                <h2 className="text-2xl font-semibold tracking-tight">
-                  title 2
-                </h2>
-                <p className="mt-1 text-sm text-muted">
-                  description
-                </p>
-              </div>
-
-              <Button
-                type="button"
-                loading={clearStockLoading}
-                className="flex-1 w-1/2 sm:w-auto"
-                onClick={handleClearStock}
-              >
-                Clear Stock
-              </Button> 
-            </div>
-
-
- 
-
-
-
-
-
-
-
-*/
 

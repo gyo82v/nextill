@@ -72,39 +72,3 @@ export default function StockList({ uid, items }: StockListProps) {
     </div>
   );
 }
-
-
-
-/*
-"use client";
-
-import StockItemCard from "./StockItemCard";
-import type { StockItem } from "@/firebase/stock";
-
-type Props = {
-  uid: string;
-  items: StockItem[];
-  onChange: () => void;
-};
-
-export default function StockList({ uid, items, onChange }: Props) {
-  return (
-    <div className="space-y-3">
-      <h2 className="text-lg font-medium">Current stock</h2>
-
-      {items.length === 0 ? (
-        <p className="opacity-70">No stock items.</p>
-      ) : (
-        items.map((item) => (
-          <StockItemCard
-            key={item.id}
-            uid={uid}
-            item={item}
-            onChange={onChange}
-          />
-        ))
-      )}
-    </div>
-  );
-}
-  */

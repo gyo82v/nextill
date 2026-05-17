@@ -36,6 +36,8 @@
       "removeLabel": "Reducir cantidad",
       "confirmAdd": "Añadir",
       "confirmRemove": "Eliminar",
+      "save": "Guardar",
+      "cancel": "Cancelar",
       "categories": {
         "food": "Comida",
         "drink": "Bebida"

@@ -7,7 +7,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Content}{Header} build the navigation bar for mobile, add icon, when clicked open the 
                      navigation menu;
 - [✅] {Content}{Menu} Add the feature in the Menu page to clear all menu with a button;
-- [Content] [Stock] Add the feature in the Stock page to clear all stock with a button;
+- [✅] {Content}{Stock} Add the feature in the Stock page to clear all stock with a button;
 - [Content] [Stats] Add a feature in the Stats page to clear all stats with a button;
 - [✅] {Style}{Header} style the mobile navigation menu;
 - [Content] [Till] create a confirm order modal/page; when the user clicks on the checkout button
@@ -37,7 +37,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Style}{Intro} Style the sign in form component;
 - [✅] {Style}{Intro} Style the create new account form component;
 - [✅] {Content}{Intro} Add in the create new acoount component a By creating an account,
-                    you agree to the Privacy Policy. with link to the page;
+        you agree to the Privacy Policy. with link to the page;
 - [Fix] [Till] fix a visual bug, when a user sign in and the day is not active the till page 
                should immediately render the not active section and not briefly the active section;
 - [Fix] [App] Fix all the url to match the updated path => till => pos, statistics => reports etc;
@@ -54,13 +54,13 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Style}{Menu} Style the current menu list section;
 - [✅] {Style}{Menu} Style the menu page and layout for desktop/mobile;
 - [Fix] [App] Fix the bug where some currency(usd) do not render the symbol but the text;
-- [Style] [Stock] Style the add new item to the stock form in the stock page;
-- [Style] [Stock] Style the current stock items list, search bar and filters in the current items 
-                  section in the stock page;
-- [Style] [Stock] Style the stock activity section in the stock page;
-- [Style] [Stock] Style the page and layout for mobile/desktop;
-- [Style] [Stock] Style the items card, style each different state : normal, low stock and negative;
-- [Content] [Stock] Add a title and description in the stock page;
+- [✅] {Style}{Stock} Style the add new item to the stock form in the stock page;
+- [✅] {Style}{Stock} Style the current stock items list, search bar and filters in the current items 
+        section in the stock page;
+- [✅] {Style}{Stock} Style the stock activity section in the stock page;
+- [✅] {Style}{Stock} Style the page and layout for mobile/desktop;
+- [✅] {Style}{Stock} Style the items card, style each different state : normal, low stock and negative;
+- [✅] {Content}{Stock} Add a title and description in the stock page;
 - [Style] [Stats] Style the global section of the stats page;
 - [Style] [Stats] Style the current day section in the stats page;
 - [Style] [Stats] Style the days overview section in the Stats page;
@@ -76,7 +76,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Refactor}{Intro} Refactor the intro page: types, enslint errors, separate components;
 - [Refactor] [Till] Refactor the Till page: types, enslint errors, separate components;
 - [✅] {Refactor}{Menu} Refactor the Menu page: types, enslint errors, separate components;
-- [Refactor] [Stock] Refactor the Stock page: types, enslint errors, separate components;
+- [✅] {Refactor}{Stock} Refactor the Stock page: types, enslint errors, separate components;
 - [Refactor] [Stats] Refactor the Stats page: types, enslint errors, separate components;
 - [Refactor] [Account] Refactor the Account page: types, enslint errors, separate components;
 - [✅] {Refactor}{Header} Refactor the Header page: types, enslint errors, separate components;
@@ -99,7 +99,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Utils}{Inputs} Add the show pssw icon in the pssw inputs field;
 - [Localization] [Till] Add localization to the till page;
 - [✅] {Localization}{Menu} Add localization to the menu page;
-- [Localization] [Stock] Add localization to the stock page;
+- [✅] {Localization}{Stock} Add localization to the stock page;
 - [Localization] [Stats] Add localization to the Stats page;
 - [Localization] [Account] Add localization to the account page;
 - [✅] {Localization}{Privacy-Policy} add localization to the privacy policy page;
@@ -109,7 +109,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Delete}{App} delete the unused test language page;
 - [A11y] [Till] Add accessibility to the Till page;
 - [✅] {A11y}{Menu} Add accessibility to the Menu page;
-- [A11y] [Stock] Add accessibility to the stock page;
+- [✅] {A11y}{Stock} Add accessibility to the stock page;
 - [A11y] [Stats] Add accessibility to the Stats page;
 - [A11y] [Account] Add accessibility to the account page;
 - [✅] {A11y}{Header/Footer} add accessibility to the Header and Footer;
@@ -127,14 +127,13 @@ NEXTILL IMPLEMENTATION LIST
 - [Test] [App] Test the till, menu , stock and stats;
 - [Test] [App] Run the lighthouse test;
 - [✅] {Fix}{Account} Fix the delete account function; at the moment it deletes only the auth.
-                  it should delete the firestore users doc associated;
+        it should delete the firestore users doc associated;
 - [Fix] [Account] Fix the clear all data function; it should reset the data of the entire app.
                   at the moment it just clear the stock collections and nothing else;
 - [Fix] [Stats] when a menu item is deleted, in the stats page it show the id and not the name;
 - [Fix] [Header] fix the text color of the navbar links for the darkmode;
-- [Fix] [Select-component] Fix the select compound component. When too many elements are in the options
-                           there should be a scroll sidebar, this will fix the height issue in 
-                           the menu page;
+- [✅] {Fix}{Select-component} Fix the select compound component. When too many elements are in the options
+        there should be a scroll sidebar, this will fix the height issue in the menu page;
 - [Fix] [Menu/Style] fix the style for the menu page when the content is stacked vertically for mobile
                      and small screens;
 - [✅] {Fix}{Languages} fix the issue when there are multiple files common and privacy in the same page;
@@ -168,4 +167,5 @@ NEXTILL IMPLEMENTATION LIST
 - [Optional] [Stock] add a show button to the stock activity section and render the section
                      dinamicaly;
 - [Optional] [Stock/Menu] Check with ai which of the pages menu and stock is better built;
+- [Optional] [Stock] in the stock activity acrd add an icon for add, remove or archieved;
                           
