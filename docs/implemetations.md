@@ -136,6 +136,8 @@ NEXTILL IMPLEMENTATION LIST
         there should be a scroll sidebar, this will fix the height issue in the menu page;
 - [Fix] [Menu/Style] fix the style for the menu page when the content is stacked vertically for mobile
                      and small screens;
+- [Fix] [Reports] in the reports page most sections render the id of an item while they should 
+                  render the name;
 - [✅] {Fix}{Languages} fix the issue when there are multiple files common and privacy in the same page;
 - [Clean] [Dividers] Clean the unused dividers;
 - [Clean] [AppHeader] Clean the unused code in the Navbar component;
