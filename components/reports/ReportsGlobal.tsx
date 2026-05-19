@@ -25,6 +25,7 @@ export default function ReportsGlobal({
     unitsSoldTotal: 0,
     itemsSales: {},
   });
+  console.log("menu items:", menuItems)
 
   useEffect(() => {
     if (!userId) return;
