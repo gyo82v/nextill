@@ -6,6 +6,8 @@ import { db } from "@/firebase/firebase";
 import { formatMoney } from "@/lib/money";
 import type { GlobalStats } from "@/types";
 import type { MenuItem } from "@/firebase/menu";
+import { cardBaseStyle } from "@/styles";
+import { MenuSectionDivider } from "../ui/dividers/Dividers";
 
 type ReportsGlobalProps = {
   userId: string;
@@ -74,36 +76,43 @@ export default function ReportsGlobal({
   }
 
   return (
-    <section className="space-y-6">
-      <h2 className="text-lg font-medium">Global overview</h2>
+    <section className="grid w-full grid-cols-1 gap-14 lg:grid-cols-2 lg:items-start ">
+      <div className="flex flex-col w-full justify-center ">
+        {/*Global overview */}
+        <div className="max-w-2xl w-full mx-auto">
+          <div className="mb-10 sm:mb-6 lg:mb-10">
+            <h2 className="text-2xl font-semibold tracking-tight">Global overview</h2>
+            <p className="mt-1 text-sm text-muted xl:max-w-[80%]">description here</p>
+          </div>
 
-      <div className="grid gap-4 md:grid-cols-3">
-        <div className="rounded border p-4">
-          <div className="text-sm opacity-70">Total earnings</div>
-          <div className="text-xl font-semibold">
-            {formatMoney(globalStats.totalEarnings, currency)}
+          <div className={`flex justify-between w-full gap-4  py-4 px-8 ${cardBaseStyle}  `}>
+            <div className=" ">
+              <div className="text-sm opacity-70">Total earnings</div>
+              <div className="text-xl font-semibold">
+               {formatMoney(globalStats.totalEarnings, currency)}
+              </div>
+            </div>
+
+            <div className=" ">
+              <div className="text-sm opacity-70">Total transactions</div>
+              <div className="text-xl font-semibold">
+                {globalStats.totalTransactions}
+              </div>
+            </div>
+
+            <div className=" ">
+              <div className="text-sm opacity-70">Units sold</div>
+              <div className="text-xl font-semibold">{globalStats.unitsSoldTotal}</div>
+            </div>
           </div>
         </div>
+        {/*top 5 items */}
+        <div className="max-w-2xl w-full mx-auto">
+          <h3 className="font-medium mb-4 ">Top 5 items</h3>
 
-        <div className="rounded border p-4">
-          <div className="text-sm opacity-70">Total transactions</div>
-          <div className="text-xl font-semibold">
-            {globalStats.totalTransactions}
-          </div>
-        </div>
-
-        <div className="rounded border p-4">
-          <div className="text-sm opacity-70">Units sold</div>
-          <div className="text-xl font-semibold">{globalStats.unitsSoldTotal}</div>
-        </div>
-      </div>
-
-      <div className="space-y-6">
-        <div className="space-y-2">
-          <h3 className="font-medium">Top 5 items</h3>
-          <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
+          <div className={`flex flex-col ${cardBaseStyle} p-4`}>
             {globalItemsSorted.slice(0, 5).map(([id, qty], i) => (
-              <div key={id} className="rounded border p-4">
+              <div key={id} className="">
                 <div className="text-sm opacity-70">#{i + 1}</div>
                 <div className="font-medium">{menuNameById.get(id) ?? id}</div>
                 <div className="text-sm opacity-70">Sold: {qty}</div>
@@ -111,21 +120,23 @@ export default function ReportsGlobal({
             ))}
           </div>
         </div>
+      </div>
 
-        <div className="space-y-2">
-          <h3 className="font-medium">All items</h3>
-          <div className="space-y-2">
+      <MenuSectionDivider />
+      {/*all items */}
+      <div className="max-w-2xl w-full mx-auto">
+        <h3 className="font-medium mb-4">All items</h3>
+         <div className={`${cardBaseStyle}  p-4`}>
             {globalItemsSorted.map(([id, qty]) => (
               <div
                 key={id}
-                className="flex items-center justify-between rounded border px-4 py-2"
+                className="flex items-center justify-between"
               >
                 <span>{menuNameById.get(id) ?? id}</span>
                 <span className="opacity-70">{qty}</span>
               </div>
             ))}
           </div>
-        </div>
       </div>
     </section>
   );

@@ -6,6 +6,7 @@ import { listMenuItems, type MenuItem } from "@/firebase/menu";
 import ReportsGlobal from "@/components/reports/ReportsGlobal";
 import ReportsCurrentDay from "@/components/reports/ReportsCurrentDay";
 import ReportsDayOverview from "@/components/reports/ReportsDayOverview";
+import { DotLineDivider } from "@/components/ui/dividers/Dividers";
 
 export default function StatisticsPage() {
   const { user, profile } = useAuth();
@@ -52,14 +53,16 @@ export default function StatisticsPage() {
   if (menuLoading) return <div className="p-6 opacity-70">Loading statistics…</div>;
 
   return (
-    <div className="p-6 space-y-10">
-      <h1 className="text-2xl font-semibold">Statistics</h1>
+    <div className="p-6 space-y-10 w-full px-4 py-14 sm:px-6 lg:px-8 lg:py-16 ">
 
-      <ReportsGlobal
+        <ReportsGlobal
         userId={user.uid}
         currency={currency}
         menuItems={menuItems}
       />
+
+
+      <DotLineDivider className="my-14" />
 
       <ReportsCurrentDay
         userId={user.uid}
@@ -67,6 +70,8 @@ export default function StatisticsPage() {
         currency={currency}
         menuItems={menuItems}
       />
+
+      <DotLineDivider />
 
       <ReportsDayOverview
         userId={user.uid}

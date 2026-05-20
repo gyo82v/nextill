@@ -4,6 +4,7 @@ import {
   deleteDoc,
   doc,
   getDocs,
+  where,
   orderBy,
   query,
   serverTimestamp,
@@ -26,6 +27,19 @@ function normalizeIngredients(ingredients?: MenuIngredient[]) {
       quantity: i.quantity,
     }));
 }
+
+export async function listActiveMenuItems(uid: string) {
+  const q = query(menuCol(uid), orderBy("createdAt", "desc"));
+  const snap = await getDocs(q);
+
+  return snap.docs
+    .map((d) => ({
+      id: d.id,
+      ...d.data(),
+    }))
+    .filter((item) => item.active !== false) as MenuItem[];
+}
+
 
 export async function listMenuItems(uid: string) {
   const q = query(menuCol(uid), orderBy("createdAt", "desc"));

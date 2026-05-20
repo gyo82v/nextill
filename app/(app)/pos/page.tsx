@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useAuth } from "@/firebase/authProvider";
-import { listMenuItems, type MenuItem } from "@/firebase/menu";
+import { listActiveMenuItems, type MenuItem } from "@/firebase/menu";
 import MenuList from "@/components/pos/MenuList";
 import CartPanel from "@/components/cart/CartPanel";
 import CheckoutButton from "@/components/cart/CheckoutButton";
@@ -21,7 +21,7 @@ export default function TillPage() {
     if (!user) return;
 
     setMenuLoading(true);
-    const items = await listMenuItems(user.uid);
+    const items = await listActiveMenuItems(user.uid);
 
     // Safety: ensure ingredients is always an array
     const safeItems = items.map((item) => ({

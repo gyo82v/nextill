@@ -6,8 +6,8 @@ import { listStockItems } from "@/firebase/stock";
 import {
   createMenuItem,
   deleteMenuItem,
-  listMenuItems,
   clearMenuItems,
+  listActiveMenuItems
 } from "@/firebase/menu";
 import MenuList from "@/components/menu/MenuList";
 import AddItemToMenu from "@/components/menu/AddItemToMenu";
@@ -42,7 +42,7 @@ export default function MenuPage() {
     setPageLoading(true);
 
     const [menus, stock] = await Promise.all([
-      listMenuItems(user.uid),
+      listActiveMenuItems(user.uid),
       listStockItems(user.uid),
     ]);
 
