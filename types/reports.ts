@@ -1,3 +1,5 @@
+import { MenuItem } from "./menu";
+
 export type GlobalStats = {
   totalEarnings: number;
   totalTransactions: number;
@@ -38,4 +40,23 @@ export type TransactionDoc = {
 
 export type TransactionRow = TransactionDoc & {
   id: string;
+};
+
+export type ReportsGlobalProps = {
+  userId: string;
+  currency: string;
+  menuItems: MenuItem[];
+};
+
+export type ReportsCurrentDayProps = {
+  userId: string;
+  dayKey: string | null;
+  currency: string;
+  menuItems: MenuItem[];
+};
+
+export type ReportsDayOverviewProps = {
+  userId: string;
+  currency: string;
+  menuItems: MenuItem[];
 };

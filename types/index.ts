@@ -7,3 +7,4 @@ export * from "./layout";
 export * from "./stock"
 export * from "./reports"
 export * from "./select";
+export * from "./menu";
