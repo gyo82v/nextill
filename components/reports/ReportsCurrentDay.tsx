@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   collection,
   doc,
@@ -10,15 +10,12 @@ import {
 } from "firebase/firestore";
 import { db } from "@/firebase/firebase";
 import { formatMoney } from "@/lib/money";
-import type { DaySummary, TransactionDoc, TransactionRow } from "@/types";
-import type { MenuItem } from "@/firebase/menu";
+import type { DaySummary, TransactionDoc, TransactionRow, ReportsCurrentDayProps } from "@/types";
+import { MenuSectionDivider } from "../ui/dividers/Dividers";
+import { cardBaseStyle } from "@/styles";
+import Button from "../ui/Button";
+import { createMenuNameById, sortItemsSales } from "@/lib/reports";
 
-type ReportsCurrentDayProps = {
-  userId: string;
-  dayKey: string | null;
-  currency: string;
-  menuItems: MenuItem[];
-};
 
 export default function ReportsCurrentDay({
   userId,
@@ -107,80 +104,103 @@ export default function ReportsCurrentDay({
     };
   }, [userId, dayKey]);
 
-  const menuNameById = useMemo(() => {
-    const map = new Map<string, string>();
-    for (const item of menuItems) {
-      map.set(item.id, item.name);
-    }
-    return map;
-  }, [menuItems]);
-
-  const currentDayItemsSorted = useMemo(() => {
-    return currentDayStats?.itemsSales
-      ? Object.entries(currentDayStats.itemsSales).sort((a, b) => b[1] - a[1])
-      : [];
-  }, [currentDayStats]);
+  const menuNameById = createMenuNameById(menuItems);
+  const currentDayItemsSorted = sortItemsSales(currentDayStats?.itemsSales);
 
   if (loading) {
     return <div className="p-4 opacity-70">Loading current day report…</div>;
   }
 
   return (
-    <section className="space-y-6">
-      <h2 className="text-lg font-medium">Current day item sales</h2>
-
-      <div className="grid gap-4 md:grid-cols-3">
-        <div className="rounded border p-4">
-          <div className="text-sm opacity-70">Earnings</div>
-          <div className="text-xl font-semibold">
-            {formatMoney(currentDayStats?.earnings ?? 0, currency)}
+    <section className="relative grid w-full grid-cols-1 gap-14 lg:grid-cols-2 lg:items-start ">
+      {/*first column desktop*/}
+      <div className="flex flex-col w-full justify-center">
+        {/*current day overview*/}
+        <div className="max-w-2xl w-full mx-auto">
+          <div className="mb-10 sm:mb-6 lg:mb-10">
+            <h2 className="text-2xl font-semibold tracking-tight">Current day</h2>
+            <p className="mt-1 text-sm text-muted xl:max-w-[80%]">description here</p>
           </div>
-        </div>
 
-        <div className="rounded border p-4">
-          <div className="text-sm opacity-70">Transactions</div>
-          <div className="text-xl font-semibold">
-            {currentDayStats?.transactions ?? 0}
-          </div>
-        </div>
-
-        <div className="rounded border p-4">
-          <div className="text-sm opacity-70">Units sold</div>
-          <div className="text-xl font-semibold">
-            {currentDayStats?.unitsSoldTotal ?? 0}
-          </div>
-        </div>
-      </div>
-
-      <div className="space-y-2">
-        <h3 className="font-medium">Top 5 items</h3>
-        <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
-          {currentDayItemsSorted.slice(0, 5).map(([id, qty], i) => (
-            <div key={id} className="rounded border p-4">
-              <div className="text-sm opacity-70">#{i + 1}</div>
-              <div className="font-medium">
-                {menuNameById.get(id) ?? id}
+          <div className={`flex justify-between w-full gap-4 py-4 px-8 ${cardBaseStyle} `}>
+            <div className=" ">
+              <div className="text-sm opacity-70">Earnings</div>
+              <div className="text-xl font-semibold">
+                {formatMoney(currentDayStats?.earnings ?? 0, currency)}
               </div>
-              <div className="text-sm opacity-70">Sold: {qty}</div>
             </div>
-          ))}
+
+            <div className=" ">
+              <div className="text-sm opacity-70 ">Transactions</div>
+              <div className="text-xl font-semibold">
+                {currentDayStats?.transactions ?? 0}
+              </div>
+            </div>
+
+            <div className=" ">
+              <div className="text-sm opacity-70">Units sold</div>
+              <div className="text-xl font-semibold">
+                {currentDayStats?.unitsSoldTotal ?? 0}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/*top 5 items*/}
+        <div>
+          <div className="max-w-2xl w-full mx-auto">
+            <h3 className="font-medium mb-4 ">Top 5 items</h3>
+
+            <div className={`flex flex-col ${cardBaseStyle} p-4`}>
+              {currentDayItemsSorted.slice(0, 5).map(([id, qty], i) => (
+                <div key={id} className="">
+                  <div className="text-sm opacity-70">#{i + 1}</div>
+                  <div className="font-medium">{menuNameById.get(id) ?? id}</div>
+                  <div className="text-sm opacity-70">Sold: {qty}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
-      <section className="space-y-3">
-        <div className="flex items-center justify-between gap-4">
-          <h2 className="text-lg font-medium">Current day transactions</h2>
+      <MenuSectionDivider />
 
-          <button
-            type="button"
-            onClick={() => setShowCurrentDayTransactions((prev) => !prev)}
-            className="rounded border px-3 py-2 text-sm"
-          >
-            {showCurrentDayTransactions ? "Hide" : "Show"}
-          </button>
+      {/*Second column desktop*/}
+      <div className="flex flex-col w-full justify-center">
+        {/*all items*/}
+        <div className="max-w-2xl w-full mx-auto">
+          <h3 className="font-medium mb-4">All items</h3>
+          <div className={`${cardBaseStyle}  p-4`}>
+            {currentDayItemsSorted.map(([id, qty]) => (
+              <div
+                key={id}
+                className="flex items-center justify-between"
+              >
+                <span>{menuNameById.get(id) ?? id}</span>
+                <span className="opacity-70">{qty}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {showCurrentDayTransactions ? (
+        {/*Current day transactions*/}
+        <div className="max-w-2xl w-full mx-auto">
+          {/*current day transactions header*/}
+          <div className="flex items-center justify-between gap-4">
+            <h2 className="text-lg font-medium">Current day transactions</h2>
+
+            <Button
+              type="button"
+              onClick={() => setShowCurrentDayTransactions((prev) => !prev)}
+              variant="secondary"
+            >
+              {showCurrentDayTransactions ? "Hide" : "Show"}
+            </Button>
+          </div>
+
+          {/*current day transaciton list*/}
+          {showCurrentDayTransactions ? (
           currentDayTransactions.length > 0 ? (
             <div className="space-y-3">
               {currentDayTransactions.map((tx) => (
@@ -204,10 +224,11 @@ export default function ReportsCurrentDay({
           ) : (
             <p className="opacity-70">No transactions for the current day.</p>
           )
-        ) : (
-          <p className="opacity-70">Transactions hidden.</p>
-        )}
-      </section>
+          ) : (
+            <p className="opacity-70">Transactions hidden.</p>
+          )}
+        </div>
+      </div>
     </section>
   );
 }

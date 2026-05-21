@@ -1,19 +1,13 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "@/firebase/firebase";
 import { formatMoney } from "@/lib/money";
-import type { GlobalStats } from "@/types";
-import type { MenuItem } from "@/firebase/menu";
+import type { GlobalStats, ReportsGlobalProps } from "@/types";
 import { cardBaseStyle } from "@/styles";
 import { MenuSectionDivider } from "../ui/dividers/Dividers";
-
-type ReportsGlobalProps = {
-  userId: string;
-  currency: string;
-  menuItems: MenuItem[];
-};
+import { createMenuNameById, sortItemsSales } from "@/lib/reports";
 
 export default function ReportsGlobal({
   userId,
@@ -59,29 +53,21 @@ export default function ReportsGlobal({
     return unsubscribe;
   }, [userId]);
 
-  const menuNameById = useMemo(() => {
-    const map = new Map<string, string>();
-    for (const item of menuItems) {
-      map.set(item.id, item.name);
-    }
-    return map;
-  }, [menuItems]);
-
-  const globalItemsSorted = useMemo(() => {
-    return Object.entries(globalStats.itemsSales).sort((a, b) => b[1] - a[1]);
-  }, [globalStats.itemsSales]);
+  const menuNameById = createMenuNameById(menuItems);
+  const globalItemsSorted = sortItemsSales(globalStats.itemsSales);
 
   if (loading) {
     return <div className="p-4 opacity-70">Loading global overview…</div>;
   }
 
   return (
-    <section className="grid w-full grid-cols-1 gap-14 lg:grid-cols-2 lg:items-start ">
+    <section className="relative grid w-full grid-cols-1 gap-14 lg:grid-cols-2 lg:items-start ">
+      {/*first column */}
       <div className="flex flex-col w-full justify-center ">
         {/*Global overview */}
         <div className="max-w-2xl w-full mx-auto">
           <div className="mb-10 sm:mb-6 lg:mb-10">
-            <h2 className="text-2xl font-semibold tracking-tight">Global overview</h2>
+            <h1 className="text-2xl font-semibold tracking-tight">Global overview</h1>
             <p className="mt-1 text-sm text-muted xl:max-w-[80%]">description here</p>
           </div>
 
@@ -94,7 +80,7 @@ export default function ReportsGlobal({
             </div>
 
             <div className=" ">
-              <div className="text-sm opacity-70">Total transactions</div>
+              <div className="text-sm opacity-70 ">Total transactions</div>
               <div className="text-xl font-semibold">
                 {globalStats.totalTransactions}
               </div>
@@ -123,9 +109,13 @@ export default function ReportsGlobal({
       </div>
 
       <MenuSectionDivider />
-      {/*all items */}
+      {/*second column/all items */}
       <div className="max-w-2xl w-full mx-auto">
-        <h3 className="font-medium mb-4">All items</h3>
+        <div className="mb-10 sm:mb-6 lg:mb-10">
+          <h3 className="text-lg  tracking-tight">All items</h3>
+          <p className="mt-1 text-sm">desctiption here</p>
+        </div>
+
          <div className={`${cardBaseStyle}  p-4`}>
             {globalItemsSorted.map(([id, qty]) => (
               <div

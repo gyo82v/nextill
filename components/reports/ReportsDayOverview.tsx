@@ -9,14 +9,8 @@ import {
 } from "firebase/firestore";
 import { db } from "@/firebase/firebase";
 import { formatMoney } from "@/lib/money";
-import type { DaySummary, DaySummaryRow } from "@/types";
-import type { MenuItem } from "@/firebase/menu";
-
-type ReportsDayOverviewProps = {
-  userId: string;
-  currency: string;
-  menuItems: MenuItem[];
-};
+import type { DaySummary, DaySummaryRow, ReportsDayOverviewProps } from "@/types";
+import { cardBaseStyle } from "@/styles";
 
 export default function ReportsDayOverview({
   userId,
@@ -74,12 +68,15 @@ export default function ReportsDayOverview({
 
   return (
     <section className="space-y-3">
-      <h2 className="text-lg font-medium">Daily overview</h2>
+      <div className="mb-10 sm:mb-6 lg:mb-10">
+        <h2 className="text-2xl font-semibold tracking-tight">Daily overview</h2>
+        <p className="mt-1 text-sm text-muted xl:max-w-[80%]">description here</p>
+      </div>
 
       {dailySummaries.length > 0 ? (
-        <div className="space-y-2">
+        <div className="w-full max-w-2xl space-y-3">
           {dailySummaries.map((day) => (
-            <div key={day.id} className="rounded border p-4">
+            <div key={day.id} className={`${cardBaseStyle} p-4 `}>
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div>
                   <div className="font-medium">{day.date}</div>

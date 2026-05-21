@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useAuth } from "@/firebase/authProvider";
-import { listMenuItems, type MenuItem } from "@/firebase/menu";
+import { listMenuItems } from "@/firebase/menu";
+import type {MenuItem} from "@/types"
 import ReportsGlobal from "@/components/reports/ReportsGlobal";
 import ReportsCurrentDay from "@/components/reports/ReportsCurrentDay";
 import ReportsDayOverview from "@/components/reports/ReportsDayOverview";
