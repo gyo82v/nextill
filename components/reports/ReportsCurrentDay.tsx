@@ -15,6 +15,7 @@ import { MenuSectionDivider } from "../ui/dividers/Dividers";
 import { cardBaseStyle } from "@/styles";
 import Button from "../ui/Button";
 import { createMenuNameById, sortItemsSales } from "@/lib/reports";
+import TopItems from "./TopItems";
 
 
 export default function ReportsCurrentDay({
@@ -150,16 +151,7 @@ export default function ReportsCurrentDay({
         <div>
           <div className="max-w-2xl w-full mx-auto">
             <h3 className="font-medium mb-4 ">Top 5 items</h3>
-
-            <div className={`flex flex-col ${cardBaseStyle} p-4`}>
-              {currentDayItemsSorted.slice(0, 5).map(([id, qty], i) => (
-                <div key={id} className="">
-                  <div className="text-sm opacity-70">#{i + 1}</div>
-                  <div className="font-medium">{menuNameById.get(id) ?? id}</div>
-                  <div className="text-sm opacity-70">Sold: {qty}</div>
-                </div>
-              ))}
-            </div>
+            <TopItems items={currentDayItemsSorted} menuNameById={menuNameById} />
           </div>
         </div>
       </div>

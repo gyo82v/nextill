@@ -60,3 +60,8 @@ export type ReportsDayOverviewProps = {
   currency: string;
   menuItems: MenuItem[];
 };
+
+export type TopItemsProps = {
+  items: [string, number][];
+  menuNameById: Map<string, string>;
+};
