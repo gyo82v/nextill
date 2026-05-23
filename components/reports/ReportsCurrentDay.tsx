@@ -16,6 +16,8 @@ import { cardBaseStyle } from "@/styles";
 import Button from "../ui/Button";
 import { createMenuNameById, sortItemsSales } from "@/lib/reports";
 import TopItems from "./TopItems";
+import ItemsList from "./ItemsList";
+import OverviewStats from "./OverviewStats";
 
 
 export default function ReportsCurrentDay({
@@ -123,28 +125,12 @@ export default function ReportsCurrentDay({
             <p className="mt-1 text-sm text-muted xl:max-w-[80%]">description here</p>
           </div>
 
-          <div className={`flex justify-between w-full gap-4 py-4 px-8 ${cardBaseStyle} `}>
-            <div className=" ">
-              <div className="text-sm opacity-70">Earnings</div>
-              <div className="text-xl font-semibold">
-                {formatMoney(currentDayStats?.earnings ?? 0, currency)}
-              </div>
-            </div>
-
-            <div className=" ">
-              <div className="text-sm opacity-70 ">Transactions</div>
-              <div className="text-xl font-semibold">
-                {currentDayStats?.transactions ?? 0}
-              </div>
-            </div>
-
-            <div className=" ">
-              <div className="text-sm opacity-70">Units sold</div>
-              <div className="text-xl font-semibold">
-                {currentDayStats?.unitsSoldTotal ?? 0}
-              </div>
-            </div>
-          </div>
+          <OverviewStats
+            totalEarnings={currentDayStats.earnings}
+            totalTransactions={currentDayStats.transactions}
+            unitsSoldTotal={currentDayStats.unitsSoldTotal}
+            currency={currency}
+          />
         </div>
 
         {/*top 5 items*/}
@@ -162,7 +148,11 @@ export default function ReportsCurrentDay({
       <div className="flex flex-col w-full justify-center">
         {/*all items*/}
         <div className="max-w-2xl w-full mx-auto">
-          <h3 className="font-medium mb-4">All items</h3>
+          <div className="mb-10 sm:mb-6 lg:mb-10">
+            <h3 className="text-lg tracking-tight">All items</h3>
+            <p className="mt-1 text-sm">description here</p>
+          </div>
+          
           <div className={`${cardBaseStyle}  p-4`}>
             {currentDayItemsSorted.map(([id, qty]) => (
               <div
