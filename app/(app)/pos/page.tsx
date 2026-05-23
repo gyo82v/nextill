@@ -10,6 +10,7 @@ import StartDay from "@/components/till/StartDay";
 import EndDay from "@/components/till/EndDay";
 import { useCartStore } from "@/store/useCartStore";
 
+
 export default function TillPage() {
   const { user, profile } = useAuth();
   const cart = useCartStore();

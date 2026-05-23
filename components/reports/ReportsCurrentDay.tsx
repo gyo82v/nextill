@@ -1,6 +1,136 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { doc, onSnapshot } from "firebase/firestore";
+import { db } from "@/firebase/firebase";
+
+import type { DaySummary, ReportsCurrentDayProps } from "@/types";
+
+import { MenuSectionDivider } from "../ui/dividers/Dividers";
+import { createMenuNameById, sortItemsSales } from "@/lib/reports";
+
+import OverviewStats from "./OverviewStats";
+import TopItems from "./TopItems";
+import ItemsList from "./ItemsList";
+
+export default function ReportsCurrentDay({
+  userId,
+  dayKey,
+  currency,
+  menuItems,
+}: ReportsCurrentDayProps) {
+  const [loading, setLoading] = useState(true);
+  const [currentDayStats, setCurrentDayStats] =
+    useState<DaySummary | null>(null);
+
+  useEffect(() => {
+    if (!userId || !dayKey) {
+      setCurrentDayStats(null);
+      setLoading(false);
+      return;
+    }
+
+    setLoading(true);
+
+    const dayRef = doc(db, "users", userId, "dailySummaries", dayKey);
+
+    const unsubscribe = onSnapshot(dayRef, (snap) => {
+      if (snap.exists()) {
+        const data = snap.data() as DaySummary;
+
+        setCurrentDayStats({
+          date: data.date ?? dayKey,
+          earnings: Number(data.earnings ?? 0),
+          transactions: Number(data.transactions ?? 0),
+          unitsSoldTotal: Number(data.unitsSoldTotal ?? 0),
+          itemsSales: (data.itemsSales ?? {}) as Record<string, number>,
+          mostSoldItem: data.mostSoldItem ?? null,
+          updatedAt: data.updatedAt,
+        });
+      } else {
+        setCurrentDayStats(null);
+      }
+
+      setLoading(false);
+    });
+
+    return unsubscribe;
+  }, [userId, dayKey]);
+
+  const menuNameById = createMenuNameById(menuItems);
+  const currentDayItemsSorted = sortItemsSales(
+    currentDayStats?.itemsSales
+  );
+
+  if (loading) {
+    return <div className="p-4 opacity-70">Loading current day report…</div>;
+  }
+
+  return (
+    <section className="relative w-full lg:h-[700px]">
+      <div className="grid h-full grid-cols-1 gap-14 lg:grid-cols-2 lg:items-stretch">
+        {/* LEFT COLUMN */}
+        <div className="flex h-full min-h-0 w-full flex-col">
+          <section className="mx-auto w-full max-w-2xl">
+            <div className="mb-8 min-h-[88px]">
+              <h1 className="text-2xl font-semibold tracking-tight text-foreground">
+                Current day
+              </h1>
+              <p className="mt-2 max-w-[80%] text-sm text-muted-foreground">
+                description here
+              </p>
+            </div>
+
+            <OverviewStats
+              totalEarnings={currentDayStats?.earnings ?? 0}
+              totalTransactions={currentDayStats?.transactions ?? 0}
+              unitsSoldTotal={currentDayStats?.unitsSoldTotal ?? 0}
+              currency={currency}
+            />
+          </section>
+
+          <section className="mx-auto mt-auto w-full max-w-2xl">
+            <div className="mb-4">
+              <h3 className="text-lg font-medium tracking-tight text-foreground/90">
+                Top items of the day
+              </h3>
+            </div>
+
+            <TopItems
+              items={currentDayItemsSorted}
+              menuNameById={menuNameById}
+            />
+          </section>
+        </div>
+
+        {/* RIGHT COLUMN */}
+        <div className="mx-auto flex h-full min-h-0 w-full max-w-2xl flex-col">
+          <div className="mb-8 min-h-[88px] flex flex-col justify-end">
+            <h3 className="text-lg font-medium tracking-tight text-foreground/90">
+              All items of the day
+            </h3>
+            <div className="mt-2 h-5" aria-hidden="true" />
+          </div>
+
+          <div className="min-h-0 flex-1">
+            <ItemsList
+              items={currentDayItemsSorted}
+              menuNameById={menuNameById}
+            />
+          </div>
+        </div>
+      </div>
+
+      <MenuSectionDivider />
+    </section>
+  );
+}
+
+/*
+
+"use client";
+
+import { useEffect, useState } from "react";
 import {
   collection,
   doc,
@@ -116,9 +246,9 @@ export default function ReportsCurrentDay({
 
   return (
     <section className="relative grid w-full grid-cols-1 gap-14 lg:grid-cols-2 lg:items-start ">
-      {/*first column desktop*/}
+
       <div className="flex flex-col w-full justify-center">
-        {/*current day overview*/}
+
         <div className="max-w-2xl w-full mx-auto">
           <div className="mb-10 sm:mb-6 lg:mb-10">
             <h2 className="text-2xl font-semibold tracking-tight">Current day</h2>
@@ -133,7 +263,7 @@ export default function ReportsCurrentDay({
           />
         </div>
 
-        {/*top 5 items*/}
+  
         <div>
           <div className="max-w-2xl w-full mx-auto">
             <h3 className="font-medium mb-4 ">Top 5 items</h3>
@@ -144,9 +274,9 @@ export default function ReportsCurrentDay({
 
       <MenuSectionDivider />
 
-      {/*Second column desktop*/}
+   
       <div className="flex flex-col w-full justify-center">
-        {/*all items*/}
+
         <div className="max-w-2xl w-full mx-auto">
           <div className="mb-10 sm:mb-6 lg:mb-10">
             <h3 className="text-lg tracking-tight">All items</h3>
@@ -166,9 +296,9 @@ export default function ReportsCurrentDay({
           </div>
         </div>
 
-        {/*Current day transactions*/}
+    
         <div className="max-w-2xl w-full mx-auto">
-          {/*current day transactions header*/}
+
           <div className="flex items-center justify-between gap-4">
             <h2 className="text-lg font-medium">Current day transactions</h2>
 
@@ -181,7 +311,7 @@ export default function ReportsCurrentDay({
             </Button>
           </div>
 
-          {/*current day transaciton list*/}
+
           {showCurrentDayTransactions ? (
           currentDayTransactions.length > 0 ? (
             <div className="space-y-3">
@@ -214,3 +344,8 @@ export default function ReportsCurrentDay({
     </section>
   );
 }
+
+
+
+
+*/

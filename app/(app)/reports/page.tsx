@@ -8,6 +8,7 @@ import ReportsGlobal from "@/components/reports/ReportsGlobal";
 import ReportsCurrentDay from "@/components/reports/ReportsCurrentDay";
 import ReportsDayOverview from "@/components/reports/ReportsDayOverview";
 import { DotLineDivider } from "@/components/ui/dividers/Dividers";
+import ReportsDailyOverview from "@/components/reports/ReportsDailyOverview";
 
 export default function StatisticsPage() {
   const { user, profile } = useAuth();
@@ -74,8 +75,9 @@ export default function StatisticsPage() {
 
       <DotLineDivider />
 
-      <ReportsDayOverview
+      <ReportsDailyOverview
         userId={user.uid}
+        dayKey={dayKey}
         currency={currency}
         menuItems={menuItems}
       />
