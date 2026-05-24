@@ -11,6 +11,7 @@ import { db } from "@/firebase/firebase";
 import { formatMoney } from "@/lib/money";
 import type { DaySummary, DaySummaryRow, ReportsDayOverviewProps } from "@/types";
 import { cardBaseStyle } from "@/styles";
+import Button from "../ui/Button";
 
 export default function ReportsDayOverview({
   userId,
@@ -19,6 +20,7 @@ export default function ReportsDayOverview({
 }: ReportsDayOverviewProps) {
   const [loading, setLoading] = useState(true);
   const [dailySummaries, setDailySummaries] = useState<DaySummaryRow[]>([]);
+  const [showDailySummaries, setShowDailySummaries] = useState(false)
 
   useEffect(() => {
     if (!userId) {
@@ -68,13 +70,25 @@ export default function ReportsDayOverview({
 
   return (
     <section className="space-y-3">
-      <div className="mb-10 sm:mb-6 lg:mb-10">
-        <h2 className="text-2xl font-semibold tracking-tight">Daily overview</h2>
-        <p className="mt-1 text-sm text-muted xl:max-w-[80%]">description here</p>
+      <div className="mb-10 sm:mb-6 lg:mb-10 flex items-center justify-between">
+        <div >
+          <h2 className="text-2xl font-semibold tracking-tight">Daily overview</h2>
+          <p className="mt-1 text-sm text-muted xl:max-w-[80%]">description here</p>
+        </div>
+
+        <Button
+          type="button"
+          variant="secondary"
+          onClick={() => setShowDailySummaries(prev => !prev)}
+        >
+          {showDailySummaries ? "Hide" : "Show"}
+        </Button>
       </div>
 
-      {dailySummaries.length > 0 ? (
-        <div className="w-full max-w-2xl space-y-3">
+      <div>
+       {showDailySummaries ? (
+        dailySummaries.length > 0 ? (
+          <div className="w-full max-w-2xl space-y-3">
           {dailySummaries.map((day) => (
             <div key={day.id} className={`${cardBaseStyle} p-4 `}>
               <div className="flex flex-wrap items-center justify-between gap-4">
@@ -101,9 +115,15 @@ export default function ReportsDayOverview({
             </div>
           ))}
         </div>
-      ) : (
-        <p className="opacity-70">No daily summaries yet.</p>
-      )}
+
+
+        ) : (
+          <p className="opacity-70">No daily summaries yet.</p>
+        )
+       ) : (
+       <p className="text-sm text-muted-foreground">daily reports hidden.</p>
+       )}
+      </div>
     </section>
   );
 }

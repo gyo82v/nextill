@@ -20,10 +20,11 @@ export default function CurrentDayTransactions({
 
   return (
     <div className="mx-auto w-full max-w-2xl">
-      <div className="flex items-center justify-between gap-4">
-        <h2 className="text-lg font-medium tracking-tight text-foreground/90">
-          Current day transactions
-        </h2>
+      <div className="flex items-center justify-between mb-10 sm:mb-6 lg:mb-10 ">
+        <div >
+          <h2 className="text-2xl font-semibold tracking-tight">Current day transactions</h2>
+          <p className="mt-1 text-sm text-muted xl:max-w-[80%]">description here</p>
+        </div>
 
         <Button
           type="button"
@@ -34,7 +35,7 @@ export default function CurrentDayTransactions({
         </Button>
       </div>
 
-      <div className="mt-4">
+      <div className="">
         {showCurrentDayTransactions ? (
           transactions.length > 0 ? (
             <div className="space-y-3">
