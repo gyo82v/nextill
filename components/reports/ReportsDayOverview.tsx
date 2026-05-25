@@ -7,6 +7,8 @@ import { formatMoney } from "@/lib/money";
 import type { DaySummary, DaySummaryRow } from "@/types";
 import { cardBaseStyle } from "@/styles";
 import Button from "../ui/Button";
+import DailyOverviewCard from "./DailyOverviewCard";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 type ReportsDayOverviewProps = {
   userId: string;
@@ -80,8 +82,23 @@ export default function ReportsDayOverview({
           </p>
         </div>
 
-        <Button type="button" variant="secondary" onClick={onToggle}>
-          {isOpen ? "Hide" : "Show"}
+        <Button
+          type="button"
+          variant="secondary"
+          onClick={onToggle}
+          className="flex items-center gap-2"
+        >
+          {isOpen ? (
+            <>
+              <FiEyeOff className="text-base" />
+              <span>Hide</span>
+            </>
+          ) : (
+            <>
+              <FiEye className="text-base" />
+              <span>Show</span>
+            </>
+          )}
         </Button>
       </div>
 
@@ -91,30 +108,19 @@ export default function ReportsDayOverview({
         ) : isOpen ? (
           dailySummaries.length > 0 ? (
             <div className="max-h-[500px] space-y-3 overflow-y-auto pr-2">
-              {dailySummaries.map((day) => (
-                <div key={day.id} className={`${cardBaseStyle} p-4`}>
-                  <div className="flex flex-wrap items-center justify-between gap-4">
-                    <div>
-                      <div className="font-medium">{day.date}</div>
-                      <div className="text-sm opacity-70">
-                        Transactions: {day.transactions} · Units sold:{" "}
-                        {day.unitsSoldTotal ?? 0}
-                      </div>
-                    </div>
-
-                    <div className="text-right">
-                      <div className="font-medium">
-                        {formatMoney(day.earnings, currency)}
-                      </div>
-                      <div className="text-sm opacity-70">
-                        Most sold:{" "}
-                        {day.mostSoldItem
-                          ? menuNameById.get(day.mostSoldItem) ?? day.mostSoldItem
-                          : "—"}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              {dailySummaries.map((day, index) => (
+                <DailyOverviewCard
+                  key={day.id}
+                  day={day}
+                  currency={currency}
+                  previousEarnings={dailySummaries[index + 1]?.earnings}
+                  mostSoldName={
+                    day.mostSoldItem
+                      ? menuNameById.get(day.mostSoldItem) ??
+                        day.mostSoldItem
+                      : undefined
+                    } 
+                />
               ))}
             </div>
           ) : (

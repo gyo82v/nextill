@@ -4,6 +4,8 @@ import { formatMoney } from "@/lib/money";
 import { cardBaseStyle } from "@/styles";
 import Button from "../ui/Button";
 import type { TransactionRow } from "@/types";
+import TransactionCard from "./TransactionCard";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 type CurrentDayTransactionsProps = {
   transactions: TransactionRow[];
@@ -30,8 +32,23 @@ export default function CurrentDayTransactions({
           </p>
         </div>
 
-        <Button type="button" onClick={onToggle} variant="secondary">
-          {isOpen ? "Hide" : "Show"}
+        <Button
+          type="button"
+          variant="secondary"
+          onClick={onToggle}
+          className="flex items-center gap-2"
+        >
+          {isOpen ? (
+            <>
+              <FiEyeOff className="text-base" />
+              <span>Hide</span>
+            </>
+          ) : (
+            <>
+              <FiEye className="text-base" />
+              <span>Show</span>
+            </>
+          )}
         </Button>
       </div>
 
@@ -40,25 +57,10 @@ export default function CurrentDayTransactions({
           transactions.length > 0 ? (
             <div className="max-h-[500px] space-y-3 overflow-y-auto pr-2">
               {transactions.map((tx) => (
-                <div key={tx.id} className={`${cardBaseStyle} space-y-3 p-4`}>
-                  <div className="flex justify-between gap-4">
-                    <div className="min-w-0">
-                      <div className="text-sm text-muted-foreground">
-                        Transaction ID
-                      </div>
-                      <div className="break-all font-medium text-foreground">
-                        {tx.id}
-                      </div>
-                    </div>
-
-                    <div className="text-right">
-                      <div className="text-sm text-muted-foreground">Total</div>
-                      <div className="font-medium text-foreground">
-                        {formatMoney(tx.totalMinor, currency)}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <TransactionCard
+                  key={tx.id}
+                  transaction={tx}
+                  currency={currency}/>
               ))}
             </div>
           ) : (

@@ -2,6 +2,7 @@
 
 import { cardBaseStyle } from "@/styles";
 import { formatMoney } from "@/lib/money";
+import { FiTrendingUp, FiShoppingCart, FiBox } from "react-icons/fi";
 
 type OverviewStatsProps = {
   totalEarnings: number;
@@ -10,16 +11,20 @@ type OverviewStatsProps = {
   currency: string;
 };
 
-function StatCard({
-  label,
-  value,
-}: {
+type StatCardProps = {
   label: string;
   value: string | number;
-}) {
+  icon: React.ReactNode;
+};
+
+function StatCard({ label, value, icon }: StatCardProps) {
   return (
     <div className="rounded-2xl border border-default bg-surface-1 p-4 shadow-sm">
-      <div className="text-sm text-muted-foreground">{label}</div>
+      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <span className="text-base">{icon}</span>
+        <span>{label}</span>
+      </div>
+
       <div className="mt-2 text-xl font-semibold tracking-tight text-foreground">
         {value}
       </div>
@@ -38,14 +43,19 @@ export default function OverviewStats({
       <StatCard
         label="Total earnings"
         value={formatMoney(totalEarnings, currency)}
+        icon={<FiTrendingUp />}
       />
+
       <StatCard
         label="Total transactions"
         value={totalTransactions}
+        icon={<FiShoppingCart />}
       />
+
       <StatCard
         label="Units sold"
         value={unitsSoldTotal}
+        icon={<FiBox />}
       />
     </div>
   );

@@ -8,7 +8,7 @@ NEXTILL IMPLEMENTATION LIST
                      navigation menu;
 - [✅] {Content}{Menu} Add the feature in the Menu page to clear all menu with a button;
 - [✅] {Content}{Stock} Add the feature in the Stock page to clear all stock with a button;
-- [Content] [Stats] Add a feature in the Stats page to clear all stats with a button;
+- [Content] [Account] Add a feature in the Account page to clear all stats with a button;
 - [✅] {Style}{Header} style the mobile navigation menu;
 - [Content] [Till] create a confirm order modal/page; when the user clicks on the checkout button
                    the modal/page opens; it has a recap of the order, buttons to proceed or cancel;
