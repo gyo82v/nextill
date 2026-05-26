@@ -65,3 +65,55 @@ export type TopItemsProps = {
   items: [string, number][];
   menuNameById: Map<string, string>;
 };
+
+export type OverviewStatsProps = {
+  totalEarnings: number;
+  totalTransactions: number;
+  unitsSoldTotal: number;
+  currency: string;
+};
+
+export type StatCardProps = {
+  label: string;
+  value: string | number;
+  icon: React.ReactNode;
+};
+
+export type ItemsListProps = {
+  items: [string, number][];
+  menuNameById: Map<string, string>;
+};
+
+export type CurrentDayTransactionsProps = {
+  transactions: TransactionRow[];
+  currency: string;
+  isOpen: boolean;
+  onToggle: () => void;
+};
+
+export type TransactionCardProps = {
+  transaction: TransactionRow;
+  currency: string;
+};
+
+export type ReportsDailyOverviewProps = {
+  userId: string;
+  currency: string;
+  menuItems: { id: string; name: string }[];
+  isOpen: boolean;
+  onToggle: () => void;
+};
+
+export type ReportsDailyOverviewProp = {
+  userId: string;
+  dayKey: string | null;
+  currency: string;
+  menuItems: { id: string; name: string }[];
+};
+
+export type DailyOverviewCardProps = {
+  day: DaySummaryRow;
+  currency: string;
+  mostSoldName?: string;
+  previousEarnings?: number;
+};
