@@ -23,6 +23,11 @@ import itStock from "./locales/it/stock.json";
 import esStock from "./locales/es/stock.json";
 import frStock from "./locales/fr/stock.json";
 import deStock from "./locales/de/stock.json";
+import enReports from "./locales/en/reports.json"
+import itReports from "./locales/it/reports.json"
+import esReports from "./locales/es/reports.json"
+import frReports from "./locales/fr/reports.json"
+import deReports from "./locales/de/reports.json"
 
 
 export const resources = {
@@ -31,34 +36,39 @@ export const resources = {
     privacy: enPrivacy,
     auth: enAuth,
     menu: enMenu,
-    stock: enStock
+    stock: enStock,
+    reports: enReports
   },
   it: {
     common: itCommon,
     privacy: itPrivacy,
     auth: itAuth,
     menu: itMenu,
-    stock: itStock
+    stock: itStock,
+    reports: itReports
   },
   es: {
     common: esCommon,
     privacy: esPrivacy,
     auth: esAuth,
     menu: esMenu,
-    stock: esStock
+    stock: esStock,
+    reports: esReports
   },
   fr: {
     common: frCommon,
     privacy: frPrivacy,
     auth: frAuth,
     menu: frMenu,
-    stock: frStock
+    stock: frStock,
+    reports: frReports
   },
   de: {
     common: deCommon,
     privacy: dePrivacy,
     auth: deAuth,
     menu: deMenu,
-    stock: deStock
+    stock: deStock,
+    reports: deReports
   },
 } as const;
