@@ -130,4 +130,12 @@ export function MenuSectionDivider({ className = "" }: DividerProps) {
   );
 }
 
+export function MobileDivider({ className = "" }: DividerProps) {
+  return (
+    <div className={`lg:hidden my-4 px-4 ${className}`}>
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-[var(--divider)] to-transparent opacity-80" />
+    </div>
+  );
+}
+
 

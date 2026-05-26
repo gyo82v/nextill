@@ -7,6 +7,7 @@ import type { TransactionDoc, TransactionRow } from "@/types";
 import { MenuSectionDivider } from "../ui/dividers/Dividers";
 import CurrentDayTransactions from "./CurrentDayTransactions";
 import ReportsDayOverview from "./ReportsDayOverview";
+import { MobileDivider } from "../ui/dividers/Dividers";
 
 type ReportsDailyOverviewProps = {
   userId: string;
@@ -75,7 +76,7 @@ export default function ReportsDailyOverview({
   }
 
   return (
-    <section className={`relative w-full ${bothOpen ? "lg:h-[700px]" : ""}`}>
+    <section className={`mb-20 lg:mb-0 relative w-full ${bothOpen ? "lg:h-[700px]" : ""}`}>
       <div
         className={`grid h-full grid-cols-1 gap-14 lg:grid-cols-2 ${
           bothOpen ? "lg:items-stretch" : "lg:items-start"
@@ -95,6 +96,8 @@ export default function ReportsDailyOverview({
           />
         </div>
 
+        <MobileDivider className="my-6" />
+
         {/* RIGHT COLUMN */}
         <div
           className={`mx-auto flex w-full max-w-2xl flex-col ${
@@ -111,7 +114,7 @@ export default function ReportsDailyOverview({
         </div>
       </div>
 
-      <MenuSectionDivider />
+      <MenuSectionDivider className="hidden lg:flex" />
     </section>
   );
 }

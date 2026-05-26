@@ -64,7 +64,7 @@ export default function StatisticsPage() {
       />
 
 
-      <DotLineDivider className="my-14" />
+      <DotLineDivider className="my-14 hidden lg:flex" />
 
       <ReportsCurrentDay
         userId={user.uid}
@@ -73,7 +73,7 @@ export default function StatisticsPage() {
         menuItems={menuItems}
       />
 
-      <DotLineDivider />
+      <DotLineDivider className="my-14 hidden lg:flex" />
 
       <ReportsDailyOverview
         userId={user.uid}

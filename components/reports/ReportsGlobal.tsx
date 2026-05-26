@@ -9,6 +9,7 @@ import { createMenuNameById, sortItemsSales } from "@/lib/reports";
 import TopItems from "./TopItems";
 import ItemsList from "./ItemsList";
 import OverviewStats from "./OverviewStats";
+import { MobileDivider } from "../ui/dividers/Dividers";
 
 export default function ReportsGlobal({
   userId,
@@ -61,13 +62,13 @@ export default function ReportsGlobal({
   }
 
   return (
-     <section className="relative w-full lg:h-[700px]">
-    <div className="grid h-full grid-cols-1 gap-14 lg:grid-cols-2 lg:items-stretch">
+    <section className="relative w-full lg:h-[700px]">
+    <div className="grid h-full grid-cols-1 lg:gap-14 lg:grid-cols-2 lg:items-stretch">
       {/* LEFT COLUMN */}
       <div className="flex h-full min-h-0 w-full flex-col">
         <section className="mx-auto w-full max-w-2xl">
           {/* Shared header height */}
-          <div className="mb-8 min-h-[88px]">
+          <div className="mb-4 lg:mb-8 min-h-[88px]">
             <h1 className="text-2xl font-semibold tracking-tight text-foreground">
               Global overview
             </h1>
@@ -84,6 +85,8 @@ export default function ReportsGlobal({
           />
         </section>
 
+        <MobileDivider className="my-14" />
+
         <section className="mx-auto mt-auto w-full max-w-2xl">
           <div className="mb-4">
            <h3 className="text-lg font-medium tracking-tight text-foreground/90">
@@ -98,15 +101,17 @@ export default function ReportsGlobal({
         </section>
       </div>
 
+      <MobileDivider className="mt-14 mb-6" />
+
       {/* RIGHT COLUMN */}
       <div className="mx-auto flex h-full min-h-0 w-full max-w-2xl flex-col">
         {/* Same header height → perfect alignment */}
-        <div className="mb-8 min-h-[88px] flex flex-col justify-end">
-  <h3 className="text-lg font-medium tracking-tight text-foreground/90">
-    All items
-  </h3>
-  <div className="mt-2 h-5" aria-hidden="true" />
-</div>
+        <div className="lg:mb-8 min-h-[88px] flex flex-col justify-end">
+          <h3 className="text-lg font-medium tracking-tight text-foreground/90">
+            All items
+          </h3>
+          <div className="mt-2 h-5" aria-hidden="true" />
+        </div>
 
         <div className="min-h-0 flex-1">
           <ItemsList
@@ -117,7 +122,8 @@ export default function ReportsGlobal({
       </div>
     </div>
 
-    <MenuSectionDivider />
+    <MenuSectionDivider className="hidden lg:flex" />
+    <MobileDivider className="my-14" />
   </section>
   );
 }
