@@ -1,1 +1,59 @@
-{}
+{
+    "loading": "Loading reports...",
+    "global": {
+        "loading": "Loading global overview...",
+        "title": "Global Overview",
+        "description": "Here you can review your all-time sales statistics.",
+        "topItemsTitle": "Top items",
+        "allItemsTitle": "All items",
+        "overviewStats": {
+            "totalEarnings": "Total earnings",
+            "totalTransactions": "Total transactions",
+            "unitSold": "Units sold"
+        },
+        "topItems": {
+            "noDataYet": "No data yet",
+            "sold_one": "Sold {{count}} unit",
+            "sold_other": "Sold {{count}} units"
+        },
+        "allItems": {
+            "emptyState": "No items to show",
+            "unitSold": "Units sold:"
+        }
+    },
+    "currentDay": {
+        "title": "Current day",
+        "description": "Here you can review today’s sales statistics.",
+        "topItemsTitle": "Top items of the day",
+        "allItemsTitle": "All items of the day",
+        "loading": "Loading current day report…"
+    },
+    "currentDayTransactions": {
+        "hide": "Hide",
+        "show": "Show",
+        "title": "Today’s transactions",
+        "description": "Here you can review all transactions recorded today.",
+        "emptyState": "No transactions recorded today.",
+        "hiddenState": "Transactions are hidden.",
+        "transactionId": "Transaction ID",
+        "total": "Total"
+    },
+    "dailyOverview": {
+        "hide": "Hide",
+        "show": "Show",
+        "loading": "Loading daily overview…",
+        "title": "Daily overview",
+        "description": "Here you can review sales performance for each day.",
+        "emptyState": "No daily summaries yet.",
+        "hiddenState": "Daily reports are hidden.",
+        "card": {
+            "mostSold": "Most sold:",
+            "earnings": "Earnings",
+            "transaction_one": "{{count}} transaction",
+            "transaction_other": "{{count}} transactions",
+            "unit_one": "{{count}} unit",
+            "unit_other": "{{count}} units"
+        }
+
+    }
+}
