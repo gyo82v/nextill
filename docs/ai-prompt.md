@@ -1,4 +1,20 @@
-i think i am doing something wrong.
+perfect now the last part:
+the daily overview card.
+in my json file: "card": {}
 
-when i hover on the delete button i only get: "deleteitem"
+1 the text whrer i render the most sold item of the day: "Most sold:"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

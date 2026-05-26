@@ -2,15 +2,9 @@
 
 import { formatMoney } from "@/lib/money";
 import { cardBaseStyle } from "@/styles";
-import type { DaySummaryRow } from "@/types";
 import { FiTrendingUp, FiTrendingDown, FiMinus } from "react-icons/fi";
-
-type DailyOverviewCardProps = {
-  day: DaySummaryRow;
-  currency: string;
-  mostSoldName?: string;
-  previousEarnings?: number;
-};
+import { useTranslation } from "react-i18next";
+import type { DailyOverviewCardProps } from "@/types";
 
 export default function DailyOverviewCard({
   day,
@@ -18,6 +12,7 @@ export default function DailyOverviewCard({
   mostSoldName,
   previousEarnings,
 }: DailyOverviewCardProps) {
+  const {t} = useTranslation("reports")
   const trend =
     previousEarnings == null
       ? "none"
@@ -35,14 +30,15 @@ export default function DailyOverviewCard({
           <div className="font-medium text-foreground">{day.date}</div>
 
           <div className="mt-1 text-sm text-muted-foreground">
-            {day.transactions} transactions · {day.unitsSoldTotal ?? 0} units
+            {t("dailyOverview.card.transaction", { count: day.transactions })} ·{" "}
+            {t("dailyOverview.card.unit", { count: day.unitsSoldTotal ?? 0 })}
           </div>
         </div>
 
         {/* RIGHT SIDE */}
         <div className="shrink-0 text-right">
           <div className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-            Earnings
+            {t("dailyOverview.card.earnings")}
           </div>
 
           <div className="mt-1 flex items-center justify-end gap-1.5">
@@ -62,68 +58,10 @@ export default function DailyOverviewCard({
           </div>
 
           <div className="mt-1 text-xs text-muted-foreground">
-            Most sold: {mostSoldName ?? "—"}
+            {t("dailyOverview.card.mostSold")} {mostSoldName ?? "—"}
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-
-/*
-
-"use client";
-
-import { formatMoney } from "@/lib/money";
-import { cardBaseStyle } from "@/styles";
-import type { DaySummaryRow } from "@/types";
-
-type DailyOverviewCardProps = {
-  day: DaySummaryRow;
-  currency: string;
-  mostSoldName?: string;
-};
-
-export default function DailyOverviewCard({
-  day,
-  currency,
-  mostSoldName,
-}: DailyOverviewCardProps) {
-  return (
-    <div
-      className={`${cardBaseStyle} rounded-2xl border border-default bg-surface-1 p-4 shadow-sm`}
-    >
-      <div className="flex items-start justify-between gap-4">
-
-        <div className="min-w-0">
-          <div className="text-sm font-semibold text-foreground">
-            {day.date}
-          </div>
-
-          <div className="mt-1 text-xs text-muted-foreground">
-            Transactions: {day.transactions} · Units sold:{" "}
-            {day.unitsSoldTotal ?? 0}
-          </div>
-        </div>
-
-        <div className="shrink-0 text-right">
-          <div className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-            Earnings
-          </div>
-          <div className="mt-1 text-sm font-semibold text-foreground">
-            {formatMoney(day.earnings, currency)}
-          </div>
-
-          <div className="mt-1 text-xs text-muted-foreground">
-            Most sold: {mostSoldName ?? "—"}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-
-
-*/
