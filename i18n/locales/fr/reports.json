@@ -1,1 +1,58 @@
-{}
+{
+  "loading": "Chargement des rapports...",
+  "global": {
+    "loading": "Chargement de la vue d'ensemble...",
+    "title": "Vue d'ensemble",
+    "description": "Ici, vous pouvez consulter vos statistiques de ventes depuis le début.",
+    "topItemsTitle": "Articles les plus vendus",
+    "allItemsTitle": "Tous les articles",
+    "overviewStats": {
+      "totalEarnings": "Chiffre d'affaires total",
+      "totalTransactions": "Transactions totales",
+      "unitSold": "Unités vendues"
+    },
+    "topItems": {
+      "noDataYet": "Aucune donnée pour le moment",
+      "sold_one": "{{count}} unité vendue",
+      "sold_other": "{{count}} unités vendues"
+    },
+    "allItems": {
+      "emptyState": "Aucun article à afficher",
+      "unitSold": "Unités vendues :"
+    }
+  },
+  "currentDay": {
+    "title": "Jour en cours",
+    "description": "Ici, vous pouvez consulter les statistiques de ventes d’aujourd’hui.",
+    "topItemsTitle": "Articles les plus vendus du jour",
+    "allItemsTitle": "Tous les articles du jour",
+    "loading": "Chargement du rapport du jour…"
+  },
+  "currentDayTransactions": {
+    "hide": "Masquer",
+    "show": "Afficher",
+    "title": "Transactions du jour",
+    "description": "Ici, vous pouvez consulter toutes les transactions enregistrées aujourd’hui.",
+    "emptyState": "Aucune transaction enregistrée aujourd’hui.",
+    "hiddenState": "Les transactions sont masquées.",
+    "transactionId": "ID de transaction",
+    "total": "Total"
+  },
+  "dailyOverview": {
+    "hide": "Masquer",
+    "show": "Afficher",
+    "loading": "Chargement du récapitulatif quotidien…",
+    "title": "Récapitulatif quotidien",
+    "description": "Ici, vous pouvez consulter les performances de vente de chaque journée.",
+    "emptyState": "Aucun récapitulatif quotidien pour le moment.",
+    "hiddenState": "Les rapports quotidiens sont masqués.",
+    "card": {
+      "mostSold": "Le plus vendu :",
+      "earnings": "Chiffre d'affaires",
+      "transaction_one": "{{count}} transaction",
+      "transaction_other": "{{count}} transactions",
+      "unit_one": "{{count}} unité",
+      "unit_other": "{{count}} unités"
+    }
+  }
+}

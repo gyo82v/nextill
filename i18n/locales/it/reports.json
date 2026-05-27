@@ -1,1 +1,58 @@
-{}
+{
+  "loading": "Caricamento dei report...",
+  "global": {
+    "loading": "Caricamento della panoramica generale...",
+    "title": "Panoramica generale",
+    "description": "Qui puoi consultare le statistiche di vendita di tutti i tempi.",
+    "topItemsTitle": "Prodotti più venduti",
+    "allItemsTitle": "Tutti i prodotti",
+    "overviewStats": {
+      "totalEarnings": "Guadagni totali",
+      "totalTransactions": "Transazioni totali",
+      "unitSold": "Unità vendute"
+    },
+    "topItems": {
+      "noDataYet": "Ancora nessun dato",
+      "sold_one": "Venduta {{count}} unità",
+      "sold_other": "Vendute {{count}} unità"
+    },
+    "allItems": {
+      "emptyState": "Nessun prodotto da mostrare",
+      "unitSold": "Unità vendute:"
+    }
+  },
+  "currentDay": {
+    "title": "Giornata corrente",
+    "description": "Qui puoi consultare le statistiche di vendita di oggi.",
+    "topItemsTitle": "Prodotti più venduti di oggi",
+    "allItemsTitle": "Tutti i prodotti di oggi",
+    "loading": "Caricamento del report di oggi…"
+  },
+  "currentDayTransactions": {
+    "hide": "Nascondi",
+    "show": "Mostra",
+    "title": "Transazioni di oggi",
+    "description": "Qui puoi consultare tutte le transazioni registrate oggi.",
+    "emptyState": "Nessuna transazione registrata oggi.",
+    "hiddenState": "Le transazioni sono nascoste.",
+    "transactionId": "ID transazione",
+    "total": "Totale"
+  },
+  "dailyOverview": {
+    "hide": "Nascondi",
+    "show": "Mostra",
+    "loading": "Caricamento della panoramica giornaliera…",
+    "title": "Panoramica giornaliera",
+    "description": "Qui puoi consultare l'andamento delle vendite per ogni giorno.",
+    "emptyState": "Nessun riepilogo giornaliero ancora disponibile.",
+    "hiddenState": "I report giornalieri sono nascosti.",
+    "card": {
+      "mostSold": "Più venduto:",
+      "earnings": "Guadagni",
+      "transaction_one": "{{count}} transazione",
+      "transaction_other": "{{count}} transazioni",
+      "unit_one": "{{count}} unità",
+      "unit_other": "{{count}} unità"
+    }
+  }
+}

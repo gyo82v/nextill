@@ -1,1 +1,58 @@
-{}
+{
+  "loading": "Cargando informes...",
+  "global": {
+    "loading": "Cargando la vista general...",
+    "title": "Vista general",
+    "description": "Aquí puedes revisar tus estadísticas de ventas de todos los tiempos.",
+    "topItemsTitle": "Productos más vendidos",
+    "allItemsTitle": "Todos los productos",
+    "overviewStats": {
+      "totalEarnings": "Ingresos totales",
+      "totalTransactions": "Transacciones totales",
+      "unitSold": "Unidades vendidas"
+    },
+    "topItems": {
+      "noDataYet": "Aún no hay datos",
+      "sold_one": "Vendida {{count}} unidad",
+      "sold_other": "Vendidas {{count}} unidades"
+    },
+    "allItems": {
+      "emptyState": "No hay productos para mostrar",
+      "unitSold": "Unidades vendidas:"
+    }
+  },
+  "currentDay": {
+    "title": "Día actual",
+    "description": "Aquí puedes revisar las estadísticas de ventas de hoy.",
+    "topItemsTitle": "Productos más vendidos de hoy",
+    "allItemsTitle": "Todos los productos de hoy",
+    "loading": "Cargando el informe de hoy…"
+  },
+  "currentDayTransactions": {
+    "hide": "Ocultar",
+    "show": "Mostrar",
+    "title": "Transacciones de hoy",
+    "description": "Aquí puedes revisar todas las transacciones registradas hoy.",
+    "emptyState": "No se registraron transacciones hoy.",
+    "hiddenState": "Las transacciones están ocultas.",
+    "transactionId": "ID de transacción",
+    "total": "Total"
+  },
+  "dailyOverview": {
+    "hide": "Ocultar",
+    "show": "Mostrar",
+    "loading": "Cargando el resumen diario…",
+    "title": "Resumen diario",
+    "description": "Aquí puedes revisar el rendimiento de ventas de cada día.",
+    "emptyState": "Aún no hay resúmenes diarios.",
+    "hiddenState": "Los informes diarios están ocultos.",
+    "card": {
+      "mostSold": "Más vendido:",
+      "earnings": "Ingresos",
+      "transaction_one": "{{count}} transacción",
+      "transaction_other": "{{count}} transacciones",
+      "unit_one": "{{count}} unidad",
+      "unit_other": "{{count}} unidades"
+    }
+  }
+}

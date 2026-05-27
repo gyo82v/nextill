@@ -54,6 +54,5 @@
             "unit_one": "{{count}} unit",
             "unit_other": "{{count}} units"
         }
-
     }
 }
