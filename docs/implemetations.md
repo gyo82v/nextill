@@ -61,13 +61,13 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Style}{Stock} Style the page and layout for mobile/desktop;
 - [✅] {Style}{Stock} Style the items card, style each different state : normal, low stock and negative;
 - [✅] {Content}{Stock} Add a title and description in the stock page;
-- [Style] [Stats] Style the global section of the stats page;
-- [Style] [Stats] Style the current day section in the stats page;
-- [Style] [Stats] Style the days overview section in the Stats page;
-- [Style] [Stats] Style the Stats page and layout for mobile/desktop;
-- [Content] [Stats] Add a title and description to the stats page and for each section;
-- [Style] [Stats] Style the current day transactions section and each transaction card;
-- [Style] [Stats] Style the daily overview cards;
+- [✅] {Style}{Reports} Style the global section of the stats page;
+- [✅] {Style}{Reports} Style the current day section in the stats page;
+- [✅] {Style}{Reports} Style the days overview section in the Stats page;
+- [✅] {Style}{Reports} Style the Stats page and layout for mobile/desktop;
+- [✅] {Content}{Reports} Add a title and description to the stats page and for each section;
+- [✅] {Style}{Reports} Style the current day transactions section and each transaction card;
+- [✅] {Style}{Reports} Style the daily overview cards;
 - [Style] [Account] Style the account page and the layout for mobile/desktop;
 - [Style] [Account] Style each section in the account page: profile,security,export data,
                     preferences and mantainance;
@@ -77,7 +77,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Refactor] [Till] Refactor the Till page: types, enslint errors, separate components;
 - [✅] {Refactor}{Menu} Refactor the Menu page: types, enslint errors, separate components;
 - [✅] {Refactor}{Stock} Refactor the Stock page: types, enslint errors, separate components;
-- [Refactor] [Stats] Refactor the Stats page: types, enslint errors, separate components;
+- [✅] {Refactor}{Reports} Refactor the Stats page: types, enslint errors, separate components;
 - [Refactor] [Account] Refactor the Account page: types, enslint errors, separate components;
 - [✅] {Refactor}{Header} Refactor the Header page: types, enslint errors, separate components;
 - [Refactor] [Firebase] Refactor the firebase files, types, enslint erros;
@@ -100,7 +100,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Localization] [Till] Add localization to the till page;
 - [✅] {Localization}{Menu} Add localization to the menu page;
 - [✅] {Localization}{Stock} Add localization to the stock page;
-- [Localization] [Stats] Add localization to the Stats page;
+- [✅] {Localization}{Reports} Add localization to the Stats page;
 - [Localization] [Account] Add localization to the account page;
 - [✅] {Localization}{Privacy-Policy} add localization to the privacy policy page;
 - [✅] {Localization}{Header} Add localization to the Header;
@@ -110,7 +110,7 @@ NEXTILL IMPLEMENTATION LIST
 - [A11y] [Till] Add accessibility to the Till page;
 - [✅] {A11y}{Menu} Add accessibility to the Menu page;
 - [✅] {A11y}{Stock} Add accessibility to the stock page;
-- [A11y] [Stats] Add accessibility to the Stats page;
+- [✅] {A11y}{Reports} Add accessibility to the Stats page;
 - [A11y] [Account] Add accessibility to the account page;
 - [✅] {A11y}{Header/Footer} add accessibility to the Header and Footer;
 - [✅] {A11y}{Intro} Add accessibility to the intro page;
@@ -130,14 +130,14 @@ NEXTILL IMPLEMENTATION LIST
         it should delete the firestore users doc associated;
 - [Fix] [Account] Fix the clear all data function; it should reset the data of the entire app.
                   at the moment it just clear the stock collections and nothing else;
-- [Fix] [Stats] when a menu item is deleted, in the stats page it show the id and not the name;
+- [✅] {Fix}{Reports} when a menu item is deleted, in the stats page it show the id and not the name;
 - [Fix] [Header] fix the text color of the navbar links for the darkmode;
 - [✅] {Fix}{Select-component} Fix the select compound component. When too many elements are in the options
         there should be a scroll sidebar, this will fix the height issue in the menu page;
 - [Fix] [Menu/Style] fix the style for the menu page when the content is stacked vertically for mobile
                      and small screens;
-- [Fix] [Reports] in the reports page most sections render the id of an item while they should 
-                  render the name;
+- [✅] {Fix}{Reports} in the reports page most sections render the id of an item while they should 
+        render the name;
 - [✅] {Fix}{Languages} fix the issue when there are multiple files common and privacy in the same page;
 - [Clean] [Dividers] Clean the unused dividers;
 - [Clean] [AppHeader] Clean the unused code in the Navbar component;
@@ -155,7 +155,6 @@ NEXTILL IMPLEMENTATION LIST
 - [Optional] [Menu] add the option to edit the price of each exisitng dish;
 - [Optional] [App] Add options for cash/cards payment;
 - [Optional] [Stock] Add in the stock activity cards the date;
-- [Optional] [Stats] add a delete option for each Daily overview card,
 - [Optional/Fix] [Header] fix the navbar animation pill; when the sixe on the navbars links changes, 
                           the pill should resize corretly automatically.
                           example: changing language in the account page;
