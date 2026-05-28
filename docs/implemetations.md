@@ -136,6 +136,7 @@ NEXTILL IMPLEMENTATION LIST
         there should be a scroll sidebar, this will fix the height issue in the menu page;
 - [Fix] [Menu/Style] fix the style for the menu page when the content is stacked vertically for mobile
                      and small screens;
+- [Fix] [App] add the category "bundle" to menu items everywhere is needed;
 - [✅] {Fix}{Reports} in the reports page most sections render the id of an item while they should 
         render the name;
 - [✅] {Fix}{Languages} fix the issue when there are multiple files common and privacy in the same page;
@@ -169,4 +170,5 @@ NEXTILL IMPLEMENTATION LIST
                      dinamicaly;
 - [Optional] [Stock/Menu] Check with ai which of the pages menu and stock is better built;
 - [Optional] [Stock] in the stock activity acrd add an icon for add, remove or archieved;
+- [Optional] [App] Add discount system;
                           
