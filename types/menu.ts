@@ -1,7 +1,7 @@
 import type {Timestamp} from "firebase/firestore";
 import type {StockItem} from "@/types/stock";
 
-export type MenuCategory = "food" | "drink";
+export type MenuCategory = "food" | "drink" | "bundle"
 
 export interface MenuIngredient {
   stockId: string;
