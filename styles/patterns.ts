@@ -44,3 +44,15 @@ export const disclosurePanel =
 // language toggle button
 export const toggleButton = 
 `transition-transform duration-200 ease-out motion-reduce:transition-none`
+
+//POS
+export const posDishCard =
+  `transition-[background-color,color,border-color,box-shadow,transform]
+   duration-200 ease-out
+   hover:bg-[var(--surface-2)]
+   hover:shadow-md
+   hover:-translate-y-0.5
+   active:translate-y-px
+   active:scale-[0.99]
+   motion-reduce:transition-none
+   motion-reduce:transform-none`;
