@@ -6,7 +6,7 @@ import { listActiveMenuItems, type MenuItem } from "@/firebase/menu";
 import MenuList from "@/components/pos/MenuList";
 import CartPanel from "@/components/pos/CartPanel";
 import CheckoutButton from "@/components/pos/CheckoutButton";
-import StartDay from "@/components/till/StartDay";
+import StartDay from "@/components/pos/StartDay";
 import EndDay from "@/components/pos/EndDay";
 import { useCartStore } from "@/store/useCartStore";
 

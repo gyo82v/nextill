@@ -6,6 +6,9 @@ import { completeCheckout, type CheckoutItem } from "@/firebase/checkout";
 import Button from "@/components/ui/Button";
 import CheckoutModal from "./CheckoutModal";
 import { FaReceipt } from "react-icons/fa6";
+import { formatMoney } from "@/lib/money";
+import { openStaffTicketPrintWindow } from "./staffTicketPrint";
+import { openReceiptPrintWindow } from "./receiptPrint";
 
 type Props = {
   items: CheckoutItem[];
@@ -20,14 +23,37 @@ export default function CheckoutButton({
 }: Props) {
   const { user, profile } = useAuth();
   const [open, setOpen] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [receiptItems, setReceiptItems] = useState<CheckoutItem[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [ticketNumber, setTicketNumber] = useState<number | null>(null);
 
   const dayKey = profile?.nextillApp?.dayCycle?.dayKey ?? null;
+  const currency = profile?.nextillApp.settings.currency ?? "EUR";
+  const printingEnabled = profile?.nextillApp.settings.printingEnabled ?? true;
 
   const canCheckout = items.length > 0 && !!user && !!dayKey;
 
   const recapItems = useMemo(() => items, [items]);
+
+  function resetModalState() {
+    setOpen(false);
+    setSuccess(false);
+    setReceiptItems([]);
+    setTicketNumber(null);
+    setError(null);
+  }
+
+  function handleOpen() {
+    if (!canCheckout) return;
+
+    setError(null);
+    setSuccess(false);
+    setReceiptItems([]);
+    setTicketNumber(null);
+    setOpen(true);
+  }
 
   async function handleCheckout() {
     if (!user) {
@@ -48,15 +74,19 @@ export default function CheckoutButton({
     setLoading(true);
     setError(null);
 
+    const submittedItems = items;
+
     try {
-      await completeCheckout({
+      const result = await completeCheckout({
         uid: user.uid,
         dayKey,
-        items,
+        items: submittedItems,
         totalMinor,
       });
 
-      setOpen(false);
+      setReceiptItems(submittedItems);
+      setTicketNumber(result.ticketNumber);
+      setSuccess(true);
       onSuccess();
     } catch (err) {
       const message = err instanceof Error ? err.message : "Checkout failed.";
@@ -64,6 +94,29 @@ export default function CheckoutButton({
     } finally {
       setLoading(false);
     }
+  }
+
+  async function handlePrintStaffTicket() {
+    const visibleItems = receiptItems.length > 0 ? receiptItems : recapItems;
+
+    if (visibleItems.length === 0) return;
+
+    openStaffTicketPrintWindow({
+      ticketNumber: String(ticketNumber ?? 0),
+      items: visibleItems,
+    });
+  }
+
+  async function handlePrintReceipt() {
+    const visibleItems = receiptItems.length > 0 ? receiptItems : recapItems;
+
+    if (visibleItems.length === 0) return;
+
+    openReceiptPrintWindow({
+      items: visibleItems,
+      totalMinor,
+      currency,
+    });
   }
 
   return (
@@ -83,9 +136,10 @@ export default function CheckoutButton({
 
         <Button
           type="button"
+          variant="confirm"
           loading={loading}
           loadingText="Completing..."
-          onClick={() => setOpen(true)}
+          onClick={handleOpen}
           disabled={!canCheckout}
           className="w-full justify-center"
         >
@@ -102,15 +156,16 @@ export default function CheckoutButton({
 
       <CheckoutModal
         open={open}
+        success={success}
         items={recapItems}
         totalMinor={totalMinor}
         loading={loading}
         error={error}
-        onClose={() => {
-          if (loading) return;
-          setOpen(false);
-        }}
+        printingEnabled={printingEnabled}
+        onClose={resetModalState}
         onConfirm={handleCheckout}
+        onPrintStaffTicket={handlePrintStaffTicket}
+        onPrintReceipt={handlePrintReceipt}
       />
     </>
   );
@@ -120,11 +175,14 @@ export default function CheckoutButton({
 
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useAuth } from "@/firebase/authProvider";
 import { completeCheckout, type CheckoutItem } from "@/firebase/checkout";
 import Button from "@/components/ui/Button";
+import CheckoutModal from "./CheckoutModal";
 import { FaReceipt } from "react-icons/fa6";
+import { openStaffTicketPrintWindow } from "./staffTicketPrint";
+import { openReceiptPrintWindow } from "./receiptPrint";
 
 type Props = {
   items: CheckoutItem[];
@@ -138,10 +196,36 @@ export default function CheckoutButton({
   onSuccess,
 }: Props) {
   const { user, profile } = useAuth();
+  const [open, setOpen] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [receiptItems, setReceiptItems] = useState<CheckoutItem[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [ticketNumber, setTicketNumber] = useState<number | null>(null);
 
   const dayKey = profile?.nextillApp?.dayCycle?.dayKey ?? null;
+  const currency = profile?.nextillApp.settings.currency ?? "EUR";
+
+  const canCheckout = items.length > 0 && !!user && !!dayKey;
+  const recapItems = useMemo(() => items, [items]);
+
+  function resetModalState() {
+    setOpen(false);
+    setSuccess(false);
+    setReceiptItems([]);
+    setTicketNumber(null);
+    setError(null);
+  }
+
+  function handleOpen() {
+    if (!canCheckout) return;
+
+    setError(null);
+    setSuccess(false);
+    setReceiptItems([]);
+    setTicketNumber(null);
+    setOpen(true);
+  }
 
   async function handleCheckout() {
     if (!user) {
@@ -162,14 +246,19 @@ export default function CheckoutButton({
     setLoading(true);
     setError(null);
 
+    const submittedItems = items;
+
     try {
-      await completeCheckout({
+      const result = await completeCheckout({
         uid: user.uid,
         dayKey,
-        items,
+        items: submittedItems,
         totalMinor,
       });
 
+      setReceiptItems(submittedItems);
+      setTicketNumber(result.ticketNumber);
+      setSuccess(true);
       onSuccess();
     } catch (err) {
       const message = err instanceof Error ? err.message : "Checkout failed.";
@@ -179,44 +268,79 @@ export default function CheckoutButton({
     }
   }
 
+  async function handlePrintStaffTicket() {
+    const visibleItems = receiptItems.length > 0 ? receiptItems : recapItems;
+
+    if (visibleItems.length === 0) return;
+
+    openStaffTicketPrintWindow({
+      ticketNumber: String(ticketNumber ?? 0),
+      items: visibleItems,
+    });
+  }
+
+  async function handlePrintReceipt() {
+    const visibleItems = receiptItems.length > 0 ? receiptItems : recapItems;
+
+    if (visibleItems.length === 0) return;
+
+    openReceiptPrintWindow({
+      items: visibleItems,
+      totalMinor,
+      currency,
+    });
+  }
+
   return (
-    <section
-      aria-labelledby="checkout-panel-title"
-      className="space-y-3 rounded-2xl border border-default bg-surface-2 p-4"
-    >
-      <div className="space-y-1">
-        <h3 id="checkout-panel-title" className="font-semibold tracking-tight">
-          Checkout
-        </h3>
-        <p className="text-sm text-muted-foreground">
-          Complete the order when everything is ready.
-        </p>
-      </div>
-
-      <Button
-        type="button"
-        loading={loading}
-        loadingText="Completing..."
-        onClick={handleCheckout}
-        disabled={items.length === 0}
-        className="w-full justify-center"
+    <>
+      <section
+        aria-labelledby="checkout-panel-title"
+        className="space-y-3 rounded-2xl border border-default bg-surface-2 p-4"
       >
-        <FaReceipt className="text-sm" aria-hidden="true" />
-        <span>Checkout</span>
-      </Button>
+        <div className="space-y-1">
+          <h3 id="checkout-panel-title" className="font-semibold tracking-tight">
+            Checkout
+          </h3>
+          <p className="text-sm text-muted-foreground">
+            Review the order before completing it.
+          </p>
+        </div>
 
-      {error ? (
-        <p className="text-sm text-red-600" role="alert" aria-live="polite">
-          {error}
-        </p>
-      ) : null}
-    </section>
+        <Button
+          type="button"
+          variant="confirm"
+          loading={loading}
+          loadingText="Completing..."
+          onClick={handleOpen}
+          disabled={!canCheckout}
+          className="w-full justify-center"
+        >
+          <FaReceipt className="text-sm" aria-hidden="true" />
+          <span>Checkout</span>
+        </Button>
+
+        {error ? (
+          <p className="text-sm text-red-600" role="alert" aria-live="polite">
+            {error}
+          </p>
+        ) : null}
+      </section>
+
+      <CheckoutModal
+        open={open}
+        success={success}
+        items={recapItems}
+        totalMinor={totalMinor}
+        loading={loading}
+        error={error}
+        onClose={resetModalState}
+        onConfirm={handleCheckout}
+        onPrintStaffTicket={handlePrintStaffTicket}
+        onPrintReceipt={handlePrintReceipt}
+      />
+    </>
   );
 }
-
-
-
-
 
 
 */

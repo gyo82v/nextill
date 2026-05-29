@@ -9,7 +9,6 @@ import type { StartDayProps, EndDayProps } from "@/types";
 export async function startDay({ uid, openingBalance }: StartDayProps) {
   const ref = doc(db, "users", uid);
 
-  // Stable, human-readable day identifier
   const dayKey = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 
   await updateDoc(ref, {
@@ -20,6 +19,7 @@ export async function startDay({ uid, openingBalance }: StartDayProps) {
       endedAt: null,
       openingBalance,
       closingBalance: null,
+      nextTicketNumber: 1,
     },
   });
 }
