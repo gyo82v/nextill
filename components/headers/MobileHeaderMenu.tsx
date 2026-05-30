@@ -8,10 +8,12 @@ import { navItems } from "@/components/headers/navItems";
 import { activePress, focusRing, transitions, iconsBtn } from "@/styles";
 import { FiX } from "react-icons/fi";
 import type { MobileHeaderMenuProps } from "@/types";
+import Drawer from "@/components/ui/drawers/Drawer";
 
-const DURATION_MS = 300;
-
-export default function MobileHeaderMenu({open, onClose}: MobileHeaderMenuProps) {
+export default function MobileHeaderMenu({
+  open,
+  onClose,
+}: MobileHeaderMenuProps) {
   const pathname = usePathname();
   const { t } = useTranslation();
 
@@ -27,34 +29,8 @@ export default function MobileHeaderMenu({open, onClose}: MobileHeaderMenuProps)
   };
 
   return (
-    <div
-      id="mobile-header-menu"
-      className="fixed inset-0 z-[60] md:hidden"
-      aria-hidden={!open}
-      style={{
-        pointerEvents: open ? "auto" : "none",
-      }}
-    >
-      <div
-        aria-hidden="true"
-        onClick={closeMenu}
-        className="absolute inset-0 bg-black/30"
-        style={{
-          opacity: open ? 1 : 0,
-          transition: `opacity ${DURATION_MS}ms ease-in-out`,
-        }}
-      />
-
-      <aside
-        className={`absolute right-0 top-0 h-dvh w-[min(88vw,22rem)] overflow-y-auto
-                    border-l border-default bg-surface-1 shadow-2xl`}
-        style={{
-          transform: open ? "translateX(0)" : "translateX(100%)",
-          opacity: open ? 1 : 0,
-          transition: `transform ${DURATION_MS}ms ease-in-out, opacity ${DURATION_MS}ms ease-in-out`,
-          willChange: "transform, opacity",
-        }}
-      >
+    <Drawer open={open} onClose={closeMenu} side="right">
+      <div className="flex h-full flex-col">
         <div className="flex items-center justify-between border-b border-default px-4 py-5">
           <span className="text-sm font-medium uppercase tracking-[0.2em] text-[var(--muted)]">
             {t("nav.labelMobile")}
@@ -81,8 +57,11 @@ export default function MobileHeaderMenu({open, onClose}: MobileHeaderMenuProps)
               return (
                 <li
                   key={item.href}
-                  className={`${index > 0 ?
-                    "border-t border-slate-200/60 dark:border-slate-700/60" : ""}`}
+                  className={`${
+                    index > 0
+                      ? "border-t border-slate-200/60 dark:border-slate-700/60"
+                      : ""
+                  }`}
                 >
                   <Link
                     href={item.href}
@@ -107,10 +86,10 @@ export default function MobileHeaderMenu({open, onClose}: MobileHeaderMenuProps)
           </ul>
         </nav>
 
-        <div className="border-t border-default px-4 py-6">
+        <div className="mt-auto border-t border-default px-4 py-6">
           <UserSection />
         </div>
-      </aside>
-    </div>
+      </div>
+    </Drawer>
   );
 }
