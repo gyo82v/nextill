@@ -56,7 +56,7 @@ export default function Modal({
 
   return createPortal(
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center p-4 ${overlay}`}
+      className={`fixed inset-0 z-[80] flex items-center justify-center p-4 ${overlay}`}
       role="presentation"
       onMouseDown={onClose}
     >

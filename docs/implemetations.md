@@ -29,7 +29,8 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Style}{Header} Style the language and darkmode toggles in the header in logged off mode;
 - [✅] {Content}{Footer} Add information in the footer like: project-demo, @nextill, a mail option etc;
 - [Content] [Account] Add privacy policy;
-- [content] [Account] Add enable/disable printing option;
+- [Content] [Account] Add enable/disable printing option;
+- [Content] [Account] Add the enable balance option;
 - [✅] {Content}{App} create a privacy policy page;
 - [✅] {Style}{Footer} Style the footer for mobile/desktop;
 - [✅] {Content}{Intro} add an introduction description in the intro page with h1, p ... it should 
@@ -133,6 +134,8 @@ NEXTILL IMPLEMENTATION LIST
                   at the moment it just clear the stock collections and nothing else;
 - [Fix] [App] add printingEnabled anywhere in the firebase functions where needed;
               in particular when creating a new account;
+- [Fix] [POS] add the dynamically rendering of the balace depending on the balanceEnabled in 
+              the database in the start/end section in the pos page;
 - [✅] {Fix}{Reports} when a menu item is deleted, in the stats page it show the id and not the name;
 - [Fix] [Header] fix the text color of the navbar links for the darkmode;
 - [✅] {Fix}{Select-component} Fix the select compound component. When too many elements are in the options

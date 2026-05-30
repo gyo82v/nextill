@@ -6,7 +6,6 @@ import { completeCheckout, type CheckoutItem } from "@/firebase/checkout";
 import Button from "@/components/ui/Button";
 import CheckoutModal from "./CheckoutModal";
 import { FaReceipt } from "react-icons/fa6";
-import { formatMoney } from "@/lib/money";
 import { openStaffTicketPrintWindow } from "./staffTicketPrint";
 import { openReceiptPrintWindow } from "./receiptPrint";
 

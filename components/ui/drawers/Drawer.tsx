@@ -22,7 +22,7 @@ const sideStyles: Record<DrawerSide, string> = {
   left:
     "absolute left-0 top-0 h-dvh w-[min(88vw,22rem)] border-r border-default",
   bottom:
-    "absolute bottom-0 left-0 w-full max-h-[90dvh] rounded-t-3xl border-t border-default",
+    "absolute bottom-0 left-0 w-full h-[85dvh] rounded-t-3xl border-t border-default",
   top:
     "absolute top-0 left-0 w-full max-h-[90dvh] rounded-b-3xl border-b border-default",
 };
@@ -42,6 +42,7 @@ export default function Drawer({
   overlayClassName = "bg-black/30",
   panelClassName = "",
 }: DrawerProps) {
+
   useEffect(() => {
     if (!open) return;
 
@@ -60,6 +61,16 @@ export default function Drawer({
     };
   }, [open, onClose]);
 
+  const handleClose = () => {
+    if (typeof document !== "undefined") {
+      const activeElement = document.activeElement;
+      if (activeElement instanceof HTMLElement) {
+        activeElement.blur();
+      }
+    }
+  onClose();
+};
+
   if (typeof document === "undefined") return null;
 
   return createPortal(
@@ -72,7 +83,7 @@ export default function Drawer({
     >
       <div
         aria-hidden="true"
-        onClick={onClose}
+        onClick={handleClose}
         className={`absolute inset-0 ${overlayClassName}`}
         style={{
           opacity: open ? 1 : 0,

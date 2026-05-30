@@ -13,6 +13,7 @@ export default function EndDay() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const { clearCart } = useCartStore();
+  const balanceEnabled = profile?.nextillApp?.settings?.balanceEnabled ?? false;
 
   if (!user) return null;
 
@@ -70,8 +71,9 @@ export default function EndDay() {
           Close the POS for today. This will stop new orders until a new day is started.
         </p>
       </header>
-
-      <div className="space-y-2">
+       
+      {balanceEnabled && (
+        <div className="space-y-2">
         <label htmlFor="closing-balance" className="text-sm font-medium">
           Closing balance
         </label>
@@ -93,7 +95,8 @@ export default function EndDay() {
           Enter the cash count or final balance before closing.
         </p>
       </div>
-
+      )}
+      
       {error ? (
         <p id="end-day-error" className="text-sm text-red-600" role="alert" aria-live="polite">
           {error}
