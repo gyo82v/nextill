@@ -146,6 +146,8 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Fix}{Reports} in the reports page most sections render the id of an item while they should 
         render the name;
 - [✅] {Fix}{Languages} fix the issue when there are multiple files common and privacy in the same page;
+- [Fix] [Header] fix the header on screens smaller than lg, at the moment there is too much content 
+                 use the mobile version for these screens;
 - [Clean] [Dividers] Clean the unused dividers;
 - [Clean] [AppHeader] Clean the unused code in the Navbar component;
 - [Optional] [Account] improve the export data feature, instead of a json file use pdf or other formats;
