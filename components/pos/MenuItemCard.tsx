@@ -1,17 +1,10 @@
 "use client";
 
-import type { MenuItem } from "@/types";
 import { formatMoney } from "@/lib/money";
 import { useAuth } from "@/firebase/authProvider";
 import { cardBaseStyle, focusRing, posDishCard } from "@/styles";
 import { FiPlus } from "react-icons/fi";
-
-type Props = {
-  item: MenuItem;
-  onAdd: (item: MenuItem) => void;
-  categoryLabel?: string;
-  categoryIcon?: React.ReactNode;
-};
+import type { MenuItemCardProps } from "@/types/pos";
 
 const categoryStyles: Record<string, string> = {
   food:
@@ -29,7 +22,7 @@ export default function MenuItemCard({
   onAdd,
   categoryLabel,
   categoryIcon,
-}: Props) {
+}: MenuItemCardProps) {
   const { profile } = useAuth();
   const currency = profile?.nextillApp.settings.currency ?? "EUR";
 
@@ -41,7 +34,9 @@ export default function MenuItemCard({
       type="button"
       onClick={() => onAdd(item)}
       aria-label={`Add ${item.name} to cart`}
-      className={`${cardBaseStyle} ${focusRing} ${posDishCard} group flex h-full w-full flex-col justify-between gap-3 rounded-2xl border border-default p-3 text-left`}
+      className={`${cardBaseStyle} ${focusRing} ${posDishCard}
+                  group flex h-full w-full flex-col justify-between gap-3 rounded-2xl
+                  border border-default p-3 text-left`}
     >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 space-y-1">
@@ -50,7 +45,9 @@ export default function MenuItemCard({
           </h3>
 
           <span
-            className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-medium uppercase tracking-wide ${badgeStyle}`}
+            className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5
+                        text-[11px] font-medium uppercase tracking-wide 
+                        ${badgeStyle}`}
           >
             {categoryIcon}
             {categoryLabel ?? item.category}
@@ -58,7 +55,9 @@ export default function MenuItemCard({
         </div>
 
         <span
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-default bg-surface-2 text-muted-foreground transition-transform duration-200 ease-out group-hover:scale-105"
+          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full
+                      border border-default bg-surface-2 text-muted-foreground
+                      transition-transform duration-200 ease-out group-hover:scale-105`}
           aria-hidden="true"
         >
           <FiPlus className="text-sm" />
@@ -77,95 +76,3 @@ export default function MenuItemCard({
     </button>
   );
 }
-
-
-/*
-
-"use client";
-
-import type { MenuItem } from "@/types";
-import { formatMoney } from "@/lib/money";
-import { useAuth } from "@/firebase/authProvider";
-import { cardBaseStyle, focusRing, posDishCard } from "@/styles";
-import { FiPlus } from "react-icons/fi";
-
-type Props = {
-  item: MenuItem;
-  onAdd: (item: MenuItem) => void;
-  categoryLabel?: string;
-  categoryIcon?: React.ReactNode;
-};
-
-const categoryStyles: Record<string, string> = {
-  food:
-    "border-emerald-500/20 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
-  drink:
-    "border-sky-500/20 bg-sky-500/10 text-sky-700 dark:text-sky-300",
-  bundle:
-    "border-amber-500/20 bg-amber-500/10 text-amber-700 dark:text-amber-300",
-  default:
-    "border-default bg-surface-2 text-muted-foreground",
-};
-
-export default function MenuItemCard({
-  item,
-  onAdd,
-  categoryLabel,
-  categoryIcon,
-}: Props) {
-  const { profile } = useAuth();
-  const currency = profile?.nextillApp.settings.currency ?? "EUR";
-
-  const categoryKey = item.category || "default";
-  const badgeStyle = categoryStyles[categoryKey] ?? categoryStyles.default;
-
-  return (
-    <button
-      type="button"
-      onClick={() => onAdd(item)}
-      aria-label={`Add ${item.name} to cart`}
-      className={`${cardBaseStyle} ${focusRing} ${posDishCard} group flex h-full w-full flex-col justify-between gap-4 rounded-2xl border border-default p-4 text-left`}
-    >
-      <div className="flex items-start justify-between gap-3">
-        <div className="min-w-0 space-y-1">
-          <h3 className="truncate text-base font-semibold leading-snug">
-            {item.name}
-          </h3>
-
-          <div className="flex items-center gap-2">
-            <span
-              className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-medium uppercase tracking-wide ${badgeStyle}`}
-            >
-              {categoryIcon}
-              {categoryLabel ?? item.category}
-            </span>
-          </div>
-        </div>
-
-        <span
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-default bg-surface-2 text-muted-foreground transition-transform duration-200 ease-out group-hover:scale-105"
-          aria-hidden="true"
-        >
-          <FiPlus className="text-lg" />
-        </span>
-      </div>
-
-      <div className="flex items-end justify-between gap-3">
-        <div className="text-sm text-muted-foreground">
-          Tap to add to order
-        </div>
-
-        <div className="text-base font-semibold text-foreground">
-          {formatMoney(item.priceMinor, currency)}
-        </div>
-      </div>
-    </button>
-  );
-}
-
-
-
-
-
-
-*/

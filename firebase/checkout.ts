@@ -5,8 +5,7 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { db } from "./firebase";
-import type { MenuItem } from "@/firebase/menu";
-import type { CartItem } from "@/types";
+import type { CartItem, MenuItem } from "@/types";
 
 type CompleteCheckoutParams = {
   uid: string;

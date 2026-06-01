@@ -1,11 +1,6 @@
 "use client";
 
-import type { CheckoutItem } from "@/firebase/checkout";
-
-type StaffTicketOptions = {
-  ticketNumber: string;
-  items: CheckoutItem[];
-};
+import type {StaffTicketOptions, CheckoutItem} from "@/types/pos";
 
 const CATEGORY_LABELS: Record<string, string> = {
   food: "Food",

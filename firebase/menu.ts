@@ -1,10 +1,8 @@
 import {
   addDoc,
   collection,
-  deleteDoc,
   doc,
   getDocs,
-  where,
   orderBy,
   query,
   serverTimestamp,

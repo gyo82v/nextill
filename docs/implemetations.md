@@ -94,6 +94,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Utils] [Globals.css] update the global.css with all the necessary default styles;
 - [Utils] [App] make the vertical scrollbar visible in desktops and not visible in mobile;
 - [Utils] [App] add nextill app icon in the title instad of the next.js icons;
+- [Utils] [App] create an error route for all no existant paths;
 - [✅] {Utils}{App} create a reusable spinner;
 - [✅] {Utils}{App} create reusable dividers;
 - [Utils] [App] Add spinnes in all async buttons;

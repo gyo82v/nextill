@@ -1,25 +1,20 @@
 "use client";
 
-import type { CartItem } from "@/types";
 import { formatMoney } from "@/lib/money";
 import { useAuth } from "@/firebase/authProvider";
 import Button from "@/components/ui/Button";
 import { FaMinus, FaPlus } from "react-icons/fa6";
+import type { CartItemRowProps } from "@/types/pos";
 
-type Props = {
-  item: CartItem;
-  onAdd: () => void;
-  onRemove: () => void;
-};
-
-export default function CartItemRow({ item, onAdd, onRemove }: Props) {
+export default function CartItemRow({ item, onAdd, onRemove }: CartItemRowProps) {
   const { profile } = useAuth();
   const currency = profile?.nextillApp.settings.currency ?? "EUR";
 
   const lineTotal = item.quantity * item.priceMinor;
 
   return (
-    <article className="flex items-center justify-between gap-3 rounded-2xl border border-default bg-surface-2 px-3 py-3">
+    <article className={`flex items-center justify-between gap-3 rounded-2xl
+                         border border-default bg-surface-2 px-3 py-3`}>
       <div className="min-w-0 space-y-1">
         <h3 className="truncate text-sm font-semibold leading-tight">
           {item.name}
@@ -49,7 +44,8 @@ export default function CartItemRow({ item, onAdd, onRemove }: Props) {
         </Button>
 
         <span
-          className="inline-flex min-w-10 items-center justify-center rounded-xl border border-default bg-surface-1 px-3 py-2 text-sm font-semibold"
+          className={`inline-flex min-w-10 items-center justify-center rounded-xl
+                      border border-default bg-surface-1 px-3 py-2 text-sm font-semibold`}
           aria-label={`Quantity: ${item.quantity}`}
         >
           {item.quantity}
@@ -69,77 +65,3 @@ export default function CartItemRow({ item, onAdd, onRemove }: Props) {
     </article>
   );
 }
-
-/*
-
-"use client";
-
-import type { CartItem } from "@/types";
-import { formatMoney } from "@/lib/money";
-import { useAuth } from "@/firebase/authProvider";
-import Button from "@/components/ui/Button";
-import { FaMinus, FaPlus } from "react-icons/fa6";
-
-type Props = {
-  item: CartItem;
-  onAdd: () => void;
-  onRemove: () => void;
-};
-
-export default function CartItemRow({ item, onAdd, onRemove }: Props) {
-  const { profile } = useAuth();
-  const currency = profile?.nextillApp.settings.currency ?? "EUR";
-
-  const lineTotal = item.quantity * item.priceMinor;
-
-  return (
-    <article className="flex items-center justify-between gap-3 rounded-2xl border border-default bg-surface-2 px-3 py-3">
-      <div className="min-w-0 space-y-1">
-        <h3 className="truncate font-medium leading-tight">{item.name}</h3>
-
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
-          <span>{item.quantity} × {formatMoney(item.priceMinor, currency)}</span>
-          <span aria-hidden="true">•</span>
-          <span className="font-medium text-foreground">
-            {formatMoney(lineTotal, currency)}
-          </span>
-        </div>
-      </div>
-
-      <div className="flex shrink-0 items-center gap-2">
-        <Button
-          type="button"
-          variant="secondary"
-          size="small"
-          onClick={onRemove}
-          aria-label={`Remove one ${item.name}`}
-          className="h-9 w-9 px-0 py-0"
-        >
-          <FaMinus className="text-xs" aria-hidden="true" />
-        </Button>
-
-        <span
-          className="inline-flex min-w-10 items-center justify-center rounded-xl border border-default bg-surface-1 px-3 py-2 text-sm font-semibold"
-          aria-label={`Quantity: ${item.quantity}`}
-        >
-          {item.quantity}
-        </span>
-
-        <Button
-          type="button"
-          variant="secondary"
-          size="small"
-          onClick={onAdd}
-          aria-label={`Add one more ${item.name}`}
-          className="h-9 w-9 px-0 py-0"
-        >
-          <FaPlus className="text-xs" aria-hidden="true" />
-        </Button>
-      </div>
-    </article>
-  );
-}
-
-
-
-*/

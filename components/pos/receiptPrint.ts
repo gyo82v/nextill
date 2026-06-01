@@ -1,13 +1,7 @@
 "use client";
 
-import type { CheckoutItem } from "@/firebase/checkout";
 import { formatMoney } from "@/lib/money";
-
-type ReceiptOptions = {
-  items: CheckoutItem[];
-  totalMinor: number;
-  currency: string;
-};
+import type {ReceiptOptions} from "@/types/pos";
 
 function escapeHtml(value: string) {
   return value
