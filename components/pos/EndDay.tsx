@@ -7,16 +7,7 @@ import { useCartStore } from "@/store/useCartStore";
 import Button from "@/components/ui/Button";
 import { FaPowerOff, FaTriangleExclamation } from "react-icons/fa6";
 import {inputBaseStyle} from "@/styles";
-
-function moneyToMinorUnits(raw: string): number | null {
-  const normalized = raw.trim().replace(",", ".");
-  if (!normalized) return null;
-
-  const value = Number(normalized);
-  if (!Number.isFinite(value) || value < 0) return null;
-
-  return Math.round(value * 100);
-}
+import { moneyToMinorUnits } from "@/lib/money";
 
 export default function EndDay() {
   const { user, profile } = useAuth();
