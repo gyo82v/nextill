@@ -138,4 +138,12 @@ export function MobileDivider({ className = "" }: DividerProps) {
   );
 }
 
+export function SmallDivider({ className = "" }: DividerProps) {
+  return (
+    <div className={`my-4 px-4 ${className}`}>
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-[var(--divider)] to-transparent opacity-80" />
+    </div>
+  );
+}
+
 
