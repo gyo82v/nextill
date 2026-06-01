@@ -15,6 +15,8 @@ export interface UserProfile {
             dayActive: boolean
             dayDate: string | null
             currency: string
+            balanceEnabled: boolean
+            printingEnabled: boolean
         }
         dayCycle: {
             active: boolean
@@ -23,6 +25,7 @@ export interface UserProfile {
             openingBalance: number | null
             closingBalance: number | null
             dayKey: string | null
+            nextTicketNumber: number
         }
     }
 }
