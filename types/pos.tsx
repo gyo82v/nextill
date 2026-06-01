@@ -26,7 +26,7 @@ export type CheckoutItem = {
   quantity: number;
   id: string;
   menu: MenuItem;
-  category: string
+  category?: string
 }
 
 export type CheckoutButtonProps = {

@@ -9,7 +9,7 @@ import { FaPowerOff, FaTriangleExclamation } from "react-icons/fa6";
 import {inputBaseStyle} from "@/styles";
 import { moneyToMinorUnits } from "@/lib/money";
 
-export default function EndDay() {
+export default function EndDay({device}: {device: "mobile" | "desktop"}) {
   const { user, profile } = useAuth();
   const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
@@ -83,12 +83,15 @@ export default function EndDay() {
 
       {balanceEnabled && (
         <div className="space-y-2">
-          <label htmlFor="closing-balance" className="text-sm font-medium">
+          <label 
+            htmlFor={device === "mobile" ? "closing-balance-mobile" : "closing-balance-desktop"} 
+            className="text-sm font-medium"
+          >
             Closing balance
           </label>
 
           <input
-            id="closing-balance"
+            id={device === "mobile" ? "closing-balance-mobile" : "closing-balance-desktop"}
             type="number"
             inputMode="decimal"
             step="0.01"

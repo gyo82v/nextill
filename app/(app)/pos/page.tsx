@@ -123,7 +123,7 @@ export default function PosPage() {
               />
 
               <SmallDivider className="hidden lg:block lg:my-14" />
-              <EndDay />
+              <EndDay device="desktop" />
             </div>
           </aside>
         </div>
@@ -132,7 +132,7 @@ export default function PosPage() {
       <SmallDivider className="my-14 lg:my-0 lg:hidden " />
 
       <div className="lg:hidden px-4 pb-6">
-        <EndDay />
+        <EndDay device="mobile" />
       </div>
 
       <MobileCartBar
