@@ -6,6 +6,17 @@ import { useAuth } from "@/firebase/authProvider";
 import { useCartStore } from "@/store/useCartStore";
 import Button from "@/components/ui/Button";
 import { FaPowerOff, FaTriangleExclamation } from "react-icons/fa6";
+import {inputBaseStyle} from "@/styles";
+
+function moneyToMinorUnits(raw: string): number | null {
+  const normalized = raw.trim().replace(",", ".");
+  if (!normalized) return null;
+
+  const value = Number(normalized);
+  if (!Number.isFinite(value) || value < 0) return null;
+
+  return Math.round(value * 100);
+}
 
 export default function EndDay() {
   const { user, profile } = useAuth();
@@ -18,16 +29,19 @@ export default function EndDay() {
   if (!user) return null;
 
   async function handleEnd() {
-    const value = Number(amount);
+    if (!user) return;
 
-    if (Number.isNaN(value)) {
-      setError("Enter a valid closing balance.");
-      return;
-    }
+    let closingBalanceMinor = 0;
 
-    if (value < 0) {
-      setError("Closing balance cannot be negative.");
-      return;
+    if (balanceEnabled) {
+      const parsed = moneyToMinorUnits(amount);
+
+      if (parsed === null) {
+        setError("Enter a valid closing balance.");
+        return;
+      }
+
+      closingBalanceMinor = parsed;
     }
 
     setLoading(true);
@@ -36,13 +50,14 @@ export default function EndDay() {
     try {
       await endDay({
         uid: user.uid,
-        closingBalance: value,
+        closingBalance: closingBalanceMinor,
       });
 
       clearCart();
       setAmount("");
     } catch (err) {
-      const message = err instanceof Error ? err.message : "Failed to end the day.";
+      const message =
+        err instanceof Error ? err.message : "Failed to end the day.";
       setError(message);
     } finally {
       setLoading(false);
@@ -58,7 +73,9 @@ export default function EndDay() {
     >
       <header className="space-y-1">
         <div className="flex items-center gap-2">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-red-500/20 bg-red-500/10 text-red-600 dark:text-red-300">
+          <span className={`inline-flex h-9 w-9 items-center justify-center rounded-full
+                            border border-red-500/20 bg-red-500/10 text-red-600
+                           dark:text-red-300`}>
             <FaTriangleExclamation className="text-sm" aria-hidden="true" />
           </span>
 
@@ -68,37 +85,44 @@ export default function EndDay() {
         </div>
 
         <p className="text-sm text-muted-foreground">
-          Close the POS for today. This will stop new orders until a new day is started.
+          Close the POS for today. This will stop new orders until a new day is
+          started.
         </p>
       </header>
-       
+
       {balanceEnabled && (
         <div className="space-y-2">
-        <label htmlFor="closing-balance" className="text-sm font-medium">
-          Closing balance
-        </label>
+          <label htmlFor="closing-balance" className="text-sm font-medium">
+            Closing balance
+          </label>
 
-        <input
-          id="closing-balance"
-          type="number"
-          inputMode="decimal"
-          step="0.01"
-          min="0"
-          placeholder={`0.00 ${currency}`}
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-          className="w-full rounded-2xl border border-default bg-surface-1 px-3 py-3 text-sm outline-none"
-          aria-describedby="end-day-help end-day-error"
-        />
+          <input
+            id="closing-balance"
+            type="number"
+            inputMode="decimal"
+            step="0.01"
+            min="0"
+            placeholder={`0.00 ${currency}`}
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            className={`${inputBaseStyle} w-full`}
+            aria-describedby="end-day-help end-day-error"
+            aria-invalid={Boolean(error)}
+          />
 
-        <p id="end-day-help" className="text-xs text-muted-foreground">
-          Enter the cash count or final balance before closing.
-        </p>
-      </div>
+          <p id="end-day-help" className="text-xs text-muted-foreground">
+            Enter the cash count or final balance before closing.
+          </p>
+        </div>
       )}
-      
+
       {error ? (
-        <p id="end-day-error" className="text-sm text-red-600" role="alert" aria-live="polite">
+        <p
+          id="end-day-error"
+          className="text-sm text-red-600"
+          role="alert"
+          aria-live="polite"
+        >
           {error}
         </p>
       ) : null}
