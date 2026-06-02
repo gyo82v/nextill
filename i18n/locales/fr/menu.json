@@ -13,7 +13,9 @@
       "categories": {
         "food": "Plats",
         "drinks": "Boissons",
-        "drink": "Boissons"
+        "drink": "Boissons",
+        "bundle": "Menu combo",
+        "dessert": "Dessert"
       },
       "ingredientsTitle": "Ingrédients",
       "ingredientsOptional": "(facultatif)",

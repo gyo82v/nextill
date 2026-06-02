@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import MenuItemCard from "../pos/MenuItemCard";
-import { FaUtensils, FaMugSaucer, FaPlateWheat } from "react-icons/fa6";
+import { FaUtensils, FaMugSaucer, FaPlateWheat, FaCakeCandles } from "react-icons/fa6";
 import { SmallDivider } from "@/components/ui/dividers/Dividers";
 import type { MenuListProps } from "@/types/pos";
 
@@ -22,6 +22,11 @@ const CATEGORY_META = {
     description: "Food and drinks sold together.",
     icon: <FaPlateWheat className="text-sm" aria-hidden="true" />,
   },
+  dessert: {
+    label: "Desserts",
+    description: "Sweet treats and desserts.",
+    icon: <FaCakeCandles className="text-sm" aria-hidden="true" />,
+  },
 } as const;
 
 export default function MenuList({ items, onAdd }: MenuListProps) {
@@ -30,6 +35,7 @@ export default function MenuList({ items, onAdd }: MenuListProps) {
       food: items.filter((item) => item.category === "food"),
       drink: items.filter((item) => item.category === "drink"),
       bundle: items.filter((item) => item.category === "bundle"),
+      dessert: items.filter((item) => item.category === "dessert")
     };
   }, [items]);
 
@@ -37,6 +43,7 @@ export default function MenuList({ items, onAdd }: MenuListProps) {
     { key: "food", items: grouped.food },
     { key: "drink", items: grouped.drink },
     { key: "bundle", items: grouped.bundle },
+    { key: "dessert", items: grouped.dessert }
   ] as const;
 
   let renderedSections = 0;

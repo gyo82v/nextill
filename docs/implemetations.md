@@ -180,4 +180,5 @@ NEXTILL IMPLEMENTATION LIST
 - [Optional] [Stock/Menu] Check with ai which of the pages menu and stock is better built;
 - [Optional] [Stock] in the stock activity acrd add an icon for add, remove or archieved;
 - [Optional] [App] Add discount system;
+- [Optional] [Stock] Add another category to the stock items for non food/drink items;
                           

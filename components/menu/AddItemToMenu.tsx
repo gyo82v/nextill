@@ -30,6 +30,10 @@ export default function AddItemToMenu({
     ? t("createSection.form.categories.food")
     : category === "drink"
       ? t("createSection.form.categories.drinks")
+    : category === "bundle"
+      ? t("createSection.form.categories.bundle")
+    : category === "dessert"
+      ? t("createSection.form.categories.dessert")
       : undefined;
 
   return (
@@ -71,6 +75,8 @@ export default function AddItemToMenu({
           <Select.Content>
             <Select.Item value="food">{t("createSection.form.categories.food")}</Select.Item>
             <Select.Item value="drink">{t("createSection.form.categories.drinks")}</Select.Item>
+            <Select.Item value="bundle">{t("createSection.form.categories.bundle")}</Select.Item>
+            <Select.Item value="dessert">{t("createSection.form.categories.dessert")}</Select.Item>
           </Select.Content>
         </Select.Root>
       </div>

@@ -28,6 +28,11 @@ import itReports from "./locales/it/reports.json"
 import esReports from "./locales/es/reports.json"
 import frReports from "./locales/fr/reports.json"
 import deReports from "./locales/de/reports.json"
+import enPos from "./locales/en/pos.json"
+import itPos from "./locales/it/pos.json"
+import esPos from "./locales/es/pos.json"
+import frPos from "./locales/fr/pos.json"
+import dePos from "./locales/de/pos.json"
 
 
 export const resources = {
@@ -37,7 +42,8 @@ export const resources = {
     auth: enAuth,
     menu: enMenu,
     stock: enStock,
-    reports: enReports
+    reports: enReports,
+    pos: enPos
   },
   it: {
     common: itCommon,
@@ -45,7 +51,8 @@ export const resources = {
     auth: itAuth,
     menu: itMenu,
     stock: itStock,
-    reports: itReports
+    reports: itReports,
+    pos: itPos
   },
   es: {
     common: esCommon,
@@ -53,7 +60,8 @@ export const resources = {
     auth: esAuth,
     menu: esMenu,
     stock: esStock,
-    reports: esReports
+    reports: esReports,
+    pos: esPos
   },
   fr: {
     common: frCommon,
@@ -61,7 +69,8 @@ export const resources = {
     auth: frAuth,
     menu: frMenu,
     stock: frStock,
-    reports: frReports
+    reports: frReports,
+    pos: frPos
   },
   de: {
     common: deCommon,
@@ -69,6 +78,7 @@ export const resources = {
     auth: deAuth,
     menu: deMenu,
     stock: deStock,
-    reports: deReports
+    reports: deReports,
+    pos: dePos
   },
 } as const;

@@ -13,7 +13,9 @@
       "categories": {
         "food": "Essen",
         "drinks": "Getränke",
-        "drink": "Getränke"
+        "drink": "Getränke",
+        "bundle": "Kombi-Menü",
+        "dessert": "Dessert"
       },
       "ingredientsTitle": "Zutaten",
       "ingredientsOptional": "(optional)",
