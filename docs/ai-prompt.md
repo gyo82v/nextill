@@ -1,21 +1,19 @@
-next step is the start day section.
-this will be rendered instead of the normal pos page when the day is 
-not active and will allow the user to start the day and set the starting balance;
-in my pos.json i will have all these keys in here:
-{
-    "startDay": {}
-}
+next section is the cart.
+in my pos.json:
+{"cart": {}}
 
-- title "Start day" this is a placeholder not sure what to use as title;
-- description under the title: "The POS is not available yet because the day has not been started.
-                                Start the day to unlock the point of sale and begin working."
-- title in the balance section: "Opening balance";
-- description in the balance section: "Enter the cash you are starting with today. This amount will be used  as the opening balance for the day.";
-- paragraph under the input field: "If you do not need an opening balance, you can disable it from the Account page."
-- button: "start day"
-- button loading text: "Starting"
-- description when the balance is not enabled: "Opening balance is disabled for this account. You can enable it from the Account page if you need it."
-- error message when the user does not enter a balance when is enabled: "Enter a valid opening balance."
+- the title of the section: "Cart";
+- the description of the section: "Review the items before checkout.";
+- the first paragraph when the cart is empty : "Cart is empty";
+- the second paragraph when the cart is empty: "Add dishes from the menu to start an order.";
+- in the ul section that is rendered only when at leat one item is in the cart i have this aria-label:
+aria-label="Selected items" not sure i should translate it;
+- at the bottom of the page where the total èrice of all the cart is rendered : "Total";
+- {itemCount === 1 ? "item" : "items"} in the top of the section i have this small pill that 
+  render the total number of the items;
 
-
-some of these are already good but please improve any if necessary
+in each item card:
+- on the button to increment the quantity of the item : aria-label={`Add one more one ${item.name}`}
+- on the button to increment the quantity of the item : title: ""
+- on the button to decrement the quantity of the item : aria-label={`Remove one ${item.name}`}
+- on the button to decrement the quantity of the item : title=""

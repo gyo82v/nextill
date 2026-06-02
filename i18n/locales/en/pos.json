@@ -4,7 +4,21 @@
     "title": "Point of Sale",
     "description": "Add items quickly, review the cart, and complete the order.",
     "menu": {},
-    "cart": {},
+    "cart": {
+        "title": "Cart",
+        "description": "Review the items before checkout.",
+        "emptyTitle": "Cart is empty",
+        "emptyDescription": "Add dishes from the menu to start an order.",
+        "listLabel": "Selected items",
+        "totalLabel": "Total",
+        "itemCount_one": "item",
+        "itemCount_other": "items",
+        "addItemAriaLabel": "Add one more {{itemName}}",
+        "addItemTitle": "Add one more {{itemName}}",
+        "removeItemAriaLabel": "Remove one {{itemName}}",
+        "removeItemTitle": "Remove one {{itemName}}",
+        "quantityAriaLabel": "Quantity: {{count}}"
+    },
     "startDay": {
         "title": "Start day",
         "description": "The POS is not available yet because the day has not been started. Start the day to unlock the point of sale and begin working.",

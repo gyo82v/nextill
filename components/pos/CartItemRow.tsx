@@ -5,10 +5,12 @@ import { useAuth } from "@/firebase/authProvider";
 import Button from "@/components/ui/Button";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 import type { CartItemRowProps } from "@/types/pos";
+import { useTranslation } from "react-i18next";
 
 export default function CartItemRow({ item, onAdd, onRemove }: CartItemRowProps) {
   const { profile } = useAuth();
   const currency = profile?.nextillApp.settings.currency ?? "EUR";
+  const { t } = useTranslation("pos")
 
   const lineTotal = item.quantity * item.priceMinor;
 
@@ -37,7 +39,8 @@ export default function CartItemRow({ item, onAdd, onRemove }: CartItemRowProps)
           variant="secondary"
           size="small"
           onClick={onRemove}
-          aria-label={`Remove one ${item.name}`}
+          aria-label={t("cart.removeItemAriaLabel", { itemName: item.name })}
+          title={t("cart.removeItemTitle", { itemName: item.name })}
           className="h-9 w-9 px-0 py-0"
         >
           <FaMinus className="text-xs" aria-hidden="true" />
@@ -46,7 +49,7 @@ export default function CartItemRow({ item, onAdd, onRemove }: CartItemRowProps)
         <span
           className={`inline-flex min-w-10 items-center justify-center rounded-xl
                       border border-default bg-surface-1 px-3 py-2 text-sm font-semibold`}
-          aria-label={`Quantity: ${item.quantity}`}
+          aria-label={t("cart.quantityAriaLabel", { count: item.quantity })}
         >
           {item.quantity}
         </span>
@@ -56,8 +59,9 @@ export default function CartItemRow({ item, onAdd, onRemove }: CartItemRowProps)
           variant="secondary"
           size="small"
           onClick={onAdd}
-          aria-label={`Add one more ${item.name}`}
           className="h-9 w-9 px-0 py-0"
+          aria-label={t("cart.addItemAriaLabel", { itemName: item.name })}
+          title={t("cart.addItemTitle", { itemName: item.name })}
         >
           <FaPlus className="text-xs" aria-hidden="true" />
         </Button>
