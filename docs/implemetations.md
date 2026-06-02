@@ -181,4 +181,5 @@ NEXTILL IMPLEMENTATION LIST
 - [Optional] [Stock] in the stock activity acrd add an icon for add, remove or archieved;
 - [Optional] [App] Add discount system;
 - [Optional] [Stock] Add another category to the stock items for non food/drink items;
+- [Optional] [App] Translate the errors messages where necessary;
                           

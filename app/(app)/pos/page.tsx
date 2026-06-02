@@ -13,10 +13,12 @@ import MobileCartBar from "@/components/pos/MobileCartBar";
 import MobileCartDrawer from "@/components/pos/MobileCartDrawer";
 import { useCartStore } from "@/store/useCartStore";
 import { SmallDivider } from "@/components/ui/dividers/Dividers";
+import { useTranslation } from "react-i18next";
 
 export default function PosPage() {
   const { user, profile } = useAuth();
   const cart = useCartStore();
+  const { t } = useTranslation("pos");
 
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [menuLoading, setMenuLoading] = useState(true);
@@ -67,7 +69,7 @@ export default function PosPage() {
   );
 
   if (!cart.hydrated) {
-    return <div className="p-6 opacity-70">Loading cart…</div>;
+    return <div className="p-6 opacity-70">{t("loadingCart")}</div>;
   }
 
   if (!user) return null;
@@ -86,9 +88,9 @@ export default function PosPage() {
     <>
       <div className="mx-auto w-full max-w-[1800px] space-y-6 px-4 pt-4 lg:px-6 lg:py-6 lg:pb-6">
         <header className="space-y-1">
-          <h1 className="text-2xl font-semibold tracking-tight">Point of sale</h1>
+          <h1 className="text-2xl font-semibold tracking-tight">{t("title")}</h1>
           <p className="text-sm text-muted-foreground">
-            Add dishes quickly, review the cart, and complete the order.
+            {t("description")}
           </p>
         </header>
 
@@ -96,7 +98,7 @@ export default function PosPage() {
                          xl:grid-cols-[minmax(0,1.5fr)_minmax(23rem,0.9fr)]`}>
           <div className="min-w-0 rounded-3xl border border-default bg-surface-1 p-4 shadow-sm lg:p-5">
             {menuLoading ? (
-              <p className="opacity-70">Loading menu…</p>
+              <p className="opacity-70">{t("loadingMenu")}</p>
             ) : (
               <MenuList items={menuItems} onAdd={cart.addItem} />
             )}

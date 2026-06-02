@@ -6,12 +6,14 @@ import { useAuth } from "@/firebase/authProvider";
 import Button from "@/components/ui/Button";
 import { inputBaseStyle } from "@/styles";
 import { moneyToMinorUnits } from "@/lib/money";
+import { useTranslation } from "react-i18next";
 
 export default function StartDay() {
   const { user, profile } = useAuth();
   const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { t } = useTranslation("pos");
 
   const balanceEnabled = profile?.nextillApp?.settings?.balanceEnabled ?? false;
   const inputId = useId();
@@ -29,7 +31,7 @@ export default function StartDay() {
       const parsed = moneyToMinorUnits(amount);
 
       if (parsed === null) {
-        setError("Enter a valid opening balance.");
+        setError(`${t("startDay.balanceError")}`);
         return;
       }
 
@@ -54,12 +56,11 @@ export default function StartDay() {
       <div className="rounded-3xl border border-default bg-surface-1 p-5 shadow-sm sm:p-6 lg:p-8">
         <div className="space-y-2">
           <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            Start the day
+            {t("startDay.title")}
           </h1>
 
           <p className="text-sm leading-6 text-muted-foreground sm:text-base">
-            The POS is not available yet because the day has not been started.
-            Start the day to unlock the point of sale and begin working.
+            {t("startDay.description")}
           </p>
         </div>
 
@@ -70,12 +71,11 @@ export default function StartDay() {
                 htmlFor={inputId}
                 className="block text-sm font-medium text-foreground"
               >
-                Opening balance
+                {t("startDay.balanceTitle")}
               </label>
 
               <p id={helpId} className="text-sm leading-6 text-muted-foreground">
-                Enter the cash you are starting with today. This amount will be
-                used as the opening balance for the day.
+                {t("startDay.balanceDescription")}
               </p>
 
               <input
@@ -93,8 +93,7 @@ export default function StartDay() {
               />
 
               <p className="text-xs leading-5 text-muted-foreground">
-                If you do not need an opening balance, you can disable it from
-                the Account page.
+                {t("startDay.balanceHint")}
               </p>
 
               {error ? (
@@ -106,8 +105,7 @@ export default function StartDay() {
           ) : (
             <div className={`rounded-2xl border border-dashed border-default bg-background/40
                              p-4 text-sm leading-6 text-muted-foreground`}>
-              Opening balance is disabled for this account. You can enable it
-              from the Account page if you need it.
+              {t("startDay.noBalanceDescription")}
             </div>
           )}
 
@@ -115,10 +113,10 @@ export default function StartDay() {
             onClick={handleStart}
             type="button"
             loading={loading}
-            loadingText="Starting..."
+            loadingText={t("startDay.buttonLoading")}
             className="w-full"
           >
-            Start day
+            {t("startDay.button")}
           </Button>
         </div>
       </div>

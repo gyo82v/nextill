@@ -8,6 +8,7 @@ import Button from "@/components/ui/Button";
 import { FaPowerOff, FaTriangleExclamation } from "react-icons/fa6";
 import {inputBaseStyle} from "@/styles";
 import { moneyToMinorUnits } from "@/lib/money";
+import { useTranslation } from "react-i18next";
 
 export default function EndDay({device}: {device: "mobile" | "desktop"}) {
   const { user, profile } = useAuth();
@@ -16,6 +17,7 @@ export default function EndDay({device}: {device: "mobile" | "desktop"}) {
   const [error, setError] = useState<string | null>(null);
   const { clearCart } = useCartStore();
   const balanceEnabled = profile?.nextillApp?.settings?.balanceEnabled ?? false;
+  const { t } = useTranslation("pos");
 
   if (!user) return null;
 
@@ -28,7 +30,7 @@ export default function EndDay({device}: {device: "mobile" | "desktop"}) {
       const parsed = moneyToMinorUnits(amount);
 
       if (parsed === null) {
-        setError("Enter a valid closing balance.");
+        setError(t("endDay.balanceError"));
         return;
       }
 
@@ -48,7 +50,7 @@ export default function EndDay({device}: {device: "mobile" | "desktop"}) {
       setAmount("");
     } catch (err) {
       const message =
-        err instanceof Error ? err.message : "Failed to end the day.";
+        err instanceof Error ? err.message : t("endDay.endDayError");
       setError(message);
     } finally {
       setLoading(false);
@@ -71,13 +73,12 @@ export default function EndDay({device}: {device: "mobile" | "desktop"}) {
           </span>
 
           <h2 id="end-day-title" className="text-lg font-semibold tracking-tight">
-            End day
+            {t("endDay.title")}
           </h2>
         </div>
 
         <p className="text-sm text-muted-foreground">
-          Close the POS for today. This will stop new orders until a new day is
-          started.
+          {t("endDay.description")}
         </p>
       </header>
 
@@ -87,7 +88,7 @@ export default function EndDay({device}: {device: "mobile" | "desktop"}) {
             htmlFor={device === "mobile" ? "closing-balance-mobile" : "closing-balance-desktop"} 
             className="text-sm font-medium"
           >
-            Closing balance
+            {t("endDay.balanceTitle")}
           </label>
 
           <input
@@ -105,7 +106,7 @@ export default function EndDay({device}: {device: "mobile" | "desktop"}) {
           />
 
           <p id="end-day-help" className="text-xs text-muted-foreground">
-            Enter the cash count or final balance before closing.
+            {t("endDay.balanceDescription")}
           </p>
         </div>
       )}
@@ -125,12 +126,12 @@ export default function EndDay({device}: {device: "mobile" | "desktop"}) {
         type="button"
         variant="danger"
         loading={loading}
-        loadingText="Ending day..."
+        loadingText={t("endDay.buttonLoading")}
         onClick={handleEnd}
         className="w-full justify-center"
       >
         <FaPowerOff className="text-sm" aria-hidden="true" />
-        <span>End day</span>
+        <span>{t("endDay.button")}</span>
       </Button>
     </section>
   );

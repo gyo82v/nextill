@@ -1,1 +1,33 @@
-{}
+{
+    "loadingCart" : "loading cart...",
+    "loadingMenu": "loading menu...",
+    "title": "Point of Sale",
+    "description": "Add items quickly, review the cart, and complete the order.",
+    "menu": {},
+    "cart": {},
+    "startDay": {
+        "title": "Start day",
+        "description": "The POS is not available yet because the day has not been started. Start the day to unlock the point of sale and begin working.",
+        "balanceTitle": "Opening balance",
+        "balanceDescription": "Enter the cash amount you are starting with today. This will be used as the opening balance for the day.",
+        "balanceHint": "If you do not need an opening balance, you can disable it from the Account page.",
+        "button": "Start day",
+        "buttonLoading": "Starting...",
+        "noBalanceDescription": "Opening balance is disabled for this account. You can enable it from the Account page if needed.",
+        "balanceError": "Please enter a valid opening balance."
+    },
+    "endDay": {
+        "title": "End day",
+        "description": "Close the POS for today. New orders will be blocked until a new day is started.",
+        "balanceTitle": "Closing balance",
+        "balanceDescription": "Enter the cash count or final balance before closing.",
+        "button": "End day",
+        "buttonLoading": "Ending day...",
+        "balanceError": "Please enter a valid closing balance.",
+        "endDayError": "Failed to end the day."
+    },
+    "checkout": {},
+    "success": {},
+    "receipt": {},
+    "ticket": {}
+}
