@@ -1,1 +1,111 @@
-{}
+{
+  "loadingCart": "chargement du panier...",
+  "loadingMenu": "chargement du menu...",
+  "title": "Point de vente",
+  "description": "Ajoutez des articles rapidement, vérifiez le panier et finalisez la commande.",
+  "menu": {
+    "title": "Menu",
+    "description": "Appuyez sur un plat pour l’ajouter au panier.",
+    "foodTitle": "Nourriture",
+    "foodDescription": "Plats principaux et plats salés.",
+    "drinksTitle": "Boissons",
+    "drinksDescription": "Sodas, eau, café et plus encore.",
+    "comboTitle": "Formules",
+    "comboDescription": "Combinaisons prédéfinies de plats et boissons.",
+    "dessertsTitle": "Desserts",
+    "dessertsDescription": "Douceurs et desserts.",
+    "sectionItems_one": "{{count}} article",
+    "sectionItems_other": "{{count}} articles",
+    "addToCartAriaLabel": "Ajouter {{itemName}} au panier",
+    "addToCartText": "Appuyez pour ajouter"
+  },
+  "cart": {
+    "title": "Panier",
+    "description": "Vérifiez les articles avant le paiement.",
+    "emptyTitle": "Panier vide",
+    "emptyDescription": "Ajoutez des plats depuis le menu pour commencer une commande.",
+    "listLabel": "Articles sélectionnés",
+    "totalLabel": "Total",
+    "itemCount_one": "article",
+    "itemCount_other": "articles",
+    "addItemAriaLabel": "Ajouter une unité de plus de {{itemName}}",
+    "addItemTitle": "Ajouter une unité de plus de {{itemName}}",
+    "removeItemAriaLabel": "Retirer une unité de {{itemName}}",
+    "removeItemTitle": "Retirer une unité de {{itemName}}",
+    "quantityAriaLabel": "Quantité : {{count}}"
+  },
+  "startDay": {
+    "title": "Démarrer la journée",
+    "description": "Le POS n’est pas encore disponible car la journée n’a pas été démarrée. Démarrez la journée pour activer la caisse et commencer à travailler.",
+    "balanceTitle": "Fonds de caisse initial",
+    "balanceDescription": "Entrez le montant en espèces avec lequel vous commencez aujourd’hui. Il servira de solde initial.",
+    "balanceHint": "Si vous n’avez pas besoin d’un fonds de caisse, vous pouvez le désactiver depuis la page Compte.",
+    "button": "Démarrer la journée",
+    "buttonLoading": "Démarrage...",
+    "noBalanceDescription": "Le fonds de caisse est désactivé pour ce compte. Vous pouvez l’activer depuis la page Compte si nécessaire.",
+    "balanceError": "Veuillez entrer un fonds de caisse valide."
+  },
+  "endDay": {
+    "title": "Clôturer la journée",
+    "description": "Fermez le POS pour aujourd’hui. Aucune nouvelle commande ne pourra être prise jusqu’au prochain démarrage.",
+    "balanceTitle": "Solde de clôture",
+    "balanceDescription": "Entrez le montant en espèces compté ou le solde final avant la clôture.",
+    "button": "Clôturer la journée",
+    "buttonLoading": "Fermeture en cours...",
+    "balanceError": "Veuillez entrer un solde de clôture valide.",
+    "endDayError": "Échec de la clôture de la journée."
+  },
+  "checkout": {
+    "title": "Paiement",
+    "description": "Vérifiez la commande et finalisez le paiement.",
+    "button": "Encaisser",
+    "buttonLoading": "Finalisation...",
+    "loginError": "Vous devez être connecté.",
+    "noActiveDayError": "Aucune journée active sélectionnée.",
+    "emptyCartError": "Le panier est vide.",
+    "checkoutError": "Échec du paiement."
+  },
+  "modal": {
+    "title": "Finaliser la commande",
+    "description": "Vérifiez le récapitulatif avant de confirmer la vente.",
+    "recapTitle": "Récapitulatif de commande",
+    "recapItems": "{{count}} article dans cette commande.",
+    "recapItems_other": "{{count}} articles dans cette commande.",
+    "totalLabel": "Total",
+    "backToPosButton": "Retour",
+    "completeOrderButton": "Finaliser la commande",
+    "success": {
+      "title": "Commande terminée",
+      "descriptionWithPrinting": "La commande a été finalisée et est prête à être imprimée.",
+      "descriptionWithoutPrinting": "La commande a été finalisée et enregistrée.",
+      "staffTicketButton": "Imprimer ticket cuisine",
+      "receiptButton": "Imprimer reçu",
+      "newOrderButton": "Nouvelle commande",
+      "backToPosButton": "Retour au POS",
+      "returningText": "Retour au POS...",
+      "bannerTitle": "Vente terminée",
+      "bannerDescriptionWithPrinting": "Vous pouvez imprimer les tickets ou commencer une nouvelle commande.",
+      "bannerDescriptionWithoutPrinting": "Vous pouvez continuer avec la prochaine commande quand vous voulez."
+    }
+  },
+  "mobile": {
+    "openCartAriaLabel_one": "Ouvrir le panier avec {{count}} article",
+    "openCartAriaLabel_other": "Ouvrir le panier avec {{count}} articles",
+    "cartTitle": "Panier",
+    "cartDescription": "Vérifiez la commande avant le paiement.",
+    "closeCartAriaLabel": "Fermer le panier",
+    "closeCartTitle": "Fermer le panier"
+  },
+  "receipt": {
+    "title": "Reçu",
+    "total": "Total"
+  },
+  "ticket": {
+    "categories": {
+      "food": "Nourriture",
+      "drink": "Boissons",
+      "bundle": "Formule",
+      "dessert": "Desserts"
+    }
+  }
+}

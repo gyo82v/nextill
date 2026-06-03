@@ -1,1 +1,111 @@
-{}
+{
+  "loadingCart": "caricamento carrello...",
+  "loadingMenu": "caricamento menu...",
+  "title": "Punto vendita",
+  "description": "Aggiungi prodotti rapidamente, controlla il carrello e completa l’ordine.",
+  "menu": {
+    "title": "Menu",
+    "description": "Seleziona un prodotto per aggiungerlo al carrello.",
+    "foodTitle": "Piatti",
+    "foodDescription": "Piatti principali e piatti salati.",
+    "drinksTitle": "Bevande",
+    "drinksDescription": "Bibite, acqua, caffè e altro.",
+    "comboTitle": "Combo",
+    "comboDescription": "Combinazioni predefinite di cibo e bevande.",
+    "dessertsTitle": "Dessert",
+    "dessertsDescription": "Dolci e dessert.",
+    "sectionItems_one": "{{count}} articolo",
+    "sectionItems_other": "{{count}} articoli",
+    "addToCartAriaLabel": "Aggiungi {{itemName}} al carrello",
+    "addToCartText": "Aggiungi"
+  },
+  "cart": {
+    "title": "Carrello",
+    "description": "Controlla gli articoli prima del pagamento.",
+    "emptyTitle": "Il carrello è vuoto",
+    "emptyDescription": "Aggiungi piatti dal menu per iniziare un ordine.",
+    "listLabel": "Articoli selezionati",
+    "totalLabel": "Totale",
+    "itemCount_one": "articolo",
+    "itemCount_other": "articoli",
+    "addItemAriaLabel": "Aggiungi un’altra unità di {{itemName}}",
+    "addItemTitle": "Aggiungi un’altra unità di {{itemName}}",
+    "removeItemAriaLabel": "Rimuovi un’unità di {{itemName}}",
+    "removeItemTitle": "Rimuovi un’unità di {{itemName}}",
+    "quantityAriaLabel": "Quantità: {{count}}"
+  },
+  "startDay": {
+    "title": "Avvia giornata",
+    "description": "Il POS non è ancora disponibile perché la giornata non è stata avviata. Avvia la giornata per sbloccare la cassa e iniziare a lavorare.",
+    "balanceTitle": "Fondo cassa iniziale",
+    "balanceDescription": "Inserisci l’importo di contanti con cui inizi oggi. Verrà usato come saldo iniziale della giornata.",
+    "balanceHint": "Se non hai bisogno di un fondo cassa iniziale, puoi disattivarlo dalla pagina Account.",
+    "button": "Avvia giornata",
+    "buttonLoading": "Avvio in corso...",
+    "noBalanceDescription": "Il fondo cassa iniziale è disattivato per questo account. Puoi attivarlo dalla pagina Account se necessario.",
+    "balanceError": "Inserisci un fondo cassa iniziale valido."
+  },
+  "endDay": {
+    "title": "Chiudi giornata",
+    "description": "Chiudi il POS per oggi. Non sarà possibile effettuare nuovi ordini fino all’avvio di una nuova giornata.",
+    "balanceTitle": "Saldo finale",
+    "balanceDescription": "Inserisci il contante conteggiato o il saldo finale prima della chiusura.",
+    "button": "Chiudi giornata",
+    "buttonLoading": "Chiusura in corso...",
+    "balanceError": "Inserisci un saldo finale valido.",
+    "endDayError": "Impossibile terminare la giornata."
+  },
+  "checkout": {
+    "title": "Conferma ordine",
+    "description": "Controlla l’ordine e conferma la vendita.",
+    "button": "Completa ordine",
+    "buttonLoading": "Completamento...",
+    "loginError": "Devi aver effettuato l’accesso.",
+    "noActiveDayError": "Nessuna giornata attiva selezionata.",
+    "emptyCartError": "Il carrello è vuoto.",
+    "checkoutError": "Errore durante la vendita."
+  },
+  "modal": {
+    "title": "Completa ordine",
+    "description": "Controlla il riepilogo prima di finalizzare la vendita.",
+    "recapTitle": "Riepilogo ordine",
+    "recapItems": "{{count}} articolo in questo ordine.",
+    "recapItems_other": "{{count}} articoli in questo ordine.",
+    "totalLabel": "Totale",
+    "backToPosButton": "Indietro",
+    "completeOrderButton": "Completa ordine",
+    "success": {
+      "title": "Ordine completato",
+      "descriptionWithPrinting": "L’ordine è stato completato ed è pronto per la stampa.",
+      "descriptionWithoutPrinting": "L’ordine è stato completato e salvato.",
+      "staffTicketButton": "Stampa comanda",
+      "receiptButton": "Stampa ricevuta",
+      "newOrderButton": "Nuovo ordine",
+      "backToPosButton": "Torna al POS",
+      "returningText": "Ritorno al POS...",
+      "bannerTitle": "Vendita completata",
+      "bannerDescriptionWithPrinting": "Puoi stampare i ticket o iniziare un nuovo ordine.",
+      "bannerDescriptionWithoutPrinting": "Puoi continuare con il prossimo ordine quando vuoi."
+    }
+  },
+  "mobile": {
+    "openCartAriaLabel_one": "Apri carrello con {{count}} articolo",
+    "openCartAriaLabel_other": "Apri carrello con {{count}} articoli",
+    "cartTitle": "Carrello",
+    "cartDescription": "Controlla l’ordine prima del pagamento.",
+    "closeCartAriaLabel": "Chiudi carrello",
+    "closeCartTitle": "Chiudi carrello"
+  },
+  "receipt": {
+    "title": "Ricevuta",
+    "total": "Totale"
+  },
+  "ticket": {
+    "categories": {
+      "food": "Cibo",
+      "drink": "Bevande",
+      "bundle": "Combo",
+      "dessert": "Dessert"
+    }
+  }
+}

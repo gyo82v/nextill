@@ -4,6 +4,7 @@ import { useAuth } from "@/firebase/authProvider";
 import { formatMoney } from "@/lib/money";
 import { FaCartShopping } from "react-icons/fa6";
 import type {MobileCartBarProps} from "@/types/pos";
+import { useTranslation } from "react-i18next";
 
 export default function MobileCartBar({
   itemCount,
@@ -12,6 +13,7 @@ export default function MobileCartBar({
 }: MobileCartBarProps) {
   const { profile } = useAuth();
   const currency = profile?.nextillApp.settings.currency ?? "EUR";
+  const { t } = useTranslation("pos");
 
   if (itemCount === 0) return null;
 
@@ -19,7 +21,7 @@ export default function MobileCartBar({
     <button
       type="button"
       onClick={onOpen}
-      aria-label={`Open cart with ${itemCount} items`}
+      aria-label={t("mobile.openCartAriaLabel", { count: itemCount })}
       className={`fixed bottom-4 right-4 z-40 flex items-center gap-3
                   rounded-2xl border border-default bg-surface-1/95 backdrop-blur
                   px-4 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 shadow-lg shadow-black/10
@@ -43,7 +45,7 @@ export default function MobileCartBar({
       {/* Text */}
       <span className="flex flex-col text-left leading-tight">
         <span className="text-xs font-medium text-muted-foreground uppercase">
-          cart
+          {t("mobile.cartTitle")}
         </span>
 
         <span className="text-sm font-semibold tracking-tight">

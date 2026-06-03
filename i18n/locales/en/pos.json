@@ -88,6 +88,24 @@
             "bannerDescriptionWithoutPrinting": "You can continue with the next order when ready."
         }
     },
-    "receipt": {},
-    "ticket": {}
+    "mobile": {
+        "openCartAriaLabel_one": "Open cart with {{count}} item",
+        "openCartAriaLabel_other": "Open cart with {{count}} items",
+        "cartTitle": "Cart",
+        "cartDescription": "Review the order before checkout.",
+        "closeCartAriaLabel": "Close cart",
+        "closeCartTitle": "Close cart"
+    },
+    "receipt": {
+        "title": "Receipt",
+        "total": "Total"
+    },
+    "ticket": {
+        "categories": {
+            "food": "Food",
+            "drink": "Drinks",
+            "bundle": "Combo",
+            "dessert": "Desserts"
+      }
+    }
 }

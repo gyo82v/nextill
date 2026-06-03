@@ -1,1 +1,111 @@
-{}
+{
+  "loadingCart": "Warenkorb wird geladen...",
+  "loadingMenu": "Menü wird geladen...",
+  "title": "Kassensystem",
+  "description": "Artikel schnell hinzufügen, den Warenkorb prüfen und die Bestellung abschließen.",
+  "menu": {
+    "title": "Menü",
+    "description": "Tippe auf ein Gericht, um es zum Warenkorb hinzuzufügen.",
+    "foodTitle": "Speisen",
+    "foodDescription": "Gerichte, Hauptspeisen und herzhafte Speisen.",
+    "drinksTitle": "Getränke",
+    "drinksDescription": "Erfrischungsgetränke, Wasser, Kaffee und mehr.",
+    "comboTitle": "Kombi",
+    "comboDescription": "Feste Kombinationen aus Speisen und Getränken.",
+    "dessertsTitle": "Desserts",
+    "dessertsDescription": "Süßspeisen und Desserts.",
+    "sectionItems_one": "{{count}} Artikel",
+    "sectionItems_other": "{{count}} Artikel",
+    "addToCartAriaLabel": "{{itemName}} zum Warenkorb hinzufügen",
+    "addToCartText": "Zum Hinzufügen tippen"
+  },
+  "cart": {
+    "title": "Warenkorb",
+    "description": "Prüfe die Artikel vor dem Bezahlen.",
+    "emptyTitle": "Warenkorb ist leer",
+    "emptyDescription": "Füge Gerichte aus dem Menü hinzu, um eine Bestellung zu starten.",
+    "listLabel": "Ausgewählte Artikel",
+    "totalLabel": "Gesamt",
+    "itemCount_one": "Artikel",
+    "itemCount_other": "Artikel",
+    "addItemAriaLabel": "Ein weiteres {{itemName}} hinzufügen",
+    "addItemTitle": "Ein weiteres {{itemName}} hinzufügen",
+    "removeItemAriaLabel": "Ein {{itemName}} entfernen",
+    "removeItemTitle": "Ein {{itemName}} entfernen",
+    "quantityAriaLabel": "Menge: {{count}}"
+  },
+  "startDay": {
+    "title": "Tag starten",
+    "description": "Das Kassensystem ist noch nicht verfügbar, weil der Tag noch nicht gestartet wurde. Starte den Tag, um die Kasse freizuschalten und loszulegen.",
+    "balanceTitle": "Anfangsbestand",
+    "balanceDescription": "Gib den Bargeldbetrag ein, mit dem du heute startest. Er wird als Anfangsbestand des Tages verwendet.",
+    "balanceHint": "Wenn du keinen Anfangsbestand brauchst, kannst du ihn auf der Kontoseite deaktivieren.",
+    "button": "Tag starten",
+    "buttonLoading": "Wird gestartet...",
+    "noBalanceDescription": "Der Anfangsbestand ist für dieses Konto deaktiviert. Du kannst ihn bei Bedarf auf der Kontoseite aktivieren.",
+    "balanceError": "Bitte gib einen gültigen Anfangsbestand ein."
+  },
+  "endDay": {
+    "title": "Tag beenden",
+    "description": "Schließe das Kassensystem für heute. Neue Bestellungen werden blockiert, bis ein neuer Tag gestartet wird.",
+    "balanceTitle": "Endbestand",
+    "balanceDescription": "Gib den gezählten Bargeldbetrag oder den Endsaldo vor dem Schließen ein.",
+    "button": "Tag beenden",
+    "buttonLoading": "Tag wird beendet...",
+    "balanceError": "Bitte gib einen gültigen Endbestand ein.",
+    "endDayError": "Der Tag konnte nicht beendet werden."
+  },
+  "checkout": {
+    "title": "Bezahlen",
+    "description": "Prüfe die Bestellung und schließe die Zahlung ab.",
+    "button": "Bezahlen",
+    "buttonLoading": "Wird abgeschlossen...",
+    "loginError": "Du musst angemeldet sein.",
+    "noActiveDayError": "Kein aktiver Tag ausgewählt.",
+    "emptyCartError": "Der Warenkorb ist leer.",
+    "checkoutError": "Bezahlung fehlgeschlagen."
+  },
+  "modal": {
+    "title": "Bestellung abschließen",
+    "description": "Prüfe die Bestellübersicht, bevor du den Verkauf abschließt.",
+    "recapTitle": "Bestellübersicht",
+    "recapItems": "{{count}} Artikel in dieser Bestellung.",
+    "recapItems_other": "{{count}} Artikel in dieser Bestellung.",
+    "totalLabel": "Gesamt",
+    "backToPosButton": "Zurück",
+    "completeOrderButton": "Bestellung abschließen",
+    "success": {
+      "title": "Bestellung abgeschlossen",
+      "descriptionWithPrinting": "Die Bestellung wurde abgeschlossen und ist bereit zum Drucken.",
+      "descriptionWithoutPrinting": "Die Bestellung wurde abgeschlossen und gespeichert.",
+      "staffTicketButton": "Küchenticket drucken",
+      "receiptButton": "Beleg drucken",
+      "newOrderButton": "Neue Bestellung",
+      "backToPosButton": "Zurück zum POS",
+      "returningText": "Zurück zum POS...",
+      "bannerTitle": "Verkauf abgeschlossen",
+      "bannerDescriptionWithPrinting": "Du kannst jetzt die Tickets drucken oder eine neue Bestellung starten.",
+      "bannerDescriptionWithoutPrinting": "Du kannst bei Bedarf mit der nächsten Bestellung fortfahren."
+    }
+  },
+  "mobile": {
+    "openCartAriaLabel_one": "Warenkorb mit {{count}} Artikel öffnen",
+    "openCartAriaLabel_other": "Warenkorb mit {{count}} Artikeln öffnen",
+    "cartTitle": "Warenkorb",
+    "cartDescription": "Prüfe die Bestellung vor dem Bezahlen.",
+    "closeCartAriaLabel": "Warenkorb schließen",
+    "closeCartTitle": "Warenkorb schließen"
+  },
+  "receipt": {
+    "title": "Beleg",
+    "total": "Gesamt"
+  },
+  "ticket": {
+    "categories": {
+      "food": "Speisen",
+      "drink": "Getränke",
+      "bundle": "Kombi",
+      "dessert": "Desserts"
+    }
+  }
+}

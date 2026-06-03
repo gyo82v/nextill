@@ -1,1 +1,111 @@
-{}
+{
+  "loadingCart": "cargando carrito...",
+  "loadingMenu": "cargando menú...",
+  "title": "Punto de venta",
+  "description": "Añade productos rápidamente, revisa el carrito y completa el pedido.",
+  "menu": {
+    "title": "Menú",
+    "description": "Toca un plato para añadirlo al carrito.",
+    "foodTitle": "Comida",
+    "foodDescription": "Comidas, platos principales y platos salados.",
+    "drinksTitle": "Bebidas",
+    "drinksDescription": "Refrescos, agua, café y más.",
+    "comboTitle": "Menú combinado",
+    "comboDescription": "Combinaciones predefinidas de comida y bebida.",
+    "dessertsTitle": "Postres",
+    "dessertsDescription": "Dulces y postres.",
+    "sectionItems_one": "{{count}} artículo",
+    "sectionItems_other": "{{count}} artículos",
+    "addToCartAriaLabel": "Añadir {{itemName}} al carrito",
+    "addToCartText": "Toca para añadir"
+  },
+  "cart": {
+    "title": "Carrito",
+    "description": "Revisa los artículos antes de cobrar.",
+    "emptyTitle": "El carrito está vacío",
+    "emptyDescription": "Añade platos del menú para empezar un pedido.",
+    "listLabel": "Artículos seleccionados",
+    "totalLabel": "Total",
+    "itemCount_one": "artículo",
+    "itemCount_other": "artículos",
+    "addItemAriaLabel": "Añadir una unidad más de {{itemName}}",
+    "addItemTitle": "Añadir una unidad más de {{itemName}}",
+    "removeItemAriaLabel": "Quitar una unidad de {{itemName}}",
+    "removeItemTitle": "Quitar una unidad de {{itemName}}",
+    "quantityAriaLabel": "Cantidad: {{count}}"
+  },
+  "startDay": {
+    "title": "Iniciar jornada",
+    "description": "El punto de venta aún no está disponible porque la jornada no ha comenzado. Inicia el día para habilitar la caja y empezar a trabajar.",
+    "balanceTitle": "Saldo inicial",
+    "balanceDescription": "Introduce la cantidad de efectivo con la que empiezas hoy. Se usará como saldo inicial del día.",
+    "balanceHint": "Si no necesitas un saldo inicial, puedes desactivarlo desde la página de cuenta.",
+    "button": "Iniciar jornada",
+    "buttonLoading": "Iniciando...",
+    "noBalanceDescription": "El saldo inicial está desactivado para esta cuenta. Puedes activarlo desde la página de cuenta si lo necesitas.",
+    "balanceError": "Introduce un saldo inicial válido."
+  },
+  "endDay": {
+    "title": "Cerrar jornada",
+    "description": "Cierra el punto de venta de hoy. No se podrán hacer nuevos pedidos hasta que se inicie una nueva jornada.",
+    "balanceTitle": "Saldo final",
+    "balanceDescription": "Introduce el efectivo contado o el saldo final antes de cerrar.",
+    "button": "Cerrar jornada",
+    "buttonLoading": "Cerrando jornada...",
+    "balanceError": "Introduce un saldo final válido.",
+    "endDayError": "No se pudo cerrar la jornada."
+  },
+  "checkout": {
+    "title": "Cobro",
+    "description": "Revisa el pedido y completa el pago.",
+    "button": "Cobrar",
+    "buttonLoading": "Completando...",
+    "loginError": "Debes haber iniciado sesión.",
+    "noActiveDayError": "No hay una jornada activa seleccionada.",
+    "emptyCartError": "El carrito está vacío.",
+    "checkoutError": "No se pudo completar el cobro."
+  },
+  "modal": {
+    "title": "Completar pedido",
+    "description": "Revisa el resumen del pedido antes de finalizar la venta.",
+    "recapTitle": "Resumen del pedido",
+    "recapItems": "{{count}} artículo en este pedido.",
+    "recapItems_other": "{{count}} artículos en este pedido.",
+    "totalLabel": "Total",
+    "backToPosButton": "Volver",
+    "completeOrderButton": "Completar pedido",
+    "success": {
+      "title": "Pedido completado",
+      "descriptionWithPrinting": "El pedido se ha completado y está listo para imprimir.",
+      "descriptionWithoutPrinting": "El pedido se ha completado y guardado.",
+      "staffTicketButton": "Imprimir ticket de cocina",
+      "receiptButton": "Imprimir recibo",
+      "newOrderButton": "Nuevo pedido",
+      "backToPosButton": "Volver al POS",
+      "returningText": "Volviendo al POS...",
+      "bannerTitle": "Venta completada",
+      "bannerDescriptionWithPrinting": "Ya puedes imprimir los tickets o empezar un nuevo pedido.",
+      "bannerDescriptionWithoutPrinting": "Puedes continuar con el siguiente pedido cuando quieras."
+    }
+  },
+  "mobile": {
+    "openCartAriaLabel_one": "Abrir carrito con {{count}} artículo",
+    "openCartAriaLabel_other": "Abrir carrito con {{count}} artículos",
+    "cartTitle": "Carrito",
+    "cartDescription": "Revisa el pedido antes de cobrar.",
+    "closeCartAriaLabel": "Cerrar carrito",
+    "closeCartTitle": "Cerrar carrito"
+  },
+  "receipt": {
+    "title": "Recibo",
+    "total": "Total"
+  },
+  "ticket": {
+    "categories": {
+      "food": "Comida",
+      "drink": "Bebidas",
+      "bundle": "Menú combinado",
+      "dessert": "Postres"
+    }
+  }
+}
