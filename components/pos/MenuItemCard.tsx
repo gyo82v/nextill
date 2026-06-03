@@ -5,6 +5,7 @@ import { useAuth } from "@/firebase/authProvider";
 import { cardBaseStyle, focusRing, posDishCard } from "@/styles";
 import { FiPlus } from "react-icons/fi";
 import type { MenuItemCardProps } from "@/types/pos";
+import { useTranslation } from "react-i18next";
 
 const categoryStyles: Record<string, string> = {
   food:
@@ -31,11 +32,13 @@ export default function MenuItemCard({
   const categoryKey = item.category || "default";
   const badgeStyle = categoryStyles[categoryKey] ?? categoryStyles.default;
 
+  const { t } = useTranslation("pos");
+
   return (
     <button
       type="button"
       onClick={() => onAdd(item)}
-      aria-label={`Add ${item.name} to cart`}
+      aria-label={t("menu.addToCartAriaLabel", { itemName: item.name })}
       className={`${cardBaseStyle} ${focusRing} ${posDishCard}
                   group flex h-full w-full flex-col justify-between gap-3 rounded-2xl
                   border border-default p-3 text-left`}
@@ -68,7 +71,7 @@ export default function MenuItemCard({
 
       <div className="flex items-end justify-between gap-3">
         <div className="text-xs text-muted-foreground">
-          Tap to add
+          {t("menu.addToCartText")}
         </div>
 
         <div className="text-[15px] font-semibold text-foreground">

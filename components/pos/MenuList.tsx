@@ -5,31 +5,33 @@ import MenuItemCard from "../pos/MenuItemCard";
 import { FaUtensils, FaMugSaucer, FaPlateWheat, FaCakeCandles } from "react-icons/fa6";
 import { SmallDivider } from "@/components/ui/dividers/Dividers";
 import type { MenuListProps } from "@/types/pos";
+import { useTranslation } from "react-i18next";
 
-const CATEGORY_META = {
+export default function MenuList({ items, onAdd }: MenuListProps) {
+  const { t } = useTranslation("pos");
+
+  const CATEGORY_META = {
   food: {
-    label: "Food",
-    description: "Meals, mains, and anything savory.",
+    label: `${t("menu.foodTitle")}`,
+    description: `${t("menu.foodDescription")}`,
     icon: <FaUtensils className="text-sm" aria-hidden="true" />,
   },
   drink: {
-    label: "Drinks",
-    description: "Soft drinks, water, coffee, and more.",
+    label: `${t("menu.drinksTitle")}`,
+    description: `${t("menu.drinksDescription")}`,
     icon: <FaMugSaucer className="text-sm" aria-hidden="true" />,
   },
   bundle: {
-    label: "Combo",
-    description: "Food and drinks sold together.",
+    label: `${t("menu.comboTitle")}`,
+    description: `${t("menu.comboDescription")}`,
     icon: <FaPlateWheat className="text-sm" aria-hidden="true" />,
   },
   dessert: {
-    label: "Desserts",
-    description: "Sweet treats and desserts.",
+    label: `${t("menu.dessertsTitle")}`,
+    description: `${t("menu.dessertsDescription")}`,
     icon: <FaCakeCandles className="text-sm" aria-hidden="true" />,
   },
 } as const;
-
-export default function MenuList({ items, onAdd }: MenuListProps) {
   const grouped = useMemo(() => {
     return {
       food: items.filter((item) => item.category === "food"),
@@ -51,9 +53,9 @@ export default function MenuList({ items, onAdd }: MenuListProps) {
   return (
     <section aria-label="Menu items" className="space-y-7">
       <header className="space-y-1">
-        <h2 className="text-lg font-semibold tracking-tight">Menu</h2>
+        <h2 className="text-lg font-semibold tracking-tight">{t("menu.title")}</h2>
         <p className="text-sm text-muted-foreground">
-          Tap a dish to add it to the cart.
+          {t("menu.description")}
         </p>
       </header>
 
@@ -98,7 +100,7 @@ export default function MenuList({ items, onAdd }: MenuListProps) {
 
                   <span className={`rounded-full border border-default bg-surface-2
                                     px-2.5 py-1 text-xs font-medium text-muted-foreground`}>
-                    {sectionItems.length} items
+                    {t("menu.sectionItems", { count: sectionItems.length })}
                   </span>
                 </header>
 

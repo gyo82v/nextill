@@ -184,4 +184,5 @@ NEXTILL IMPLEMENTATION LIST
 - [Optional] [App] Add discount system;
 - [Optional] [Stock] Add another category to the stock items for non food/drink items;
 - [Optional] [App] Translate the errors messages where necessary;
+- [Optional] [pos] add a show/hide button for each category section in the menu list;
                           

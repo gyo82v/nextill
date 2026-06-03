@@ -1,30 +1,29 @@
-perfect; next section is the modal that opens when the user clicks
-the checkout button; it recap the order and allow the user to complete it.
-this modal have a success state when the order is completed;
-in my pos.json:
-{"modal":{
-  keys here
-  "success": {
-    keys here
-  }
-}}
+perfect: next section is the menu list section where all the available menu items
+are rendered divided in category section.
+my pos.json:
+{menu:{}}
 
+- the section title: "Menu";
+- the section description: "Tap a dish to add it to the cart.";
+each category title:
+- food section: "Food";
+- drinks section: "drinks";
+- combo section: "Combo" not sure if plural is Comboes or somthing else;
+- dessrts section: "Desserts";
 
-before complete the order state:
-- title: "Complete order";
-- description: "Review the order summary before finalizing the sale.";
+each category description:
+- food section: "Meals, mains, and anything savory.";
+- drinks section: "Soft drinks, water, coffee, and more."
+- combo section: "Food and drinks sold together.";
+- dessert section: "Sweet treats and desserts.";
 
+in the header of each section i have the number of items in it:
+{sectionItems.length} items
+i need the singular/plural for this
+please provide also the code i have to use inside the component instead of
+{sectionItems.length} items
 
+each menu item card:these are button elements;
 
-
-
-success state:
-- title: "Order completed";
-- description when printing is enabled: "The sale was completed successfully.";
-- description when printing is disabled: "The sale was completed and saved.";
-- button text for printing the ticket for the staff: "Print staff ticket";
-- button text for printing the receipt for the customer: "Print receipt";
-- button text for going back to the pos page: "New order";
-- text that is rendered when the printing is disabled; in this case the modal 
-  will disappear automatically after a second: "Returning to POS...";
-
+- the aria-label: aria-label={`Add ${item.name} to cart`}
+- text in the bottom: "Tap to add"

@@ -3,7 +3,22 @@
     "loadingMenu": "loading menu...",
     "title": "Point of Sale",
     "description": "Add items quickly, review the cart, and complete the order.",
-    "menu": {},
+    "menu": {
+        "title": "Menu",
+        "description": "Tap a dish to add it to the cart.",
+        "foodTitle": "Food",
+        "foodDescription": "Meals, mains, and savory dishes.",
+        "drinksTitle": "Drinks",
+        "drinksDescription": "Soft drinks, water, coffee, and more.",
+        "comboTitle": "Combo",
+        "comboDescription": "Pre-set food and drink combinations.",
+        "dessertsTitle": "Desserts",
+        "dessertsDescription": "Sweet treats and desserts.",
+        "sectionItems_one": "{{count}} item",
+        "sectionItems_other": "{{count}} items",
+        "addToCartAriaLabel": "Add {{itemName}} to cart",
+        "addToCartText": "Tap to add"
+    },
     "cart": {
         "title": "Cart",
         "description": "Review the items before checkout.",
