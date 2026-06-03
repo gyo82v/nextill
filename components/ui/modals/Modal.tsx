@@ -5,6 +5,8 @@ import { createPortal } from "react-dom";
 import { FaXmark } from "react-icons/fa6";
 import Button from "../Button";
 import { overlay, modalPanel } from "@/styles";
+import { useTranslation } from "react-i18next";
+
 
 type ModalProps = {
   open: boolean;
@@ -33,6 +35,7 @@ export default function Modal({
 }: ModalProps) {
   const titleId = useId();
   const descriptionId = useId();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (!open) return;
@@ -91,8 +94,9 @@ export default function Modal({
             variant="ghost"
             size="small"
             onClick={onClose}
-            aria-label="Close modal"
+            aria-label={t("closeModal")}
             className="h-9 w-9 px-0 py-0"
+            title={t("closeModal")}
           >
             <FaXmark className="text-base" aria-hidden="true" />
           </Button>

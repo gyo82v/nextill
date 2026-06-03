@@ -9,6 +9,7 @@ import { FaReceipt } from "react-icons/fa6";
 import { openStaffTicketPrintWindow } from "./staffTicketPrint";
 import { openReceiptPrintWindow } from "./receiptPrint";
 import type { CheckoutButtonProps, CheckoutItem } from "@/types";
+import { useTranslation } from "react-i18next";
 
 export default function CheckoutButton({
   items,
@@ -22,6 +23,7 @@ export default function CheckoutButton({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [ticketNumber, setTicketNumber] = useState<number | null>(null);
+  const { t } = useTranslation("pos");
 
   const dayKey = profile?.nextillApp?.dayCycle?.dayKey ?? null;
   const currency = profile?.nextillApp.settings.currency ?? "EUR";
@@ -51,17 +53,17 @@ export default function CheckoutButton({
 
   async function handleCheckout() {
     if (!user) {
-      setError("You must be logged in.");
+      setError(`${t("checkout.loginError")}`);
       return;
     }
 
     if (!dayKey) {
-      setError("No active day selected.");
+      setError(`${t("checkout.noActiveDayError")}`);
       return;
     }
 
     if (items.length === 0) {
-      setError("Cart is empty.");
+      setError(`${t("checkout.emptyCartError")}`);
       return;
     }
 
@@ -83,7 +85,7 @@ export default function CheckoutButton({
       setSuccess(true);
       onSuccess();
     } catch (err) {
-      const message = err instanceof Error ? err.message : "Checkout failed.";
+      const message = err instanceof Error ? err.message : `${t("checkout.checkoutError")}`;
       setError(message);
     } finally {
       setLoading(false);
@@ -121,24 +123,23 @@ export default function CheckoutButton({
       >
         <div className="space-y-1">
           <h3 id="checkout-panel-title" className="font-semibold tracking-tight">
-            Checkout
+            {t("checkout.title")}
           </h3>
           <p className="text-sm text-muted-foreground">
-            Review the order before completing it.
+            {t("checkout.description")}
           </p>
         </div>
 
         <Button
           type="button"
-          variant="primary"
           loading={loading}
-          loadingText="Completing..."
+          loadingText={t("checkout.buttonLoading")}
           onClick={handleOpen}
           disabled={!canCheckout}
           className="w-full justify-center"
         >
           <FaReceipt className="text-sm" aria-hidden="true" />
-          <span>Checkout</span>
+          <span>{t("checkout.button")}</span>
         </Button>
 
         {error ? (

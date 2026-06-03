@@ -13,6 +13,7 @@
   "items_one": "{{count}} articolo",
   "items_other": "{{count}} articoli",
   "back": "Indietro",
+  "closeModal": "Chiudi",
   "theme" : {
     "switchToLight" : "Passa alla modalità chiara",
     "switchToDark" : "Passa alla modalità scura"

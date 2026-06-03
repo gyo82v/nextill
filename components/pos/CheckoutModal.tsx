@@ -7,6 +7,7 @@ import ConfirmModal from "@/components/ui/modals/ConfirmModal";
 import Button from "@/components/ui/Button";
 import { FaCircleCheck, FaPrint, FaReceipt } from "react-icons/fa6";
 import type { CheckoutModalProps } from "@/types/pos";
+import { useTranslation } from "react-i18next";
 
 export default function CheckoutModal({
   open,
@@ -24,6 +25,7 @@ export default function CheckoutModal({
   const { profile } = useAuth();
   const currency = profile?.nextillApp.settings.currency ?? "EUR";
   const closingSoon = open && success && !printingEnabled;
+  const { t } = useTranslation("pos");
 
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -39,16 +41,16 @@ export default function CheckoutModal({
     return () => window.clearTimeout(timeoutId);
   }, [open, success, printingEnabled, onClose]);
 
-  const title = success ? "Order completed" : "Complete order";
+  const title = success ? `${t("modal.success.title")}` : `${t("modal.title")}`;
 
   const description = success
     ? printingEnabled
-      ? "The sale was completed successfully."
-      : "The sale was completed and saved."
-    : "Review the order summary before finalizing the sale.";
+      ? `${t("modal.success.descriptionWithPrinting")}`
+      : `${t("modal.success.descriptionWithoutPrinting")}`
+    : `${t("modal.description")}`;
 
-  const confirmLabel = success ? "Print ticket" : "Complete order";
-  const cancelLabel = success ? "New order" : "Back";
+  const confirmLabel = success ? "Print ticket" : `${t("modal.completeOrderButton")}`;
+  const cancelLabel = success ? "New order" : `${t("modal.backToPosButton")}`;
 
   const successFooter = printingEnabled ? (
     <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
@@ -59,7 +61,7 @@ export default function CheckoutModal({
         className="w-full justify-center sm:w-auto"
       >
         <FaPrint className="text-sm" aria-hidden="true" />
-        <span>Print staff ticket</span>
+        <span>{t("modal.success.staffTicketButton")}</span>
       </Button>
 
       <Button
@@ -69,7 +71,7 @@ export default function CheckoutModal({
         className="w-full justify-center sm:w-auto"
       >
         <FaReceipt className="text-sm" aria-hidden="true" />
-        <span>Print receipt</span>
+        <span>{t("modal.success.receiptButton")}</span>
       </Button>
 
       <Button
@@ -78,13 +80,13 @@ export default function CheckoutModal({
         onClick={onClose}
         className="w-full justify-center sm:w-auto"
       >
-        <span>New order</span>
+        <span>{t("modal.success.newOrderButton")}</span>
       </Button>
     </div>
   ) : (
     <div className="space-y-2 text-right">
       {closingSoon ? (
-        <p className="text-sm text-muted-foreground">Returning to POS...</p>
+        <p className="text-sm text-muted-foreground">{t("modal.success.returningText")}</p>
       ) : null}
 
       <Button
@@ -93,7 +95,7 @@ export default function CheckoutModal({
         onClick={onClose}
         className="w-full justify-center sm:w-auto"
       >
-        <span>Back to POS</span>
+        <span>{t("modal.success.backToPosButton")}</span>
       </Button>
     </div>
   );
@@ -122,12 +124,12 @@ export default function CheckoutModal({
 
             <div className="space-y-1">
               <p className="font-medium text-foreground">
-                Sale completed successfully
+                {t("modal.success.bannerTitle")}
               </p>
               <p className="text-sm text-muted-foreground">
                 {printingEnabled
-                  ? "You can print the tickets now or start a new order."
-                  : "You can continue with the next order when ready."}
+                  ? t("modal.success.bannerDescriptionWithPrinting")
+                  : t("modal.success.bannerDescriptionWithoutPrinting")}
               </p>
             </div>
           </div>
@@ -140,9 +142,9 @@ export default function CheckoutModal({
               </span>
 
               <div className="space-y-1">
-                <p className="font-medium">Order recap</p>
+                <p className="font-medium">{t("modal.recapTitle")}</p>
                 <p className="text-sm text-muted-foreground">
-                  {totalItems} {totalItems === 1 ? "item" : "items"} in this order.
+                  {t("modal.recapItems", { count: totalItems })}
                 </p>
               </div>
             </div>
@@ -180,7 +182,7 @@ export default function CheckoutModal({
 
             <div className={`flex items-center justify-between rounded-2xl border
                              border-default bg-surface-2 px-4 py-3`}>
-              <span className="text-sm text-muted-foreground">Total</span>
+              <span className="text-sm text-muted-foreground">{t("modal.totalLabel")}</span>
               <span className="text-lg font-semibold">
                 {formatMoney(totalMinor, currency)}
               </span>

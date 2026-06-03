@@ -13,6 +13,7 @@
   "items_one": "{{count}} item",
   "items_other": "{{count}} items",
   "back": "Back",
+  "closeModal": "Close",
   "theme" : {
     "switchToLight" : "Switch to light mode",
     "switchToDark" : "Switch to dark mode"

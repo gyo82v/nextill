@@ -149,6 +149,8 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Fix}{Languages} fix the issue when there are multiple files common and privacy in the same page;
 - [Fix] [Header] fix the header on screens smaller than lg, at the moment there is too much content 
                  use the mobile version for these screens;
+- [Fix] [CheckoutModal] check the code for the chechkout modal and the confirm modal, control
+                        if all the labels are needed and if the structure is correct;
 - [Clean] [Dividers] Clean the unused dividers;
 - [Clean] [AppHeader] Clean the unused code in the Navbar component;
 - [Optional] [Account] improve the export data feature, instead of a json file use pdf or other formats;

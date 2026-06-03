@@ -40,8 +40,39 @@
         "balanceError": "Please enter a valid closing balance.",
         "endDayError": "Failed to end the day."
     },
-    "checkout": {},
-    "success": {},
+    "checkout": {
+        "title": "Checkout",
+        "description": "Review the order and complete payment.",
+        "button": "Checkout",
+        "buttonLoading": "Completing...",
+        "loginError": "You must be logged in.",
+        "noActiveDayError": "No active day selected.",
+        "emptyCartError": "Cart is empty.",
+        "checkoutError": "Checkout failed."
+    },
+    "modal": {
+        "title": "Complete order",
+        "description": "Review the order summary before finalizing the sale.",
+        "recapTitle": "Order recap",
+        "recapItems": "{{count}} item in this order.",
+        "recapItems_other": "{{count}} items in this order.",
+        "totalLabel": "Total",
+        "backToPosButton": "Back",
+        "completeOrderButton": "Complete order",
+        "success": {
+            "title": "Order completed",
+            "descriptionWithPrinting": "The order has been completed and is ready for printing.",
+            "descriptionWithoutPrinting": "The order has been completed and saved.",
+            "staffTicketButton": "Print staff ticket",
+            "receiptButton": "Print receipt",
+            "newOrderButton": "New order",
+            "backToPosButton": "Back to POS",
+            "returningText": "Returning to POS...",
+            "bannerTitle": "Sale completed",
+            "bannerDescriptionWithPrinting": "You can print the tickets now or start a new order.",
+            "bannerDescriptionWithoutPrinting": "You can continue with the next order when ready."
+        }
+    },
     "receipt": {},
     "ticket": {}
 }
