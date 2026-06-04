@@ -10,14 +10,14 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Content}{Stock} Add the feature in the Stock page to clear all stock with a button;
 - [Content] [Account] Add a feature in the Account page to clear all stats with a button;
 - [✅] {Style}{Header} style the mobile navigation menu;
-- [Content] [Till] create a confirm order modal/page; when the user clicks on the checkout button
-                   the modal/page opens; it has a recap of the order, buttons to proceed or cancel;
-                   option to print the ticket;
-- [Content] [Till] implement the printing option in the confirmation modal/page, when the user clicks 
-                   and complete the order if the print option is on it will open the browser print page and 
-                   if possible print automatically;
-- [Content] [Till] create the ticket component that will have the items bought, name, price, quantity,
-                   separate in section drinks and food;
+- [✅] {Content}{Pos} create a confirm order modal/page; when the user clicks on the checkout button
+        the modal/page opens; it has a recap of the order, buttons to proceed or cancel;
+        option to print the ticket;
+- [✅] {Content}{Pos} implement the printing option in the confirmation modal/page, when the user clicks 
+        and complete the order if the print option is on it will open the browser print page and 
+        if possible print automatically;
+- [✅] {Content}{pos} create the ticket component that will have the items bought, name, price, quantity,
+        separate in section drinks and food;
 - [✅] {Style}{App} Style the language toggle;
 - [✅] {Refactor}{Header} modify the darkmode toggle to use icons instead of text, add accessibility
                       and decide if while in logged in mode it should be in the Header or Account page;
@@ -42,15 +42,15 @@ NEXTILL IMPLEMENTATION LIST
         you agree to the Privacy Policy. with link to the page;
 - [Fix] [Till] fix a visual bug, when a user sign in and the day is not active the till page 
                should immediately render the not active section and not briefly the active section;
-- [Fix] [App] Fix all the url to match the updated path => till => pos, statistics => reports etc;
-- [Style] [Till] Style the till page while the day is not active;
-- [Content] [Till] Add a description in the till page while the day is not active;
-- [Style] [Till] Style the item card element;
-- [Style] [Till] Style the till page so that the items are divided into sections: food and drinks;
-- [Style] [Till] Style the cart section of the till page;
-- [Style] [Till] Style the end day section in the till page;
-- [Style] [Till] Style the Till page and the layout of the page for mobile/desktops;
-- [Content] [Till] Add a title and brief description in the till page;
+- [✅] {Fix}{App} Fix all the url to match the updated path => till => pos, statistics => reports etc;
+- [✅] {Style}{Pos} Style the till page while the day is not active;
+- [✅] {Content}{Pos} Add a description in the till page while the day is not active;
+- [✅] {style}{Pos} Style the item card element;
+- [✅] {Style}{Pos} Style the till page so that the items are divided into sections: food and drinks;
+- [✅] {Style}{Pos} Style the cart section of the till page;
+- [✅] {Style}{Pos} Style the end day section in the till page;
+- [✅] {Style}{Pos} Style the Till page and the layout of the page for mobile/desktops;
+- [✅] {Content}{Pos} Add a title and brief description in the till page;
 - [✅] {Content}{Menu} Add a title and a brief description in the menu page;
 - [✅] {Style}{Menu} Style the add new item in the menu form component;
 - [✅] {Style}{Menu} Style the current menu list section;
@@ -76,7 +76,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Style] [Account] Style the modal section when the user try to clear all data;
 - [✅] {Refactor}{App} Refactor the language feature to support spanish, french and german;
 - [✅] {Refactor}{Intro} Refactor the intro page: types, enslint errors, separate components;
-- [Refactor] [Till] Refactor the Till page: types, enslint errors, separate components;
+- [✅] {Refactor}{Pos} Refactor the Till page: types, enslint errors, separate components;
 - [✅] {Refactor}{Menu} Refactor the Menu page: types, enslint errors, separate components;
 - [✅] {Refactor}{Stock} Refactor the Stock page: types, enslint errors, separate components;
 - [✅] {Refactor}{Reports} Refactor the Stats page: types, enslint errors, separate components;
@@ -100,7 +100,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Utils] [App] Add spinnes in all async buttons;
 - [Utils] [App] Add spinners in all pages instead of the text loading;
 - [✅] {Utils}{Inputs} Add the show pssw icon in the pssw inputs field;
-- [Localization] [Till] Add localization to the till page;
+- [✅] {Localization}{Pos} Add localization to the till page;
 - [✅] {Localization}{Menu} Add localization to the menu page;
 - [✅] {Localization}{Stock} Add localization to the stock page;
 - [✅] {Localization}{Reports} Add localization to the Stats page;
@@ -110,7 +110,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Localization}{Footer} Add localization to the footer;
 - [✅] {Localization}{Intro} Add localization to the Intro page;
 - [✅] {Delete}{App} delete the unused test language page;
-- [A11y] [Till] Add accessibility to the Till page;
+- [✅] {A11y}{Pos} Add accessibility to the Till page;
 - [✅] {A11y}{Menu} Add accessibility to the Menu page;
 - [✅] {A11y}{Stock} Add accessibility to the stock page;
 - [✅] {A11y}{Reports} Add accessibility to the Stats page;
@@ -135,15 +135,15 @@ NEXTILL IMPLEMENTATION LIST
                   at the moment it just clear the stock collections and nothing else;
 - [Fix] [App] add printingEnabled anywhere in the firebase functions where needed;
               in particular when creating a new account;
-- [Fix] [POS] add the dynamically rendering of the balace depending on the balanceEnabled in 
-              the database in the start/end section in the pos page;
+- [✅] {Fix}{Pos} add the dynamically rendering of the balace depending on the balanceEnabled in 
+        the database in the start/end section in the pos page;
 - [✅] {Fix}{Reports} when a menu item is deleted, in the stats page it show the id and not the name;
 - [Fix] [Header] fix the text color of the navbar links for the darkmode;
 - [✅] {Fix}{Select-component} Fix the select compound component. When too many elements are in the options
         there should be a scroll sidebar, this will fix the height issue in the menu page;
 - [Fix] [Menu/Style] fix the style for the menu page when the content is stacked vertically for mobile
                      and small screens;
-- [Fix] [App] add the category "bundle" to menu items everywhere is needed;
+- [✅] {Fix}{App} add the category "bundle" to menu items everywhere is needed;
 - [✅] {Fix}{Reports} in the reports page most sections render the id of an item while they should 
         render the name;
 - [✅] {Fix}{Languages} fix the issue when there are multiple files common and privacy in the same page;
@@ -152,14 +152,14 @@ NEXTILL IMPLEMENTATION LIST
 - [Fix] [CheckoutModal] check the code for the chechkout modal and the confirm modal, control
                         if all the labels are needed and if the structure is correct;
 - [Clean] [Dividers] Clean the unused dividers;
-- [Clean] [AppHeader] Clean the unused code in the Navbar component;
+- [✅] {Clean}{AppHeader} Clean the unused code in the Navbar component;
 - [Optional] [Account] improve the export data feature, instead of a json file use pdf or other formats;
 - [Optional] [Account] add an accessibility option to disable motion;
 - [Optional] [App] add sounds effects to the till and an option in the account page to disable it;
 - [Optional] [App] if necessary rewrite the pages where is possible to render them sever side 
                    instead of  client;
 - [Optional] [Till] add the option to clear the entire cart;
-- [Optional] [Till] decide how to set the till: use a searchbar, filters, divide by categories;
+- [✅] {Optional}{Pos} decide how to set the till: use a searchbar, filters, divide by categories;
 - [Optional] [Menu] Add a search bar in the menu page;
 - [Optional] [App] Add the option to undo the last transactions;
 - [Optional] [App] Give the user the option to create custom categories instead of the default
@@ -170,7 +170,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Optional/Fix] [Header] fix the navbar animation pill; when the sixe on the navbars links changes, 
                           the pill should resize corretly automatically.
                           example: changing language in the account page;
-- [optional/Fix] [Footer] Fix the footer height, on mobile device, in particular the AppFooter. 
+- [✅] {Optional}{Footer} Fix the footer height, on mobile device, in particular the AppFooter. 
 - [Optional] [Intro] if possible add a remember me option in the intro page;
 - [optional] [App] Add the option to register a second email or the option to update the current email;
 - [Optional] [App] Create a custom modal component for the confirmation action like 
