@@ -6,17 +6,7 @@ import { FaXmark } from "react-icons/fa6";
 import Button from "../Button";
 import { overlay, modalPanel } from "@/styles";
 import { useTranslation } from "react-i18next";
-
-
-type ModalProps = {
-  open: boolean;
-  onClose: () => void;
-  title: string;
-  description?: string;
-  children: React.ReactNode;
-  footer?: React.ReactNode;
-  size?: "sm" | "md" | "lg";
-};
+import type { ModalProps } from "@/types";
 
 const sizeStyles: Record<NonNullable<ModalProps["size"]>, string> = {
   sm: "max-w-md",

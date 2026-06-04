@@ -4,10 +4,10 @@ import { useMemo } from "react";
 import MenuItemCard from "../pos/MenuItemCard";
 import { FaUtensils, FaMugSaucer, FaPlateWheat, FaCakeCandles } from "react-icons/fa6";
 import { SmallDivider } from "@/components/ui/dividers/Dividers";
-import type { MenuListProps } from "@/types/pos";
+import type { MenuListPosProps } from "@/types/pos";
 import { useTranslation } from "react-i18next";
 
-export default function MenuList({ items, onAdd }: MenuListProps) {
+export default function MenuList({ items, onAdd }: MenuListPosProps) {
   const { t } = useTranslation("pos");
 
   const CATEGORY_META = {

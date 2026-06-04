@@ -66,7 +66,7 @@ export default function CheckoutModal({
 
       <Button
         type="button"
-        variant="secondary"
+        variant="confirm"
         onClick={onPrintReceipt}
         className="w-full justify-center sm:w-auto"
       >
@@ -76,7 +76,7 @@ export default function CheckoutModal({
 
       <Button
         type="button"
-        variant="ghost"
+        variant="primary"
         onClick={onClose}
         className="w-full justify-center sm:w-auto"
       >

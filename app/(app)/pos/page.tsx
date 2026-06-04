@@ -86,7 +86,7 @@ export default function PosPage() {
 
   return (
     <>
-      <div className="mx-auto w-full max-w-[1800px] space-y-6 px-4 pt-4 lg:px-6 lg:py-6 lg:pb-6">
+      <div className="mx-auto w-full max-w-[1550px] space-y-6 px-4 pt-4 lg:px-10 lg:py-6 lg:pb-6">
         <header className="space-y-1">
           <h1 className="text-2xl font-semibold tracking-tight">{t("title")}</h1>
           <p className="text-sm text-muted-foreground">
@@ -163,6 +163,12 @@ export default function PosPage() {
     </>
   );
 }
+
+/*
+
+
+
+*/
 
 
 

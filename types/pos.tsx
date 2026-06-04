@@ -56,7 +56,7 @@ export type MenuItemCardProps = {
   categoryIcon?: React.ReactNode;
 };
 
-export type MenuListProps = {
+export type MenuListPosProps = {
   items: MenuItem[];
   onAdd: (item: MenuItem) => void;
 };

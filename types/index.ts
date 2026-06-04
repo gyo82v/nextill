@@ -9,3 +9,4 @@ export * from "./reports"
 export * from "./select";
 export * from "./menu";
 export * from "./pos";
+export * from "./modals";
