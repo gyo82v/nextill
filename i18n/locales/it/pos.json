@@ -69,8 +69,8 @@
     "title": "Completa ordine",
     "description": "Controlla il riepilogo prima di finalizzare la vendita.",
     "recapTitle": "Riepilogo ordine",
-    "recapItems": "{{count}} articolo in questo ordine.",
-    "recapItems_other": "{{count}} articoli in questo ordine.",
+    "recapItems": "{{count}} articolo.",
+    "recapItems_other": "{{count}} articoli.",
     "totalLabel": "Totale",
     "backToPosButton": "Indietro",
     "completeOrderButton": "Completa ordine",
@@ -102,7 +102,7 @@
   },
   "ticket": {
     "categories": {
-      "food": "Cibo",
+      "food": "Piatti",
       "drink": "Bevande",
       "bundle": "Combo",
       "dessert": "Dessert"
