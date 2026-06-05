@@ -27,7 +27,8 @@ export default function CheckoutButton({
 
   const dayKey = profile?.nextillApp?.dayCycle?.dayKey ?? null;
   const currency = profile?.nextillApp.settings.currency ?? "EUR";
-  const printingEnabled = profile?.nextillApp.settings.printingEnabled ?? true;
+  const receiptEnabled = profile?.nextillApp.settings.receiptEnabled ?? true;
+  const ticketEnabled = profile?.nextillApp.settings.ticketEnabled ?? true;
 
   const canCheckout = items.length > 0 && !!user && !!dayKey;
 
@@ -156,7 +157,8 @@ export default function CheckoutButton({
         totalMinor={totalMinor}
         loading={loading}
         error={error}
-        printingEnabled={printingEnabled}
+        receiptEnabled={receiptEnabled}
+        ticketEnabled={ticketEnabled}
         onClose={resetModalState}
         onConfirm={handleCheckout}
         onPrintStaffTicket={handlePrintStaffTicket}

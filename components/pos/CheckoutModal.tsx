@@ -16,7 +16,8 @@ export default function CheckoutModal({
   totalMinor,
   loading = false,
   error = null,
-  printingEnabled = true,
+  receiptEnabled = true,
+  ticketEnabled = true,
   onClose,
   onConfirm,
   onPrintStaffTicket,
@@ -24,13 +25,13 @@ export default function CheckoutModal({
 }: CheckoutModalProps) {
   const { profile } = useAuth();
   const currency = profile?.nextillApp.settings.currency ?? "EUR";
-  const closingSoon = open && success && !printingEnabled;
+  const closingSoon = open && success && !receiptEnabled && !ticketEnabled;
   const { t } = useTranslation("pos");
 
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
 
   useEffect(() => {
-    if (!open || !success || printingEnabled) {
+    if (!open || !success || ticketEnabled || receiptEnabled) {
       return;
     }
 
@@ -39,12 +40,12 @@ export default function CheckoutModal({
     }, 1200);
 
     return () => window.clearTimeout(timeoutId);
-  }, [open, success, printingEnabled, onClose]);
+  }, [open, success, receiptEnabled, ticketEnabled, onClose]);
 
   const title = success ? `${t("modal.success.title")}` : `${t("modal.title")}`;
 
   const description = success
-    ? printingEnabled
+    ? (ticketEnabled || receiptEnabled)
       ? `${t("modal.success.descriptionWithPrinting")}`
       : `${t("modal.success.descriptionWithoutPrinting")}`
     : `${t("modal.description")}`;
@@ -52,27 +53,31 @@ export default function CheckoutModal({
   const confirmLabel = success ? "Print ticket" : `${t("modal.completeOrderButton")}`;
   const cancelLabel = success ? "New order" : `${t("modal.backToPosButton")}`;
 
-  const successFooter = printingEnabled ? (
+  const successFooter = (ticketEnabled || receiptEnabled) ? (
     <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
-      <Button
-        type="button"
-        variant="confirm"
-        onClick={onPrintStaffTicket}
-        className="w-full justify-center sm:w-auto"
-      >
-        <FaPrint className="text-sm" aria-hidden="true" />
-        <span>{t("modal.success.staffTicketButton")}</span>
-      </Button>
+      {ticketEnabled && (
+        <Button
+          type="button"
+          variant="confirm"
+          onClick={onPrintStaffTicket}
+          className="w-full justify-center sm:w-auto"
+        >
+          <FaPrint className="text-sm" aria-hidden="true" />
+          <span>{t("modal.success.staffTicketButton")}</span>
+        </Button>
+      )}
 
-      <Button
-        type="button"
-        variant="confirm"
-        onClick={onPrintReceipt}
-        className="w-full justify-center sm:w-auto"
-      >
-        <FaReceipt className="text-sm" aria-hidden="true" />
-        <span>{t("modal.success.receiptButton")}</span>
-      </Button>
+      {receiptEnabled && (
+        <Button
+          type="button"
+          variant="confirm"
+          onClick={onPrintReceipt}
+          className="w-full justify-center sm:w-auto"
+        >
+          <FaReceipt className="text-sm" aria-hidden="true" />
+          <span>{t("modal.success.receiptButton")}</span>
+        </Button>
+      )}
 
       <Button
         type="button"
@@ -127,7 +132,7 @@ export default function CheckoutModal({
                 {t("modal.success.bannerTitle")}
               </p>
               <p className="text-sm text-muted-foreground">
-                {printingEnabled
+                {(ticketEnabled || receiptEnabled)
                   ? t("modal.success.bannerDescriptionWithPrinting")
                   : t("modal.success.bannerDescriptionWithoutPrinting")}
               </p>
