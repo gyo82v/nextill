@@ -5,13 +5,13 @@ import { useAuth } from "@/firebase/authProvider";
 import { exportUserData } from "@/firebase/exportData";
 import { resetAllData } from "@/firebase/accountData";
 import {deleteAccountWithPassword, resetPassword,} from "@/firebase/accountAuth";
-import { updateCurrency } from "@/firebase/userSettings";
+import { updateCurrency, updateBalanceOption, updateReceiptOption, updateTicketOption, updateDisableMotion } from "@/firebase/userSettings";
 import AccountOverviewSection from "@/components/account/AccountOverviewSection";
 import PreferencesSection from "@/components/account/PreferencesSection";
 import SecuritySection from "@/components/account/SecuritySection";
 import ExportDataSection from "@/components/account/ExportDataSection";
 import DataManagementSection from "@/components/account/DataManagementSection";
-import PrivacypolicySection from "@/components/account/PrivacyPolicySection";
+import PrivacyPolicySection from "@/components/account/PrivacyPolicySection";
 
 export default function AccountPage() {
   const { user, profile } = useAuth();
@@ -26,6 +26,54 @@ export default function AccountPage() {
   const currency = profile?.nextillApp?.settings?.currency ?? "EUR";
 
   if (!user || !profile) return null;
+
+  async function handleUpdateBalance(){
+    setError(null);
+    setSuccess(null);
+    try{
+      if(!user) return
+      await updateBalanceOption({uid: user.uid})
+      setSuccess("balance updated.")
+    }catch(err){
+      setError(err instanceof Error ? err.message : "Failed to update balance.");
+    }
+  }
+
+  async function handleUpdateTicket(){
+    setError(null);
+    setSuccess(null);
+    try{
+      if(!user) return
+      await updateTicketOption({uid: user.uid})
+      setSuccess("balance updated.")
+    }catch(err){
+      setError(err instanceof Error ? err.message : "Failed to update ticket printing.");
+    }
+  }
+
+  async function handleUpdateReceipt(){
+    setError(null);
+    setSuccess(null);
+    try{
+      if(!user) return
+      await updateReceiptOption({uid: user.uid})
+      setSuccess("balance updated.")
+    }catch(err){
+      setError(err instanceof Error ? err.message : "Failed to update receipt printing.");
+    }
+  }
+
+  async function handleDisableMotion(){
+    setError(null);
+    setSuccess(null);
+    try{
+      if(!user) return
+      await updateDisableMotion({uid: user.uid})
+      setSuccess("balance updated.")
+    }catch(err){
+      setError(err instanceof Error ? err.message : "Failed to update disable motion.");
+    }
+  }
 
   async function handleResetPassword() {
     setError(null);
@@ -167,7 +215,14 @@ export default function AccountPage() {
       <AccountOverviewSection user={user} profile={profile} />
 
       {/* Preferences */}
-      <PreferencesSection currency={currency} handleCurrencyChange={handleCurrencyChange} />
+      <PreferencesSection 
+        currency={currency} 
+        onCurrencyChange={handleCurrencyChange} 
+        onBalanceEnabledChange={handleUpdateBalance}
+        onStaffTicketPrintingChange={handleUpdateTicket}
+        onReceiptPrintingChange={handleUpdateReceipt}
+        onReduceMotionChange={handleDisableMotion}
+      />
 
       {/* Security */}
       <SecuritySection 
@@ -190,7 +245,7 @@ export default function AccountPage() {
       />
 
       {/*Privacy policy */}
-      <PrivacypolicySection />
+      <PrivacyPolicySection />
     </div>
   );
 }

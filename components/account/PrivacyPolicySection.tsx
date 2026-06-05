@@ -1,4 +1,4 @@
-export default function PrivacypolicySection(){
+export default function PrivacyPolicySection(){
     return(
         <section>
             <p>privacy policy here</p>
