@@ -1,4 +1,4 @@
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc, runTransaction } from "firebase/firestore";
 import { db } from "./firebase";
 import type { DarkmodeProps, LanguageProps, CurrencyProps } from "@/types";
 
@@ -23,5 +23,81 @@ export async function updateCurrency({uid, currency}: CurrencyProps) {
 
   await updateDoc(ref, {
     "nextillApp.settings.currency": currency,
+  });
+}
+
+export async function updateBalanceOption({ uid }: { uid: string }) {
+  const ref = doc(db, "users", uid);
+
+  await runTransaction(db, async (transaction) => {
+    const snap = await transaction.get(ref);
+
+    if (!snap.exists()) {
+      throw new Error("User document does not exist");
+    }
+
+    const current =
+      snap.get("nextillApp.settings.balanceEnabled") ?? false;
+
+    transaction.update(ref, {
+      "nextillApp.settings.balanceEnabled": !current,
+    });
+  });
+}
+
+export async function updateTicketOption({ uid }: { uid: string }) {
+  const ref = doc(db, "users", uid);
+
+  await runTransaction(db, async (transaction) => {
+    const snap = await transaction.get(ref);
+
+    if (!snap.exists()) {
+      throw new Error("User document does not exist");
+    }
+
+    const current =
+      snap.get("nextillApp.settings.ticketEnabled") ?? false;
+
+    transaction.update(ref, {
+      "nextillApp.settings.ticketEnabled": !current,
+    });
+  });
+}
+
+export async function updateReceiptOption({ uid }: { uid: string }) {
+  const ref = doc(db, "users", uid);
+
+  await runTransaction(db, async (transaction) => {
+    const snap = await transaction.get(ref);
+
+    if (!snap.exists()) {
+      throw new Error("User document does not exist");
+    }
+
+    const current =
+      snap.get("nextillApp.settings.receiptEnabled") ?? false;
+
+    transaction.update(ref, {
+      "nextillApp.settings.receiptEnabled": !current,
+    });
+  });
+}
+
+export async function updateDisableMotion({ uid }: { uid: string }) {
+  const ref = doc(db, "users", uid);
+
+  await runTransaction(db, async (transaction) => {
+    const snap = await transaction.get(ref);
+
+    if (!snap.exists()) {
+      throw new Error("User document does not exist");
+    }
+
+    const current =
+      snap.get("nextillApp.settings.disableMotion") ?? false;
+
+    transaction.update(ref, {
+      "nextillApp.settings.disableMotion": !current,
+    });
   });
 }
