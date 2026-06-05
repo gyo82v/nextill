@@ -42,7 +42,8 @@ export type CheckoutModalProps = {
   totalMinor: number;
   loading?: boolean;
   error?: string | null;
-  printingEnabled?: boolean;
+  ticketEnabled?: boolean;
+  receiptEnabled?: boolean;
   onClose: () => void;
   onConfirm: () => void | Promise<void>;
   onPrintStaffTicket: () => void | Promise<void>;

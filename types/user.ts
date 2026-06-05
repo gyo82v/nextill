@@ -16,7 +16,9 @@ export interface UserProfile {
             dayDate: string | null
             currency: string
             balanceEnabled: boolean
-            printingEnabled: boolean
+            ticketEnabled: boolean
+            receiptEnabled: boolean
+            disableMotion: boolean
         }
         dayCycle: {
             active: boolean
