@@ -112,7 +112,11 @@ export async function createUserProfileIfNotExists(user:FirebaseUser, name:strin
                     language: "en",
                     dayActive: false,
                     dayDate: null,
-                    currency: "EUR"
+                    currency: "EUR",
+                    balanceEnabled: true,
+                    ticketEnabled: true,
+                    receiptEnabled: true,
+                    disableMotion: false
                 },
                 dayCycle: {
                     active: false,
@@ -120,7 +124,8 @@ export async function createUserProfileIfNotExists(user:FirebaseUser, name:strin
                     endedAt: null,
                     openingBalance: null,
                     closingBalance: null,
-                    dayKey: null
+                    dayKey: null,
+                    nextTicketNumber: 1
                 }
             }
         }
