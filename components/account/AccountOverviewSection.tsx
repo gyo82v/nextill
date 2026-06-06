@@ -13,7 +13,8 @@ type AccountOverviewSectionProps = {
         active?: boolean | null;
       } | null;
       settings?: {
-        printingEnabled?: boolean | null;
+        ticketEnabled?: boolean | null;
+        receiptEnabled?: boolean | null;
         balanceEnabled?: boolean | null;
       } | null;
     } | null;
@@ -55,8 +56,12 @@ export default function AccountOverviewSection({
       value: formatBoolean(user?.emailVerified),
     },
     {
-      label: "Printing enabled",
-      value: formatBoolean(profile?.nextillApp?.settings?.printingEnabled),
+      label: "Receipt printing enabled",
+      value: formatBoolean(profile?.nextillApp?.settings?.receiptEnabled),
+    },
+    {
+      label: "Ticket Printing enabled",
+      value: formatBoolean(profile?.nextillApp?.settings?.ticketEnabled),
     },
     {
       label: "Balance enabled",

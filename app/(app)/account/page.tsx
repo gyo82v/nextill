@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useAuth } from "@/firebase/authProvider";
 import { exportUserData } from "@/firebase/exportData";
-import { resetAllData } from "@/firebase/accountData";
+import { resetAllData, resetReports, deleteArchivedMenuAndStockItems, deleteArchivedMenuItems, deleteArchivedStockItems } from "@/firebase/accountData";
 import {deleteAccountWithPassword, resetPassword,} from "@/firebase/accountAuth";
 import { updateCurrency, updateBalanceOption, updateReceiptOption, updateTicketOption, updateDisableMotion } from "@/firebase/userSettings";
 import AccountOverviewSection from "@/components/account/AccountOverviewSection";
@@ -15,18 +15,15 @@ import PrivacyPolicySection from "@/components/account/PrivacyPolicySection";
 
 export default function AccountPage() {
   const { user, profile } = useAuth();
-  const [actionLoading, setActionLoading] = useState(false);
   const [exportLoading, setExportLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
-  const [deletePassword, setDeletePassword] = useState("");
-  const [resetAllConfirm, setResetAllConfirm] = useState("");
-
   const dayActive = Boolean(profile?.nextillApp?.dayCycle?.active);
   const currency = profile?.nextillApp?.settings?.currency ?? "EUR";
 
   if (!user || !profile) return null;
 
+  {/*preferences functions*/}
   async function handleUpdateBalance(){
     setError(null);
     setSuccess(null);
@@ -75,18 +72,52 @@ export default function AccountPage() {
     }
   }
 
+  {/*security functions*/}
   async function handleResetPassword() {
-    setError(null);
-    setSuccess(null);
+    if (!user) throw new Error("Missing user.");
+    if (!user.email) throw new Error("Missing email.");
+    await resetPassword(user.email);
+  }
 
-    try {
-      if(!user) return
-      if (!user.email) throw new Error("Missing email.");
-      await resetPassword(user.email);
-      setSuccess("Password reset email sent.");
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to reset password.");
-    }
+  async function handleDeleteAccount(password: string) {
+    if (!user) throw new Error("Missing user.");
+    if (dayActive) throw new Error("End the day before deleting the account.");
+    if (!user.email) throw new Error("Missing email.");
+    if (!password.trim()) throw new Error("Enter your password.");
+    await resetAllData(user.uid);
+    await deleteAccountWithPassword(user.email, password);
+  }
+
+  {/*data management functions*/}
+
+  async function handleResetReports(){
+    if(!user) throw new Error("Missing user.")
+    if(!dayActive) throw new Error("End the day before resetting the reports.")
+    await resetReports(user.uid)
+  }
+
+  async function handleResetAllData() {
+    if (!user) throw new Error("Missing user.");
+    if (dayActive) throw new Error("End the day before resetting all data.");
+    await resetAllData(user.uid);
+  }
+
+  async function handleDeleteArchievedMenu() {
+    if (!user) throw new Error("Missing user.");
+    if (dayActive) throw new Error("End the day before deleting archieved items in the menu.");
+    await deleteArchivedMenuItems(user.uid);
+  }
+
+  async function handleDeleteArchievedStock() {
+    if (!user) throw new Error("Missing user.");
+    if (dayActive) throw new Error("End the day before deleting archieved items in the stock.");
+    await deleteArchivedStockItems(user.uid);
+  }
+
+  async function handleDeleteArchievedAll() {
+    if (!user) throw new Error("Missing user.");
+    if (dayActive) throw new Error("End the day before deleting all archieved items.");
+    await deleteArchivedMenuAndStockItems(user.uid);
   }
 
   async function handleCurrencyChange(value: string) {
@@ -129,67 +160,6 @@ export default function AccountPage() {
     }
   }
 
-  async function handleDeleteAccount() {
-    setError(null);
-    setSuccess(null);
-
-    if (dayActive) {
-      setError("End the day before deleting the account.");
-      return;
-    }
-
-    if (!deletePassword.trim()) {
-      setError("Enter your password.");
-      return;
-    }
-
-    const confirmed = confirm(
-      "This will permanently delete your account and all your data. Continue?"
-    );
-
-    if (!confirmed) return;
-
-    setActionLoading(true);
-    try {
-      if(!user) return
-      await resetAllData(user.uid);
-      if (!user.email) throw new Error("Missing email.");
-      await deleteAccountWithPassword(user.email, deletePassword);
-      setSuccess("Account deleted.");
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to delete account.");
-    } finally {
-      setActionLoading(false);
-    }
-  }
-
-  async function handleResetAllData() {
-    setError(null);
-    setSuccess(null);
-
-    if (dayActive) {
-      setError("End the day before resetting all data.");
-      return;
-    }
-
-    if (resetAllConfirm !== "RESET ALL DATA") {
-      setError('Type "RESET ALL DATA" to confirm.');
-      return;
-    }
-
-    setActionLoading(true);
-    try {
-      if(!user) return
-      await resetAllData(user.uid);
-      setSuccess("All data reset.");
-      setResetAllConfirm("");
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to reset data.");
-    } finally {
-      setActionLoading(false);
-    }
-  }
-
   return (
     <div className="p-6 space-y-10 max-w-4xl">
       <div className="space-y-2">
@@ -211,10 +181,10 @@ export default function AccountPage() {
         </div>
       ) : null}
 
-      {/* Profile */}
+      {/*Profile*/}
       <AccountOverviewSection user={user} profile={profile} />
 
-      {/* Preferences */}
+      {/*Preferences*/}
       <PreferencesSection 
         currency={currency} 
         onCurrencyChange={handleCurrencyChange} 
@@ -224,28 +194,44 @@ export default function AccountPage() {
         onReduceMotionChange={handleDisableMotion}
       />
 
-      {/* Security */}
+      {/*Security*/}
       <SecuritySection 
-        handleResetPassword={handleResetPassword}
-        handleDeleteAccount={handleDeleteAccount}
-        actionLoading={actionLoading}
-        dayActive={profile?.nextillApp?.dayCycle?.active}
-        deletePassword={deletePassword}
-        setDeletePassword={setDeletePassword}
+        onResetPassword={handleResetPassword}
+        onDeleteAccount={handleDeleteAccount}
+        dayActive={dayActive}
       />
      
-      {/* Export */}
+      {/*Export data*/}
       <ExportDataSection handleExportData={handleExportData} exportLoading={exportLoading}  />
 
-      {/* Data maintenance */}
+      {/*Data management*/}
       <DataManagementSection 
-        dayActive={profile?.nextillApp.settings.dayActive}
-        actionLoading={actionLoading}
-        resetData={handleResetAllData}  
+        dayActive={dayActive}
+        onClearReports={handleResetReports}
+        onResetAllData={handleResetAllData}  
+        onDeleteArchivedItems={handleDeleteArchievedAll}
+        onDeleteArchivedMenuItems={handleDeleteArchievedMenu}
+        onDeleteArchivedStockItems={handleDeleteArchievedStock}
       />
 
-      {/*Privacy policy */}
+      {/*Privacy policy*/}
       <PrivacyPolicySection />
     </div>
   );
 }
+
+
+/*
+
+
+
+
+
+
+
+
+
+*/
+
+
+
