@@ -153,6 +153,9 @@ NEXTILL IMPLEMENTATION LIST
                         if all the labels are needed and if the structure is correct;
 - [fix] [PrivacyPolicy] fix the "back" button link. at the moment it navigate the user to the pos page;
 - [Fix] [Balance] the balance option should not be possible to change it while the day is actice;
+- [Fix] [Menu] in the add new item to the menu fix the situation where there are no 
+               items in the stock. the select component should render something better than and 
+               empty option list;
 - [Clean] [Dividers] Clean the unused dividers;
 - [✅] {Clean}{AppHeader} Clean the unused code in the Navbar component;
 - [Optional] [Account] improve the export data feature, instead of a json file use pdf or other formats;

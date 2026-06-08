@@ -4,7 +4,9 @@ import {
   getDocs,
   writeBatch,
   query,
-  where
+  where,
+  updateDoc,
+  deleteField
 } from "firebase/firestore";
 import { db } from "./firebase";
 import type { DocumentReference } from "firebase/firestore";
@@ -39,19 +41,11 @@ export async function resetMenu(uid: string) {
   return processed;
 }
 
-export async function resetReports(uid: string) {
-  if (!uid) throw new Error("Missing user id");
-
-  const dailyRef = collection(db, "users", uid, "dailySummaries");
-  const statsRef = doc(db, "users", uid, "nextillApp", "statistics");
-
-  const dailySnap = await getDocs(dailyRef);
-  const allRefs = [...dailySnap.docs.map((d) => d.ref), statsRef];
-
+async function deleteRefsInBatches(refs: DocumentReference[]) {
   let processed = 0;
 
-  for (let i = 0; i < allRefs.length; i += BATCH_LIMIT) {
-    const chunk = allRefs.slice(i, i + BATCH_LIMIT);
+  for (let i = 0; i < refs.length; i += BATCH_LIMIT) {
+    const chunk = refs.slice(i, i + BATCH_LIMIT);
     const batch = writeBatch(db);
 
     for (const ref of chunk) {
@@ -61,6 +55,37 @@ export async function resetReports(uid: string) {
     await batch.commit();
     processed += chunk.length;
   }
+
+  return processed;
+}
+
+export async function resetReports(uid: string) {
+  if (!uid) throw new Error("Missing user id");
+
+  const userRef = doc(db, "users", uid);
+  const dailySummariesRef = collection(db, "users", uid, "dailySummaries");
+
+  let processed = 0;
+
+  // Get all daily summary docs
+  const dailySnap = await getDocs(dailySummariesRef);
+
+  // Delete every transactions subcollection doc first
+  for (const summaryDoc of dailySnap.docs) {
+    const transactionsRef = collection(summaryDoc.ref, "transactions");
+    const txSnap = await getDocs(transactionsRef);
+
+    const txRefs = txSnap.docs.map((d) => d.ref);
+    processed += await deleteRefsInBatches(txRefs);
+  }
+
+  // Then delete the daily summary docs themselves
+  processed += await deleteRefsInBatches(dailySnap.docs.map((d) => d.ref));
+
+  // Delete the top-level statistics field from the user document
+  await updateDoc(userRef, {
+    "nextillApp.statistics": deleteField(),
+  });
 
   return processed;
 }
@@ -186,6 +211,35 @@ export async function resetTransactions(uid: string) {
 
   await batch.commit();
 }
+
+export async function resetReports(uid: string) {
+  if (!uid) throw new Error("Missing user id");
+
+  const dailyRef = collection(db, "users", uid, "dailySummaries");
+  const statsRef = doc(db, "users", uid, "nextillApp", "statistics");
+
+  const dailySnap = await getDocs(dailyRef);
+  const allRefs = [...dailySnap.docs.map((d) => d.ref), statsRef];
+
+  let processed = 0;
+
+  for (let i = 0; i < allRefs.length; i += BATCH_LIMIT) {
+    const chunk = allRefs.slice(i, i + BATCH_LIMIT);
+    const batch = writeBatch(db);
+
+    for (const ref of chunk) {
+      batch.delete(ref);
+    }
+
+    await batch.commit();
+    processed += chunk.length;
+  }
+
+  return processed;
+}
+
+
+
 
 
 

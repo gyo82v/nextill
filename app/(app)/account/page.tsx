@@ -92,7 +92,7 @@ export default function AccountPage() {
 
   async function handleResetReports(){
     if(!user) throw new Error("Missing user.")
-    if(!dayActive) throw new Error("End the day before resetting the reports.")
+    if(dayActive) throw new Error("End the day before resetting the reports.")
     await resetReports(user.uid)
   }
 
