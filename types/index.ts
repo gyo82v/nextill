@@ -10,3 +10,4 @@ export * from "./select";
 export * from "./menu";
 export * from "./pos";
 export * from "./modals";
+export * from "./account"

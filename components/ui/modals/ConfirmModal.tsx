@@ -18,7 +18,7 @@ export default function ConfirmModal({
   children,
   footer,
 }: ConfirmModalProps) {
-  const confirmVariant = danger ? "danger" : "primary";
+  const confirmVariant = danger ? "primaryDanger" : "primary";
 
   const defaultFooter = (
     <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">

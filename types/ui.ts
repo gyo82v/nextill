@@ -24,7 +24,7 @@ export type PasswordInputProps = {
   autoComplete?: string;
 };
 
-export type ButtonVariant = "primary" | "secondary" | "ghost" | "danger" | "icon" | "confirm";
+export type ButtonVariant = "primary" | "secondary" | "ghost" | "danger" | "icon" | "confirm" | "primaryDanger";
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant;
