@@ -1,5 +1,3 @@
-
-
 export type DataManagementAction =
   | "clearReports"
   | "deleteArchivedItems"
@@ -37,3 +35,9 @@ export type DangerActionRowProps = {
   onClick?: () => void;
   disabled?: boolean;
 }
+
+export type SecuritySectionProps = {
+  onResetPassword: () => Promise<void>;
+  onDeleteAccount: (password: string) => Promise<void>;
+  dayActive: boolean;
+};
