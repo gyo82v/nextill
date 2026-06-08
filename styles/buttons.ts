@@ -31,6 +31,15 @@ export const buttonPrimaryStyle = `
 `;
 
 /* ======================================================
+   Primary Danger button (main danger actions)
+====================================================== */
+export const buttonPrimaryDangerStyle = `
+  ${buttonBaseStyle}
+  bg-[var(--primary)] text-[var(--primary-foreground)]
+  ${hoverDanger}
+`;
+
+/* ======================================================
    Secondary button (less prominent actions)
 ====================================================== */
 export const buttonSecondaryStyle = `
