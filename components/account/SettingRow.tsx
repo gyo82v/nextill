@@ -1,10 +1,4 @@
-import type { ReactNode } from "react";
-
-type SettingRowProps = {
-  label: string;
-  description: string;
-  children: ReactNode;
-};
+import type { SettingRowProps } from "@/types";
 
 export default function SettingRow({
   label,

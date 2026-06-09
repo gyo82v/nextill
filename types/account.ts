@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 export type DataManagementAction =
   | "clearReports"
   | "deleteArchivedItems"
@@ -40,4 +42,27 @@ export type SecuritySectionProps = {
   onResetPassword: () => Promise<void>;
   onDeleteAccount: (password: string) => Promise<void>;
   dayActive: boolean;
+};
+
+export type PreferencesSectionProps = {
+  currency: string;
+  onCurrencyChange: (newCurrency: string) => void;
+
+  reduceMotion?: boolean;
+  onReduceMotionChange?: (nextValue: boolean) => void;
+
+  staffTicketPrinting?: boolean;
+  onStaffTicketPrintingChange?: (nextValue: boolean) => void;
+
+  receiptPrinting?: boolean;
+  onReceiptPrintingChange?: (nextValue: boolean) => void;
+
+  balanceEnabled?: boolean;
+  onBalanceEnabledChange?: (nextValue: boolean) => void;
+};
+
+export type SettingRowProps = {
+  label: string;
+  description: string;
+  children: ReactNode;
 };

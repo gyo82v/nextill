@@ -5,23 +5,7 @@ import Select from "@/components/ui/select";
 import Switch from "@/components/ui/Switch";
 import AccountSectionCard from "./AccountSectionCard";
 import SettingRow from "./SettingRow";
-
-type PreferencesSectionProps = {
-  currency: string;
-  onCurrencyChange: (newCurrency: string) => void;
-
-  reduceMotion?: boolean;
-  onReduceMotionChange?: (nextValue: boolean) => void;
-
-  staffTicketPrinting?: boolean;
-  onStaffTicketPrintingChange?: (nextValue: boolean) => void;
-
-  receiptPrinting?: boolean;
-  onReceiptPrintingChange?: (nextValue: boolean) => void;
-
-  balanceEnabled?: boolean;
-  onBalanceEnabledChange?: (nextValue: boolean) => void;
-};
+import type { PreferencesSectionProps } from "@/types";
 
 export default function PreferencesSection({
   currency,
@@ -143,56 +127,3 @@ export default function PreferencesSection({
     </AccountSectionCard>
   );
 }
-
-/*
-
-import LanguageToggle from "@/components/language-toggle";
-import Select from "../ui/select";
-
-export default function PreferencesSection({currency, handleCurrencyChange}:{currency:string, handleCurrencyChange:(newCurrency:string) => void}){
-    return(
-        <section>
-          <h2>Preferences</h2>
-          <div className="">
-            <div>
-              <label>Currency</label>
-              <Select.Root value={currency} onValueChange={handleCurrencyChange} className="w-full">
-                <Select.Trigger />
-                  <Select.Content>
-                    <Select.Item value="EUR">EUR (€)</Select.Item>
-                    <Select.Item value="USD">USD ($)</Select.Item>
-                    <Select.Item value="GBP">GBP (£)</Select.Item>
-                    <Select.Item value="AUD">AUD ($)</Select.Item>
-                    <Select.Item value="CAD">CAD ($)</Select.Item>
-                  </Select.Content>
-              </Select.Root>
-            </div>
-            <div className="space-y-2">
-              <label className="block text-sm font-medium">Language</label>
-              <LanguageToggle />
-            </div>
-            <div>
-                <label>Disable motion</label>
-                <p>disable toggle here</p>
-            </div>
-            <div>
-                <label>Disable/enable printing</label>
-                <p>disable/enable printing toggle here</p>
-                <label>disable ticket printing</label>
-                <p>disable ticket printing toggle here</p>
-                <label>disable receipt printing</label>
-                <p>disable receipt printing toggle here</p>
-            </div>
-            <div>
-                <label>Disable/enable balance</label>
-                <p>disable/enable balance toggle here</p>
-            </div>
-          </div>
-        </section>
-    )
-}
-
-
-
-
-*/

@@ -192,6 +192,10 @@ export default function AccountPage() {
         onStaffTicketPrintingChange={handleUpdateTicket}
         onReceiptPrintingChange={handleUpdateReceipt}
         onReduceMotionChange={handleDisableMotion}
+        reduceMotion={Boolean(profile?.nextillApp?.settings?.disableMotion)}
+        staffTicketPrinting={Boolean(profile?.nextillApp?.settings?.ticketEnabled)}
+        receiptPrinting={Boolean(profile?.nextillApp?.settings?.receiptEnabled)}
+        balanceEnabled={Boolean(profile?.nextillApp?.settings?.balanceEnabled)}
       />
 
       {/*Security*/}

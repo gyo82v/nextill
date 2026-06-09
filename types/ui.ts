@@ -32,3 +32,11 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   loadingText?: string;
   size?: "default" | "small";
 };
+
+export type SwitchProps = {
+  checked: boolean;
+  onCheckedChange: (checked: boolean) => void;
+  disabled?: boolean;
+  className?: string;
+  "aria-label"?: string;
+};
