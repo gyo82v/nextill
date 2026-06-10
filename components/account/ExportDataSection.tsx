@@ -31,7 +31,7 @@ function ExportRow({
 
       <Button
         type="button"
-        variant="secondary"
+        variant="primary"
         onClick={onClick}
         loading={loading}
         loadingText="Downloading"

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useAuth } from "@/firebase/authProvider";
-import { exportUserData } from "@/firebase/exportData";
+//import { exportUserData } from "@/firebase/exportData";
 import { resetAllData, resetReports, deleteArchivedMenuAndStockItems, deleteArchivedMenuItems, deleteArchivedStockItems } from "@/firebase/accountData";
 import {deleteAccountWithPassword, resetPassword,} from "@/firebase/accountAuth";
 import { updateCurrency, updateBalanceOption, updateReceiptOption, updateTicketOption, updateDisableMotion } from "@/firebase/userSettings";
@@ -12,16 +12,30 @@ import SecuritySection from "@/components/account/SecuritySection";
 import ExportDataSection from "@/components/account/ExportDataSection";
 import DataManagementSection from "@/components/account/DataManagementSection";
 import PrivacyPolicySection from "@/components/account/PrivacyPolicySection";
+import { pdf } from "@react-pdf/renderer";
+import AccountExportPdf from "@/components/account/export/AccountExportPdf";
+import { buildAccountExportReport } from "@/components/account/export/buildAccountExportReport";
+import { exportUserData } from "@/components/account/export/exportUserData";
 
 export default function AccountPage() {
   const { user, profile } = useAuth();
-  const [exportLoading, setExportLoading] = useState(false);
+  const [exportLoading, setExportLoading] = useState<"pdf" | "backup" | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const dayActive = Boolean(profile?.nextillApp?.dayCycle?.active);
   const currency = profile?.nextillApp?.settings?.currency ?? "EUR";
 
   if (!user || !profile) return null;
+
+  {/*downloader helper */}
+  function downloadBlob(blob: Blob, filename: string) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
 
   {/*preferences functions*/}
   async function handleUpdateBalance(){
@@ -133,32 +147,56 @@ export default function AccountPage() {
     }
   }
 
-  async function handleExportData() {
-    setError(null);
-    setSuccess(null);
-    setExportLoading(true);
+  {/*export functions */}
 
-    try {
-      if (!user) return;
-      const data = await exportUserData(user.uid);
-      const blob = new Blob([JSON.stringify(data, null, 2)], {
-        type: "application/json",
-      });
+  async function handleExportPdf() {
+  setError(null);
+  setSuccess(null);
+  setExportLoading("pdf");
 
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `nextill-backup-${new Date().toISOString()}.json`;
-      a.click();
-      URL.revokeObjectURL(url);
+  try {
+    if (!user) throw new Error("Missing user.");
 
-      setSuccess("Backup downloaded.");
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to export data.");
-    } finally {
-      setExportLoading(false);
-    }
+    const rawData = await exportUserData(user.uid);
+    const reportData = buildAccountExportReport({
+      ...rawData,
+      exportedAt: new Date(),
+    });
+
+    const blob = await pdf(<AccountExportPdf data={reportData} />).toBlob();
+    const safeDate = new Date().toISOString().replace(/[:.]/g, "-");
+
+    downloadBlob(blob, `nextill-account-report-${safeDate}.pdf`);
+    setSuccess("PDF report downloaded.");
+  } catch (err) {
+    setError(err instanceof Error ? err.message : "Failed to export PDF.");
+  } finally {
+    setExportLoading(null);
   }
+}
+
+async function handleExportBackup() {
+  setError(null);
+  setSuccess(null);
+  setExportLoading("backup");
+
+  try {
+    if (!user) throw new Error("Missing user.");
+
+    const data = await exportUserData(user.uid);
+    const blob = new Blob([JSON.stringify(data, null, 2)], {
+      type: "application/json",
+    });
+
+    const safeDate = new Date().toISOString().replace(/[:.]/g, "-");
+    downloadBlob(blob, `nextill-backup-${safeDate}.json`);
+    setSuccess("Backup downloaded.");
+  } catch (err) {
+    setError(err instanceof Error ? err.message : "Failed to export backup.");
+  } finally {
+    setExportLoading(null);
+  }
+}
 
   return (
     <div className="p-6 space-y-10 max-w-4xl">
@@ -206,7 +244,11 @@ export default function AccountPage() {
       />
      
       {/*Export data*/}
-      <ExportDataSection handleExportData={handleExportData} exportLoading={exportLoading}  />
+      <ExportDataSection
+        onExportPdf={handleExportPdf}
+        onExportBackup={handleExportBackup}
+        loadingAction={exportLoading}
+      />
 
       {/*Data management*/}
       <DataManagementSection 
