@@ -66,3 +66,8 @@ export type SettingRowProps = {
   description: string;
   children: ReactNode;
 };
+
+export type ExportDataSectionProps = {
+  onExportPdf: () => Promise<void>;
+  onExportBackup: () => Promise<void>;
+};

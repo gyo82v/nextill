@@ -156,6 +156,8 @@ NEXTILL IMPLEMENTATION LIST
 - [Fix] [Menu] in the add new item to the menu fix the situation where there are no 
                items in the stock. the select component should render something better than and 
                empty option list;
+- [Fix] [Account] fix the delete account with password; the password must match the user password.
+                  now any text work;
 - [Clean] [Dividers] Clean the unused dividers;
 - [✅] {Clean}{AppHeader} Clean the unused code in the Navbar component;
 - [Optional] [Account] improve the export data feature, instead of a json file use pdf or other formats;
