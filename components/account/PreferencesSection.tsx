@@ -6,6 +6,7 @@ import Switch from "@/components/ui/Switch";
 import AccountSectionCard from "./AccountSectionCard";
 import SettingRow from "./SettingRow";
 import type { PreferencesSectionProps } from "@/types";
+import { useTranslation } from "react-i18next";
 
 export default function PreferencesSection({
   currency,
@@ -19,28 +20,29 @@ export default function PreferencesSection({
   balanceEnabled,
   onBalanceEnabledChange,
 }: PreferencesSectionProps) {
+  const {t} = useTranslation("account")
   return (
     <AccountSectionCard
-      title="Preferences"
-      description="Manage language, currency, and how the app behaves."
+      title={t("preferences.title")}
+      description={t("preferences.description")}
     >
       <div className="space-y-8">
         <section className="space-y-3">
           <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Localization
+            {t("preferences.localization.title")}
           </h3>
 
           <div className="space-y-3">
             <SettingRow
-              label="Language"
-              description="Change the app language."
+              label={t("preferences.localization.language.label")}
+              description={t("preferences.localization.language.description")}
             >
               <LanguageToggle />
             </SettingRow>
 
             <SettingRow
-              label="Currency"
-              description="Choose the default currency used across the app."
+              label={t("preferences.localization.currency.label")}
+              description={t("preferences.localization.currency.description")}
             >
               <Select.Root
                 value={currency}
@@ -62,13 +64,13 @@ export default function PreferencesSection({
 
         <section className="space-y-3">
           <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            System behavior
+            {t("preferences.system.title")}
           </h3>
 
           <div className="space-y-3">
             <SettingRow
-              label="Disable motion"
-              description="Reduce animated transitions and motion effects throughout the app."
+              label={t("preferences.system.disableMotion.label")}
+              description={t("preferences.system.disableMotion.description")}
             >
               <Switch
                 checked={reduceMotion ?? false}
@@ -76,13 +78,13 @@ export default function PreferencesSection({
                   onReduceMotionChange?.(nextValue);
                 }}
                 disabled={!onReduceMotionChange}
-                aria-label="Disable motion"
+                aria-label={t("preferences.system.disableMotion.label")}
               />
             </SettingRow>
 
             <SettingRow
-              label="Staff ticket printing"
-              description="Print the staff ticket sent to the kitchen or bar."
+              label={t("preferences.system.staffTicketPrinting.label")}
+              description={t("preferences.system.staffTicketPrinting.description")}
             >
               <Switch
                 checked={staffTicketPrinting ?? false}
@@ -90,13 +92,13 @@ export default function PreferencesSection({
                   onStaffTicketPrintingChange?.(nextValue);
                 }}
                 disabled={!onStaffTicketPrintingChange}
-                aria-label="Staff ticket printing"
+                aria-label={t("preferences.system.staffTicketPrinting.label")}
               />
             </SettingRow>
 
             <SettingRow
-              label="Customer receipt printing"
-              description="Print the receipt for the customer."
+              label={t("preferences.system.customerReceiptPrinting.label")}
+              description={t("preferences.system.customerReceiptPrinting.description")}
             >
               <Switch
                 checked={receiptPrinting ?? false}
@@ -104,13 +106,13 @@ export default function PreferencesSection({
                   onReceiptPrintingChange?.(nextValue);
                 }}
                 disabled={!onReceiptPrintingChange}
-                aria-label="Customer receipt printing"
+                aria-label={t("preferences.system.customerReceiptPrinting.label")}
               />
             </SettingRow>
 
             <SettingRow
-              label="Start/end balance"
-              description="Enable the opening and closing balance system."
+              label={t("preferences.system.openingClosingBalance.label")}
+              description={t("preferences.system.openingClosingBalance.description")}
             >
               <Switch
                 checked={balanceEnabled ?? false}
@@ -118,7 +120,7 @@ export default function PreferencesSection({
                   onBalanceEnabledChange?.(nextValue);
                 }}
                 disabled={!onBalanceEnabledChange}
-                aria-label="Start and end balance"
+                aria-label={t("preferences.system.openingClosingBalance.label")}
               />
             </SettingRow>
           </div>

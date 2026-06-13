@@ -1,1 +1,181 @@
-{}
+{
+  "title": "Kontoeinstellungen",
+  "description": "Verwalte dein Profil, deine Einstellungen und Systemeinstellungen.",
+  "errors": {
+    "updateBalanceFailed": "Der Kontostand konnte nicht aktualisiert werden.",
+    "updateTicketPrintingFailed": "Der Ticketdruck konnte nicht aktualisiert werden.",
+    "updateReceiptPrintingFailed": "Der Belegdruck konnte nicht aktualisiert werden.",
+    "updateMotionPreferenceFailed": "Die Bewegungseinstellung konnte nicht aktualisiert werden.",
+    "updateCurrencyFailed": "Die Währung konnte nicht aktualisiert werden.",
+    "missingEmail": "Bitte gib deine E-Mail-Adresse ein.",
+    "endDayBeforeDeletingAccount": "Bitte beende den Tag, bevor du den Account löschst.",
+    "enterPassword": "Bitte gib dein Passwort ein.",
+    "endDayBeforeResettingReports": "Bitte beende den Tag, bevor du die Berichte zurücksetzt.",
+    "endDayBeforeResettingAllData": "Bitte beende den Tag, bevor du alle Daten zurücksetzt.",
+    "endDayBeforeDeletingArchivedMenuItems": "Bitte beende den Tag, bevor du archivierte Menüelemente löschst.",
+    "endDayBeforeDeletingArchivedStockItems": "Bitte beende den Tag, bevor du archivierte Lagerartikel löschst.",
+    "endDayBeforeDeletingAllArchivedItems": "Bitte beende den Tag, bevor du alle archivierten Elemente löschst."
+  },
+  "overview": {
+    "title": "Kontoübersicht",
+    "description": "Zusammenfassung deines Kontos und der Systemeinstellungen.",
+    "email": "E-Mail",
+    "username": "Benutzername",
+    "dayStatus": "Tagesstatus",
+    "emailConfirmed": "E-Mail-Status",
+    "receiptPrintingEnabled": "Belegdruck",
+    "ticketPrintingEnabled": "Ticketdruck",
+    "balanceEnabled": "Kontostand-Verfolgung",
+    "enabled": "Aktiviert",
+    "disabled": "Deaktiviert",
+    "active": "Aktiv",
+    "inactive": "Inaktiv",
+    "confirmed": "Bestätigt",
+    "notConfirmed": "Nicht bestätigt"
+  },
+  "privacy": {
+    "title": "Datenschutz",
+    "description": "Erfahre, wie deine Daten erfasst, verwendet und gespeichert werden.",
+    "paragraph": "Diese Richtlinie erklärt, welche Informationen in deinem Konto gespeichert werden, wie sie verarbeitet werden und welche Rechte du bezüglich deiner personenbezogenen Daten hast.",
+    "linkText": "Datenschutzerklärung lesen"
+  },
+  "export": {
+    "title": "Daten exportieren",
+    "description": "Lade eine Kopie deiner Kontodaten für Backup, Archivierung oder Übertragung herunter.",
+    "buttonLabelDownload": "Wird heruntergeladen",
+    "messages": {
+      "pdfSuccess": "PDF erfolgreich exportiert.",
+      "pdfError": "PDF-Export fehlgeschlagen.",
+      "backupSuccess": "Backup erfolgreich exportiert.",
+      "backupError": "Backup-Export fehlgeschlagen."
+    },
+    "pdf": {
+      "title": "PDF-Zusammenfassung",
+      "description": "Lade eine lesbare Zusammenfassung deines Kontos, deiner Einstellungen und Aktivitäten zum Drucken oder Teilen herunter.",
+      "buttonLabel": "PDF herunterladen"
+    },
+    "backup": {
+      "title": "Vollständiges Backup (JSON)",
+      "description": "Lade ein vollständiges Backup deiner Daten im JSON-Format für eine spätere Wiederherstellung herunter.",
+      "buttonLabel": "Backup herunterladen"
+    }
+  },
+  "security": {
+    "title": "Sicherheit",
+    "description": "Verwalte dein Passwort und lösche dein Konto.",
+    "resetPassword": {
+      "title": "Passwort zurücksetzen",
+      "description": "Sende eine E-Mail zum Zurücksetzen des Passworts an deine E-Mail-Adresse.",
+      "buttonLabel": "Passwort zurücksetzen",
+      "loadingText": "Wird gesendet..."
+    },
+    "deleteAccount": {
+      "title": "Konto löschen",
+      "description": "Gib dein Passwort ein, um dein Konto dauerhaft zu löschen.",
+      "passwordLabel": "Passwort",
+      "passwordPlaceholder": "Gib dein Passwort ein",
+      "buttonLabel": "Konto löschen",
+      "dayActiveMessage": "Beende den Tag, bevor du dein Konto löschst.",
+      "modal": {
+        "title": "Konto löschen",
+        "description": "Dies löscht dein Konto und alle zugehörigen Daten dauerhaft.",
+        "confirmButtonLabel": "Konto löschen",
+        "cancelButtonLabel": "Abbrechen"
+      }
+    },
+    "messages": {
+      "resetPasswordSuccess": "E-Mail zum Zurücksetzen des Passworts gesendet.",
+      "resetPasswordError": "Passwort konnte nicht zurückgesetzt werden.",
+      "deleteAccountDayActiveError": "Beende den Tag, bevor du dein Konto löschst.",
+      "deleteAccountPasswordMissingError": "Bitte gib dein Passwort ein.",
+      "deleteAccountSuccess": "Konto gelöscht.",
+      "deleteAccountError": "Konto konnte nicht gelöscht werden."
+    }
+  },
+  "preferences": {
+    "title": "Einstellungen",
+    "description": "Verwalte Sprache, Währung und das Verhalten der App.",
+    "localization": {
+      "title": "Sprache und Währung",
+      "language": {
+        "label": "Sprache",
+        "description": "Ändere die Sprache der App."
+      },
+      "currency": {
+        "label": "Währung",
+        "description": "Wähle die Standardwährung der App."
+      }
+    },
+    "system": {
+      "title": "Systemverhalten",
+      "disableMotion": {
+        "label": "Bewegungen reduzieren",
+        "description": "Reduziert Animationen und Bewegungseffekte in der gesamten App."
+      },
+      "staffTicketPrinting": {
+        "label": "Mitarbeiter-Ticketdruck",
+        "description": "Drucke das Küchenticket für das Personal."
+      },
+      "customerReceiptPrinting": {
+        "label": "Kundenbelegdruck",
+        "description": "Drucke den Beleg für den Kunden."
+      },
+      "openingClosingBalance": {
+        "label": "Kassenöffnung und -abschluss",
+        "description": "Aktiviere den Ablauf für Kassenöffnung und -abschluss."
+      }
+    }
+  },
+  "management": {
+    "title": "Datenverwaltung",
+    "description": "Entferne dauerhaft Berichte oder archivierte Daten aus der Datenbank.",
+    "dayActiveMsg": "Destruktive Aktionen sind deaktiviert, solange ein Tag aktiv ist.",
+    "sections": {
+      "reports": {
+        "title": "Berichte"
+      },
+      "archived": {
+        "title": "Archivierte Daten"
+      },
+      "fullReset": {
+        "title": "Kompletter Reset"
+      }
+    },
+    "clearReports": {
+      "title": "Berichte und Statistiken löschen",
+      "description": "Lösche nur Berichte und Statistikdaten.",
+      "buttonLabel": "Berichte löschen",
+      "confirmLabel": "Berichte löschen",
+      "successMessage": "Berichte gelöscht."
+    },
+    "deleteArchivedItems": {
+      "title": "Alle archivierten Elemente löschen",
+      "description": "Entferne dauerhaft alle archivierten Menü- und Lagerartikel.",
+      "buttonLabel": "Archivierte Elemente löschen",
+      "confirmLabel": "Archivierte Elemente löschen",
+      "successMessage": "Archivierte Elemente gelöscht."
+    },
+    "deleteArchivedMenuItems": {
+      "title": "Archivierte Menüelemente löschen",
+      "description": "Entferne dauerhaft nur archivierte Menüelemente.",
+      "buttonLabel": "Archivierte Menüelemente löschen",
+      "confirmLabel": "Archivierte Menüelemente löschen",
+      "successMessage": "Archivierte Menüelemente gelöscht."
+    },
+    "deleteArchivedStockItems": {
+      "title": "Archivierte Lagerartikel löschen",
+      "description": "Entferne dauerhaft nur archivierte Lagerartikel.",
+      "buttonLabel": "Archivierte Lagerartikel löschen",
+      "confirmLabel": "Archivierte Lagerartikel löschen",
+      "successMessage": "Archivierte Lagerartikel gelöscht."
+    },
+    "resetAllData": {
+      "title": "Alle Daten löschen",
+      "description": "Entferne dauerhaft alle Daten, einschließlich archivierter Elemente.",
+      "buttonLabel": "Alle Daten löschen",
+      "confirmLabel": "Alle Daten löschen",
+      "successMessage": "Alle Daten gelöscht."
+    },
+    "cancelButtonLabel": "Abbrechen"
+  }
+}

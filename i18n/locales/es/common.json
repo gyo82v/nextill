@@ -40,5 +40,9 @@
   "test": {
     "title": "Language test page",
     "description": "If you can read this, Spanish is active."
+  },
+   "modal": {
+    "title": "Esta acción no se puede deshacer.",
+    "description": "Revísalo cuidadosamente antes de confirmar."
   }
 }

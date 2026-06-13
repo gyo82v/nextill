@@ -1,102 +1,60 @@
-this is my database structure:
+perfect. next and last section is the data management section.
+here the user can delete or archieve the databsae data.
+in the account.json => {"management": {all fileds in here}}
 
-{
-    uid : string
-    email : string | null
-    displayName : string | null
-    createdAt : unknown
-    jadeLilyCredit : number
-    jadeLilyTotalOrders : number 
-    jadeLilyCart : []
-    jadeLilyPastOrders : []
-    jadeLilyCreditUsed : number
-    nextillApp: {
-        settings: {
-            darkmode: boolean
-            language: string
-            dayActive: boolean
-            dayDate: string | null
-            currency: string
-            balanceEnabled: boolean
-            ticketEnabled: boolean
-            receiptEnabled: boolean
-            disableMotion: boolean
-        }
-        dayCycle: {
-            active: boolean
-            startedAt: unknown | null
-            endedAt: unknown | null
-            openingBalance: number | null
-            closingBalance: number | null
-            dayKey: string | null
-            nextTicketNumber: number
-        }
-        statistics: {
-            itemsSales: {
-                {14csvL6AopD7oIZ3y8o9: 16}
-                {14csvL6fapD7oIZsdfo9: 34}
-            }
-            lastSaleAt: 6 June 2026 at 17:37:09 UTC+1
-            totalEarnings: 233453
-            totalTransactions: 165
-            unitsSoldTotal: 444
-        }
-    menuItems(collection): uid : {
-        category: "food"
-        createdAt: 8 June 2026 at 16:19:20 UTC+1
-        ingredients: [
-            {
-                quantity: number,
-                stockId: string
-            }
-        ]
-        name: "example"
-        priceMinor: 2345
-        updatedAt: 8 may 2026 at 16:19:20 UTC+1
-        active: false(only archieved items have this)
-        archievedAt: 20 may 2026 at 13:11:05 UTC+1(only archieved items have this)
-    }
-    dailySummaries(collection): 2026-04-16(one per day) : {
-        date: "2026-04-16"
-        earnings: 890
-        transactions: 2
-        updatedAt: 16 April 2026 at 17:27:48 UTC+1
-        transactions(collection): uid : {
-            createdAt: 16 April 2026 at 17:22:58 UTC+1
-            dayKey: "2026-04-16"
-            itemCount: 3
-            status: "completed"
-            totalMinor: 590
-            items: [
-                {
-                    id: "2"
-                    name: "Croissant"
-                    priceMinor: 220
-                    quantity: 2
-                }
-            ]
-        }
+- the title of the section: ""Data management";
+- the description of the section: "Permanently remove reports or archived data from the database.";
 
-    }
-    stock(collection): uid: {
-        active: false(only archieved items have this)
-        archivedAt: 16 May 2026 at 16:28:05 UTC+1(only archieved items have this)
-        category: "food"
-        createdAt:15 May 2026 at 17:59:31 UTC+1
-        minQty: 5
-        name: "example"
-        quantity: number
-        unit: string
-        updatedAt: 16 May 2026 at 16:28:05 UTC+1
-    }
-    stockActivuty(collection): uid: {
-        action: "add"
-        createdAt: 20 May 2026 at 13:10:57 UTC+1
-        itemName: "limonata"
-        quantityAfter: 100
-        quantityBefore: 0
-        quantityDelta: 100
-        stockId: "iLOIK8jVNTb4odHcblKL"
-    }
-    }
-}
+i have five rows:
+
+clearReports: {
+      title: "Clear reports / statistics",
+      description: "Delete the reports and statistics data only.",
+      buttonLabel:  "Clear reports",
+      confirmLabel: "Clear reports",
+      successMessage: "Reports cleared.",
+    },
+deleteArchivedItems: {
+      title: "Delete all archived items",
+      description: "Remove all archived menu and stock items permanently.",
+      buttonLabel: "Delete archived items",
+      confirmLabel: "Delete archived items",
+      successMessage: "Archived items deleted.",
+    },
+deleteArchivedMenuItems: {
+      title: "Delete archived menu items",
+      description: "Remove only archived items from the menu list.",
+      buttonLabel: "Delete menu archive",
+      confirmLabel: "Delete menu archive",
+      successMessage: "Archived menu items deleted.",
+    },
+deleteArchivedStockItems: {
+      title: "Delete archived stock items",
+      description: "Remove only archived items from the stock list.",
+      buttonLabel: "Delete stock archive",
+      confirmLabel: "Delete stock archive",
+      successMessage: "Archived stock items deleted.",
+    },
+resetAllData: {
+      title: "Delete all database data",
+      description: "Permanently remove all data, including archived items.",
+      buttonLabel: "Delete all data",
+      confirmLabel: "Delete all data",
+      successMessage: "All data deleted.",
+    },
+
+
+i have three subtitles:
+
+- for the subsection that clears only the reports: "Reports"
+- for the subsection that clean up only the archieved elements:  "Archived cleanup"
+- for the subsectiion that clear everything: "Full reset"
+
+also:
+- tha cancel button label: "cancel"
+
+
+
+
+as before if you have better alternative for the text please provide them otherwise keep my placeholder.
+please include everything inside the "management" key

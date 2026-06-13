@@ -4,6 +4,7 @@ import Modal from "./Modal";
 import Button from "../Button";
 import { FaTriangleExclamation } from "react-icons/fa6";
 import type { ConfirmModalProps } from "@/types/modals";
+import { useTranslation } from "react-i18next";
 
 export default function ConfirmModal({
   open,
@@ -19,6 +20,7 @@ export default function ConfirmModal({
   footer,
 }: ConfirmModalProps) {
   const confirmVariant = danger ? "primaryDanger" : "primary";
+  const {t} = useTranslation("")
 
   const defaultFooter = (
     <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
@@ -63,10 +65,10 @@ export default function ConfirmModal({
 
             <div className="space-y-1">
               <p className="font-medium text-foreground">
-                This action cannot be undone.
+                {t("modal.title")}
               </p>
               <p className="text-sm text-muted-foreground">
-                Please review carefully before confirming.
+                {t("modal.description")}
               </p>
             </div>
           </div>

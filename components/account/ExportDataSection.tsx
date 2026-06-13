@@ -4,6 +4,7 @@ import AccountSectionCard from "./AccountSectionCard";
 import type {FeedbackState, ExportDataSectionProps} from "@/types";
 import {useState} from "react"
 import ExportRow from "./export/ExportRow";
+import { useTranslation } from "react-i18next";
 
 export default function ExportDataSection({
   onExportPdf,
@@ -12,6 +13,7 @@ export default function ExportDataSection({
   const [feedback, setFeedback] = useState<FeedbackState>(null);
   const [loadingPdf, setLoadingPdf] = useState(false)
   const [loadingBackup, setLoadingBackup] = useState(false)
+  const {t} = useTranslation("account")
 
   async function handleExportPdf(){
     setFeedback(null)
@@ -21,12 +23,12 @@ export default function ExportDataSection({
       await onExportPdf()
       setFeedback({
         type: "success",
-        message: "pdf exported successfully",
+        message: t("export.messages.pdfSuccess"),
       });
     }catch(err){
        setFeedback({
         type: "error",
-        message: err instanceof Error ? err.message : "Failed to export pdf.",
+        message: err instanceof Error ? err.message : t("export.messages.pdfError"),
       });
     }finally{
       setLoadingPdf(false)
@@ -41,12 +43,12 @@ export default function ExportDataSection({
       await onExportBackup()
       setFeedback({
         type: "success",
-        message: "backup exported successfully",
+        message: t("export.messages.backupSuccess"),
       });
     }catch(err){
        setFeedback({
         type: "error",
-        message: err instanceof Error ? err.message : "Failed to export backup.",
+        message: err instanceof Error ? err.message : t("export.messages.backupError"),
       });
     }finally{
       setLoadingBackup(false)
@@ -55,8 +57,8 @@ export default function ExportDataSection({
 
   return (
     <AccountSectionCard
-      title="Export data"
-      description="Download a copy of your account data for backup, records, or transfer."
+      title={t("export.title")}
+      description={t("export.description")}
     >
       <div className="space-y-4">
         {feedback ? (
@@ -73,17 +75,17 @@ export default function ExportDataSection({
         ) : null}
 
         <ExportRow
-          title="PDF summary"
-          description="Download a readable summary of your account, settings, and activity. Suitable for printing or sharing."
-          buttonLabel="Download PDF"
+          title={t("export.pdf.title")}
+          description={t("export.pdf.description")}
+          buttonLabel={t("export.pdf.buttonLabel")}
           onClick={handleExportPdf}
           loading={loadingPdf}
         />
 
         <ExportRow
-          title="Full backup (JSON)"
-          description="Download a complete backup of your data in JSON format. Intended for backup or future restore."
-          buttonLabel="Download backup"
+          title={t("export.backup.title")}
+          description={t("export.backup.description")}
+          buttonLabel={t("export.backup.buttonLabel")}
           onClick={handleBackup}
           loading={loadingBackup}
         />

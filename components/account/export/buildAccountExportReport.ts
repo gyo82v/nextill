@@ -10,15 +10,6 @@ function formatDateTime(value: unknown) {
   }).format(date);
 }
 
-function formatDateOnly(value: unknown) {
-  const date = toDate(value);
-  if (!date) return "—";
-
-  return new Intl.DateTimeFormat("en-GB", {
-    dateStyle: "medium",
-  }).format(date);
-}
-
 function formatNumber(value: number | null | undefined) {
   if (value === null || value === undefined || Number.isNaN(value)) return "—";
   return new Intl.NumberFormat("en-GB").format(value);

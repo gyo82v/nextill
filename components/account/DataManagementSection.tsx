@@ -5,6 +5,7 @@ import ConfirmModal from "@/components/ui/modals/ConfirmModal";
 import AccountSectionCard from "./AccountSectionCard";
 import type { DataManagementAction, DataManagementSectionProps, FeedbackState, ActionConfig} from "@/types";
 import DangerActionRow from "./DangerActionRow";
+import { useTranslation } from "react-i18next";
 
 export default function DataManagementSection({
   dayActive,
@@ -21,46 +22,47 @@ export default function DataManagementSection({
     null
   );
   const [feedback, setFeedback] = useState<FeedbackState>(null);
+  const {t} = useTranslation("account")
 
   const actionConfig: Record<DataManagementAction, ActionConfig> = {
     clearReports: {
-      title: "Clear reports / statistics",
-      description: "Delete the reports and statistics data only.",
-      buttonLabel:  "Clear reports",
-      confirmLabel: "Clear reports",
-      successMessage: "Reports cleared.",
+      title: t("management.clearReports.title"),
+      description: t("management.clearReports.description"),
+      buttonLabel:  t("management.clearReports.buttonLabel"),
+      confirmLabel: t("management.clearReports.confirmLabel"),
+      successMessage: t("management.clearReports.successMessage"),
       handler: onClearReports,
     },
     deleteArchivedItems: {
-      title: "Delete all archived items",
-      description: "Remove all archived menu and stock items permanently.",
-      buttonLabel: "Delete archived items",
-      confirmLabel: "Delete archived items",
-      successMessage: "Archived items deleted.",
+      title: t("management.deleteArchivedItems.title"),
+      description: t("management.deleteArchivedItems.description"),
+      buttonLabel: t("management.deleteArchivedItems.buttonLabel"),
+      confirmLabel: t("management.deleteArchivedItems.confirmLabel"),
+      successMessage: t("management.deleteArchivedItems.successMessage"),
       handler: onDeleteArchivedItems,
     },
     deleteArchivedMenuItems: {
-      title: "Delete archived menu items",
-      description: "Remove only archived items from the menu list.",
-      buttonLabel: "Delete menu archive",
-      confirmLabel: "Delete menu archive",
-      successMessage: "Archived menu items deleted.",
+      title: t("management.deleteArchivedMenuItems.title"),
+      description: t("management.deleteArchivedMenuItems.description"),
+      buttonLabel: t("management.deleteArchivedMenuItems.buttonLabel"),
+      confirmLabel: t("management.deleteArchivedMenuItems.confirmLabel"),
+      successMessage: t("management.deleteArchivedMenuItems.successMessage"),
       handler: onDeleteArchivedMenuItems,
     },
     deleteArchivedStockItems: {
-      title: "Delete archived stock items",
-      description: "Remove only archived items from the stock list.",
-      buttonLabel: "Delete stock archive",
-      confirmLabel: "Delete stock archive",
-      successMessage: "Archived stock items deleted.",
+      title: t("management.deleteArchivedStockItems.title"),
+      description: t("management.deleteArchivedStockItems.description"),
+      buttonLabel: t("management.deleteArchivedStockItems.buttonLabel"),
+      confirmLabel: t("management.deleteArchivedStockItems.confirmLabel"),
+      successMessage: t("management.deleteArchivedStockItems.successMessage"),
       handler: onDeleteArchivedStockItems,
     },
     resetAllData: {
-      title: "Delete all database data",
-      description: "Permanently remove all data, including archived items.",
-      buttonLabel: "Delete all data",
-      confirmLabel: "Delete all data",
-      successMessage: "All data deleted.",
+      title: t("management.resetAllData.title"),
+      description: t("management.resetAllData.description"),
+      buttonLabel: t("management.resetAllData.buttonLabel"),
+      confirmLabel: t("management.resetAllData.confirmLabel"),
+      successMessage: t("management.resetAllData.successMessage"),
       handler: onResetAllData,
     },
   };
@@ -90,8 +92,8 @@ export default function DataManagementSection({
 
   return (
     <AccountSectionCard
-      title="Data management"
-      description="Permanently remove reports or archived data from the database."
+      title={t("management.title")}
+      description={t("management.description")}
     >
       <div className="space-y-8">
         {feedback ? (
@@ -109,13 +111,13 @@ export default function DataManagementSection({
 
         {dayActive ? (
           <p className="rounded-xl border border-orange-300 bg-orange-50 px-4 py-3 text-sm text-orange-700">
-            Destructive actions are disabled while a day is active.
+            {t("management.dayActiveMsg")}
           </p>
         ) : null}
 
         <section className="space-y-3">
           <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Reports
+            {t("management.sections.reports.title")}
           </h3>
 
           <DangerActionRow
@@ -133,7 +135,7 @@ export default function DataManagementSection({
 
         <section className="space-y-3">
           <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Archived cleanup
+            {t("management.sections.archived.title")}
           </h3>
 
           <div className="space-y-3">
@@ -187,7 +189,7 @@ export default function DataManagementSection({
 
         <section className="space-y-3">
           <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Full reset
+            {t("management.sections.fullReset.title")}
           </h3>
 
           <DangerActionRow
@@ -213,7 +215,7 @@ export default function DataManagementSection({
         title={activeConfig?.title ?? "Confirm action"}
         description={activeConfig?.description ?? ""}
         confirmLabel={activeConfig?.confirmLabel ?? "Confirm"}
-        cancelLabel="Cancel"
+        cancelLabel={t("management.cancelButtonLabel")}
         loading={loadingAction !== null}
         danger
       />

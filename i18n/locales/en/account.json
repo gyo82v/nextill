@@ -1,1 +1,181 @@
-{}
+{
+  "title": "Account settings",
+  "description": "Manage your profile, preferences, and system settings.",
+  "errors": {
+    "updateBalanceFailed": "Could not update the balance.",
+    "updateTicketPrintingFailed": "Could not update ticket printing.",
+    "updateReceiptPrintingFailed": "Could not update receipt printing.",
+    "updateMotionPreferenceFailed": "Could not update motion preference.",
+    "updateCurrencyFailed": "Could not update the currency.",
+    "missingEmail": "Please enter your email.",
+    "endDayBeforeDeletingAccount": "Please end the day before deleting the account.",
+    "enterPassword": "Please enter your password.",
+    "endDayBeforeResettingReports": "Please end the day before resetting the reports.",
+    "endDayBeforeResettingAllData": "Please end the day before resetting all data.",
+    "endDayBeforeDeletingArchivedMenuItems": "Please end the day before deleting archived menu items.",
+    "endDayBeforeDeletingArchivedStockItems": "Please end the day before deleting archived stock items.",
+    "endDayBeforeDeletingAllArchivedItems": "Please end the day before deleting all archived items."
+  },
+  "overview": {
+    "title": "Account overview",
+    "description": "Summary of your account and system settings.",
+    "email": "Email",
+    "username": "Username",
+    "dayStatus": "Day status",
+    "emailConfirmed": "Email status",
+    "receiptPrintingEnabled": "Receipt printing",
+    "ticketPrintingEnabled": "Ticket printing",
+    "balanceEnabled": "Balance tracking",
+    "enabled": "Enabled",
+    "disabled": "Disabled",
+    "active": "Active",
+    "inactive": "Inactive",
+    "confirmed": "Confirmed",
+    "notConfirmed": "Not confirmed"
+  },
+  "privacy": {
+    "title": "Privacy",
+    "description": "Learn how your data is collected, used, and stored.",
+    "paragraph": "This policy explains what information is stored in your account, how it is processed, and what rights you have over your personal data.",
+    "linkText": "Read privacy policy"
+  },
+  "export": {
+    "title": "Export your data",
+    "description": "Download a copy of your account data for backup, records, or transfer.",
+    "buttonLabelDownload": "Downloading",
+    "messages": {
+      "pdfSuccess": "PDF exported successfully.",
+      "pdfError": "Failed to export the PDF.",
+      "backupSuccess": "Backup exported successfully.",
+      "backupError": "Failed to export the backup."
+    },
+    "pdf": {
+      "title": "PDF summary",
+      "description": "Download a readable summary of your account, settings, and activity for printing or sharing.",
+      "buttonLabel": "Download PDF"
+    },
+    "backup": {
+      "title": "Full backup (JSON)",
+      "description": "Download a complete backup of your data in JSON format for later restore.",
+      "buttonLabel": "Download backup"
+    }
+  },
+  "security": {
+    "title": "Security",
+    "description": "Manage your password and delete your account.",
+    "resetPassword": {
+      "title": "Reset password",
+      "description": "Send a password reset email to your account email address.",
+      "buttonLabel": "Reset password",
+      "loadingText": "Sending..."
+    },
+    "deleteAccount": {
+      "title": "Delete account",
+      "description": "Enter your password to permanently delete your account.",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "buttonLabel": "Delete account",
+      "dayActiveMessage": "End the day before deleting your account.",
+      "modal": {
+        "title": "Delete account",
+        "description": "This will permanently delete your account and all your data.",
+        "confirmButtonLabel": "Delete account",
+        "cancelButtonLabel": "Cancel"
+      }
+    },
+    "messages": {
+      "resetPasswordSuccess": "Password reset email sent.",
+      "resetPasswordError": "Failed to reset password.",
+      "deleteAccountDayActiveError": "End the day before deleting your account.",
+      "deleteAccountPasswordMissingError": "Enter your password.",
+      "deleteAccountSuccess": "Account deleted.",
+      "deleteAccountError": "Failed to delete account."
+    }
+  },
+  "preferences": {
+    "title": "Preferences",
+    "description": "Manage language, currency, and how the app behaves.",
+    "localization": {
+      "title": "Language and currency",
+      "language": {
+        "label": "Language",
+        "description": "Change the app language."
+      },
+      "currency": {
+        "label": "Currency",
+        "description": "Choose the default currency used across the app."
+      }
+    },
+    "system": {
+      "title": "System behavior",
+      "disableMotion": {
+        "label": "Reduce motion",
+        "description": "Reduce animated transitions and motion effects throughout the app."
+      },
+      "staffTicketPrinting": {
+        "label": "Staff ticket printing",
+        "description": "Print the staff ticket sent to the kitchen or bar."
+      },
+      "customerReceiptPrinting": {
+        "label": "Customer receipt printing",
+        "description": "Print the receipt for the customer."
+      },
+      "openingClosingBalance": {
+        "label": "Opening and closing balance",
+        "description": "Enable the opening and closing balance workflow."
+      }
+    } 
+  },
+  "management": {
+    "title": "Data management",
+    "description": "Permanently remove reports or archived data from the database.",
+    "dayActiveMsg": "Destructive actions are disabled while a day is active.",
+    "sections": {
+      "reports": {
+        "title": "Reports"
+      },
+      "archived": {
+        "title": "Archived data"
+      },
+      "fullReset": {
+        "title": "Full reset"
+      }
+    },
+    "clearReports": {
+      "title": "Clear reports and statistics",
+      "description": "Delete only reports and statistics data.",
+      "buttonLabel": "Clear reports",
+      "confirmLabel": "Clear reports",
+      "successMessage": "Reports cleared."
+    },
+    "deleteArchivedItems": {
+      "title": "Delete all archived items",
+      "description": "Permanently remove all archived menu and stock items.",
+      "buttonLabel": "Delete archived items",
+      "confirmLabel": "Delete archived items",
+      "successMessage": "Archived items deleted."
+    },
+    "deleteArchivedMenuItems": {
+      "title": "Delete archived menu items",
+      "description": "Permanently remove only archived menu items.",
+      "buttonLabel": "Delete archived menu items",
+      "confirmLabel": "Delete archived menu items",
+      "successMessage": "Archived menu items deleted."
+    },
+    "deleteArchivedStockItems": {
+      "title": "Delete archived stock items",
+      "description": "Permanently remove only archived stock items.",
+      "buttonLabel": "Delete archived stock items",
+      "confirmLabel": "Delete archived stock items",
+      "successMessage": "Archived stock items deleted."
+    },
+    "resetAllData": {
+      "title": "Delete all database data",
+      "description": "Permanently remove all data, including archived items.",
+      "buttonLabel": "Delete all data",
+      "confirmLabel": "Delete all data",
+      "successMessage": "All data deleted."
+    },
+    "cancelButtonLabel": "Cancel"
+  }
+}

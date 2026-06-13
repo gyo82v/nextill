@@ -2,24 +2,25 @@
 
 import Link from "next/link";
 import AccountSectionCard from "./AccountSectionCard";
+import { useTranslation } from "react-i18next";
 
 export default function PrivacyPolicySection() {
+  const {t} = useTranslation("account")
   return (
     <AccountSectionCard
-      title="Privacy policy"
-      description="Learn how your data is collected, used, and stored."
+      title={t("privacy.title")}
+      description={t("privacy.description")}
     >
       <div className="space-y-3">
         <p className="text-sm text-muted-foreground">
-          The privacy policy explains what data is stored in your account, how it
-          is processed, and your rights regarding your personal information.
+          {t("privacy.paragraph")}
         </p>
 
         <Link
           href="/privacy-policy"
           className="inline-flex items-center text-sm font-medium text-primary hover:underline"
         >
-          View privacy policy
+          {t("privacy.linkText")}
         </Link>
       </div>
     </AccountSectionCard>

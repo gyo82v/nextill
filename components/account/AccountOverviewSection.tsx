@@ -1,84 +1,68 @@
 "use client";
 
-import type { User } from "firebase/auth";
 import AccountSectionCard from "./AccountSectionCard";
-
-type AccountOverviewSectionProps = {
-  user: Pick<User, "email" | "emailVerified"> | null;
-  profile: {
-    email?: string | null;
-    displayName?: string | null;
-    nextillApp?: {
-      dayCycle?: {
-        active?: boolean | null;
-      } | null;
-      settings?: {
-        ticketEnabled?: boolean | null;
-        receiptEnabled?: boolean | null;
-        balanceEnabled?: boolean | null;
-      } | null;
-    } | null;
-  } | null;
-};
-
-function formatBoolean(value?: boolean | null) {
-  return value ? "Yes" : "No";
-}
+import { useTranslation } from "react-i18next";
+import type { AccountOverviewSectionProps, Row } from "@/types";
 
 function formatText(value?: string | null) {
   return value?.trim() ? value : "—";
 }
 
-type Row = {
-  label: string;
-  value: string;
-};
-
 export default function AccountOverviewSection({
   user,
   profile,
 }: AccountOverviewSectionProps) {
-  const rows: Row[] = [
+  const {t} = useTranslation("account")
+
+  function formatBoolean(value?: boolean | null) {
+    return value ? t("overview.enabled") : t("overview.disabled");
+  }
+   function formatBooleanEmail(value?: boolean | null) {
+    return value ? t("overview.confirmed") : t("overview.notConfirmed");
+  }
+
+  const rows:Row[] = [
     {
-      label: "Email",
+      label: t("overview.email"),
       value: formatText(profile?.email ?? user?.email),
     },
     {
-      label: "Username",
+      label: t("overview.username"),
       value: formatText(profile?.displayName),
     },
     {
-      label: "Day status",
-      value: profile?.nextillApp?.dayCycle?.active ? "Active" : "Inactive",
+      label: t("overview.dayStatus"),
+      value: profile?.nextillApp?.dayCycle?.active ? t("overview.active") : t("overview.inactive"),
     },
     {
-      label: "Email confirmed",
-      value: formatBoolean(user?.emailVerified),
+      label: t("overview.emailConfirmed"),
+      value: formatBooleanEmail(user?.emailVerified),
     },
     {
-      label: "Receipt printing enabled",
+      label: t("overview.receiptPrintingEnabled"),
       value: formatBoolean(profile?.nextillApp?.settings?.receiptEnabled),
     },
     {
-      label: "Ticket Printing enabled",
+      label: t("overview.ticketPrintingEnabled"),
       value: formatBoolean(profile?.nextillApp?.settings?.ticketEnabled),
     },
     {
-      label: "Balance enabled",
+      label: t("overview.balanceEnabled"),
       value: formatBoolean(profile?.nextillApp?.settings?.balanceEnabled),
     },
   ];
 
   return (
     <AccountSectionCard
-      title="Profile"
-      description="Read-only recap of your account and system settings."
+      title={t("overview.title")}
+      description={t("overview.description")}
     >
       <dl className="space-y-3">
         {rows.map((row) => (
           <div
             key={row.label}
-            className="flex flex-col gap-1 rounded-xl border border-default bg-surface-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
+            className={`flex flex-col gap-1 rounded-xl border border-default
+                        bg-surface-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between`}
           >
             <dt className="text-sm font-medium text-muted-foreground">
               {row.label}

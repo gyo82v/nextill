@@ -1,1 +1,181 @@
-{}
+{
+  "title": "Paramètres du compte",
+  "description": "Gérez votre profil, vos préférences et les paramètres du système.",
+  "errors": {
+    "updateBalanceFailed": "Impossible de mettre à jour le solde.",
+    "updateTicketPrintingFailed": "Impossible de mettre à jour l’impression des tickets.",
+    "updateReceiptPrintingFailed": "Impossible de mettre à jour l’impression des reçus.",
+    "updateMotionPreferenceFailed": "Impossible de mettre à jour la préférence de mouvement.",
+    "updateCurrencyFailed": "Impossible de mettre à jour la devise.",
+    "missingEmail": "Veuillez saisir votre adresse e-mail.",
+    "endDayBeforeDeletingAccount": "Veuillez terminer la journée avant de supprimer le compte.",
+    "enterPassword": "Veuillez saisir votre mot de passe.",
+    "endDayBeforeResettingReports": "Veuillez terminer la journée avant de réinitialiser les rapports.",
+    "endDayBeforeResettingAllData": "Veuillez terminer la journée avant de réinitialiser toutes les données.",
+    "endDayBeforeDeletingArchivedMenuItems": "Veuillez terminer la journée avant de supprimer les éléments de menu archivés.",
+    "endDayBeforeDeletingArchivedStockItems": "Veuillez terminer la journée avant de supprimer les articles de stock archivés.",
+    "endDayBeforeDeletingAllArchivedItems": "Veuillez terminer la journée avant de supprimer tous les éléments archivés."
+  },
+  "overview": {
+    "title": "Aperçu du compte",
+    "description": "Résumé de votre compte et des paramètres système.",
+    "email": "E-mail",
+    "username": "Nom d’utilisateur",
+    "dayStatus": "État de la journée",
+    "emailConfirmed": "Statut de l’e-mail",
+    "receiptPrintingEnabled": "Impression des reçus",
+    "ticketPrintingEnabled": "Impression des tickets",
+    "balanceEnabled": "Suivi du solde",
+    "enabled": "Activé",
+    "disabled": "Désactivé",
+    "active": "Actif",
+    "inactive": "Inactif",
+    "confirmed": "Confirmé",
+    "notConfirmed": "Non confirmé"
+  },
+  "privacy": {
+    "title": "Confidentialité",
+    "description": "Découvrez comment vos données sont collectées, utilisées et stockées.",
+    "paragraph": "Cette politique explique quelles informations sont stockées dans votre compte, comment elles sont traitées et quels droits vous avez sur vos données personnelles.",
+    "linkText": "Lire la politique de confidentialité"
+  },
+  "export": {
+    "title": "Exporter vos données",
+    "description": "Téléchargez une copie de vos données de compte pour sauvegarde, archivage ou transfert.",
+    "buttonLabelDownload": "Téléchargement en cours",
+    "messages": {
+      "pdfSuccess": "PDF exporté avec succès.",
+      "pdfError": "Échec de l’export du PDF.",
+      "backupSuccess": "Sauvegarde exportée avec succès.",
+      "backupError": "Échec de l’export de la sauvegarde."
+    },
+    "pdf": {
+      "title": "Résumé PDF",
+      "description": "Téléchargez un résumé lisible de votre compte, de vos paramètres et de votre activité pour impression ou partage.",
+      "buttonLabel": "Télécharger le PDF"
+    },
+    "backup": {
+      "title": "Sauvegarde complète (JSON)",
+      "description": "Téléchargez une sauvegarde complète de vos données au format JSON pour une restauration ultérieure.",
+      "buttonLabel": "Télécharger la sauvegarde"
+    }
+  },
+  "security": {
+    "title": "Sécurité",
+    "description": "Gérez votre mot de passe et supprimez votre compte.",
+    "resetPassword": {
+      "title": "Réinitialiser le mot de passe",
+      "description": "Envoyez un e-mail de réinitialisation du mot de passe à votre adresse e-mail.",
+      "buttonLabel": "Réinitialiser le mot de passe",
+      "loadingText": "Envoi..."
+    },
+    "deleteAccount": {
+      "title": "Supprimer le compte",
+      "description": "Saisissez votre mot de passe pour supprimer définitivement votre compte.",
+      "passwordLabel": "Mot de passe",
+      "passwordPlaceholder": "Saisissez votre mot de passe",
+      "buttonLabel": "Supprimer le compte",
+      "dayActiveMessage": "Terminez la journée avant de supprimer votre compte.",
+      "modal": {
+        "title": "Supprimer le compte",
+        "description": "Cette action supprimera définitivement votre compte et toutes vos données.",
+        "confirmButtonLabel": "Supprimer le compte",
+        "cancelButtonLabel": "Annuler"
+      }
+    },
+    "messages": {
+      "resetPasswordSuccess": "E-mail de réinitialisation envoyé.",
+      "resetPasswordError": "Échec de la réinitialisation du mot de passe.",
+      "deleteAccountDayActiveError": "Terminez la journée avant de supprimer votre compte.",
+      "deleteAccountPasswordMissingError": "Veuillez saisir votre mot de passe.",
+      "deleteAccountSuccess": "Compte supprimé.",
+      "deleteAccountError": "Échec de la suppression du compte."
+    }
+  },
+  "preferences": {
+    "title": "Préférences",
+    "description": "Gérez la langue, la devise et le comportement de l’application.",
+    "localization": {
+      "title": "Langue et devise",
+      "language": {
+        "label": "Langue",
+        "description": "Changez la langue de l’application."
+      },
+      "currency": {
+        "label": "Devise",
+        "description": "Choisissez la devise par défaut de l’application."
+      }
+    },
+    "system": {
+      "title": "Comportement du système",
+      "disableMotion": {
+        "label": "Réduire les animations",
+        "description": "Réduit les animations et effets de mouvement dans toute l’application."
+      },
+      "staffTicketPrinting": {
+        "label": "Impression des tickets personnel",
+        "description": "Imprime le ticket envoyé à la cuisine ou au bar."
+      },
+      "customerReceiptPrinting": {
+        "label": "Impression des reçus clients",
+        "description": "Imprime le reçu destiné au client."
+      },
+      "openingClosingBalance": {
+        "label": "Ouverture et fermeture de caisse",
+        "description": "Active le processus d’ouverture et de fermeture de caisse."
+      }
+    }
+  },
+  "management": {
+    "title": "Gestion des données",
+    "description": "Supprimez définitivement les rapports ou les données archivées de la base de données.",
+    "dayActiveMsg": "Les actions destructives sont désactivées lorsqu’une journée est active.",
+    "sections": {
+      "reports": {
+        "title": "Rapports"
+      },
+      "archived": {
+        "title": "Données archivées"
+      },
+      "fullReset": {
+        "title": "Réinitialisation complète"
+      }
+    },
+    "clearReports": {
+      "title": "Supprimer les rapports et statistiques",
+      "description": "Supprime uniquement les rapports et les données statistiques.",
+      "buttonLabel": "Supprimer les rapports",
+      "confirmLabel": "Supprimer les rapports",
+      "successMessage": "Rapports supprimés."
+    },
+    "deleteArchivedItems": {
+      "title": "Supprimer tous les éléments archivés",
+      "description": "Supprime définitivement tous les articles de menu et de stock archivés.",
+      "buttonLabel": "Supprimer les éléments archivés",
+      "confirmLabel": "Supprimer les éléments archivés",
+      "successMessage": "Éléments archivés supprimés."
+    },
+    "deleteArchivedMenuItems": {
+      "title": "Supprimer les éléments de menu archivés",
+      "description": "Supprime uniquement les éléments de menu archivés.",
+      "buttonLabel": "Supprimer les éléments de menu archivés",
+      "confirmLabel": "Supprimer les éléments de menu archivés",
+      "successMessage": "Éléments de menu archivés supprimés."
+    },
+    "deleteArchivedStockItems": {
+      "title": "Supprimer les articles de stock archivés",
+      "description": "Supprime uniquement les articles de stock archivés.",
+      "buttonLabel": "Supprimer les articles de stock archivés",
+      "confirmLabel": "Supprimer les articles de stock archivés",
+      "successMessage": "Articles de stock archivés supprimés."
+    },
+    "resetAllData": {
+      "title": "Supprimer toutes les données",
+      "description": "Supprime définitivement toutes les données, y compris les éléments archivés.",
+      "buttonLabel": "Supprimer toutes les données",
+      "confirmLabel": "Supprimer toutes les données",
+      "successMessage": "Toutes les données ont été supprimées."
+    },
+    "cancelButtonLabel": "Annuler"
+  }
+}

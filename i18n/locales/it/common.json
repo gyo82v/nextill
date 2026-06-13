@@ -39,5 +39,9 @@
   "test": {
     "title": "Pagina di test lingua",
     "description": "Se puoi leggere questo, l'italiano è attivo."
+  },
+  "modal": {
+    "title": "Questa azione non può essere annullata.",
+    "description": "Controlla attentamente prima di confermare."
   }
 }

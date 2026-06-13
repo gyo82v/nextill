@@ -39,5 +39,9 @@
   "test": {
     "title": "Language test page",
     "description": "If you can read this, German is active."
+  },
+  "modal": {
+    "title": "Diese Aktion kann nicht rückgängig gemacht werden.",
+    "description": "Bitte überprüfe alles sorgfältig, bevor du bestätigst."
   }
 }

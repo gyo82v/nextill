@@ -39,5 +39,9 @@
   "test": {
     "title": "Language test page",
     "description": "If you can read this, English is active."
+  },
+  "modal": {
+    "title": "This action cannot be undone.",
+    "description": "Please review carefully before confirming."
   }
 }

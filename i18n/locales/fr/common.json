@@ -39,5 +39,9 @@
   "test": {
     "title": "Language test page",
     "description": "If you can read this, French is active."
+  },
+  "modal": {
+    "title": "Cette action est irréversible.",
+    "description": "Veuillez vérifier attentivement avant de confirmer."
   }
 }

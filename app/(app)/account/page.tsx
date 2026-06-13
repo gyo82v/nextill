@@ -3,21 +3,11 @@
 import { useState } from "react";
 import { pdf } from "@react-pdf/renderer";
 import { useAuth } from "@/firebase/authProvider";
-import {
-  resetAllData,
-  resetReports,
-  deleteArchivedMenuAndStockItems,
-  deleteArchivedMenuItems,
-  deleteArchivedStockItems,
-} from "@/firebase/accountData";
+import {resetAllData, resetReports, deleteArchivedMenuAndStockItems,
+        deleteArchivedMenuItems, deleteArchivedStockItems,} from "@/firebase/accountData";
 import { deleteAccountWithPassword, resetPassword } from "@/firebase/accountAuth";
-import {
-  updateCurrency,
-  updateBalanceOption,
-  updateReceiptOption,
-  updateTicketOption,
-  updateDisableMotion,
-} from "@/firebase/userSettings";
+import {updateCurrency, updateBalanceOption, updateReceiptOption,
+        updateTicketOption, updateDisableMotion,} from "@/firebase/userSettings";
 import { DotLineDivider, MenuSectionDivider } from "@/components/ui/dividers/Dividers";
 import AccountOverviewSection from "@/components/account/AccountOverviewSection";
 import PreferencesSection from "@/components/account/PreferencesSection";
@@ -28,16 +18,18 @@ import PrivacyPolicySection from "@/components/account/PrivacyPolicySection";
 import AccountExportPdf from "@/components/account/export/AccountExportPdf";
 import { buildAccountExportReport } from "@/components/account/export/buildAccountExportReport";
 import { exportUserData } from "@/components/account/export/exportUserData";
+import { useTranslation } from "react-i18next";
 
 export default function AccountPage() {
   const { user, profile } = useAuth();
   const [error, setError] = useState<string | null>(null);
+  const {t} = useTranslation("account")
 
   if (!user || !profile) return null;
 
   const uid = user.uid;
   const email = user.email;
-  const dayActive = Boolean(profile?.nextillApp?.dayCycle?.active);
+  const dayActive = profile?.nextillApp?.dayCycle?.active ?? false;
   const currency = profile?.nextillApp?.settings?.currency ?? "EUR";
   const settings = profile?.nextillApp?.settings;
 
@@ -61,7 +53,7 @@ export default function AccountPage() {
     try {
       await updateBalanceOption({ uid });
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to update balance.");
+      setError(err instanceof Error ? err.message : t("errors.updateBalanceFailed"));
     }
   }
 
@@ -72,7 +64,7 @@ export default function AccountPage() {
       await updateTicketOption({ uid });
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : "Failed to update ticket printing."
+        err instanceof Error ? err.message : t("errors.updateTicketPrintingFailed")
       );
     }
   }
@@ -84,7 +76,7 @@ export default function AccountPage() {
       await updateReceiptOption({ uid });
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : "Failed to update receipt printing."
+        err instanceof Error ? err.message : t("errors.updateReceiptPrintingFailed")
       );
     }
   }
@@ -96,7 +88,7 @@ export default function AccountPage() {
       await updateDisableMotion({ uid });
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : "Failed to update motion preference."
+        err instanceof Error ? err.message : t("errors.updateMotionPreferenceFailed")
       );
     }
   }
@@ -107,20 +99,20 @@ export default function AccountPage() {
     try {
       await updateCurrency({ uid, currency: value });
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to update currency.");
+      setError(err instanceof Error ? err.message : t("errors.updateCurrencyFailed"));
     }
   }
 
   {/*security functions*/}
   async function handleResetPassword() {
-    if (!email) throw new Error("Missing email.");
+    if (!email) throw new Error(t("errors.missingEmail"));
     await resetPassword(email);
   }
 
   async function handleDeleteAccount(password: string) {
-    if (dayActive) throw new Error("End the day before deleting the account.");
-    if (!email) throw new Error("Missing email.");
-    if (!password.trim()) throw new Error("Enter your password.");
+    if (dayActive) throw new Error(t("errors.endDayBeforeDeletingAccount"));
+    if (!email) throw new Error(t("errors.missingEmail"));
+    if (!password.trim()) throw new Error(t("errors.enterPassword"));
 
     await resetAllData(uid);
     await deleteAccountWithPassword(email, password);
@@ -128,32 +120,32 @@ export default function AccountPage() {
 
   {/*data management functions*/}
   async function handleResetReports() {
-    if (dayActive) throw new Error("End the day before resetting the reports.");
+    if (dayActive) throw new Error(t("errors.endDayBeforeResettingReports"));
     await resetReports(uid);
   }
 
   async function handleResetAllData() {
-    if (dayActive) throw new Error("End the day before resetting all data.");
+    if (dayActive) throw new Error(t("errors.endDayBeforeResettingAllData"));
     await resetAllData(uid);
   }
 
   async function handleDeleteArchivedMenu() {
     if (dayActive) {
-      throw new Error("End the day before deleting archived items in the menu.");
+      throw new Error(t("errors.endDayBeforeDeletingArchivedMenuItems"));
     }
     await deleteArchivedMenuItems(uid);
   }
 
   async function handleDeleteArchivedStock() {
     if (dayActive) {
-      throw new Error("End the day before deleting archived items in the stock.");
+      throw new Error(t("errors.endDayBeforeDeletingArchivedStockItems"));
     }
     await deleteArchivedStockItems(uid);
   }
 
   async function handleDeleteArchivedAll() {
     if (dayActive) {
-      throw new Error("End the day before deleting all archived items.");
+      throw new Error(t("errors.endDayBeforeDeletingAllArchivedItems"));
     }
     await deleteArchivedMenuAndStockItems(uid);
   }
@@ -188,14 +180,17 @@ export default function AccountPage() {
         <section className="flex w-full justify-center">
           <div className="w-full max-w-2xl">
             <div className="mb-10 sm:mb-6 lg:mb-10">
-              <h1 className="text-2xl font-semibold tracking-tight">Account</h1>
+              <h1 className="text-2xl font-semibold tracking-tight">
+                {t("title")}
+              </h1>
               <p className="mt-1 text-sm text-muted">
-                Manage your profile, preferences, and system settings.
+                {t("description")}
               </p>
             </div>
 
             {error ? (
-              <div className="rounded-xl border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-700">
+              <div className={`rounded-xl border border-red-300 bg-red-50
+                               px-4 py-3 text-sm text-red-700`}>
                 {error}
               </div>
             ) : null}
@@ -210,10 +205,10 @@ export default function AccountPage() {
                 onStaffTicketPrintingChange={handleUpdateTicket}
                 onReceiptPrintingChange={handleUpdateReceipt}
                 onReduceMotionChange={handleDisableMotion}
-                reduceMotion={Boolean(settings?.disableMotion)}
-                staffTicketPrinting={Boolean(settings?.ticketEnabled)}
-                receiptPrinting={Boolean(settings?.receiptEnabled)}
-                balanceEnabled={Boolean(settings?.balanceEnabled)}
+                reduceMotion={settings?.disableMotion ?? false}
+                staffTicketPrinting={settings?.ticketEnabled ?? false}
+                receiptPrinting={settings?.receiptEnabled ?? false}
+                balanceEnabled={settings?.balanceEnabled ?? false}
               />
             </div>
           </div>

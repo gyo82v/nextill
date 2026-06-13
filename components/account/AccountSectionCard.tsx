@@ -1,12 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
-
-type AccountSectionCardProps = {
-  title: string;
-  description?: string;
-  children: ReactNode;
-};
+import type { AccountSectionCardProps } from "@/types";
 
 export default function AccountSectionCard({
   title,

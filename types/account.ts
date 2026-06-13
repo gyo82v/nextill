@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import type { User } from "firebase/auth";
 
 export type DataManagementAction =
   | "clearReports"
@@ -240,4 +241,80 @@ export type BuildAccountExportReportInput = {
 export type DailyTotals = {
   earnings: number;
   transactions: number;
+};
+
+export type AccountOverviewSectionProps = {
+  user: Pick<User, "email" | "emailVerified"> | null;
+  profile: {
+    email?: string | null;
+    displayName?: string | null;
+    nextillApp?: {
+      dayCycle?: {
+        active?: boolean | null;
+      } | null;
+      settings?: {
+        ticketEnabled?: boolean | null;
+        receiptEnabled?: boolean | null;
+        balanceEnabled?: boolean | null;
+      } | null;
+    } | null;
+  } | null;
+};
+
+export type Row = {
+  label: string;
+  value: string;
+};
+
+export type ExportRowProps = {
+  title: string;
+  description: string;
+  buttonLabel: string;
+  onClick: () => void;
+  loading?: boolean;
+}
+
+export type ExportUserDataResult = {
+  user: {
+    email?: string | null;
+    username?: string | null;
+    createdAt?: unknown;
+    emailConfirmed?: boolean | null;
+  };
+  settings: {
+    dayActive?: boolean | null;
+    dayDate?: string | null;
+    language?: string | null;
+    currency?: string | null;
+    darkMode?: boolean | null;
+    balanceEnabled?: boolean | null;
+    ticketEnabled?: boolean | null;
+    receiptEnabled?: boolean | null;
+    disableMotion?: boolean | null;
+  };
+  dayCycle: {
+    startedAt?: unknown | null;
+    endedAt?: unknown | null;
+    openingBalance?: number | null;
+    closingBalance?: number | null;
+    dayKey?: string | null;
+    nextTicketNumber?: number | null;
+  };
+  statistics: {
+    itemsSales?: Record<string, number> | null;
+    lastSaleAt?: unknown;
+    totalEarnings?: number | null;
+    totalTransactions?: number | null;
+    unitsSoldTotal?: number | null;
+  };
+  menuItems: RawMenuItemForExport[];
+  stockItems: RawStockItemForExport[];
+  dailySummaries: RawDailySummaryForExport[];
+  stockActivity: RawStockActivityForExport[];
+};
+
+export type AccountSectionCardProps = {
+  title: string;
+  description?: string;
+  children: ReactNode;
 };

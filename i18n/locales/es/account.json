@@ -1,1 +1,181 @@
-{}
+{
+  "title": "Configuración de la cuenta",
+  "description": "Gestiona tu perfil, preferencias y ajustes del sistema.",
+  "errors": {
+    "updateBalanceFailed": "No se pudo actualizar el saldo.",
+    "updateTicketPrintingFailed": "No se pudo actualizar la impresión de tickets.",
+    "updateReceiptPrintingFailed": "No se pudo actualizar la impresión de recibos.",
+    "updateMotionPreferenceFailed": "No se pudo actualizar la preferencia de movimiento.",
+    "updateCurrencyFailed": "No se pudo actualizar la moneda.",
+    "missingEmail": "Por favor, introduce tu correo electrónico.",
+    "endDayBeforeDeletingAccount": "Por favor, finaliza el día antes de eliminar la cuenta.",
+    "enterPassword": "Por favor, introduce tu contraseña.",
+    "endDayBeforeResettingReports": "Por favor, finaliza el día antes de restablecer los informes.",
+    "endDayBeforeResettingAllData": "Por favor, finaliza el día antes de restablecer todos los datos.",
+    "endDayBeforeDeletingArchivedMenuItems": "Por favor, finaliza el día antes de eliminar los artículos de menú archivados.",
+    "endDayBeforeDeletingArchivedStockItems": "Por favor, finaliza el día antes de eliminar los artículos de stock archivados.",
+    "endDayBeforeDeletingAllArchivedItems": "Por favor, finaliza el día antes de eliminar todos los elementos archivados."
+  },
+  "overview": {
+    "title": "Resumen de la cuenta",
+    "description": "Resumen de tu cuenta y configuración del sistema.",
+    "email": "Correo electrónico",
+    "username": "Nombre de usuario",
+    "dayStatus": "Estado del día",
+    "emailConfirmed": "Estado del correo",
+    "receiptPrintingEnabled": "Impresión de recibos",
+    "ticketPrintingEnabled": "Impresión de tickets",
+    "balanceEnabled": "Seguimiento de saldo",
+    "enabled": "Activado",
+    "disabled": "Desactivado",
+    "active": "Activo",
+    "inactive": "Inactivo",
+    "confirmed": "Confirmado",
+    "notConfirmed": "No confirmado"
+  },
+  "privacy": {
+    "title": "Privacidad",
+    "description": "Descubre cómo se recopilan, utilizan y almacenan tus datos.",
+    "paragraph": "Esta política explica qué información se almacena en tu cuenta, cómo se procesa y qué derechos tienes sobre tus datos personales.",
+    "linkText": "Leer política de privacidad"
+  },
+  "export": {
+    "title": "Exportar datos",
+    "description": "Descarga una copia de los datos de tu cuenta para copia de seguridad, archivo o transferencia.",
+    "buttonLabelDownload": "Descargando",
+    "messages": {
+      "pdfSuccess": "PDF exportado con éxito.",
+      "pdfError": "Error al exportar el PDF.",
+      "backupSuccess": "Copia de seguridad exportada con éxito.",
+      "backupError": "Error al exportar la copia de seguridad."
+    },
+    "pdf": {
+      "title": "Resumen en PDF",
+      "description": "Descarga un resumen legible de tu cuenta, configuración y actividad para imprimir o compartir.",
+      "buttonLabel": "Descargar PDF"
+    },
+    "backup": {
+      "title": "Copia de seguridad completa (JSON)",
+      "description": "Descarga una copia completa de tus datos en formato JSON para restaurarlos más tarde.",
+      "buttonLabel": "Descargar copia de seguridad"
+    }
+  },
+  "security": {
+    "title": "Seguridad",
+    "description": "Gestiona tu contraseña y elimina tu cuenta.",
+    "resetPassword": {
+      "title": "Restablecer contraseña",
+      "description": "Envía un correo para restablecer la contraseña a tu dirección de email.",
+      "buttonLabel": "Restablecer contraseña",
+      "loadingText": "Enviando..."
+    },
+    "deleteAccount": {
+      "title": "Eliminar cuenta",
+      "description": "Introduce tu contraseña para eliminar permanentemente tu cuenta.",
+      "passwordLabel": "Contraseña",
+      "passwordPlaceholder": "Introduce tu contraseña",
+      "buttonLabel": "Eliminar cuenta",
+      "dayActiveMessage": "Finaliza el día antes de eliminar tu cuenta.",
+      "modal": {
+        "title": "Eliminar cuenta",
+        "description": "Esto eliminará permanentemente tu cuenta y todos tus datos.",
+        "confirmButtonLabel": "Eliminar cuenta",
+        "cancelButtonLabel": "Cancelar"
+      }
+    },
+    "messages": {
+      "resetPasswordSuccess": "Correo de restablecimiento enviado.",
+      "resetPasswordError": "No se pudo restablecer la contraseña.",
+      "deleteAccountDayActiveError": "Finaliza el día antes de eliminar tu cuenta.",
+      "deleteAccountPasswordMissingError": "Por favor, introduce tu contraseña.",
+      "deleteAccountSuccess": "Cuenta eliminada.",
+      "deleteAccountError": "No se pudo eliminar la cuenta."
+    }
+  },
+  "preferences": {
+    "title": "Preferencias",
+    "description": "Gestiona el idioma, la moneda y el comportamiento de la aplicación.",
+    "localization": {
+      "title": "Idioma y moneda",
+      "language": {
+        "label": "Idioma",
+        "description": "Cambia el idioma de la aplicación."
+      },
+      "currency": {
+        "label": "Moneda",
+        "description": "Elige la moneda predeterminada de la aplicación."
+      }
+    },
+    "system": {
+      "title": "Comportamiento del sistema",
+      "disableMotion": {
+        "label": "Reducir movimiento",
+        "description": "Reduce las animaciones y efectos de movimiento en toda la aplicación."
+      },
+      "staffTicketPrinting": {
+        "label": "Impresión de tickets del personal",
+        "description": "Imprime el ticket enviado a cocina o barra."
+      },
+      "customerReceiptPrinting": {
+        "label": "Impresión de recibos del cliente",
+        "description": "Imprime el recibo para el cliente."
+      },
+      "openingClosingBalance": {
+        "label": "Apertura y cierre de caja",
+        "description": "Activa el flujo de apertura y cierre de caja."
+      }
+    }
+  },
+  "management": {
+    "title": "Gestión de datos",
+    "description": "Elimina permanentemente informes o datos archivados de la base de datos.",
+    "dayActiveMsg": "Las acciones destructivas están desactivadas mientras el día esté activo.",
+    "sections": {
+      "reports": {
+        "title": "Informes"
+      },
+      "archived": {
+        "title": "Datos archivados"
+      },
+      "fullReset": {
+        "title": "Reinicio completo"
+      }
+    },
+    "clearReports": {
+      "title": "Borrar informes y estadísticas",
+      "description": "Elimina solo los informes y datos estadísticos.",
+      "buttonLabel": "Borrar informes",
+      "confirmLabel": "Borrar informes",
+      "successMessage": "Informes eliminados."
+    },
+    "deleteArchivedItems": {
+      "title": "Eliminar todos los elementos archivados",
+      "description": "Elimina permanentemente los artículos de menú y stock archivados.",
+      "buttonLabel": "Eliminar elementos archivados",
+      "confirmLabel": "Eliminar elementos archivados",
+      "successMessage": "Elementos archivados eliminados."
+    },
+    "deleteArchivedMenuItems": {
+      "title": "Eliminar elementos de menú archivados",
+      "description": "Elimina únicamente los elementos de menú archivados.",
+      "buttonLabel": "Eliminar elementos de menú archivados",
+      "confirmLabel": "Eliminar elementos de menú archivados",
+      "successMessage": "Elementos de menú archivados eliminados."
+    },
+    "deleteArchivedStockItems": {
+      "title": "Eliminar artículos de stock archivados",
+      "description": "Elimina únicamente los artículos de stock archivados.",
+      "buttonLabel": "Eliminar artículos de stock archivados",
+      "confirmLabel": "Eliminar artículos de stock archivados",
+      "successMessage": "Artículos de stock archivados eliminados."
+    },
+    "resetAllData": {
+      "title": "Eliminar todos los datos",
+      "description": "Elimina permanentemente todos los datos, incluidos los elementos archivados.",
+      "buttonLabel": "Eliminar todos los datos",
+      "confirmLabel": "Eliminar todos los datos",
+      "successMessage": "Todos los datos han sido eliminados."
+    },
+    "cancelButtonLabel": "Cancelar"
+  }
+}

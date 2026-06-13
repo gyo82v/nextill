@@ -1,4 +1,4 @@
-import type { MenuItem } from "@/firebase/menu";
+import type { MenuItem } from "@/types";
 
 export function createMenuNameById(menuItems: MenuItem[]) {
   return new Map(menuItems.map((item) => [item.id, item.name]));

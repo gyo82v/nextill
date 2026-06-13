@@ -6,6 +6,7 @@ import ConfirmModal from "@/components/ui/modals/ConfirmModal";
 import AccountSectionCard from "./AccountSectionCard";
 import type { SecuritySectionProps, FeedbackState } from "@/types";
 import { inputBaseStyle } from "@/styles";
+import { useTranslation } from "react-i18next";
 
 export default function SecuritySection({
   onResetPassword,
@@ -16,6 +17,7 @@ export default function SecuritySection({
   const [confirmDeleteOpen, setConfirmDeleteOpen] = useState(false);
   const [loadingAction, setLoadingAction] = useState<"resetPassword" | "deleteAccount" | null>(null);
   const [feedback, setFeedback] = useState<FeedbackState>(null);
+  const {t} = useTranslation("account")
 
   async function handleResetPassword() {
     setFeedback(null);
@@ -25,12 +27,12 @@ export default function SecuritySection({
       await onResetPassword();
       setFeedback({
         type: "success",
-        message: "Password reset email sent.",
+        message: t("security.messages.resetPasswordSuccess"),
       });
     } catch (err) {
       setFeedback({
         type: "error",
-        message: err instanceof Error ? err.message : "Failed to reset password.",
+        message: err instanceof Error ? err.message : t("security.messages.resetPasswordError"),
       });
     } finally {
       setLoadingAction(null);
@@ -43,7 +45,7 @@ export default function SecuritySection({
     if (dayActive) {
       setFeedback({
         type: "error",
-        message: "End the day before deleting the account.",
+        message: t("security.messages.deleteAccountDayActiveError"),
       });
       return;
     }
@@ -51,7 +53,7 @@ export default function SecuritySection({
     if (!deletePassword.trim()) {
       setFeedback({
         type: "error",
-        message: "Enter your password.",
+        message: t("security.messages.deleteAccountPasswordMissingError"),
       });
       return;
     }
@@ -67,14 +69,14 @@ export default function SecuritySection({
       await onDeleteAccount(deletePassword);
       setFeedback({
         type: "success",
-        message: "Account deleted.",
+        message: t("security.messages.deleteAccountSuccess"),
       });
       setDeletePassword("");
       setConfirmDeleteOpen(false);
     } catch (err) {
       setFeedback({
         type: "error",
-        message: err instanceof Error ? err.message : "Failed to delete account.",
+        message: err instanceof Error ? err.message : t("security.messages.deleteAccountError"),
       });
     } finally {
       setLoadingAction(null);
@@ -83,8 +85,8 @@ export default function SecuritySection({
 
   return (
     <AccountSectionCard
-      title="Security"
-      description="Manage your password and account deletion."
+      title={t("security.title")}
+      description={t("security.description")}
     >
       <div className="space-y-6">
         {feedback ? (
@@ -100,11 +102,14 @@ export default function SecuritySection({
           </div>
         ) : null}
 
-        <div className="flex flex-col gap-2 rounded-xl border border-default bg-surface-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className={`flex flex-col gap-2 rounded-xl border border-default bg-surface-2
+                         px-4 py-3 sm:flex-row sm:items-center sm:justify-between`}>
           <div className="space-y-1">
-            <h3 className="text-sm font-medium text-foreground">Reset password</h3>
+            <h3 className="text-sm font-medium text-foreground">
+              {t("security.resetPassword.title")}
+            </h3>
             <p className="text-sm text-muted-foreground">
-              Send a password reset email to your account address.
+              {t("security.resetPassword.description")}
             </p>
           </div>
 
@@ -114,17 +119,19 @@ export default function SecuritySection({
             onClick={handleResetPassword}
             disabled={loadingAction !== null}
             loading={loadingAction === "resetPassword"}
-            loadingText="Sending"
+            loadingText={t("security.resetPassword.loadingText")}
           >
-            Reset password
+            {t("security.resetPassword.buttonLabel")}
           </Button>
         </div>
 
         <div className="space-y-3 rounded-xl border border-default bg-surface-2 px-4 py-3">
           <div className="space-y-1">
-            <h3 className="text-sm font-medium text-foreground">Delete account</h3>
+            <h3 className="text-sm font-medium text-foreground">
+              {t("security.deleteAccount.title")}
+            </h3>
             <p className="text-sm text-muted-foreground">
-              Enter your password to permanently delete your account.
+              {t("security.deleteAccount.description")}
             </p>
           </div>
 
@@ -133,7 +140,7 @@ export default function SecuritySection({
               htmlFor="deletePassword"
               className="block text-sm font-medium text-foreground"
             >
-              Password
+              {t("security.deleteAccount.passwordLabel")}
             </label>
 
             <input
@@ -141,7 +148,7 @@ export default function SecuritySection({
               type="password"
               value={deletePassword}
               onChange={(e) => setDeletePassword(e.target.value)}
-              placeholder="Enter password"
+              placeholder={t("security.deleteAccount.passwordPlaceholder")}
               className={`w-full ${inputBaseStyle}`}
               autoComplete="current-password"
             />
@@ -153,12 +160,12 @@ export default function SecuritySection({
             onClick={handleOpenDeleteConfirm}
             disabled={loadingAction !== null || dayActive}
           >
-            Delete account
+            {t("security.deleteAccount.buttonLabel")}
           </Button>
 
           {dayActive ? (
             <p className="text-xs text-orange-600">
-              End the day before deleting the account.
+              {t("security.deleteAccount.dayActiveMessage")}
             </p>
           ) : null}
         </div>
@@ -169,10 +176,10 @@ export default function SecuritySection({
             if (loadingAction !== "deleteAccount") setConfirmDeleteOpen(false);
           }}
           onConfirm={handleConfirmDelete}
-          title="Delete account"
-          description="This will permanently delete your account and all your data."
-          confirmLabel="Delete account"
-          cancelLabel="Cancel"
+          title={t("security.deleteAccount.modal.title")}
+          description={t("security.deleteAccount.modal.description")}
+          confirmLabel={t("security.deleteAccount.modal.confirmButtonLabel")}
+          cancelLabel={t("security.deleteAccount.modal.cancelButtonLabel")}
           loading={loadingAction === "deleteAccount"}
           danger
         />
