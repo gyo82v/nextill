@@ -71,3 +71,173 @@ export type ExportDataSectionProps = {
   onExportPdf: () => Promise<void>;
   onExportBackup: () => Promise<void>;
 };
+
+export type AccountExportReport = {
+  exportedAt: string;
+  user: {
+    email: string;
+    username: string;
+    createdAt: string;
+    emailConfirmed: boolean;
+  };
+  settings: {
+    dayActive: boolean;
+    dayDate: string;
+    language: string;
+    currency: string;
+    darkMode: boolean;
+    staffTicketPrinting: boolean;
+    receiptPrinting: boolean;
+    balanceEnabled: boolean;
+    motionReduced: boolean;
+    dayCycle: {
+      startedAt: string;
+      endedAt: string;
+      openingBalance: string;
+      closingBalance: string;
+      dayKey: string;
+      nextTicketNumber: string;
+    };
+    statistics: {
+      totalEarnings: string;
+      totalTransactions: string;
+      unitsSoldTotal: string;
+      lastSaleAt: string;
+    };
+  };
+  menu: {
+    totalItems: number;
+    activeItems: number;
+    archivedItems: number;
+    categories: Array<{
+      name: string;
+      totalItems: number;
+      activeItems: number;
+      archivedItems: number;
+    }>;
+  };
+  stock: {
+    totalItems: number;
+    activeItems: number;
+    archivedItems: number;
+    lowStockItems: number;
+    categories: Array<{
+      name: string;
+      totalItems: number;
+      activeItems: number;
+      archivedItems: number;
+      lowStockItems: number;
+    }>;
+  };
+  dailySummaries: {
+    totalSummaries: number;
+    dateRange: string;
+    totalEarnings: string;
+    totalTransactions: string;
+    mostRecentSummary: string;
+    recentSummaries: Array<{
+      date: string;
+      earnings: string;
+      transactions: string;
+    }>;
+  };
+  stockActivity: {
+    totalEntries: number;
+    lastActivity: string;
+    recentActivities: Array<{
+      createdAt: string;
+      action: string;
+      itemName: string;
+      quantityDelta: string;
+      quantityAfter: string;
+    }>;
+  };
+};
+
+export type AccountExportPdfProps = {
+  data: AccountExportReport;
+};
+
+export type RawMenuItemForExport = {
+  category?: string | null;
+  active?: boolean | null;
+  createdAt?: unknown;
+  updatedAt?: unknown;
+  archivedAt?: unknown;
+  name?: string | null;
+  priceMinor?: number | null;
+};
+
+export type RawStockItemForExport = {
+  category?: string | null;
+  active?: boolean | null;
+  createdAt?: unknown;
+  updatedAt?: unknown;
+  archivedAt?: unknown;
+  name?: string | null;
+  quantity?: number | null;
+  unit?: string | null;
+  minQty?: number | null;
+};
+
+export type RawDailySummaryForExport = {
+  date?: string | null;
+  earnings?: number | null;
+  transactions?: number | null;
+  updatedAt?: unknown;
+};
+
+export type RawStockActivityForExport = {
+  action?: string | null;
+  createdAt?: unknown;
+  itemName?: string | null;
+  quantityBefore?: number | null;
+  quantityAfter?: number | null;
+  quantityDelta?: number | null;
+  stockId?: string | null;
+};
+
+export type BuildAccountExportReportInput = {
+  exportedAt?: Date;
+  user: {
+    email?: string | null;
+    username?: string | null;
+    createdAt?: unknown;
+    emailConfirmed?: boolean | null;
+  };
+  settings: {
+    dayActive?: boolean | null;
+    dayDate?: string | null;
+    language?: string | null;
+    currency?: string | null;
+    darkMode?: boolean | null;
+    balanceEnabled?: boolean | null;
+    ticketEnabled?: boolean | null;
+    receiptEnabled?: boolean | null;
+    disableMotion?: boolean | null;
+  };
+  dayCycle: {
+    startedAt?: unknown | null;
+    endedAt?: unknown | null;
+    openingBalance?: number | null;
+    closingBalance?: number | null;
+    dayKey?: string | null;
+    nextTicketNumber?: number | null;
+  };
+  statistics: {
+    itemsSales?: Record<string, number> | null;
+    lastSaleAt?: unknown;
+    totalEarnings?: number | null;
+    totalTransactions?: number | null;
+    unitsSoldTotal?: number | null;
+  };
+  menuItems: RawMenuItemForExport[];
+  stockItems: RawStockItemForExport[];
+  dailySummaries: RawDailySummaryForExport[];
+  stockActivity: RawStockActivityForExport[];
+};
+
+export type DailyTotals = {
+  earnings: number;
+  transactions: number;
+};

@@ -33,6 +33,11 @@ import itPos from "./locales/it/pos.json"
 import esPos from "./locales/es/pos.json"
 import frPos from "./locales/fr/pos.json"
 import dePos from "./locales/de/pos.json"
+import enAccount from "./locales/en/account.json"
+import itAccount from "./locales/it/account.json"
+import esAccount from "./locales/es/account.json"
+import frAccount from "./locales/fr/account.json"
+import deAccount from "./locales/de/account.json"
 
 
 export const resources = {
@@ -43,7 +48,8 @@ export const resources = {
     menu: enMenu,
     stock: enStock,
     reports: enReports,
-    pos: enPos
+    pos: enPos,
+    account: enAccount
   },
   it: {
     common: itCommon,
@@ -52,7 +58,8 @@ export const resources = {
     menu: itMenu,
     stock: itStock,
     reports: itReports,
-    pos: itPos
+    pos: itPos,
+    account: itAccount
   },
   es: {
     common: esCommon,
@@ -61,7 +68,8 @@ export const resources = {
     menu: esMenu,
     stock: esStock,
     reports: esReports,
-    pos: esPos
+    pos: esPos,
+    account: esAccount
   },
   fr: {
     common: frCommon,
@@ -70,7 +78,8 @@ export const resources = {
     menu: frMenu,
     stock: frStock,
     reports: frReports,
-    pos: frPos
+    pos: frPos,
+    account: frAccount
   },
   de: {
     common: deCommon,
@@ -79,6 +88,7 @@ export const resources = {
     menu: deMenu,
     stock: deStock,
     reports: deReports,
-    pos: dePos
+    pos: dePos,
+    account: deAccount
   },
 } as const;
