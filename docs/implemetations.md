@@ -1,8 +1,8 @@
 NEXTILL IMPLEMENTATION LIST
 
 - [Design] [Header] Design the nextill logo;
-- [Content] [App] Make the app Progressive  web App, add a manifest file, icons, html etc;
-- [Design] [App] Design the icon app used when the app is installed;
+- [✅] {Content}{App} Make the app Progressive  web App, add a manifest file, icons, html etc;
+- [✅] {Design}{App} Design the icon app used when the app is installed;
 - [Refactor] [Firestore] Modify the create new account function to add email confirmation;
 - [✅] {Content}{Header} build the navigation bar for mobile, add icon, when clicked open the 
                      navigation menu;
@@ -82,7 +82,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Refactor}{Reports} Refactor the Stats page: types, enslint errors, separate components;
 - [✅] {refactor}{Account} Refactor the Account page: types, enslint errors, separate components;
 - [✅] {Refactor}{Header} Refactor the Header page: types, enslint errors, separate components;
-- [Refactor] [Firebase] Refactor the firebase files, types, enslint erros;
+- [✅] {Refactor}{Firebase} Refactor the firebase files, types, enslint erros;
 - [Content] [App] Add the feature password forgotten;
 - [✅] {Utils}{App} Create a reusable focus style;
 - [✅] {Utils}{App} Create a reusable pattern style with transitions;
@@ -158,7 +158,7 @@ NEXTILL IMPLEMENTATION LIST
                empty option list;
 - [Fix] [Account] fix the delete account with password; the password must match the user password.
                   now any text work;
-- [Clean] [Dividers] Clean the unused dividers;
+- [✅] {Clean}{Dividers} Clean the unused dividers;
 - [✅] {Clean}{AppHeader} Clean the unused code in the Navbar component;
 - [✅] {Optional}{Account} improve the export data feature, instead of a json file use pdf or other formats;
 - [✅] {Optional}{Account} add an accessibility option to disable motion;

@@ -47,23 +47,3 @@ export async function deleteAccountWithPassword(
   // 3️⃣ Delete Auth user LAST
   await deleteUser(user);
 }
-
-
-
-/*
-export async function deleteAccountWithPassword(
-  email: string,
-  password: string
-) {
-  const auth = getAuth();
-  const user = auth.currentUser;
-
-  if (!user || !email) {
-    throw new Error("Not authenticated");
-  }
-
-  const credential = EmailAuthProvider.credential(email, password);
-  await reauthenticateWithCredential(user, credential);
-  await deleteUser(user);
-}
-  */

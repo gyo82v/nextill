@@ -145,24 +145,3 @@ export async function clearMenuItems(uid: string): Promise<number> {
   return processed;
 }
 
-
-
-
-/*
-
-
-export async function deleteMenuItem(uid: string, menuId: string) {
-  await deleteDoc(doc(menuCol(uid), menuId));
-}
-
-export async function clearMenuItems(uid: string) {
-  const items = await listMenuItems(uid);
-  await Promise.all(items.map((item) => deleteDoc(doc(menuCol(uid), item.id))));
-}
-
-
-
-
-
-
-*/

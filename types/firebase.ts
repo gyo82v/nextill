@@ -1,5 +1,6 @@
 import type { User } from "firebase/auth"
-import {UserProfile,} from "./user"
+import {UserProfile} from "./user"
+import type { CartItem, MenuItem } from "@/types";
 
 export type AuthContextValue = {
     user : User | null
@@ -36,3 +37,18 @@ export type EndDayProps = {
     uid: string,
     closingBalance: number
 }
+
+export type CompleteCheckoutParams = {
+  uid: string;
+  dayKey: string;
+  items: (CartItem & { menu: MenuItem })[];
+  totalMinor: number;
+};
+
+export type StockRead = {
+  stockId: string;
+  itemName: string;
+  currentQty: number;
+  removeQty: number;
+  nextQty: number;
+};
