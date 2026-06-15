@@ -26,16 +26,16 @@ function normalizeIngredients(ingredients?: MenuIngredient[]) {
     }));
 }
 
-export async function listActiveMenuItems(uid: string) {
+export async function listActiveMenuItems(uid: string): Promise<MenuItem[]> {
   const q = query(menuCol(uid), orderBy("createdAt", "desc"));
   const snap = await getDocs(q);
 
   return snap.docs
-    .map((d) => ({
+    .map((d): MenuItem => ({
       id: d.id,
-      ...d.data(),
+      ...(d.data() as Omit<MenuItem, "id">),
     }))
-    .filter((item) => item.active !== false) as MenuItem[];
+    .filter((item) => item.active !== false);
 }
 
 
@@ -108,7 +108,7 @@ export async function deleteMenuItem(uid: string, menuId: string) {
   });
 }
 
-export async function clearMenuItems(uid: string) {
+export async function clearMenuItems(uid: string): Promise<number> {
   if (!uid) throw new Error("Missing user id.");
 
   const snap = await getDocs(query(menuCol(uid), orderBy("createdAt", "desc")));
@@ -116,9 +116,9 @@ export async function clearMenuItems(uid: string) {
   const items = snap.docs
     .map((d) => ({
       id: d.id,
-      ...d.data(),
+      ...(d.data() as Omit<MenuItem, "id">),
     }))
-    .filter((item) => item.active !== false); // includes missing active field
+    .filter((item) => item.active !== false)
 
   if (items.length === 0) return 0;
 

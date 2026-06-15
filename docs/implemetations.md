@@ -8,7 +8,7 @@ NEXTILL IMPLEMENTATION LIST
                      navigation menu;
 - [✅] {Content}{Menu} Add the feature in the Menu page to clear all menu with a button;
 - [✅] {Content}{Stock} Add the feature in the Stock page to clear all stock with a button;
-- [Content] [Account] Add a feature in the Account page to clear all stats with a button;
+- [✅] {Content}{Account} Add a feature in the Account page to clear all stats with a button;
 - [✅] {Style}{Header} style the mobile navigation menu;
 - [✅] {Content}{Pos} create a confirm order modal/page; when the user clicks on the checkout button
         the modal/page opens; it has a recap of the order, buttons to proceed or cancel;
@@ -28,9 +28,9 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Content}{Header} Add a confirmation modal when the user clicks the sign out button;
 - [✅] {Style}{Header} Style the language and darkmode toggles in the header in logged off mode;
 - [✅] {Content}{Footer} Add information in the footer like: project-demo, @nextill, a mail option etc;
-- [Content] [Account] Add privacy policy;
-- [Content] [Account] Add enable/disable printing option;
-- [Content] [Account] Add the enable balance option;
+- [✅] {Content}{Account} Add privacy policy;
+- [✅] {Content}{Account} Add enable/disable printing option;
+- [✅] {Content}{Account} Add the enable balance option;
 - [✅] {Content}{App} create a privacy policy page;
 - [✅] {Style}{Footer} Style the footer for mobile/desktop;
 - [✅] {Content}{Intro} add an introduction description in the intro page with h1, p ... it should 
@@ -70,17 +70,17 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Content}{Reports} Add a title and description to the stats page and for each section;
 - [✅] {Style}{Reports} Style the current day transactions section and each transaction card;
 - [✅] {Style}{Reports} Style the daily overview cards;
-- [Style] [Account] Style the account page and the layout for mobile/desktop;
-- [Style] [Account] Style each section in the account page: profile,security,export data,
-                    preferences and mantainance;
-- [Style] [Account] Style the modal section when the user try to clear all data;
+- [✅] {Style}{Account} Style the account page and the layout for mobile/desktop;
+- [✅] {Style}{Account} Style each section in the account page: profile,security,export data,
+        preferences and mantainance;
+- [✅] {style}{Account} Style the modal section when the user try to clear all data;
 - [✅] {Refactor}{App} Refactor the language feature to support spanish, french and german;
 - [✅] {Refactor}{Intro} Refactor the intro page: types, enslint errors, separate components;
 - [✅] {Refactor}{Pos} Refactor the Till page: types, enslint errors, separate components;
 - [✅] {Refactor}{Menu} Refactor the Menu page: types, enslint errors, separate components;
 - [✅] {Refactor}{Stock} Refactor the Stock page: types, enslint errors, separate components;
 - [✅] {Refactor}{Reports} Refactor the Stats page: types, enslint errors, separate components;
-- [Refactor] [Account] Refactor the Account page: types, enslint errors, separate components;
+- [✅] {refactor}{Account} Refactor the Account page: types, enslint errors, separate components;
 - [✅] {Refactor}{Header} Refactor the Header page: types, enslint errors, separate components;
 - [Refactor] [Firebase] Refactor the firebase files, types, enslint erros;
 - [Content] [App] Add the feature password forgotten;
@@ -104,7 +104,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Localization}{Menu} Add localization to the menu page;
 - [✅] {Localization}{Stock} Add localization to the stock page;
 - [✅] {Localization}{Reports} Add localization to the Stats page;
-- [Localization] [Account] Add localization to the account page;
+- [✅] {Localization}{Account} Add localization to the account page;
 - [✅] {Localization}{Privacy-Policy} add localization to the privacy policy page;
 - [✅] {Localization}{Header} Add localization to the Header;
 - [✅] {Localization}{Footer} Add localization to the footer;
@@ -114,7 +114,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {A11y}{Menu} Add accessibility to the Menu page;
 - [✅] {A11y}{Stock} Add accessibility to the stock page;
 - [✅] {A11y}{Reports} Add accessibility to the Stats page;
-- [A11y] [Account] Add accessibility to the account page;
+- [✅] {A11y}{Account} Add accessibility to the account page;
 - [✅] {A11y}{Header/Footer} add accessibility to the Header and Footer;
 - [✅] {A11y}{Intro} Add accessibility to the intro page;
 - [✅] {A11y}{Privacy-Policy} add accessibility to the privacy-policy page;
@@ -131,10 +131,10 @@ NEXTILL IMPLEMENTATION LIST
 - [Test] [App] Run the lighthouse test;
 - [✅] {Fix}{Account} Fix the delete account function; at the moment it deletes only the auth.
         it should delete the firestore users doc associated;
-- [Fix] [Account] Fix the clear all data function; it should reset the data of the entire app.
-                  at the moment it just clear the stock collections and nothing else;
-- [Fix] [App] add printingEnabled anywhere in the firebase functions where needed;
-              in particular when creating a new account;
+- [✅] {Fix}{Account} Fix the clear all data function; it should reset the data of the entire app.
+        at the moment it just clear the stock collections and nothing else;
+- [✅] {Fix}{App} add printingEnabled anywhere in the firebase functions where needed;
+        in particular when creating a new account;
 - [✅] {Fix}{Pos} add the dynamically rendering of the balace depending on the balanceEnabled in 
         the database in the start/end section in the pos page;
 - [✅] {Fix}{Reports} when a menu item is deleted, in the stats page it show the id and not the name;
@@ -160,12 +160,11 @@ NEXTILL IMPLEMENTATION LIST
                   now any text work;
 - [Clean] [Dividers] Clean the unused dividers;
 - [✅] {Clean}{AppHeader} Clean the unused code in the Navbar component;
-- [Optional] [Account] improve the export data feature, instead of a json file use pdf or other formats;
-- [Optional] [Account] add an accessibility option to disable motion;
+- [✅] {Optional}{Account} improve the export data feature, instead of a json file use pdf or other formats;
+- [✅] {Optional}{Account} add an accessibility option to disable motion;
 - [Optional] [App] add sounds effects to the till and an option in the account page to disable it;
 - [Optional] [App] if necessary rewrite the pages where is possible to render them sever side 
                    instead of  client;
-- [Optional] [Till] add the option to clear the entire cart;
 - [✅] {Optional}{Pos} decide how to set the till: use a searchbar, filters, divide by categories;
 - [Optional] [Menu] Add a search bar in the menu page;
 - [Optional] [App] Add the option to undo the last transactions;
@@ -182,7 +181,7 @@ NEXTILL IMPLEMENTATION LIST
 - [optional] [App] Add the option to register a second email or the option to update the current email;
 - [Optional] [App] Create a custom modal component for the confirmation action like 
                    delete account, clear menu, clear stock, clear all etc;
-- [Optional] [Account] Add a function that will clear all archived items in the stock;
+- [✅] {Optional}{Account} Add a function that will clear all archived items in the stock;
 - [Optional] [Stock] add a default unit when creating a new stock item. example: "unit", "pcs"
 - [Optional] [Stock] add a show button to the stock activity section and render the section
                      dinamicaly;

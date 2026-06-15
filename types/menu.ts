@@ -16,6 +16,8 @@ export interface MenuItem {
   ingredients: MenuIngredient[];
   createdAt: Timestamp;
   updatedAt: Timestamp;
+  archivedAt?: Timestamp;
+  active?: boolean
 }
 
 

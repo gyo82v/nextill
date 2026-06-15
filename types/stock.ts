@@ -15,6 +15,8 @@ export interface StockItem {
   createdAt: Timestamp;
   updatedAt: Timestamp;
   minQty: number;
+  active?: boolean;
+  archivedAt?: Timestamp
 }
 
 export interface StockActivity {

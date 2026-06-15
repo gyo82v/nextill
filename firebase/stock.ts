@@ -10,7 +10,6 @@ import {
   onSnapshot,
   writeBatch,
   updateDoc,
-  where
 } from "firebase/firestore";
 import { db } from "./firebase";
 import type { StockItem, StockActivity, CreateStockItemInput } from "@/types/stock";

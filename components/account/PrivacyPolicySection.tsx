@@ -3,6 +3,7 @@
 import Link from "next/link";
 import AccountSectionCard from "./AccountSectionCard";
 import { useTranslation } from "react-i18next";
+import { focusRing } from "@/styles";
 
 export default function PrivacyPolicySection() {
   const {t} = useTranslation("account")
@@ -18,7 +19,8 @@ export default function PrivacyPolicySection() {
 
         <Link
           href="/privacy-policy"
-          className="inline-flex items-center text-sm font-medium text-primary hover:underline"
+          className={`inline-flex items-center text-sm font-medium 
+                      text-primary hover:underline ${focusRing}`}
         >
           {t("privacy.linkText")}
         </Link>
