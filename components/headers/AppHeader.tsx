@@ -24,21 +24,21 @@ export default function AppHeader() {
             Nextill
           </span>
 
-          <div className="hidden flex-1 md:flex md:justify-center">
+          <div className="hidden flex-1 lg:flex lg:justify-center">
             <Navbar />
           </div>
 
           <div className="flex items-center gap-2 lg:gap-4 xl:gap-10">
             <ThemeToggle />
 
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
               <UserSection />
             </div>
 
             <button
               type="button"
               className={`hover:-translate-y-0.5 hover:shadow-md dark:hover:shadow-black/20                  
-                         ${iconsBtn} md:hidden`}
+                         ${iconsBtn} lg:hidden`}
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-header-menu"

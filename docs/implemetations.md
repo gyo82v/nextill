@@ -89,8 +89,8 @@ NEXTILL IMPLEMENTATION LIST
 - [Utils] [App] Import two font form google fonts. a main font and a secondary;
 - [Utils] [App] Add a global and local notFound page, add localization to it;
 - [✅] {Utils}{App} Decide the colors palette to use and set the default in global.css;
-- [Utils] [Layout] update the main layout page with sr-only section and anything useful;
-- [Utils] [Html] update the html page with meta descriptions, title, and anything useful;
+- [✅] {Utils}{Layout} update the main layout page with sr-only section and anything useful;
+- [✅] {Utils}{Html} update the html page with meta descriptions, title, and anything useful;
 - [Utils] [Globals.css] update the global.css with all the necessary default styles;
 - [Utils] [App] make the vertical scrollbar visible in desktops and not visible in mobile;
 - [✅] {Utils}{App} add nextill app icon in the title instad of the next.js icons;
@@ -140,8 +140,8 @@ NEXTILL IMPLEMENTATION LIST
 - [Fix] [Header] fix the text color of the navbar links for the darkmode;
 - [✅] {Fix}{Select-component} Fix the select compound component. When too many elements are in the options
         there should be a scroll sidebar, this will fix the height issue in the menu page;
-- [Fix] [Menu/Style] fix the style for the menu page when the content is stacked vertically for mobile
-                     and small screens;
+- [✅] {Fix}{Menu} fix the style for the menu page when the content is stacked vertically for mobile
+        and small screens;
 - [✅] {Fix}{App} add the category "bundle" to menu items everywhere is needed;
 - [✅] {Fix}{Reports} in the reports page most sections render the id of an item while they should 
         render the name;
