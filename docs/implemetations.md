@@ -93,7 +93,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Utils] [Html] update the html page with meta descriptions, title, and anything useful;
 - [Utils] [Globals.css] update the global.css with all the necessary default styles;
 - [Utils] [App] make the vertical scrollbar visible in desktops and not visible in mobile;
-- [Utils] [App] add nextill app icon in the title instad of the next.js icons;
+- [✅] {Utils}{App} add nextill app icon in the title instad of the next.js icons;
 - [Utils] [App] create an error route for all no existant paths;
 - [✅] {Utils}{App} create a reusable spinner;
 - [✅] {Utils}{App} create reusable dividers;
@@ -163,8 +163,6 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Optional}{Account} improve the export data feature, instead of a json file use pdf or other formats;
 - [✅] {Optional}{Account} add an accessibility option to disable motion;
 - [Optional] [App] add sounds effects to the till and an option in the account page to disable it;
-- [Optional] [App] if necessary rewrite the pages where is possible to render them sever side 
-                   instead of  client;
 - [✅] {Optional}{Pos} decide how to set the till: use a searchbar, filters, divide by categories;
 - [Optional] [Menu] Add a search bar in the menu page;
 - [Optional] [App] Add the option to undo the last transactions;
@@ -189,6 +187,6 @@ NEXTILL IMPLEMENTATION LIST
 - [Optional] [Stock] in the stock activity acrd add an icon for add, remove or archieved;
 - [Optional] [App] Add discount system;
 - [Optional] [Stock] Add another category to the stock items for non food/drink items;
-- [Optional] [App] Translate the errors messages where necessary;
+- [✅] {Optional}{App} Translate the errors messages where necessary;
 - [Optional] [pos] add a show/hide button for each category section in the menu list;
                           
