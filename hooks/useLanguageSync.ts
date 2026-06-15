@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import type { UserProfile } from "@/firebase/authClient";
+import type { UserProfile } from "@/types";
 
 const FALLBACK_LANGUAGE = "en";
 
