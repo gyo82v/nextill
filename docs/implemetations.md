@@ -94,7 +94,6 @@ NEXTILL IMPLEMENTATION LIST
 - [Utils] [Globals.css] update the global.css with all the necessary default styles;
 - [Utils] [App] make the vertical scrollbar visible in desktops and not visible in mobile;
 - [✅] {Utils}{App} add nextill app icon in the title instad of the next.js icons;
-- [Utils] [App] create an error route for all no existant paths;
 - [✅] {Utils}{App} create a reusable spinner;
 - [✅] {Utils}{App} create reusable dividers;
 - [Utils] [App] Add spinnes in all async buttons;
@@ -171,9 +170,9 @@ NEXTILL IMPLEMENTATION LIST
 - [Optional] [Menu] add the option to edit the price of each exisitng dish;
 - [Optional] [App] Add options for cash/cards payment;
 - [Optional] [Stock] Add in the stock activity cards the date;
-- [Optional/Fix] [Header] fix the navbar animation pill; when the sixe on the navbars links changes, 
-                          the pill should resize corretly automatically.
-                          example: changing language in the account page;
+- [✅] {Optional/fix}{Navbar} fix the navbar animation pill; when the sixe on the navbars links changes, 
+        the pill should resize corretly automatically.
+        example: changing language in the account page;
 - [✅] {Optional}{Footer} Fix the footer height, on mobile device, in particular the AppFooter. 
 - [Optional] [Intro] if possible add a remember me option in the intro page;
 - [optional] [App] Add the option to register a second email or the option to update the current email;
