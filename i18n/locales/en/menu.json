@@ -25,7 +25,9 @@
       "addedIngredientsTitle": "Added ingredients",
       "removeIngredient": "Remove",
       "submit": "Save item",
-      "submitting": "Saving item…"
+      "submitting": "Saving item…",
+      "emptyStockTitle": "No ingredients available yet.",
+      "emptyStockDescription": "Add ingredients to your stock to build menu items with ingredients."
     }
   },
 

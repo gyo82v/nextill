@@ -35,6 +35,8 @@ export default function AddItemToMenu({
     : category === "dessert"
       ? t("createSection.form.categories.dessert")
       : undefined;
+  
+      console.log("stock items: ", stockItems)
 
   return (
     <div className=" rounded-2xl border border-default bg-surface-1 p-4 shadow-sm sm:p-5 md:p-6  ">
@@ -86,6 +88,7 @@ export default function AddItemToMenu({
       {/* Ingredients section */}
       <div className="space-y-3">
         {/* Section title, description and add button */}
+        {stockItems.length > 0 ?
         <div className="mb-6">
           <div>
             <h3 className="font-extralight text-[var(--foreground)]">
@@ -96,12 +99,24 @@ export default function AddItemToMenu({
               {t("createSection.form.ingredientsDescription")}
             </p>
           </div>
-        </div>
+        </div> :
 
-        <IngredientDraftCard
-          stockItems={stockItems}
-          onAdd={onAddIngredient}
-        />
+        <div className="mb-6">
+           <h3 className="font-extralight text-[var(--foreground)]">
+              <span className="mr-1">{t("createSection.form.emptyStockTitle").toUpperCase()}</span>
+            </h3>
+            <p className="text-sm text-muted">
+              {t("createSection.form.emptyStockDescription")}
+            </p>
+        </div>
+        }
+
+        {stockItems.length > 0 && 
+          <IngredientDraftCard
+            stockItems={stockItems}
+            onAdd={onAddIngredient}
+          />
+        }
 
         {ingredientRows.length > 0 && <DotLineDivider className="my-12 xl:my-16" />}
 

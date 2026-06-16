@@ -25,7 +25,9 @@
       "addedIngredientsTitle": "Ingrédients ajoutés",
       "removeIngredient": "Retirer",
       "submit": "Enregistrer l’élément",
-      "submitting": "Enregistrement en cours…"
+      "submitting": "Enregistrement en cours…",
+      "emptyStockTitle": "Aucun ingrédient disponible pour le moment.",
+      "emptyStockDescription": "Ajoutez des ingrédients au stock pour créer des plats du menu avec des ingrédients."
     }
   },
 

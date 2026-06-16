@@ -83,7 +83,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {refactor}{Account} Refactor the Account page: types, enslint errors, separate components;
 - [✅] {Refactor}{Header} Refactor the Header page: types, enslint errors, separate components;
 - [✅] {Refactor}{Firebase} Refactor the firebase files, types, enslint erros;
-- [Content] [App] Add the feature password forgotten;
+- [✅] {Content}{App} Add the feature password forgotten;
 - [✅] {Utils}{App} Create a reusable focus style;
 - [✅] {Utils}{App} Create a reusable pattern style with transitions;
 - [Utils] [App] Import two font form google fonts. a main font and a secondary;

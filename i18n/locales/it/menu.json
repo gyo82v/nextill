@@ -25,7 +25,9 @@
       "addedIngredientsTitle": "Ingredienti aggiunti",
       "removeIngredient": "Rimuovi",
       "submit": "Salva elemento",
-      "submitting": "Salvataggio in corso…"
+      "submitting": "Salvataggio in corso…",
+      "emptyStockTitle": "Nessun ingrediente disponibile al momento.",
+      "emptyStockDescription": "Aggiungi ingredienti al magazzino per creare piatti del menu con ingredienti."
     }
   },
 

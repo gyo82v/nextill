@@ -25,7 +25,9 @@
       "addedIngredientsTitle": "Hinzugefügte Zutaten",
       "removeIngredient": "Entfernen",
       "submit": "Element speichern",
-      "submitting": "Element wird gespeichert…"
+      "submitting": "Element wird gespeichert…",
+      "emptyStockTitle": "Noch keine Zutaten verfügbar.",
+      "emptyStockDescription": "Füge Zutaten zum Lagerbestand hinzu, um Menüartikel mit Zutaten zu erstellen."
     }
   },
 
