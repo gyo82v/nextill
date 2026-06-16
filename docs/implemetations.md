@@ -87,16 +87,16 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Utils}{App} Create a reusable focus style;
 - [✅] {Utils}{App} Create a reusable pattern style with transitions;
 - [Utils] [App] Import two font form google fonts. a main font and a secondary;
-- [Utils] [App] Add a global and local notFound page, add localization to it;
+- [✅] {Utils}{App} Add a global and local notFound page, add localization to it;
 - [✅] {Utils}{App} Decide the colors palette to use and set the default in global.css;
 - [✅] {Utils}{Layout} update the main layout page with sr-only section and anything useful;
 - [✅] {Utils}{Html} update the html page with meta descriptions, title, and anything useful;
 - [Utils] [Globals.css] update the global.css with all the necessary default styles;
-- [Utils] [App] make the vertical scrollbar visible in desktops and not visible in mobile;
+- [✅] {Utils}{App} make the vertical scrollbar visible in desktops and not visible in mobile;
 - [✅] {Utils}{App} add nextill app icon in the title instad of the next.js icons;
 - [✅] {Utils}{App} create a reusable spinner;
 - [✅] {Utils}{App} create reusable dividers;
-- [Utils] [App] Add spinnes in all async buttons;
+- [✅] {Utils}{App} Add spinnes in all async buttons;
 - [Utils] [App] Add spinners in all pages instead of the text loading;
 - [✅] {Utils}{Inputs} Add the show pssw icon in the pssw inputs field;
 - [✅] {Localization}{Pos} Add localization to the till page;
@@ -155,8 +155,8 @@ NEXTILL IMPLEMENTATION LIST
 - [Fix] [Menu] in the add new item to the menu fix the situation where there are no 
                items in the stock. the select component should render something better than and 
                empty option list;
-- [Fix] [Account] fix the delete account with password; the password must match the user password.
-                  now any text work;
+- [✅] {fix}{Account} fix the delete account with password; the password must match the user password.
+        now any text work;
 - [✅] {Clean}{Dividers} Clean the unused dividers;
 - [✅] {Clean}{AppHeader} Clean the unused code in the Navbar component;
 - [✅] {Optional}{Account} improve the export data feature, instead of a json file use pdf or other formats;
