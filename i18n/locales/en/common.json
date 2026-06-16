@@ -43,5 +43,10 @@
   "modal": {
     "title": "This action cannot be undone.",
     "description": "Please review carefully before confirming."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you’re trying to reach doesn’t exist, may have been moved, or the link might be incorrect.",
+    "link": "← Back home"
   }
 }

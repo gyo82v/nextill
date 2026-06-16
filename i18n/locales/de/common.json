@@ -43,5 +43,10 @@
   "modal": {
     "title": "Diese Aktion kann nicht rückgängig gemacht werden.",
     "description": "Bitte überprüfe alles sorgfältig, bevor du bestätigst."
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Die Seite, die Sie aufrufen möchten, existiert nicht, wurde möglicherweise verschoben oder der Link ist möglicherweise nicht korrekt.",
+    "link": "← Zur Startseite"
   }
 }

@@ -43,5 +43,10 @@
   "modal": {
     "title": "Cette action est irréversible.",
     "description": "Veuillez vérifier attentivement avant de confirmer."
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "description": "La page que vous essayez d’atteindre n’existe pas, a peut-être été déplacée, ou le lien est peut-être incorrect.",
+    "link": "← Retour à l’accueil"
   }
 }

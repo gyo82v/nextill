@@ -43,5 +43,10 @@
   "modal": {
     "title": "Questa azione non può essere annullata.",
     "description": "Controlla attentamente prima di confermare."
+  },
+  "notFound": {
+    "title": "Pagina non trovata",
+    "description": "La pagina che stai cercando non esiste, potrebbe essere stata spostata oppure il link potrebbe non essere corretto.",
+    "link": "← Torna alla home"
   }
 }

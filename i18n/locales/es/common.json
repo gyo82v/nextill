@@ -44,5 +44,10 @@
    "modal": {
     "title": "Esta acción no se puede deshacer.",
     "description": "Revísalo cuidadosamente antes de confirmar."
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "La página a la que intentas acceder no existe, puede que haya sido movida o que el enlace sea incorrecto.",
+    "link": "← Volver al inicio"
   }
 }

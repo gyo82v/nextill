@@ -3,7 +3,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Design] [Header] Design the nextill logo;
 - [✅] {Content}{App} Make the app Progressive  web App, add a manifest file, icons, html etc;
 - [✅] {Design}{App} Design the icon app used when the app is installed;
-- [Refactor] [Firestore] Modify the create new account function to add email confirmation;
+- [✅] {refactor}{Firestore} Modify the create new account function to add email confirmation;
 - [✅] {Content}{Header} build the navigation bar for mobile, add icon, when clicked open the 
                      navigation menu;
 - [✅] {Content}{Menu} Add the feature in the Menu page to clear all menu with a button;
