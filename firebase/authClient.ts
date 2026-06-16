@@ -8,7 +8,8 @@ import {
         createUserWithEmailAndPassword as createFbUser,
         EmailAuthProvider,
         reauthenticateWithCredential,
-        deleteUser 
+        deleteUser,
+        sendEmailVerification 
     } from "firebase/auth"
 import {
         doc, 
@@ -40,6 +41,7 @@ export async function createUser(email:string, password:string, name:string){
   const credential =  await createFbUser(auth, email, password)
   const user = credential.user
   await createUserProfileIfNotExists(user, name)
+  await sendEmailVerification(user);
   return user
 }
 

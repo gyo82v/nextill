@@ -146,8 +146,8 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Fix}{Reports} in the reports page most sections render the id of an item while they should 
         render the name;
 - [✅] {Fix}{Languages} fix the issue when there are multiple files common and privacy in the same page;
-- [Fix] [Header] fix the header on screens smaller than lg, at the moment there is too much content 
-                 use the mobile version for these screens;
+- [✅] {Fix}{header} fix the header on screens smaller than lg, at the moment there is too much content 
+        use the mobile version for these screens;
 - [Fix] [CheckoutModal] check the code for the chechkout modal and the confirm modal, control
                         if all the labels are needed and if the structure is correct;
 - [fix] [PrivacyPolicy] fix the "back" button link. at the moment it navigate the user to the pos page;

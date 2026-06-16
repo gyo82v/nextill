@@ -22,7 +22,7 @@ import Button from "../ui/Button";
 export default function SignUpForm() {
   const { createUser, user, loading } = useAuth();
   const router = useRouter();
-  const { t } = useTranslation("auth");
+  const {t} = useTranslation("auth");
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -37,7 +37,7 @@ export default function SignUpForm() {
     }
   }, [loading, user, router]);
 
-  async function handleSubmit(e:React.SyntheticEvent) {
+  async function handleSubmit(e: React.SyntheticEvent) {
     e.preventDefault();
     setError(null);
     setSubmitting(true);
@@ -65,16 +65,16 @@ export default function SignUpForm() {
             <p className="text-sm font-medium uppercase tracking-[0.2em] text-muted">
               Nextill
             </p>
-            <h1 
-              className="text-2xl font-semibold tracking-tight text-[var(--foreground)] sm:text-3xl"
-            >
+            <h1 className="text-2xl font-semibold tracking-tight text-[var(--foreground)] sm:text-3xl">
               {t("signUp.title")}
             </h1>
           </div>
 
           {error && (
-            <div className={`rounded-2xl border border-red-200 bg-red-50
-                             px-4 py-3 text-sm text-red-700`}>
+            <div
+              className="rounded-2xl border border-red-200 bg-red-50
+                         px-4 py-3 text-sm text-red-700"
+            >
               {error}
             </div>
           )}
@@ -109,6 +109,9 @@ export default function SignUpForm() {
               autoComplete="email"
               placeholder={t("signUp.emailPlaceholder")}
             />
+            <p className="mt-2 text-sm text-muted">
+              {t("signUp.emailVerification")}
+            </p>
           </div>
 
           <PasswordInput
@@ -170,3 +173,4 @@ export default function SignUpForm() {
     </div>
   );
 }
+
