@@ -122,7 +122,8 @@
       },
       "openingClosingBalance": {
         "label": "Apertura e chiusura cassa",
-        "description": "Abilita il flusso di apertura e chiusura della cassa."
+        "description": "Abilita il flusso di apertura e chiusura della cassa.",
+        "disabled": "Termina la giornata prima di modificare l’impostazione della cassa"
       }
     }
   },

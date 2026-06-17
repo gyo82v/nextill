@@ -19,6 +19,7 @@ export default function PreferencesSection({
   onReceiptPrintingChange,
   balanceEnabled,
   onBalanceEnabledChange,
+  dayActive
 }: PreferencesSectionProps) {
   const {t} = useTranslation("account")
   return (
@@ -112,14 +113,16 @@ export default function PreferencesSection({
 
             <SettingRow
               label={t("preferences.system.openingClosingBalance.label")}
-              description={t("preferences.system.openingClosingBalance.description")}
+              description={dayActive ? t("preferences.system.openingClosingBalance.disabled") :
+                                       t("preferences.system.openingClosingBalance.description")}
+              disabled={dayActive}
             >
               <Switch
                 checked={balanceEnabled ?? false}
                 onCheckedChange={(nextValue) => {
                   onBalanceEnabledChange?.(nextValue);
                 }}
-                disabled={!onBalanceEnabledChange}
+                disabled={!onBalanceEnabledChange || dayActive}
                 aria-label={t("preferences.system.openingClosingBalance.label")}
               />
             </SettingRow>

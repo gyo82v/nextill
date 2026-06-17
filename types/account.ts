@@ -60,12 +60,15 @@ export type PreferencesSectionProps = {
 
   balanceEnabled?: boolean;
   onBalanceEnabledChange?: (nextValue: boolean) => void;
+
+  dayActive?: boolean
 };
 
 export type SettingRowProps = {
   label: string;
   description: string;
   children: ReactNode;
+  disabled?: boolean
 };
 
 export type ExportDataSectionProps = {

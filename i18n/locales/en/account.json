@@ -122,7 +122,8 @@
       },
       "openingClosingBalance": {
         "label": "Opening and closing balance",
-        "description": "Enable the opening and closing balance workflow."
+        "description": "Enable the opening and closing balance workflow.",
+        "disabled": "End the day before changing the balance setting"
       }
     } 
   },

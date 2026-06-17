@@ -164,7 +164,7 @@ export default function SecuritySection({
           </Button>
 
           {dayActive ? (
-            <p className="text-xs text-orange-600">
+            <p className="text-xs text-orange-700">
               {t("security.deleteAccount.dayActiveMessage")}
             </p>
           ) : null}

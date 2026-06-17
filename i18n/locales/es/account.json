@@ -122,7 +122,8 @@
       },
       "openingClosingBalance": {
         "label": "Apertura y cierre de caja",
-        "description": "Activa el flujo de apertura y cierre de caja."
+        "description": "Activa el flujo de apertura y cierre de caja.",
+        "disabled": "Finaliza el día antes de cambiar la configuración del saldo."
       }
     }
   },

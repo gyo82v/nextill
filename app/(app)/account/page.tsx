@@ -209,6 +209,7 @@ export default function AccountPage() {
                 staffTicketPrinting={settings?.ticketEnabled ?? false}
                 receiptPrinting={settings?.receiptEnabled ?? false}
                 balanceEnabled={settings?.balanceEnabled ?? false}
+                dayActive={dayActive}
               />
             </div>
           </div>

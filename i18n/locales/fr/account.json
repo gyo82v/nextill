@@ -122,7 +122,8 @@
       },
       "openingClosingBalance": {
         "label": "Ouverture et fermeture de caisse",
-        "description": "Active le processus d’ouverture et de fermeture de caisse."
+        "description": "Active le processus d’ouverture et de fermeture de caisse.",
+        "disabled": "Terminez la journée avant de modifier le solde"
       }
     }
   },

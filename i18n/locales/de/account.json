@@ -122,7 +122,8 @@
       },
       "openingClosingBalance": {
         "label": "Kassenöffnung und -abschluss",
-        "description": "Aktiviere den Ablauf für Kassenöffnung und -abschluss."
+        "description": "Aktiviere den Ablauf für Kassenöffnung und -abschluss.",
+        "disabled": "Beenden Sie den Tag, bevor Sie die Saldo-Einstellung ändern."
       }
     }
   },
