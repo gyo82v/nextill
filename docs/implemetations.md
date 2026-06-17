@@ -149,7 +149,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Fix}{header} fix the header on screens smaller than lg, at the moment there is too much content 
         use the mobile version for these screens;
 - [fix] [PrivacyPolicy] fix the "back" button link. at the moment it navigate the user to the pos page;
-- [Fix] [Balance] the balance option should not be possible to change it while the day is actice;
+- [✅] {fix}{Balance} the balance option should not be possible to change it while the day is actice;
 - [✅] {Fix}{Menu} in the add new item to the menu fix the situation where there are no 
         items in the stock. the select component should render something better than and 
         empty option list;

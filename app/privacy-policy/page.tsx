@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useTranslation } from "react-i18next";
+import { useRouter } from "next/navigation";
 
 type SectionProps = {
   title: string;
@@ -29,6 +29,7 @@ function List({ items }: { items: string[] }) {
 
 export default function PrivacyPolicyPage() {
   const { t } = useTranslation(["privacy", "common"]);
+  const router = useRouter()
 
   const lastUpdated = t("meta.lastUpdated");
   const introTitle = t("intro.title");
@@ -97,12 +98,13 @@ export default function PrivacyPolicyPage() {
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
-            <Link
-              href="/"
+            <button
+              type="button"
+              onClick={() => router.back()}
               className="inline-flex items-center rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100"
             >
               ← {t("common:back")}
-            </Link>
+            </button>
           </div>
         </header>
 
