@@ -118,12 +118,12 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {A11y}{Intro} Add accessibility to the intro page;
 - [✅] {A11y}{Privacy-Policy} add accessibility to the privacy-policy page;
 - [✅] {Test}{Account} Test the delete account feature;
-- [Test] [Account] Test the reset password feature;
+- [✅] {Test}{Account} Test the reset password feature;
 - [Test] [Account] Test the clear all data feature;
 - [Test] [Account] Test the currency toggle feature;
 - [✅] {Test}{Account} Test the language toggle feature;
 - [Test] [App] Test the darkmode in all pages;
-- [Test] [App] Test the email confirmation feature;
+- [✅] {Test}{App} Test the email confirmation feature;
 - [Test] [Till] Test how the opening and closing balance works;
 - [Test] [App] Test the start/end day cycle;
 - [Test] [App] Test the till, menu , stock and stats;
@@ -148,13 +148,11 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Fix}{Languages} fix the issue when there are multiple files common and privacy in the same page;
 - [✅] {Fix}{header} fix the header on screens smaller than lg, at the moment there is too much content 
         use the mobile version for these screens;
-- [Fix] [CheckoutModal] check the code for the chechkout modal and the confirm modal, control
-                        if all the labels are needed and if the structure is correct;
 - [fix] [PrivacyPolicy] fix the "back" button link. at the moment it navigate the user to the pos page;
 - [Fix] [Balance] the balance option should not be possible to change it while the day is actice;
-- [Fix] [Menu] in the add new item to the menu fix the situation where there are no 
-               items in the stock. the select component should render something better than and 
-               empty option list;
+- [✅] {Fix}{Menu} in the add new item to the menu fix the situation where there are no 
+        items in the stock. the select component should render something better than and 
+        empty option list;
 - [✅] {fix}{Account} fix the delete account with password; the password must match the user password.
         now any text work;
 - [✅] {Clean}{Dividers} Clean the unused dividers;
