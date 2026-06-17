@@ -2,7 +2,7 @@ import type {Timestamp} from "firebase/firestore";
 import type { ChangeEventHandler } from "react";
 
 
-export type StockCategory = "food" | "drink";
+export type StockCategory = "food" | "drink" | "packaging" | "disposableItems" | "cleaningSupplies" | "other";
 export type StockAction = "add" | "remove";
 export type DraftStockCategory = StockCategory | "";
 

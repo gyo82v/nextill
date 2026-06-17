@@ -22,8 +22,16 @@ export default function AddStockItemForm({ uid }: StockFormProps) {
     category === "food"
     ? t("createSection.form.food")
     : category === "drink"
-      ? t("createSection.form.drink")
-      : undefined;
+    ? t("createSection.form.drink")
+    : category === "packaging"
+    ? t("createSection.form.packaging")
+    : category === "disposableItems"
+    ? t("createSection.form.disposableItems")
+    : category === "cleaningSupplies"
+    ? t("createSection.form.cleaningSupplies")
+    : category === "other"
+    ? t("createSection.form.other")
+    : undefined
 
   async function handleSubmit(e:React.SyntheticEvent) {
     e.preventDefault();
@@ -73,6 +81,10 @@ export default function AddStockItemForm({ uid }: StockFormProps) {
             <Select.Content>
               <Select.Item value="food">{t("createSection.form.food")}</Select.Item>
               <Select.Item value="drink">{t("createSection.form.drink")}</Select.Item>
+              <Select.Item value="packaging">{t("createSection.form.packaging")}</Select.Item>
+              <Select.Item value="disposableItems">{t("createSection.form.disposableItems")}</Select.Item>
+              <Select.Item value="cleaningSupplies">{t("createSection.form.cleaningSupplies")}</Select.Item>
+              <Select.Item value="other">{t("createSection.form.other")}</Select.Item>
             </Select.Content>
           </Select.Root>
 
