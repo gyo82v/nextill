@@ -30,6 +30,10 @@
         "all": "all",
         "food": "food",
         "drink": "drink",
+        "packaging": "Packaging",
+        "disposableItems": "Disposable items",
+        "cleaningSupplies": "Cleaning supplies",
+        "other": "Other",
         "item": {
             "inStock": "In stock",
             "lowStock": "Low stock",
@@ -45,7 +49,11 @@
             "cancel": "Cancel",
             "categories": {
                 "food": "Food",
-                "drink": "Drink"
+                "drink": "Drink",
+                "packaging": "Packaging",
+                "disposableItems": "Disposable items",
+                "cleaningSupplies": "Cleaning supplies",
+                "other": "Other"
             }
         }
 

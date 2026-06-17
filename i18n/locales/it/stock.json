@@ -29,6 +29,10 @@
     "all": "Tutti",
     "food": "Cibo",
     "drink": "Bevanda",
+    "packaging": "Imballaggi",
+    "disposableItems": "Articoli monouso",
+    "cleaningSupplies": "Prodotti per la pulizia",
+    "other": "Altro",
     "item": {
       "inStock": "Disponibile",
       "lowStock": "Scorte basse",
@@ -44,7 +48,11 @@
       "cancel": "Annulla",
       "categories": {
         "food": "Cibo",
-        "drink": "Bevanda"
+        "drink": "Bevanda",
+        "packaging": "Imballaggi",
+        "disposableItems": "Articoli monouso",
+        "cleaningSupplies": "Prodotti per la pulizia",
+        "other": "Altro"
       }
     }
   },

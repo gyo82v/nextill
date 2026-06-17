@@ -29,6 +29,10 @@
     "all": "Alle",
     "food": "Lebensmittel",
     "drink": "Getränk",
+    "packaging": "Verpackungen",
+    "disposableItems": "Einwegartikel",
+    "cleaningSupplies": "Reinigungsprodukte",
+    "other": "Andere",
     "item": {
       "inStock": "Auf Lager",
       "lowStock": "Niedriger Bestand",
@@ -44,7 +48,11 @@
       "cancel": "Abbrechen",
       "categories": {
         "food": "Lebensmittel",
-        "drink": "Getränk"
+        "drink": "Getränk",
+        "packaging": "Verpackungen",
+        "disposableItems": "Einwegartikel",
+        "cleaningSupplies": "Reinigungsprodukte",
+        "other": "Andere"
       }
     }
   },

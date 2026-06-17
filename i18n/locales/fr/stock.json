@@ -29,6 +29,10 @@
     "all": "Tous",
     "food": "Aliment",
     "drink": "Boisson",
+    "packaging": "Emballages",
+    "disposableItems": "Articles jetables",
+    "cleaningSupplies": "Produits de nettoyage",
+    "other": "Autre",
     "item": {
       "inStock": "En stock",
       "lowStock": "Stock faible",
@@ -44,7 +48,11 @@
       "cancel": "Annuler",
       "categories": {
         "food": "Aliment",
-        "drink": "Boisson"
+        "drink": "Boisson",
+        "packaging": "Emballages",
+        "disposableItems": "Articles jetables",
+        "cleaningSupplies": "Produits de nettoyage",
+        "other": "Autre"
       }
     }
   },

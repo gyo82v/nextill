@@ -29,6 +29,10 @@
     "all": "Todos",
     "food": "Comida",
     "drink": "Bebida",
+    "packaging": "Envases",
+    "disposableItems": "Artículos desechables",
+    "cleaningSupplies": "Productos de limpieza",
+    "other": "Otro",
     "item": {
       "inStock": "En stock",
       "lowStock": "Stock bajo",
@@ -44,7 +48,11 @@
       "cancel": "Cancelar",
       "categories": {
         "food": "Comida",
-        "drink": "Bebida"
+        "drink": "Bebida",
+        "packaging": "Envases",
+        "disposableItems": "Artículos desechables",
+        "cleaningSupplies": "Productos de limpieza",
+        "other": "Otro"
       }
     }
   },
