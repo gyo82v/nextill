@@ -6,6 +6,7 @@ import { cardBaseStyle } from "@/styles/cards";
 import Button from "../ui/Button";
 import type {MenuItemProps} from "@/types/menu";
 import { useTranslation } from "react-i18next";
+import { MenuCategoryBadge } from "./MenuCategoryBadge";
 
 export default function MenuItem({
   item,
@@ -19,7 +20,10 @@ export default function MenuItem({
     <div className={`${cardBaseStyle} p-4 md:p-5`}>
       <div className="flex flex-row gap-3 items-start justify-between">
         <div className="min-w-0">
-          <div className="font-medium text-[var(--foreground)]">{item.name}</div>
+          <div className="flex items-center gap-2">
+            <MenuCategoryBadge category={item.category} />
+            <span className="font-medium text-[var(--foreground)]">{item.name}</span>
+          </div>
           <div className="mt-1 text-sm text-muted">
             {formatMoney(item.priceMinor, currency)} · {t(`createSection.form.categories.${item.category}`)}
           </div>

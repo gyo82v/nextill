@@ -182,9 +182,9 @@ NEXTILL IMPLEMENTATION LIST
 - [Optional] [Stock] add a show button to the stock activity section and render the section
                      dinamicaly;
 - [Optional] [Stock/Menu] Check with ai which of the pages menu and stock is better built;
-- [Optional] [Stock] in the stock activity acrd add an icon for add, remove or archieved;
+- [✅] {Optional}{Stock} in the stock activity acrd add an icon for add, remove or archieved;
 - [Optional] [App] Add discount system;
-- [Optional] [Stock] Add another category to the stock items for non food/drink items;
+- [✅] {Optional}{Stock} Add another category to the stock items for non food/drink items;
 - [✅] {Optional}{App} Translate the errors messages where necessary;
 - [Optional] [pos] add a show/hide button for each category section in the menu list;
                           
