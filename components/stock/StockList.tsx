@@ -27,6 +27,8 @@ export default function StockList({ uid, items }: StockListProps) {
     ? t("stockSection.cleaningSupplies")
     : category === "other"
     ? t("stockSection.other")
+    : category === "all"
+    ? t("stockSection.all")
     : undefined
 
   const filteredItems = useMemo(() => {
