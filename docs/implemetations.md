@@ -162,7 +162,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Optional}{Account} add an accessibility option to disable motion;
 - [Optional] [App] add sounds effects to the till and an option in the account page to disable it;
 - [✅] {Optional}{Pos} decide how to set the till: use a searchbar, filters, divide by categories;
-- [Optional] [Menu] Add a search bar in the menu page;
+- [✅] {optional}{menu} Add a search bar in the menu page;
 - [Optional] [App] Add the option to undo the last transactions;
 - [Optional] [App] Give the user the option to create custom categories instead of the default
                    food and drinks;
