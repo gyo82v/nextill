@@ -12,6 +12,7 @@ import { FiTrash2, FiMinus, FiPlus } from "react-icons/fi";
 import { cardBaseStyle, pillTextStyle } from "@/styles";
 import ThresholdEdit from "./ThresholdEdit";
 import { useTranslation } from "react-i18next";
+import { StockCategoryBadge } from "./StockCategoryBadge";
 
 export default function StockItemCard({ uid, item }: StockItemProps) {
   const [delta, setDelta] = useState(0);
@@ -84,8 +85,12 @@ export default function StockItemCard({ uid, item }: StockItemProps) {
     <article className={`${cardBaseStyle} p-4`}>
       <header className="flex items-center justify-between">
         <div className="font-medium flex items-center gap-2">
-          {item.name}
-
+          <StockCategoryBadge
+            category={item.category}
+          />
+          <span>
+            {item.name}
+          </span>
           <span className={`text-xs border px-2 py-0.5 rounded ${statusBadgeClass}`}>
             {statusLabel}
           </span>

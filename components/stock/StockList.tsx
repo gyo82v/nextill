@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import StockItemCard from "./StockItemCard";
-import type { StockListProps, StockCategory } from "@/types";
+import type { StockListProps } from "@/types";
 import Select from "../ui/select";
 import { inputBaseStyle } from "@/styles";
 import { DotLineDivider } from "@/components/ui/dividers/Dividers";

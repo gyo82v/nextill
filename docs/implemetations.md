@@ -138,6 +138,7 @@ NEXTILL IMPLEMENTATION LIST
         the database in the start/end section in the pos page;
 - [✅] {Fix}{Reports} when a menu item is deleted, in the stats page it show the id and not the name;
 - [Fix] [Header] fix the text color of the navbar links for the darkmode;
+- [Fix] [Stock] fix the issue where the stock item amount is not allowed to go below zero;
 - [✅] {Fix}{Select-component} Fix the select compound component. When too many elements are in the options
         there should be a scroll sidebar, this will fix the height issue in the menu page;
 - [✅] {Fix}{Menu} fix the style for the menu page when the content is stacked vertically for mobile

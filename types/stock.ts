@@ -3,7 +3,7 @@ import type { ChangeEventHandler } from "react";
 
 
 export type StockCategory = "food" | "drink" | "packaging" | "disposableItems" | "cleaningSupplies" | "other";
-export type StockAction = "add" | "remove";
+export type StockAction = "add" | "remove" | "archive";
 export type DraftStockCategory = StockCategory | "";
 
 export interface StockItem {
