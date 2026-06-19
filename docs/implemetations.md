@@ -178,7 +178,7 @@ NEXTILL IMPLEMENTATION LIST
 - [Optional] [App] Create a custom modal component for the confirmation action like 
                    delete account, clear menu, clear stock, clear all etc;
 - [✅] {Optional}{Account} Add a function that will clear all archived items in the stock;
-- [Optional] [Stock] add a default unit when creating a new stock item. example: "unit", "pcs"
+- [✅] {Optional}{Stock} add a default unit when creating a new stock item. example: "unit", "pcs"
 - [Optional] [Stock] add a show button to the stock activity section and render the section
                      dinamicaly;
 - [Optional] [Stock/Menu] Check with ai which of the pages menu and stock is better built;

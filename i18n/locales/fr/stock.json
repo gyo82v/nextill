@@ -62,8 +62,11 @@
     "description": "Consulter l’activité récente du stock",
     "clearActivityLogs": "Supprimer tous les journaux",
     "emptyActivityLog": "Aucune activité enregistrée pour le moment.",
+    "hiddenActivityLog": "Les journaux d’activité sont masqués",
     "deleteActivity": "Supprimer",
     "deleteActivityLabel": "Supprimer l’entrée d’activité",
+    "hide": "Masquer",
+    "show": "Afficher",
     "actions": {
       "add": "Ajouté",
       "remove": "Retiré",

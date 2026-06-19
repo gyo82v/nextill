@@ -27,7 +27,7 @@ export default function CurrentDayTransactions({
 
         <Button
           type="button"
-          variant="secondary"
+          variant="primary"
           onClick={onToggle}
           className="flex items-center gap-2"
         >

@@ -64,8 +64,11 @@
         "description": "Review recent stock activity",
         "clearActivityLogs": "Clear all logs",
         "emptyActivityLog": "No activity recorded yet.",
+        "hiddenActivityLog": "Activity logs are hidden",
         "deleteActivity": "Delete",
         "deleteActivityLabel": "Delete activity entry",
+        "hide": "Hide",
+        "show": "Show",
         "actions": {
             "add": "Added",
             "remove": "Removed",

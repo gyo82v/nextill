@@ -62,8 +62,11 @@
     "description": "Revisar la actividad reciente del inventario",
     "clearActivityLogs": "Eliminar todos los registros",
     "emptyActivityLog": "Aún no se ha registrado ninguna actividad.",
+    "hiddenActivityLog": "Los registros de actividad están ocultos",
     "deleteActivity": "Eliminar",
     "deleteActivityLabel": "Eliminar entrada de actividad",
+    "hide": "Ocultar",
+    "show": "Mostrar",
     "actions": {
       "add": "Añadido",
       "remove": "Retirado",

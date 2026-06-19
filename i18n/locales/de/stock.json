@@ -62,8 +62,11 @@
     "description": "Aktuelle Bestandsaktivitäten prüfen",
     "clearActivityLogs": "Alle Einträge löschen",
     "emptyActivityLog": "Noch keine Aktivitäten erfasst.",
+    "hiddenActivityLog": "Aktivitätsprotokolle sind ausgeblendet",
     "deleteActivity": "Löschen",
     "deleteActivityLabel": "Aktivitätseintrag löschen",
+    "hide": "Ausblenden",
+    "show": "Anzeigen",
     "actions": {
       "add": "Hinzugefügt",
       "remove": "Entfernt",

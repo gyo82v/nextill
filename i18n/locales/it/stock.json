@@ -62,8 +62,11 @@
     "description": "Controlla le attività recenti del magazzino",
     "clearActivityLogs": "Cancella tutti i registri",
     "emptyActivityLog": "Nessuna attività registrata.",
+    "hiddenActivityLog": "I registri delle attività sono nascosti",
     "deleteActivity": "Elimina",
     "deleteActivityLabel": "Elimina voce attività",
+    "hide": "Nascondi",
+    "show": "Mostra",
     "actions": {
       "add": "Aggiunto",
       "remove": "Rimosso",
