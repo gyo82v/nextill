@@ -45,6 +45,10 @@
     "deleteItem": "Eliminar {{name}}",
     "ingredientsLabel": "Ingredientes",
     "noIngredients": "No hay ingredientes vinculados",
-    "ingredientItem": "{{name}} × {{quantity}}"
+    "ingredientItem": "{{name}} × {{quantity}}",
+    "clearConfirmTitle": "hello",
+    "clearConfirmDescription": "hello",
+    "clearConfirmButton": "hello",
+    "cancelButton": "hello"
   }
 }

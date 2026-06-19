@@ -35,6 +35,10 @@
         "disposableItems": "Disposable items",
         "cleaningSupplies": "Cleaning supplies",
         "other": "Other",
+        "clearStockConfirmTitle": "hello",
+        "clearStockConfirmDescription": "hello",
+        "clearStockConfirmButton": "hello",
+        "cancelButton": "hello",
         "item": {
             "inStock": "In stock",
             "lowStock": "Low stock",
@@ -69,6 +73,10 @@
         "deleteActivityLabel": "Delete activity entry",
         "hide": "Hide",
         "show": "Show",
+        "clearConfirmTitle": "hello",
+        "clearConfirmDescription": "hello",
+        "clearConfirmButton": "hello",
+        "cancelButton": "hello",
         "actions": {
             "add": "Added",
             "remove": "Removed",

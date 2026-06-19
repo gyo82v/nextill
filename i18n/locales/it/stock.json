@@ -34,6 +34,10 @@
     "disposableItems": "Articoli monouso",
     "cleaningSupplies": "Prodotti per la pulizia",
     "other": "Altro",
+    "clearStockConfirmTitle": "hello",
+    "clearStockConfirmDescription": "hello",
+    "clearStockConfirmButton": "hello",
+    "cancelButton": "hello",
     "item": {
       "inStock": "Disponibile",
       "lowStock": "Scorte basse",
@@ -67,6 +71,10 @@
     "deleteActivityLabel": "Elimina voce attività",
     "hide": "Nascondi",
     "show": "Mostra",
+    "clearConfirmTitle": "hello",
+    "clearConfirmDescription": "hello",
+    "clearConfirmButton": "hello",
+    "cancelButton": "hello",
     "actions": {
       "add": "Aggiunto",
       "remove": "Rimosso",

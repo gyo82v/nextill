@@ -34,6 +34,10 @@
     "disposableItems": "Articles jetables",
     "cleaningSupplies": "Produits de nettoyage",
     "other": "Autre",
+    "clearStockConfirmTitle": "hello",
+    "clearStockConfirmDescription": "hello",
+    "clearStockConfirmButton": "hello",
+    "cancelButton": "hello",
     "item": {
       "inStock": "En stock",
       "lowStock": "Stock faible",
@@ -67,6 +71,10 @@
     "deleteActivityLabel": "Supprimer l’entrée d’activité",
     "hide": "Masquer",
     "show": "Afficher",
+    "clearConfirmTitle": "hello",
+    "clearConfirmDescription": "hello",
+    "clearConfirmButton": "hello",
+    "cancelButton": "hello",
     "actions": {
       "add": "Ajouté",
       "remove": "Retiré",
