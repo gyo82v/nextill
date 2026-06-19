@@ -10,13 +10,13 @@ import { useTranslation } from "react-i18next";
 
 
 export default function AddStockItemForm({ uid }: StockFormProps) {
+  const {t} = useTranslation("stock")
   const [name, setName] = useState("");
   const [category, setCategory] = useState<DraftStockCategory>("");
   const [quantity, setQuantity] = useState(0);
-  const [unit, setUnit] = useState("");
+  const [unit, setUnit] = useState(t("createSection.form.unit"));
   const [minQty, setMinQty] = useState(5);
   const [loading, setLoading] = useState(false);
-  const {t} = useTranslation("stock")
 
   const categoryLabel =
     category === "food"
@@ -50,7 +50,7 @@ export default function AddStockItemForm({ uid }: StockFormProps) {
     setName("");
     setCategory("");
     setQuantity(0);
-    setUnit("");
+    setUnit(t("createSection.form.unit"));
     setMinQty(5);
 
     setLoading(false);
@@ -75,30 +75,41 @@ export default function AddStockItemForm({ uid }: StockFormProps) {
           onChange={(e) => setName(e.target.value)}
         />
 
-        <div className="grid gap-3 md:grid-cols-2">
-          <Select.Root value={category} onValueChange={setCategory}>
-            <Select.Trigger placeholder={t("createSection.form.placeholder")} label={categoryLabel}/>
-            <Select.Content>
-              <Select.Item value="food">{t("createSection.form.food")}</Select.Item>
-              <Select.Item value="drink">{t("createSection.form.drink")}</Select.Item>
-              <Select.Item value="packaging">{t("createSection.form.packaging")}</Select.Item>
-              <Select.Item value="disposableItems">{t("createSection.form.disposableItems")}</Select.Item>
-              <Select.Item value="cleaningSupplies">{t("createSection.form.cleaningSupplies")}</Select.Item>
-              <Select.Item value="other">{t("createSection.form.other")}</Select.Item>
-            </Select.Content>
-          </Select.Root>
+        <div className="grid gap-3 md:grid-cols-2 md:items-end">
+          <div className="self-end ">
+            <Select.Root value={category} onValueChange={setCategory} className="w-full">
+              <Select.Trigger
+                placeholder={t("createSection.form.placeholder")}
+                label={categoryLabel}
+                className=""
+              />
+              <Select.Content>
+                <Select.Item value="food">{t("createSection.form.food")}</Select.Item>
+                <Select.Item value="drink">{t("createSection.form.drink")}</Select.Item>
+                <Select.Item value="packaging">{t("createSection.form.packaging")}</Select.Item>
+                <Select.Item value="disposableItems">{t("createSection.form.disposableItems")}</Select.Item>
+                <Select.Item value="cleaningSupplies">{t("createSection.form.cleaningSupplies")}</Select.Item>
+                <Select.Item value="other">{t("createSection.form.other")}</Select.Item>
+              </Select.Content>
+            </Select.Root>
+          </div>
 
-          <input
-            className={`${inputBaseStyle}`}
-            placeholder={t("createSection.form.unit")}
-            value={unit}
-            onChange={(e) => setUnit(e.target.value)}
-          />
+          <div className="flex flex-col gap-1">
+            <label className="ml-3 text-xs" htmlFor="unit-type">
+              {t("createSection.form.typeLabel")}
+            </label>
+            <input
+              className={inputBaseStyle}
+              value={unit}
+              onChange={(e) => setUnit(e.target.value)}
+              id="unit-type"
+            />
+          </div>
         </div>
 
         <div className="grid gap-3 md:grid-cols-2">
           <div className="">
-             <label className="text-sm  ml-3" htmlFor="quantity">
+             <label className="text-xs  ml-3" htmlFor="quantity">
               {t("createSection.form.quantity")}
              </label>
               <input
@@ -111,7 +122,7 @@ export default function AddStockItemForm({ uid }: StockFormProps) {
               />
           </div>
           <div className="">
-            <label className="text-sm  ml-3" htmlFor="minQty">
+            <label className="text-xs  ml-3" htmlFor="minQty">
               {t("createSection.form.lowStock")}
             </label>
             <input

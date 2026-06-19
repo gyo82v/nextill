@@ -13,11 +13,12 @@
       "disposableItems": "Artículos desechables",
       "cleaningSupplies": "Productos de limpieza",
       "other": "Otro",
-      "unit": "Unidad (p. ej. uds., ml, g)",
       "quantity": "Cantidad inicial",
       "lowStock": "Umbral de stock bajo",
       "createItem": "Crear artículo",
-      "createItemLoading": "Creando..."
+      "createItemLoading": "Creando...",
+      "typeLabel": "Tipo de unidad (opcional)",
+      "unit": "Unidades"
     }
   },
   "stockSection": {

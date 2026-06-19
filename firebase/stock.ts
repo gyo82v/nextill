@@ -106,10 +106,6 @@ export async function confirmStockAdjustment(
     const quantityBefore = Number(current.quantity ?? 0);
     const quantityAfter = quantityBefore + delta;
 
-    if (quantityAfter < 0) {
-      throw new Error("Stock cannot go below zero.");
-    }
-
     tx.update(stockRef, {
       quantity: quantityAfter,
       updatedAt: serverTimestamp(),

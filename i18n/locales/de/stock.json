@@ -13,11 +13,12 @@
       "disposableItems": "Einwegartikel",
       "cleaningSupplies": "Reinigungsprodukte",
       "other": "Andere",
-      "unit": "Einheit (z. B. Stk., ml, g)",
       "quantity": "Anfangsbestand",
       "lowStock": "Niedrigbestandsgrenze",
       "createItem": "Artikel erstellen",
-      "createItemLoading": "Wird erstellt..."
+      "createItemLoading": "Wird erstellt...",
+      "typeLabel": "Einheitstyp (optional)",
+      "unit": "Einheiten"
     }
   },
   "stockSection": {

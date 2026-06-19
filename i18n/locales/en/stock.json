@@ -13,11 +13,12 @@
             "disposableItems": "Disposable items",
             "cleaningSupplies": "Cleaning supplies",
             "other": "Other",
-            "unit": "Unit (e.g. pcs, ml, g)",
             "quantity": "Initial quantity",
             "lowStock": "Low stock threshold",
             "createItem": "Create item",
-            "createItemLoading": "Creating..."
+            "createItemLoading": "Creating...",
+            "typeLabel": "Unit type (optional)",
+            "unit": "Units"
         }
 
     },

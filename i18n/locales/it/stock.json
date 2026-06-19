@@ -13,11 +13,12 @@
       "disposableItems": "Articoli monouso",
       "cleaningSupplies": "Prodotti per la pulizia",
       "other": "Altro",  
-      "unit": "Unità (es. pz, ml, g)",
       "quantity": "Quantità iniziale",
       "lowStock": "Soglia di scorte basse",
       "createItem": "Crea articolo",
-      "createItemLoading": "Creazione in corso..."
+      "createItemLoading": "Creazione in corso...",
+      "typeLabel": "Tipo unità (opzionale)",
+      "unit": "Unità"
     }
   },
   "stockSection": {
