@@ -46,9 +46,9 @@
     "ingredientsLabel": "Ingredients",
     "noIngredients": "No ingredients linked",
     "ingredientItem": "{{name}} × {{quantity}}",
-    "clearConfirmTitle": "hello",
-    "clearConfirmDescription": "hello",
-    "clearConfirmButton": "hello",
-    "cancelButton": "hello"
+    "clearConfirmTitle": "Clear Menu",
+    "clearConfirmDescription": "Archive all items in the menu",
+    "clearConfirmButton": "Clear menu",
+    "cancelButton": "Cancel"
   }
 }

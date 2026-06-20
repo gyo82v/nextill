@@ -53,7 +53,11 @@
     "button": "Chiudi giornata",
     "buttonLoading": "Chiusura in corso...",
     "balanceError": "Inserisci un saldo finale valido.",
-    "endDayError": "Impossibile terminare la giornata."
+    "endDayError": "Impossibile terminare la giornata.",
+    "confirmTitle": "Chiudi giornata",
+    "confirmDescription": "Chiudi il POS e termina la giornata",
+    "confirmButton": "Chiudi giornata",
+    "cancelButton": "Annulla"
   },
   "checkout": {
     "title": "Conferma ordine",

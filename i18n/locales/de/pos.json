@@ -53,7 +53,11 @@
     "button": "Tag beenden",
     "buttonLoading": "Tag wird beendet...",
     "balanceError": "Bitte gib einen gültigen Endbestand ein.",
-    "endDayError": "Der Tag konnte nicht beendet werden."
+    "endDayError": "Der Tag konnte nicht beendet werden.",
+    "confirmTitle": "Tag beenden",
+    "confirmDescription": "Das Kassensystem schließen und den Tag beenden",
+    "confirmButton": "Tag beenden",
+    "cancelButton": "Abbrechen"
   },
   "checkout": {
     "title": "Bezahlen",

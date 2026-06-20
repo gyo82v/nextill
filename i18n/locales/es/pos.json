@@ -53,7 +53,11 @@
     "button": "Cerrar jornada",
     "buttonLoading": "Cerrando jornada...",
     "balanceError": "Introduce un saldo final válido.",
-    "endDayError": "No se pudo cerrar la jornada."
+    "endDayError": "No se pudo cerrar la jornada.",
+    "confirmTitle": "Finalizar día",
+    "confirmDescription": "Cerrar el TPV y finalizar el día",
+    "confirmButton": "Finalizar día",
+    "cancelButton": "Cancelar"
   },
   "checkout": {
     "title": "Cobro",

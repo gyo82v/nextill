@@ -53,7 +53,11 @@
     "button": "Clôturer la journée",
     "buttonLoading": "Fermeture en cours...",
     "balanceError": "Veuillez entrer un solde de clôture valide.",
-    "endDayError": "Échec de la clôture de la journée."
+    "endDayError": "Échec de la clôture de la journée.",
+    "confirmTitle": "Terminer la journée",
+    "confirmDescription": "Fermer le POS et terminer la journée",
+    "confirmButton": "Terminer la journée",
+    "cancelButton": "Annuler"
   },
   "checkout": {
     "title": "Paiement",
