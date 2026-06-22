@@ -17,12 +17,9 @@ export default function AppHeader() {
     <header className="sticky top-0 z-50  bg-slate-100/90 backdrop-blur dark:bg-slate-800/90">
       <div className="mx-auto max-w-screen-3xl px-4 sm:px-6 lg:px-8 py-2 xl:py-3">
         <div className="flex h-16 items-center justify-between gap-3">
-          <span 
-           className={`select-none text-xl xl:text-3xl font-semibold tracking-tight
-                     text-slate-900 dark:text-slate-50`}
-          >
-            Nextill
-          </span>
+        <span className="select-none text-slate-600 dark:text-slate-300 font-sora text-3xl font-semibold tracking-[-0.05em]">
+          Ne<span className="text-primary font-bold">x</span>till
+        </span>
 
           <div className="hidden flex-1 lg:flex lg:justify-center">
             <Navbar />
@@ -58,5 +55,4 @@ export default function AppHeader() {
     </header>
   );
 }
-
 

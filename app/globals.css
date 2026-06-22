@@ -40,7 +40,7 @@
     --primary-foreground: theme(colors.slate.950);
 
     --muted: theme(colors.slate.400);
-    --muted-foreground: theme(colors.slate.500);
+    --muted-foreground: theme(colors.slate.300);
     --divider: theme(colors.slate.500);
   }
 
@@ -91,6 +91,10 @@
   .no-scrollbar {
     -ms-overflow-style: none; /* IE/Edge */
     scrollbar-width: none; /* Firefox */
+  }
+
+  .font-sora {
+    font-family: var(--font-sora), sans-serif;
   }
   .no-scrollbar::-webkit-scrollbar {
     display: none; /* WebKit */

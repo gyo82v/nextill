@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Sora } from "next/font/google";
 import ClientProviders from "@/firebase/ClientProviders";
 import "./globals.css";
+
+const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-sora",
+  display: "swap"
+})
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,7 +28,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.className} h-full antialiased`}
+      className={`${inter.className} ${sora.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-screen flex flex-col">

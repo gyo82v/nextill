@@ -175,8 +175,8 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Optional}{Footer} Fix the footer height, on mobile device, in particular the AppFooter. 
 - [Optional] [Intro] if possible add a remember me option in the intro page;
 - [optional] [App] Add the option to register a second email or the option to update the current email;
-- [Optional] [App] Create a custom modal component for the confirmation action like 
-                   delete account, clear menu, clear stock, clear all etc;
+- [✅] {Optional}{App} Create a custom modal component for the confirmation action like 
+        delete account, clear menu, clear stock, clear all etc;
 - [✅] {Optional}{Account} Add a function that will clear all archived items in the stock;
 - [✅] {Optional}{Stock} add a default unit when creating a new stock item. example: "unit", "pcs"
 - [✅] {Optional}{stock} add a show button to the stock activity section and render the section
