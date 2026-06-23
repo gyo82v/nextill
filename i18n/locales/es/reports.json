@@ -52,7 +52,9 @@
       "transaction_one": "{{count}} transacción",
       "transaction_other": "{{count}} transacciones",
       "unit_one": "{{count}} unidad",
-      "unit_other": "{{count}} unidades"
+      "unit_other": "{{count}} unidades",
+      "openingBalance": "Saldo inicial",
+      "closingBalance": "Saldo final"
     }
   }
 }

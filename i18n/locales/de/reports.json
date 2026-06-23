@@ -52,7 +52,9 @@
       "transaction_one": "{{count}} Transaktion",
       "transaction_other": "{{count}} Transaktionen",
       "unit_one": "{{count}} Einheit",
-      "unit_other": "{{count}} Einheiten"
+      "unit_other": "{{count}} Einheiten",
+      "openingBalance": "Eröffnungssaldo",
+      "closingBalance": "Schlusssaldo"
     }
   }
 }

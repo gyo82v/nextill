@@ -52,7 +52,9 @@
             "transaction_one": "{{count}} transaction",
             "transaction_other": "{{count}} transactions",
             "unit_one": "{{count}} unit",
-            "unit_other": "{{count}} units"
+            "unit_other": "{{count}} units",
+            "openingBalance": "Opening balance",
+            "closingBalance": "Closing balance"
         }
     }
 }

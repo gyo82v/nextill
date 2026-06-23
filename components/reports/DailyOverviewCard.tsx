@@ -13,6 +13,7 @@ export default function DailyOverviewCard({
   previousEarnings,
 }: DailyOverviewCardProps) {
   const {t} = useTranslation("reports")
+  console.log("day: ", day)
   const trend =
     previousEarnings == null
       ? "none"
@@ -23,7 +24,7 @@ export default function DailyOverviewCard({
       : "flat";
 
   return (
-    <div className={`${cardBaseStyle} p-4`}>
+    <article className={`${cardBaseStyle} p-4`}>
       <div className="flex flex-wrap items-center justify-between gap-4">
         {/* LEFT SIDE */}
         <div className="min-w-0">
@@ -33,10 +34,33 @@ export default function DailyOverviewCard({
             {t("dailyOverview.card.transaction", { count: day.transactions })} ·{" "}
             {t("dailyOverview.card.unit", { count: day.unitsSoldTotal ?? 0 })}
           </div>
+
+
+         {day.openingBalance != null && day.closingBalance != null && (
+  <div className="mt-3 rounded-lg border border-border/60 bg-muted/30 px-3 py-2">
+    <div className="flex items-center justify-between gap-3 text-xs">
+      <span className="text-muted-foreground">
+        {t("dailyOverview.card.openingBalance")}
+        </span>
+      <span className="font-medium text-foreground">
+        {formatMoney(day.openingBalance, currency)}
+      </span>
+    </div>
+
+    <div className="mt-1.5 flex items-center justify-between gap-3 text-xs">
+      <span className="text-muted-foreground">
+        {t("dailyOverview.card.closingBalance")}
+      </span>
+      <span className="font-medium text-foreground">
+        {formatMoney(day.closingBalance, currency)}
+      </span>
+    </div>
+  </div>
+)}
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="shrink-0 text-right">
+        <div className="shrink-0 text-right space-y-1">
           <div className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
             {t("dailyOverview.card.earnings")}
           </div>
@@ -62,6 +86,6 @@ export default function DailyOverviewCard({
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }

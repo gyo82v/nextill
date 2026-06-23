@@ -167,7 +167,7 @@ NEXTILL IMPLEMENTATION LIST
                    food and drinks;
 - [Optional] [Menu] add the option to edit the price of each exisitng dish;
 - [Optional] [App] Add options for cash/cards payment;
-- [Optional] [Stock] Add in the stock activity cards the date;
+- [✅] {Optional}{Stock} Add in the stock activity cards the date;
 - [✅] {Optional/fix}{Navbar} fix the navbar animation pill; when the sixe on the navbars links changes, 
         the pill should resize corretly automatically.
         example: changing language in the account page;

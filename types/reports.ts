@@ -16,6 +16,8 @@ export type DaySummary = {
   itemsSales?: Record<string, number>;
   mostSoldItem?: string | null;
   updatedAt?: unknown;
+  openingBalance?: number;
+  closingBalance?: number
 };
 
 export type DaySummaryRow = DaySummary & {
