@@ -24,6 +24,7 @@ export default function StockActivityList({
     setIsClearConfirmOpen(false);
   }
 
+
   return (
     <section className="space-y-10 xl:space-y-14">
       <div className="flex flex-col justify-between gap-4 xl:flex-row xl:items-center">

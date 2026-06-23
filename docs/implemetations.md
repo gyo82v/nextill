@@ -160,7 +160,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Clean}{AppHeader} Clean the unused code in the Navbar component;
 - [✅] {Optional}{Account} improve the export data feature, instead of a json file use pdf or other formats;
 - [✅] {Optional}{Account} add an accessibility option to disable motion;
-- [Optional] [App] add sounds effects to the till and an option in the account page to disable it;
+- [✅] {Optional}{App} add sounds effects to the till and an option in the account page to disable it;
 - [✅] {Optional}{Pos} decide how to set the till: use a searchbar, filters, divide by categories;
 - [✅] {optional}{menu} Add a search bar in the menu page;
 - [Optional] [App] Give the user the option to create custom categories instead of the default
@@ -184,5 +184,8 @@ NEXTILL IMPLEMENTATION LIST
 - [Optional] [App] Add discount system;
 - [✅] {Optional}{Stock} Add another category to the stock items for non food/drink items;
 - [✅] {Optional}{App} Translate the errors messages where necessary;
-- [Optional] [pos] add a show/hide button for each category section in the menu list;
+- [Optional] [pos] fix the scrollbar for the cart section if it makes the app better;
+- [optional] [App] find a use for the balance feature like adding it into the day overview section with 
+                   the amount of the start*end balance;
+- [Optional] [Motion] find a use for the enable/disable motion in the account;
                           
