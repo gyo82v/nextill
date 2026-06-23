@@ -1,6 +1,6 @@
 NEXTILL IMPLEMENTATION LIST
 
-- [Design] [Header] Design the nextill logo;
+- [✅] {Design}{Header} Design the nextill logo;
 - [✅] {Content}{App} Make the app Progressive  web App, add a manifest file, icons, html etc;
 - [✅] {Design}{App} Design the icon app used when the app is installed;
 - [✅] {refactor}{Firestore} Modify the create new account function to add email confirmation;
@@ -86,12 +86,12 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Content}{App} Add the feature password forgotten;
 - [✅] {Utils}{App} Create a reusable focus style;
 - [✅] {Utils}{App} Create a reusable pattern style with transitions;
-- [Utils] [App] Import two font form google fonts. a main font and a secondary;
+- [✅] {Utils}{App} Import two font form google fonts. a main font and a secondary;
 - [✅] {Utils}{App} Add a global and local notFound page, add localization to it;
 - [✅] {Utils}{App} Decide the colors palette to use and set the default in global.css;
 - [✅] {Utils}{Layout} update the main layout page with sr-only section and anything useful;
 - [✅] {Utils}{Html} update the html page with meta descriptions, title, and anything useful;
-- [Utils] [Globals.css] update the global.css with all the necessary default styles;
+- [✅] {Utils}{Globals} update the global.css with all the necessary default styles;
 - [✅] {Utils}{App} make the vertical scrollbar visible in desktops and not visible in mobile;
 - [✅] {Utils}{App} add nextill app icon in the title instad of the next.js icons;
 - [✅] {Utils}{App} create a reusable spinner;
@@ -137,7 +137,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Fix}{Pos} add the dynamically rendering of the balace depending on the balanceEnabled in 
         the database in the start/end section in the pos page;
 - [✅] {Fix}{Reports} when a menu item is deleted, in the stats page it show the id and not the name;
-- [Fix] [Header] fix the text color of the navbar links for the darkmode;
+- [✅] {Fix}{Header} fix the text color of the navbar links for the darkmode;
 - [✅] {Fix}{Stock} fix the issue where the stock item amount is not allowed to go below zero;
 - [✅] {Fix}{Select-component} Fix the select compound component. When too many elements are in the options
         there should be a scroll sidebar, this will fix the height issue in the menu page;
@@ -163,7 +163,6 @@ NEXTILL IMPLEMENTATION LIST
 - [Optional] [App] add sounds effects to the till and an option in the account page to disable it;
 - [✅] {Optional}{Pos} decide how to set the till: use a searchbar, filters, divide by categories;
 - [✅] {optional}{menu} Add a search bar in the menu page;
-- [Optional] [App] Add the option to undo the last transactions;
 - [Optional] [App] Give the user the option to create custom categories instead of the default
                    food and drinks;
 - [Optional] [Menu] add the option to edit the price of each exisitng dish;
@@ -181,7 +180,6 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Optional}{Stock} add a default unit when creating a new stock item. example: "unit", "pcs"
 - [✅] {Optional}{stock} add a show button to the stock activity section and render the section
         dinamicaly;
-- [Optional] [Stock/Menu] Check with ai which of the pages menu and stock is better built;
 - [✅] {Optional}{Stock} in the stock activity acrd add an icon for add, remove or archieved;
 - [Optional] [App] Add discount system;
 - [✅] {Optional}{Stock} Add another category to the stock items for non food/drink items;

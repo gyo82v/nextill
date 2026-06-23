@@ -10,6 +10,7 @@ import { openStaffTicketPrintWindow } from "./staffTicketPrint";
 import { openReceiptPrintWindow } from "./receiptPrint";
 import type { CheckoutButtonProps, CheckoutItem } from "@/types";
 import { useTranslation } from "react-i18next";
+import { playSound } from "@/lib/sound";
 
 export default function CheckoutButton({
   items,
@@ -29,6 +30,7 @@ export default function CheckoutButton({
   const currency = profile?.nextillApp.settings.currency ?? "EUR";
   const receiptEnabled = profile?.nextillApp.settings.receiptEnabled ?? true;
   const ticketEnabled = profile?.nextillApp.settings.ticketEnabled ?? true;
+  const soundEnabled = profile?.nextillApp?.settings?.soundEnabled ?? true;
 
   const canCheckout = items.length > 0 && !!user && !!dayKey;
 
@@ -84,6 +86,9 @@ export default function CheckoutButton({
       setReceiptItems(submittedItems);
       setTicketNumber(result.ticketNumber);
       setSuccess(true);
+      if (soundEnabled) {
+        playSound("orderComplete");
+      }
       onSuccess();
     } catch (err) {
       const message = err instanceof Error ? err.message : `${t("checkout.checkoutError")}`;

@@ -19,6 +19,8 @@ export default function PreferencesSection({
   onReceiptPrintingChange,
   balanceEnabled,
   onBalanceEnabledChange,
+  soundEnabled,
+  onSoundEnabledChange,
   dayActive
 }: PreferencesSectionProps) {
   const {t} = useTranslation("account")
@@ -124,6 +126,20 @@ export default function PreferencesSection({
                 }}
                 disabled={!onBalanceEnabledChange || dayActive}
                 aria-label={t("preferences.system.openingClosingBalance.label")}
+              />
+            </SettingRow>
+
+            <SettingRow
+              label={t("preferences.system.sound.label")}
+              description={t("preferences.system.sound.description")}
+            >
+              <Switch
+                checked={soundEnabled ?? false}
+                onCheckedChange={(nextValue) => {
+                  onSoundEnabledChange?.(nextValue);
+                }}
+                disabled={!onSoundEnabledChange}
+                aria-label={t("preferences.system.sound.label")}
               />
             </SettingRow>
           </div>

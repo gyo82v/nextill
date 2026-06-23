@@ -14,7 +14,8 @@
     "endDayBeforeResettingAllData": "Termina la giornata prima di reimpostare tutti i dati.",
     "endDayBeforeDeletingArchivedMenuItems": "Termina la giornata prima di eliminare i prodotti del menu archiviati.",
     "endDayBeforeDeletingArchivedStockItems": "Termina la giornata prima di eliminare gli articoli di magazzino archiviati.",
-    "endDayBeforeDeletingAllArchivedItems": "Termina la giornata prima di eliminare tutti gli elementi archiviati."
+    "endDayBeforeDeletingAllArchivedItems": "Termina la giornata prima di eliminare tutti gli elementi archiviati.",
+    "soundError": "Si è verificato un errore durante l'aggiornamento dell'impostazione audio."
   },
   "overview": {
     "title": "Panoramica account",
@@ -119,6 +120,10 @@
       "customerReceiptPrinting": {
         "label": "Stampa scontrino cliente",
         "description": "Stampa lo scontrino per il cliente."
+      },
+      "sound": {
+        "label": "Audio",
+        "description": "Attiva o disattiva l'audio dell'app."
       },
       "openingClosingBalance": {
         "label": "Apertura e chiusura cassa",

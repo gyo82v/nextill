@@ -14,7 +14,8 @@
     "endDayBeforeResettingAllData": "Please end the day before resetting all data.",
     "endDayBeforeDeletingArchivedMenuItems": "Please end the day before deleting archived menu items.",
     "endDayBeforeDeletingArchivedStockItems": "Please end the day before deleting archived stock items.",
-    "endDayBeforeDeletingAllArchivedItems": "Please end the day before deleting all archived items."
+    "endDayBeforeDeletingAllArchivedItems": "Please end the day before deleting all archived items.",
+    "soundError": "There was an error updating the sound setting."
   },
   "overview": {
     "title": "Account overview",
@@ -119,6 +120,10 @@
       "customerReceiptPrinting": {
         "label": "Customer receipt printing",
         "description": "Print the receipt for the customer."
+      },
+      "sound": {
+        "label": "Sound",
+        "description": "Enable or disable app sound."
       },
       "openingClosingBalance": {
         "label": "Opening and closing balance",

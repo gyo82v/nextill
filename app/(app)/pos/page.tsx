@@ -14,6 +14,7 @@ import MobileCartDrawer from "@/components/pos/MobileCartDrawer";
 import { useCartStore } from "@/store/useCartStore";
 import { SmallDivider } from "@/components/ui/dividers/Dividers";
 import { useTranslation } from "react-i18next";
+import { playSound } from "@/lib/sound";
 
 export default function PosPage() {
   const { user, profile } = useAuth();
@@ -23,6 +24,9 @@ export default function PosPage() {
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [menuLoading, setMenuLoading] = useState(true);
   const [mobileCartOpen, setMobileCartOpen] = useState(false);
+
+  const soundEnabled = profile?.nextillApp?.settings?.soundEnabled ?? true;
+  // If your path is different, adjust this line only.
 
   const loadMenu = useCallback(async () => {
     if (!user) return;
@@ -53,6 +57,27 @@ export default function PosPage() {
       cancelled = true;
     };
   }, [loadMenu]);
+
+  const handleAddItem = useCallback(
+    (item: MenuItem) => {
+      cart.addItem(item);
+
+      if (soundEnabled) {
+        playSound("addToCart");
+      }
+    },
+    [cart, soundEnabled]
+  );
+
+  const handleAddItemById = useCallback(
+    (id: string) => {
+      const item = menuItems.find((i) => i.id === id);
+      if (!item) return;
+
+      handleAddItem(item);
+    },
+    [menuItems, handleAddItem]
+  );
 
   const checkoutItems = useMemo(
     () =>
@@ -94,27 +119,27 @@ export default function PosPage() {
           </p>
         </header>
 
-        <div className={`grid gap-5 xl:gap-6 lg:grid-cols-[minmax(0,1.45fr)_minmax(22rem,0.85fr)]
-                         xl:grid-cols-[minmax(0,1.5fr)_minmax(23rem,0.9fr)]`}>
+        <div
+          className={`grid gap-5 xl:gap-6 lg:grid-cols-[minmax(0,1.45fr)_minmax(22rem,0.85fr)]
+                         xl:grid-cols-[minmax(0,1.5fr)_minmax(23rem,0.9fr)]`}
+        >
           <div className="min-w-0 rounded-3xl border border-default bg-surface-1 p-4 shadow-sm lg:p-5">
             {menuLoading ? (
               <p className="opacity-70">{t("loadingMenu")}</p>
             ) : (
-              <MenuList items={menuItems} onAdd={cart.addItem} />
+              <MenuList items={menuItems} onAdd={handleAddItem} />
             )}
           </div>
 
-          <aside className={`hidden lg:block lg:sticky lg:top-6 lg:self-start
-                             lg:max-h-[calc(100vh-3rem)] lg:overflow-y-auto lg:pr-1`}>
+          <aside
+            className={`hidden lg:block lg:sticky lg:top-6 lg:self-start
+                             lg:max-h-[calc(100vh-3rem)] lg:overflow-y-auto lg:pr-1`}
+          >
             <div className="space-y-5 rounded-3xl border border-default bg-surface-1 p-4 shadow-sm lg:p-5">
               <CartPanel
                 items={cart.items}
                 totalMinor={cart.totalMinor}
-                onAdd={(id) => {
-                  const item = menuItems.find((i) => i.id === id);
-                  if (!item) return;
-                  cart.addItem(item);
-                }}
+                onAdd={handleAddItemById}
                 onRemove={cart.removeItem}
               />
 
@@ -149,11 +174,7 @@ export default function PosPage() {
         items={cart.items}
         checkoutItems={checkoutItems}
         totalMinor={cart.totalMinor}
-        onAdd={(id) => {
-          const item = menuItems.find((i) => i.id === id);
-          if (!item) return;
-          cart.addItem(item);
-        }}
+        onAdd={handleAddItemById}
         onRemove={cart.removeItem}
         onSuccess={() => {
           cart.clearCart();
@@ -164,11 +185,6 @@ export default function PosPage() {
   );
 }
 
-/*
-
-
-
-*/
 
 
 

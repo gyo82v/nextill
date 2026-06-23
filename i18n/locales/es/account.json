@@ -14,7 +14,8 @@
     "endDayBeforeResettingAllData": "Por favor, finaliza el día antes de restablecer todos los datos.",
     "endDayBeforeDeletingArchivedMenuItems": "Por favor, finaliza el día antes de eliminar los artículos de menú archivados.",
     "endDayBeforeDeletingArchivedStockItems": "Por favor, finaliza el día antes de eliminar los artículos de stock archivados.",
-    "endDayBeforeDeletingAllArchivedItems": "Por favor, finaliza el día antes de eliminar todos los elementos archivados."
+    "endDayBeforeDeletingAllArchivedItems": "Por favor, finaliza el día antes de eliminar todos los elementos archivados.",
+    "soundError": "Se produjo un error al actualizar la configuración de sonido."
   },
   "overview": {
     "title": "Resumen de la cuenta",
@@ -119,6 +120,10 @@
       "customerReceiptPrinting": {
         "label": "Impresión de recibos del cliente",
         "description": "Imprime el recibo para el cliente."
+      },
+      "sound": {
+        "label": "Sonido",
+        "description": "Activa o desactiva el sonido de la app."
       },
       "openingClosingBalance": {
         "label": "Apertura y cierre de caja",

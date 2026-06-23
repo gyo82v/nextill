@@ -14,7 +14,8 @@
     "endDayBeforeResettingAllData": "Veuillez terminer la journée avant de réinitialiser toutes les données.",
     "endDayBeforeDeletingArchivedMenuItems": "Veuillez terminer la journée avant de supprimer les éléments de menu archivés.",
     "endDayBeforeDeletingArchivedStockItems": "Veuillez terminer la journée avant de supprimer les articles de stock archivés.",
-    "endDayBeforeDeletingAllArchivedItems": "Veuillez terminer la journée avant de supprimer tous les éléments archivés."
+    "endDayBeforeDeletingAllArchivedItems": "Veuillez terminer la journée avant de supprimer tous les éléments archivés.",
+    "soundError": "Une erreur s'est produite lors de la mise à jour du réglage du son."
   },
   "overview": {
     "title": "Aperçu du compte",
@@ -119,6 +120,10 @@
       "customerReceiptPrinting": {
         "label": "Impression des reçus clients",
         "description": "Imprime le reçu destiné au client."
+      },
+      "sound": {
+        "label": "Son",
+        "description": "Activez ou désactivez le son de l'application."
       },
       "openingClosingBalance": {
         "label": "Ouverture et fermeture de caisse",

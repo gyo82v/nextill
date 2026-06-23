@@ -61,6 +61,9 @@ export type PreferencesSectionProps = {
   balanceEnabled?: boolean;
   onBalanceEnabledChange?: (nextValue: boolean) => void;
 
+  soundEnabled?: boolean;
+  onSoundEnabledChange?: (nextValue: boolean) => void;
+
   dayActive?: boolean
 };
 

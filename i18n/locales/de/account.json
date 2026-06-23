@@ -14,7 +14,8 @@
     "endDayBeforeResettingAllData": "Bitte beende den Tag, bevor du alle Daten zurücksetzt.",
     "endDayBeforeDeletingArchivedMenuItems": "Bitte beende den Tag, bevor du archivierte Menüelemente löschst.",
     "endDayBeforeDeletingArchivedStockItems": "Bitte beende den Tag, bevor du archivierte Lagerartikel löschst.",
-    "endDayBeforeDeletingAllArchivedItems": "Bitte beende den Tag, bevor du alle archivierten Elemente löschst."
+    "endDayBeforeDeletingAllArchivedItems": "Bitte beende den Tag, bevor du alle archivierten Elemente löschst.",
+    "soundError": "Beim Aktualisieren der Toneinstellung ist ein Fehler aufgetreten."
   },
   "overview": {
     "title": "Kontoübersicht",
@@ -119,6 +120,10 @@
       "customerReceiptPrinting": {
         "label": "Kundenbelegdruck",
         "description": "Drucke den Beleg für den Kunden."
+      },
+      "sound": {
+        "label": "Ton",
+        "description": "Aktiviere oder deaktiviere den App-Ton."
       },
       "openingClosingBalance": {
         "label": "Kassenöffnung und -abschluss",
