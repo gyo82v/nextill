@@ -20,6 +20,7 @@ export interface UserProfile {
             receiptEnabled: boolean
             disableMotion: boolean
             soundEnabled: boolean
+            discountEnabled: boolean
         }
         dayCycle: {
             active: boolean

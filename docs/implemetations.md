@@ -185,7 +185,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Optional}{Stock} Add another category to the stock items for non food/drink items;
 - [✅] {Optional}{App} Translate the errors messages where necessary;
 - [Optional] [pos] fix the scrollbar for the cart section if it makes the app better;
-- [optional] [App] find a use for the balance feature like adding it into the day overview section with 
+- [✅] {optional}{app} find a use for the balance feature like adding it into the day overview section with 
                    the amount of the start*end balance;
 - [Optional] [Motion] find a use for the enable/disable motion in the account;
                           
