@@ -120,3 +120,22 @@ export async function updateSoundOption({ uid }: { uid: string }) {
     });
   });
 }
+
+export async function updateDiscountOption({ uid }: { uid: string }) {
+  const ref = doc(db, "users", uid);
+
+  await runTransaction(db, async (transaction) => {
+    const snap = await transaction.get(ref);
+
+    if (!snap.exists()) {
+      throw new Error("User document does not exist");
+    }
+
+    const current =
+      snap.get("nextillApp.settings.discountEnabled") ?? false;
+
+    transaction.update(ref, {
+      "nextillApp.settings.discountEnabled": !current,
+    });
+  });
+}

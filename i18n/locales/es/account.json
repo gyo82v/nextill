@@ -15,7 +15,8 @@
     "endDayBeforeDeletingArchivedMenuItems": "Por favor, finaliza el día antes de eliminar los artículos de menú archivados.",
     "endDayBeforeDeletingArchivedStockItems": "Por favor, finaliza el día antes de eliminar los artículos de stock archivados.",
     "endDayBeforeDeletingAllArchivedItems": "Por favor, finaliza el día antes de eliminar todos los elementos archivados.",
-    "soundError": "Se produjo un error al actualizar la configuración de sonido."
+    "soundError": "Se produjo un error al actualizar la configuración de sonido.",
+    "discountError": "Se produjo un error al actualizar la configuración de descuentos.."
   },
   "overview": {
     "title": "Resumen de la cuenta",
@@ -124,6 +125,11 @@
       "sound": {
         "label": "Sonido",
         "description": "Activa o desactiva el sonido de la app."
+      },
+       "discount": {
+        "label": "Descuentos",
+        "description": "Activa o desactiva el sistema de descuentos.",
+        "disabled": "Cierra el día antes de cambiar la configuración de descuentos."
       },
       "openingClosingBalance": {
         "label": "Apertura y cierre de caja",

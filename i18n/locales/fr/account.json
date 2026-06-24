@@ -15,7 +15,8 @@
     "endDayBeforeDeletingArchivedMenuItems": "Veuillez terminer la journée avant de supprimer les éléments de menu archivés.",
     "endDayBeforeDeletingArchivedStockItems": "Veuillez terminer la journée avant de supprimer les articles de stock archivés.",
     "endDayBeforeDeletingAllArchivedItems": "Veuillez terminer la journée avant de supprimer tous les éléments archivés.",
-    "soundError": "Une erreur s'est produite lors de la mise à jour du réglage du son."
+    "soundError": "Une erreur s'est produite lors de la mise à jour du réglage du son.",
+    "discountError": "Une erreur est survenue lors de la mise à jour du paramètre des remises."
   },
   "overview": {
     "title": "Aperçu du compte",
@@ -124,6 +125,11 @@
       "sound": {
         "label": "Son",
         "description": "Activez ou désactivez le son de l'application."
+      },
+       "discount": {
+        "label": "Remises",
+        "description": "Activer ou désactiver le système de remises.",
+        "disabled": "Terminez la journée avant de modifier le paramètre des remises."
       },
       "openingClosingBalance": {
         "label": "Ouverture et fermeture de caisse",

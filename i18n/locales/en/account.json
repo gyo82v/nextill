@@ -15,7 +15,8 @@
     "endDayBeforeDeletingArchivedMenuItems": "Please end the day before deleting archived menu items.",
     "endDayBeforeDeletingArchivedStockItems": "Please end the day before deleting archived stock items.",
     "endDayBeforeDeletingAllArchivedItems": "Please end the day before deleting all archived items.",
-    "soundError": "There was an error updating the sound setting."
+    "soundError": "There was an error updating the sound setting.",
+    "discountError": "There was an error updating the discount setting."
   },
   "overview": {
     "title": "Account overview",
@@ -124,6 +125,11 @@
       "sound": {
         "label": "Sound",
         "description": "Enable or disable app sound."
+      },
+      "discount": {
+        "label": "Discounts",
+        "description": "Enable or disable discount system.",
+        "disabled": "End the day before changing the discount setting"
       },
       "openingClosingBalance": {
         "label": "Opening and closing balance",

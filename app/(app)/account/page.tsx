@@ -7,7 +7,8 @@ import {resetAllData, resetReports, deleteArchivedMenuAndStockItems,
         deleteArchivedMenuItems, deleteArchivedStockItems,} from "@/firebase/accountData";
 import { deleteAccountWithPassword, resetPassword } from "@/firebase/accountAuth";
 import {updateCurrency, updateBalanceOption, updateReceiptOption,
-        updateTicketOption, updateDisableMotion,updateSoundOption} from "@/firebase/userSettings";
+        updateTicketOption, updateDisableMotion,updateSoundOption,
+        updateDiscountOption} from "@/firebase/userSettings";
 import { DotLineDivider, MenuSectionDivider } from "@/components/ui/dividers/Dividers";
 import AccountOverviewSection from "@/components/account/AccountOverviewSection";
 import PreferencesSection from "@/components/account/PreferencesSection";
@@ -100,6 +101,17 @@ export default function AccountPage() {
     }catch(err){
       setError(
         err instanceof Error ? err.message : t("errors.soundError")
+      )
+    }
+  }
+
+  async function handleEnableDiscount(){
+    clearFeedback()
+    try{
+      await updateDiscountOption({uid})
+    }catch(err){
+      setError(
+        err instanceof Error ? err.message : t("errors.discountError")
       )
     }
   }
@@ -218,11 +230,13 @@ export default function AccountPage() {
                 onReceiptPrintingChange={handleUpdateReceipt}
                 onReduceMotionChange={handleDisableMotion}
                 onSoundEnabledChange={handleEnableSound}
+                onDiscountEnabledChange={handleEnableDiscount}
                 reduceMotion={settings?.disableMotion ?? false}
                 staffTicketPrinting={settings?.ticketEnabled ?? false}
                 receiptPrinting={settings?.receiptEnabled ?? false}
                 balanceEnabled={settings?.balanceEnabled ?? false}
                 soundEnabled={settings?.soundEnabled ?? false}
+                discountEnabled={settings?.discountEnabled ?? false}
                 dayActive={dayActive}
               />
             </div>

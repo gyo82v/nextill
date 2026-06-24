@@ -21,6 +21,8 @@ export default function PreferencesSection({
   onBalanceEnabledChange,
   soundEnabled,
   onSoundEnabledChange,
+  discountEnabled,
+  onDiscountEnabledChange,
   dayActive
 }: PreferencesSectionProps) {
   const {t} = useTranslation("account")
@@ -126,6 +128,22 @@ export default function PreferencesSection({
                 }}
                 disabled={!onBalanceEnabledChange || dayActive}
                 aria-label={t("preferences.system.openingClosingBalance.label")}
+              />
+            </SettingRow>
+
+            <SettingRow
+              label={t("preferences.system.discount.label")}
+              description={dayActive ? t("preferences.system.discount.disabled") :
+                                       t("preferences.system.discount.description")}
+              disabled={dayActive}
+            >
+              <Switch
+                checked={discountEnabled ?? false}
+                onCheckedChange={(nextValue) => {
+                  onDiscountEnabledChange?.(nextValue);
+                }}
+                disabled={!onDiscountEnabledChange || dayActive}
+                aria-label={t("preferences.system.discount.label")}
               />
             </SettingRow>
 

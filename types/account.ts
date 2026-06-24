@@ -64,6 +64,9 @@ export type PreferencesSectionProps = {
   soundEnabled?: boolean;
   onSoundEnabledChange?: (nextValue: boolean) => void;
 
+  discountEnabled?: boolean;
+  onDiscountEnabledChange?: (nextValue: boolean) => void;
+
   dayActive?: boolean
 };
 

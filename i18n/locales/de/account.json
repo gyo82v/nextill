@@ -15,7 +15,8 @@
     "endDayBeforeDeletingArchivedMenuItems": "Bitte beende den Tag, bevor du archivierte Menüelemente löschst.",
     "endDayBeforeDeletingArchivedStockItems": "Bitte beende den Tag, bevor du archivierte Lagerartikel löschst.",
     "endDayBeforeDeletingAllArchivedItems": "Bitte beende den Tag, bevor du alle archivierten Elemente löschst.",
-    "soundError": "Beim Aktualisieren der Toneinstellung ist ein Fehler aufgetreten."
+    "soundError": "Beim Aktualisieren der Toneinstellung ist ein Fehler aufgetreten.",
+    "discountError": "Beim Aktualisieren der Rabatt-Einstellung ist ein Fehler aufgetreten."
   },
   "overview": {
     "title": "Kontoübersicht",
@@ -124,6 +125,11 @@
       "sound": {
         "label": "Ton",
         "description": "Aktiviere oder deaktiviere den App-Ton."
+      },
+       "discount": {
+        "label": "Rabatte",
+        "description": "Rabattfunktion aktivieren oder deaktivieren.",
+        "disabled": "Beende den Tag, bevor du die Rabatt-Einstellung änderst."
       },
       "openingClosingBalance": {
         "label": "Kassenöffnung und -abschluss",
