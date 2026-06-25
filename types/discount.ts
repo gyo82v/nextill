@@ -1,36 +1,49 @@
 import type { Timestamp } from "firebase/firestore";
 
-/**
- * Discount type used when READING from Firestore
- */
-export type Discount = {
-  id: string;
-  name: string;
-  type: "fixed" | "percentage";
-  value: number;
-  active?: boolean;
-  createdAt?: Timestamp;
-  updatedAt?: Timestamp;
-  archivedAt?: Timestamp;
-};
+export type Discount =
+  | {
+      id: string;
+      name: string;
+      type: "percentage";
+      percentage: number;
+      active: boolean;
+      createdAt: Timestamp;
+      updatedAt: Timestamp;
+    }
+  | {
+      id: string;
+      name: string;
+      type: "flat";
+      valueMinor: number;
+      active: boolean;
+      createdAt: Timestamp;
+      updatedAt: Timestamp;
+    };
 
-/**
- * Input type for CREATING a discount
- * (timestamps are handled internally by Firebase helpers)
- */
-export type CreateDiscountInput = {
-  name: string;
-  type: "fixed" | "percentage";
-  value: number;
-  active?: boolean;
-};
+export type CreateDiscountInput =
+  | {
+      name: string;
+      type: "percentage";
+      percentage: number;
+      active?: boolean;
+    }
+  | {
+      name: string;
+      type: "flat";
+      valueMinor: number;
+      active?: boolean;
+    };
 
-/**
- * Input type for UPDATING a discount
- */
-export type UpdateDiscountInput = {
-  name?: string;
-  type?: "fixed" | "percentage";
-  value?: number;
-  active?: boolean;
-};
+export type UpdateDiscountInput =
+  | {
+      name?: string;
+      type: "percentage";
+      percentage?: number;
+      active?: boolean;
+    }
+  | {
+      name?: string;
+      type: "flat";
+      valueMinor?: number;
+      active?: boolean;
+    };

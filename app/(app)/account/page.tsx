@@ -20,6 +20,7 @@ import AccountExportPdf from "@/components/account/export/AccountExportPdf";
 import { buildAccountExportReport } from "@/components/account/export/buildAccountExportReport";
 import { exportUserData } from "@/components/account/export/exportUserData";
 import { useTranslation } from "react-i18next";
+import DiscountSection from "@/components/account/DiscountSection";
 
 export default function AccountPage() {
   const { user, profile } = useAuth();
@@ -33,6 +34,7 @@ export default function AccountPage() {
   const dayActive = profile?.nextillApp?.dayCycle?.active ?? false;
   const currency = profile?.nextillApp?.settings?.currency ?? "EUR";
   const settings = profile?.nextillApp?.settings;
+  const discountEnabled = profile?.nextillApp?.settings?.discountEnabled ?? false
 
   function clearFeedback() {
     setError(null);
@@ -257,6 +259,12 @@ export default function AccountPage() {
               <ExportDataSection
                 onExportPdf={handleExportPdf}
                 onExportBackup={handleExportBackup}
+              />
+
+              <DiscountSection
+                dayActive={dayActive}
+                discountEnabled={discountEnabled}
+                userId={user.uid}
               />
 
               <PrivacyPolicySection />
