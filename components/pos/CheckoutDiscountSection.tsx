@@ -19,23 +19,23 @@ export default function CheckoutDiscountSection({
   onDiscountChange,
 }: CheckoutDiscountSectionProps) {
   const [discounts, setDiscounts] = useState<Discount[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (!discountEnabled) {
-      setLoading(false);
-      return;
-    }
+    if (!discountEnabled) return;
 
     let mounted = true;
 
-    listActiveDiscounts(uid)
-      .then((data) => {
+    (async () => {
+      setLoading(true);
+
+      try {
+        const data = await listActiveDiscounts(uid);
         if (mounted) setDiscounts(data);
-      })
-      .finally(() => {
+      } finally {
         if (mounted) setLoading(false);
-      });
+      }
+    })();
 
     return () => {
       mounted = false;
@@ -54,6 +54,11 @@ export default function CheckoutDiscountSection({
         {discounts.map((discount) => {
           const selected = appliedDiscount?.id === discount.id;
 
+          const label =
+            discount.type === "percentage"
+              ? `-${discount.percentage}%`
+              : `-€${(discount.valueMinor / 100).toFixed(2)}`;
+
           return (
             <Button
               key={discount.id}
@@ -65,11 +70,7 @@ export default function CheckoutDiscountSection({
               className="w-full justify-between"
             >
               <span>{discount.name}</span>
-              <span className="text-sm">
-                {discount.type === "percentage"
-                  ? `${discount.value}%`
-                  : `-€${discount.value.toFixed(2)}`}
-              </span>
+              <span className="text-sm">{label}</span>
             </Button>
           );
         })}

@@ -1,5 +1,6 @@
 import {
   addDoc,
+  setDoc,
   collection,
   deleteDoc,
   doc,
@@ -74,38 +75,114 @@ export function subscribeDiscounts(
    Create
 -------------------------- */
 
-export async function createDiscount(uid: string, input: CreateDiscountInput) {
-  if (!uid) throw new Error("Missing user id.");
-  if (!input.name.trim()) throw new Error("Discount name is required.");
-  if (input.type !== "fixed" && input.type !== "percentage") {
-    throw new Error("Discount type must be 'fixed' or 'percentage'.");
-  }
-  if (typeof input.value !== "number" || Number.isNaN(input.value)) {
-    throw new Error("Discount value must be a number.");
-  }
-  if (input.value <= 0) {
-    throw new Error("Discount value must be greater than zero.");
-  }
-  if (input.type === "percentage" && input.value > 100) {
-    throw new Error("Percentage discount cannot be greater than 100.");
+export async function createDiscount(
+  userId: string,
+  input: CreateDiscountInput
+) {
+  if (!userId) throw new Error("Missing user id.");
+
+  if (input.type === "flat") {
+    if (typeof input.valueMinor !== "number") {
+      throw new Error("Discount value must be a number.");
+    }
   }
 
-  const payload = {
-    name: input.name.trim(),
-    type: input.type,
-    value: input.value,
+  if (input.type === "percentage") {
+    if (typeof input.percentage !== "number") {
+      throw new Error("Discount value must be a number.");
+    }
+  }
+
+  const ref = doc(collection(db, "users", userId, "discounts"));
+
+  await setDoc(ref, {
+    ...input,
     active: input.active ?? true,
     createdAt: serverTimestamp(),
     updatedAt: serverTimestamp(),
-  };
-
-  const ref = await addDoc(discountsCol(uid), payload);
-  return ref.id;
+  });
 }
 
 /* -------------------------
    Update
 -------------------------- */
+
+export async function updateDiscount(
+  userId: string,
+  discountId: string,
+  input: UpdateDiscountInput
+) {
+  if (!userId) throw new Error("Missing user id.");
+  if (!discountId) throw new Error("Missing discount id.");
+
+  if (input.type === "flat" && input.valueMinor !== undefined) {
+    if (typeof input.valueMinor !== "number") {
+      throw new Error("Discount value must be a number.");
+    }
+  }
+
+  if (input.type === "percentage" && input.percentage !== undefined) {
+    if (typeof input.percentage !== "number") {
+      throw new Error("Discount value must be a number.");
+    }
+  }
+
+  const ref = doc(db, "users", userId, "discounts", discountId);
+
+  await updateDoc(ref, {
+    ...input,
+    updatedAt: serverTimestamp(),
+  });
+}
+
+/* -------------------------
+   Archive / Delete
+-------------------------- */
+
+export async function archiveDiscount(uid: string, discountId: string) {
+  if (!uid) throw new Error("Missing user id.");
+  if (!discountId) throw new Error("Missing discount id.");
+
+  const ref = doc(discountsCol(uid), discountId);
+
+  await runTransaction(db, async (tx) => {
+    const snap = await tx.get(ref);
+
+    if (!snap.exists()) {
+      throw new Error("Discount not found.");
+    }
+
+    const current = snap.data() as Omit<Discount, "id">;
+
+    if (current.active === false) {
+      return; // already archived
+    }
+
+    tx.update(ref, {
+      active: false,
+      archivedAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
+    });
+  });
+}
+
+export async function deleteDiscount(uid: string, discountId: string) {
+  if (!uid) throw new Error("Missing user id.");
+  if (!discountId) throw new Error("Missing discount id.");
+
+  const ref = doc(discountsCol(uid), discountId);
+  await deleteDoc(ref);
+}
+
+
+
+
+/*
+
+
+
+
+
 
 export async function updateDiscount(
   uid: string,
@@ -151,41 +228,39 @@ export async function updateDiscount(
   return updateDoc(ref, payload);
 }
 
-/* -------------------------
-   Archive / Delete
--------------------------- */
 
-export async function archiveDiscount(uid: string, discountId: string) {
+export async function createDiscount(uid: string, input: CreateDiscountInput) {
   if (!uid) throw new Error("Missing user id.");
-  if (!discountId) throw new Error("Missing discount id.");
+  if (!input.name.trim()) throw new Error("Discount name is required.");
+  if (input.type !== "fixed" && input.type !== "percentage") {
+    throw new Error("Discount type must be 'fixed' or 'percentage'.");
+  }
+  if (typeof input.value !== "number" || Number.isNaN(input.value)) {
+    throw new Error("Discount value must be a number.");
+  }
+  if (input.value <= 0) {
+    throw new Error("Discount value must be greater than zero.");
+  }
+  if (input.type === "percentage" && input.value > 100) {
+    throw new Error("Percentage discount cannot be greater than 100.");
+  }
 
-  const ref = doc(discountsCol(uid), discountId);
+  const payload = {
+    name: input.name.trim(),
+    type: input.type,
+    value: input.value,
+    active: input.active ?? true,
+    createdAt: serverTimestamp(),
+    updatedAt: serverTimestamp(),
+  };
 
-  await runTransaction(db, async (tx) => {
-    const snap = await tx.get(ref);
-
-    if (!snap.exists()) {
-      throw new Error("Discount not found.");
-    }
-
-    const current = snap.data() as Omit<Discount, "id">;
-
-    if (current.active === false) {
-      return; // already archived
-    }
-
-    tx.update(ref, {
-      active: false,
-      archivedAt: serverTimestamp(),
-      updatedAt: serverTimestamp(),
-    });
-  });
+  const ref = await addDoc(discountsCol(uid), payload);
+  return ref.id;
 }
 
-export async function deleteDiscount(uid: string, discountId: string) {
-  if (!uid) throw new Error("Missing user id.");
-  if (!discountId) throw new Error("Missing discount id.");
 
-  const ref = doc(discountsCol(uid), discountId);
-  await deleteDoc(ref);
-}
+
+
+
+
+*/

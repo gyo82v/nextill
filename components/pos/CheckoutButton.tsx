@@ -47,6 +47,7 @@ export default function CheckoutButton({
     setReceiptItems([]);
     setTicketNumber(null);
     setError(null);
+    setAppliedDiscount(null);
   }
 
   function handleOpen() {

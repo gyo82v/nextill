@@ -1,16 +1,18 @@
 import type { Discount } from "@/types/discount";
 
 export function applyDiscount(
-  totalMinor: number,
-  discount: Discount
+  subtotalMinor: number,
+  discount: Discount | null
 ): number {
-  if (discount.type === "fixed") {
-    return Math.max(0, totalMinor - discount.value);
-  }
+  if (!discount) return subtotalMinor;
 
   if (discount.type === "percentage") {
-    return Math.round(totalMinor * (1 - discount.value / 100));
+    const amount = Math.round(
+      subtotalMinor * (discount.percentage / 100)
+    );
+    return Math.max(0, subtotalMinor - amount);
   }
 
-  return totalMinor;
+  // fixed
+  return Math.max(0, subtotalMinor - discount.valueMinor);
 }

@@ -1,4 +1,5 @@
 import type { MenuItem } from "@/types";
+import type { Discount } from "./discount";
 
 export type CartItem = {
     name: string;
@@ -44,6 +45,9 @@ export type CheckoutModalProps = {
   error?: string | null;
   ticketEnabled?: boolean;
   receiptEnabled?: boolean;
+  appliedDiscount: Discount |null;
+  discountEnabled: boolean
+  onDiscountChange: React.Dispatch<React.SetStateAction<Discount | null>>;
   onClose: () => void;
   onConfirm: () => void | Promise<void>;
   onPrintStaffTicket: () => void | Promise<void>;

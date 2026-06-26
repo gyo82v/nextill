@@ -9,6 +9,7 @@ import { FaCircleCheck, FaPrint, FaReceipt } from "react-icons/fa6";
 import type { CheckoutModalProps } from "@/types/pos";
 import { useTranslation } from "react-i18next";
 import CheckoutDiscountSection from "./CheckoutDiscountSection";
+import { FiX } from "react-icons/fi";
 import type { Discount } from "@/types/discount";
 
 export default function CheckoutModal({
@@ -201,13 +202,24 @@ export default function CheckoutModal({
             {appliedDiscount ? (
               <div className="flex items-center justify-between px-4 text-sm text-muted-foreground">
                 <span>Discount</span>
-                <span>
-                 {appliedDiscount.type === "percentage"
-                  ? `-${appliedDiscount.value}%`
-                  : `-${formatMoney(appliedDiscount.value, currency)}`}
-                </span>
-              </div>
-            ) : null}
+
+                <div className="flex items-center gap-2">
+                  <span>
+                    {appliedDiscount.type === "percentage"
+                     ? `-${appliedDiscount.percentage}%`
+                     : `-${formatMoney(appliedDiscount.valueMinor, currency)}`}
+                  </span>
+
+                  <button
+                    type="button"
+                    onClick={() => onDiscountChange(null)}
+                    aria-label="Remove discount"
+                    className="rounded p-0.5 text-muted-foreground hover:text-foreground hover:bg-surface-3 transition"
+                  >
+                    <FiX className="h-4 w-4" />
+                  </button>
+                </div>
+              </div>) : null}
 
             <div className={`flex items-center justify-between rounded-2xl border
                              border-default bg-surface-2 px-4 py-3`}>
@@ -232,6 +244,18 @@ export default function CheckoutModal({
 
 
 /*
+
+
+{appliedDiscount ? (
+              <div className="flex items-center justify-between px-4 text-sm text-muted-foreground">
+                <span>Discount</span>
+                <span>
+                 {appliedDiscount.type === "percentage"
+                  ? `-${appliedDiscount.percentage}%`
+                  : `-${formatMoney(appliedDiscount.valueMinor, currency)}`}
+                </span>
+              </div>
+            ) : null}
 
 
 "use client";
