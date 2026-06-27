@@ -163,8 +163,6 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Optional}{App} add sounds effects to the till and an option in the account page to disable it;
 - [✅] {Optional}{Pos} decide how to set the till: use a searchbar, filters, divide by categories;
 - [✅] {optional}{menu} Add a search bar in the menu page;
-- [Optional] [App] Give the user the option to create custom categories instead of the default
-                   food and drinks;
 - [Optional] [Menu] add the option to edit the price of each exisitng dish;
 - [Optional] [App] Add options for cash/cards payment;
 - [✅] {Optional}{Stock} Add in the stock activity cards the date;
@@ -172,8 +170,7 @@ NEXTILL IMPLEMENTATION LIST
         the pill should resize corretly automatically.
         example: changing language in the account page;
 - [✅] {Optional}{Footer} Fix the footer height, on mobile device, in particular the AppFooter. 
-- [Optional] [Intro] if possible add a remember me option in the intro page;
-- [optional] [App] Add the option to register a second email or the option to update the current email;
+- [optional] [App] Add the the option to update the current email;
 - [✅] {Optional}{App} Create a custom modal component for the confirmation action like 
         delete account, clear menu, clear stock, clear all etc;
 - [✅] {Optional}{Account} Add a function that will clear all archived items in the stock;
@@ -188,4 +185,5 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {optional}{app} find a use for the balance feature like adding it into the day overview section with 
                    the amount of the start*end balance;
 - [Optional] [Motion] find a use for the enable/disable motion in the account;
+- [Optional] [Localization] add localization in the pos and account page for the discount section;
                           
