@@ -112,7 +112,7 @@ export default function PosPage() {
   return (
     <>
       <div className="mx-auto w-full max-w-[1550px] space-y-6 px-4 pt-4 lg:px-10 lg:py-6 lg:pb-6">
-        <header className="space-y-1">
+        <header className="space-y-1 mt-6  mb-12">
           <h1 className="text-2xl font-semibold tracking-tight">{t("title")}</h1>
           <p className="text-sm text-muted-foreground">
             {t("description")}
@@ -120,7 +120,7 @@ export default function PosPage() {
         </header>
 
         <div
-          className={`grid gap-5 xl:gap-6 lg:grid-cols-[minmax(0,1.45fr)_minmax(22rem,0.85fr)]
+          className={`grid gap-5 xl:gap-20 lg:grid-cols-[minmax(0,1.45fr)_minmax(22rem,0.85fr)]
                          xl:grid-cols-[minmax(0,1.5fr)_minmax(23rem,0.9fr)]`}
         >
           <div className="min-w-0 rounded-3xl border border-default bg-surface-1 p-4 shadow-sm lg:p-5">
@@ -132,8 +132,8 @@ export default function PosPage() {
           </div>
 
           <aside
-            className={`hidden lg:block lg:sticky lg:top-6 lg:self-start
-                             lg:max-h-[calc(100vh-3rem)] lg:overflow-y-auto lg:pr-1`}
+            className={`hidden lg:block lg:top-6 lg:self-start 
+                         lg:pr-1 `}
           >
             <div className="space-y-5 rounded-3xl border border-default bg-surface-1 p-4 shadow-sm lg:p-5">
               <CartPanel
@@ -142,12 +142,14 @@ export default function PosPage() {
                 onAdd={handleAddItemById}
                 onRemove={cart.removeItem}
               />
-
-              <CheckoutButton
-                items={checkoutItems}
-                totalMinor={cart.totalMinor}
-                onSuccess={cart.clearCart}
-              />
+               
+              <div className="sticky bottom-0 bg-surface-1 pt-4">
+                <CheckoutButton
+                  items={checkoutItems}
+                  totalMinor={cart.totalMinor}
+                  onSuccess={cart.clearCart}
+                />
+              </div>
 
               <SmallDivider className="hidden lg:block lg:my-14" />
               <EndDay device="desktop" />
