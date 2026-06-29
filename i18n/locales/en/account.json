@@ -189,5 +189,40 @@
       "successMessage": "All data deleted."
     },
     "cancelButtonLabel": "Cancel"
+  },
+  "discount": {
+    "title": "Discounts",
+    "description": "Manage the discounts available at checkout",
+    "descriptionEndday": "End the day before managing the discounts",
+    "loading": "Loading discounts...",
+    "disabled": "Discounts are currently disabled.",
+    "notActive": "No active discounts available.",
+    "buttonEdit": "Edit",
+    "buttonArchive": "Archive",
+    "buttonCreate": "Create discount",
+    "modal": {
+      "titleCreate": "Create discount",
+      "titleEdit": "Edit discount",
+      "description": "Create a discount that can be applied at checkout",
+      "name": "Name",
+      "type": "Type",
+      "labelFlat": "Amount",
+      "labelPercentage": "Percentage",
+      "buttonCancel": "Cancel",
+      "buttonSave": "Save",
+      "select": {
+        "flat": "Fixed amount",
+        "percentage": "Percentage",
+        "titleFlat": "Fixed amount",
+        "descriptionFlat": "Subtract a fixed value from the total",
+        "titlePercentage": "Percentage",
+        "descriptionPercentage": "Apply a percentage discount to the total"
+      }
+    },
+    "archiveModal": {
+      "title": "Archive discount",
+      "description": "This discount will no longer be available at checkout.",
+      "confirmButton": "Archive"
+    }
   }
 }

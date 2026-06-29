@@ -189,5 +189,40 @@
       "successMessage": "Alle Daten gelöscht."
     },
     "cancelButtonLabel": "Abbrechen"
+  },
+  "discount": {
+  "title": "Rabatte",
+  "description": "Verwalte die an der Kasse verfügbaren Rabatte",
+  "descriptionEndday": "Beende den Tag, bevor du die Rabatte verwaltest",
+  "loading": "Rabatte werden geladen...",
+  "disabled": "Rabatte sind derzeit deaktiviert.",
+  "notActive": "Keine aktiven Rabatte verfügbar.",
+  "buttonEdit": "Bearbeiten",
+  "buttonArchive": "Archivieren",
+  "buttonCreate": "Rabatt erstellen",
+  "modal": {
+    "titleCreate": "Rabatt erstellen",
+    "titleEdit": "Rabatt bearbeiten",
+    "description": "Erstelle einen Rabatt, der an der Kasse angewendet werden kann",
+    "name": "Name",
+    "type": "Typ",
+    "labelFlat": "Betrag",
+    "labelPercentage": "Prozentsatz",
+    "buttonCancel": "Abbrechen",
+    "buttonSave": "Speichern",
+    "select": {
+      "flat": "Fester Betrag",
+      "percentage": "Prozentsatz",
+      "titleFlat": "Fester Betrag",
+      "descriptionFlat": "Einen festen Wert vom Gesamtbetrag abziehen",
+      "titlePercentage": "Prozentsatz",
+      "descriptionPercentage": "Einen prozentualen Rabatt auf den Gesamtbetrag anwenden"
+    }
+  },
+  "archiveModal": {
+    "title": "Rabatt archivieren",
+    "description": "Dieser Rabatt wird an der Kasse nicht mehr verfügbar sein.",
+    "confirmButton": "Archivieren"
   }
+}
 }

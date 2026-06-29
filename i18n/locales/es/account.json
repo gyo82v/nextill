@@ -189,5 +189,40 @@
       "successMessage": "Todos los datos han sido eliminados."
     },
     "cancelButtonLabel": "Cancelar"
+  },
+  "discount": {
+  "title": "Descuentos",
+  "description": "Gestiona los descuentos disponibles en el checkout",
+  "descriptionEndday": "Cierra el día antes de gestionar los descuentos",
+  "loading": "Cargando descuentos...",
+  "disabled": "Los descuentos están actualmente deshabilitados.",
+  "notActive": "No hay descuentos activos disponibles.",
+  "buttonEdit": "Editar",
+  "buttonArchive": "Archivar",
+  "buttonCreate": "Crear descuento",
+  "modal": {
+    "titleCreate": "Crear descuento",
+    "titleEdit": "Editar descuento",
+    "description": "Crea un descuento que pueda aplicarse en el checkout",
+    "name": "Nombre",
+    "type": "Tipo",
+    "labelFlat": "Importe",
+    "labelPercentage": "Porcentaje",
+    "buttonCancel": "Cancelar",
+    "buttonSave": "Guardar",
+    "select": {
+      "flat": "Importe fijo",
+      "percentage": "Porcentaje",
+      "titleFlat": "Importe fijo",
+      "descriptionFlat": "Restar un importe fijo del total",
+      "titlePercentage": "Porcentaje",
+      "descriptionPercentage": "Aplicar un descuento porcentual al total"
+    }
+  },
+  "archiveModal": {
+    "title": "Archivar descuento",
+    "description": "Este descuento ya no estará disponible en el checkout.",
+    "confirmButton": "Archivar"
   }
+}
 }

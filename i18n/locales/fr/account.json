@@ -189,5 +189,40 @@
       "successMessage": "Toutes les données ont été supprimées."
     },
     "cancelButtonLabel": "Annuler"
+  },
+  "discount": {
+  "title": "Remises",
+  "description": "Gérez les remises disponibles au moment du paiement",
+  "descriptionEndday": "Clôturez la journée avant de gérer les remises",
+  "loading": "Chargement des remises...",
+  "disabled": "Les remises sont actuellement désactivées.",
+  "notActive": "Aucune remise active disponible.",
+  "buttonEdit": "Modifier",
+  "buttonArchive": "Archiver",
+  "buttonCreate": "Créer une remise",
+  "modal": {
+    "titleCreate": "Créer une remise",
+    "titleEdit": "Modifier la remise",
+    "description": "Créez une remise pouvant être appliquée au moment du paiement",
+    "name": "Nom",
+    "type": "Type",
+    "labelFlat": "Montant",
+    "labelPercentage": "Pourcentage",
+    "buttonCancel": "Annuler",
+    "buttonSave": "Enregistrer",
+    "select": {
+      "flat": "Montant fixe",
+      "percentage": "Pourcentage",
+      "titleFlat": "Montant fixe",
+      "descriptionFlat": "Soustraire un montant fixe du total",
+      "titlePercentage": "Pourcentage",
+      "descriptionPercentage": "Appliquer une remise en pourcentage au total"
+    }
+  },
+  "archiveModal": {
+    "title": "Archiver la remise",
+    "description": "Cette remise ne sera plus disponible au moment du paiement.",
+    "confirmButton": "Archiver"
   }
+}
 }
