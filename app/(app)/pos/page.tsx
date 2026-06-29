@@ -133,7 +133,7 @@ export default function PosPage() {
 
           <aside
             className={`hidden lg:block lg:top-6 lg:self-start 
-                         lg:pr-1 `}
+                         lg:pr-1`}
           >
             <div className="space-y-5 rounded-3xl border border-default bg-surface-1 p-4 shadow-sm lg:p-5">
               <CartPanel

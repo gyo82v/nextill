@@ -111,5 +111,10 @@
             "bundle": "Combo",
             "dessert": "Desserts"
       }
+    },
+    "discount": {
+        "title": "Discount",
+        "noDiscount": "No Discount",
+        "noDiscountDescription": "No discount applied"
     }
 }

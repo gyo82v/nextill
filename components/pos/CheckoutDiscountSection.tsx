@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { listActiveDiscounts } from "@/firebase/discount";
 import type { Discount } from "@/types/discount";
 import Select from "../ui/select";
+import { useTranslation } from "react-i18next";
 
 type CheckoutDiscountSectionProps = {
   uid: string;
@@ -20,6 +21,7 @@ export default function CheckoutDiscountSection({
 }: CheckoutDiscountSectionProps) {
   const [discounts, setDiscounts] = useState<Discount[]>([]);
   const [loading, setLoading] = useState(false);
+  const {t} = useTranslation("pos")
 
   useEffect(() => {
     if (!discountEnabled) return;
@@ -48,15 +50,17 @@ export default function CheckoutDiscountSection({
 
   const formatLabel = (discount: Discount) => {
     return discount.type === "percentage"
-      ? `${discount.percentage}% off`
-      : `€${(discount.valueMinor / 100).toFixed(2)} off`;
+      ? `${discount.percentage}%`
+      : `€${(discount.valueMinor / 100).toFixed(2)}`;
   };
 
   const selectedValue = appliedDiscount?.id ?? "none";
 
   return (
     <div className="flex items-center justify-between gap-5 rounded-2xl border border-default bg-surface-2 p-4">
-      <p className="text-sm font-medium">Discount</p>
+      <p className="text-sm font-medium">
+        {t("discount.title")}
+      </p>
 
       <Select.Root
         value={selectedValue}
@@ -87,7 +91,9 @@ export default function CheckoutDiscountSection({
               </span>
             </div>
           ) : (
-            <span className="text-muted-foreground">No discount</span>
+            <span className="text-muted-foreground">
+              {t("discount.noDiscount")}
+            </span>
           )}
         </Select.Trigger>
 
@@ -96,9 +102,9 @@ export default function CheckoutDiscountSection({
           {/* NO DISCOUNT OPTION */}
           <Select.Item value="none">
             <div className="flex flex-col">
-              <span>No discount</span>
+              <span>{t("discount.noDiscount")}</span>
               <span className="text-sm text-muted-foreground">
-                No discount applied
+                {t("discount.noDiscountDescription")}
               </span>
             </div>
           </Select.Item>

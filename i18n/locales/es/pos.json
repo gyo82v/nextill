@@ -111,5 +111,10 @@
       "bundle": "Menú combinado",
       "dessert": "Postres"
     }
-  }
+  },
+  "discount": {
+    "title": "Descuento",
+    "noDiscount": "Sin descuento",
+    "noDiscountDescription": "Ningún descuento aplicado"
+}
 }

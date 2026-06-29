@@ -111,5 +111,10 @@
       "bundle": "Formule",
       "dessert": "Desserts"
     }
-  }
+  },
+  "discount": {
+    "title": "Remise",
+    "noDiscount": "Aucune remise",
+    "noDiscountDescription": "Aucune remise appliquée"
+}
 }
