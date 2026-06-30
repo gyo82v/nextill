@@ -2,7 +2,7 @@
 
 import { formatMoney } from "@/lib/money";
 import { useAuth } from "@/firebase/authProvider";
-import { cardBaseStyle, focusRing, posDishCard } from "@/styles";
+import { cardBaseStyle, focusRing, posDishCard, posDishCardNoHover } from "@/styles";
 import { FiPlus } from "react-icons/fi";
 import type { MenuItemCardProps } from "@/types/pos";
 import { useTranslation } from "react-i18next";
@@ -19,6 +19,7 @@ export default function MenuItemCard({
 
   const categoryKey = item.category || "default";
   const badgeStyle = categoryStyles[categoryKey] ?? categoryStyles.default;
+  const motionReduce = profile?.nextillApp?.settings?.disableMotion
 
   const { t } = useTranslation("pos");
 
@@ -27,7 +28,8 @@ export default function MenuItemCard({
       type="button"
       onClick={() => onAdd(item)}
       aria-label={t("menu.addToCartAriaLabel", { itemName: item.name })}
-      className={`${cardBaseStyle} ${focusRing} ${posDishCard}
+      className={`${cardBaseStyle} ${focusRing}  
+                  ${motionReduce ? posDishCardNoHover : posDishCard }
                   group flex h-full w-full flex-col justify-between gap-3 rounded-2xl
                   border border-default p-3 text-left`}
     >

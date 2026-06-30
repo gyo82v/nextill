@@ -178,12 +178,12 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Optional}{stock} add a show button to the stock activity section and render the section
         dinamicaly;
 - [✅] {Optional}{Stock} in the stock activity acrd add an icon for add, remove or archieved;
-- [Optional] [App] Add discount system;
+- [✅] {Optional}{App} Add discount system;
 - [✅] {Optional}{Stock} Add another category to the stock items for non food/drink items;
 - [✅] {Optional}{App} Translate the errors messages where necessary;
 - [✅] {Optional}{Pos} fix the scrollbar for the cart section if it makes the app better;
 - [✅] {optional}{app} find a use for the balance feature like adding it into the day overview section with 
                    the amount of the start*end balance;
 - [Optional] [Motion] find a use for the enable/disable motion in the account;
-- [Optional] [Localization] add localization in the pos and account page for the discount section;
-- [Optional] [add the discount in the receipt];                          
+- [✅] {Optional} {App} add localization in the pos and account page for the discount section;
+- [Optional] add the discount in the receipt;                          
