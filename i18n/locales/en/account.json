@@ -16,7 +16,8 @@
     "endDayBeforeDeletingArchivedStockItems": "Please end the day before deleting archived stock items.",
     "endDayBeforeDeletingAllArchivedItems": "Please end the day before deleting all archived items.",
     "soundError": "There was an error updating the sound setting.",
-    "discountError": "There was an error updating the discount setting."
+    "discountError": "There was an error updating the discount setting.",
+    "paymentError": "There was an error updating the payment system."
   },
   "overview": {
     "title": "Account overview",
@@ -135,6 +136,11 @@
         "label": "Opening and closing balance",
         "description": "Enable the opening and closing balance workflow.",
         "disabled": "End the day before changing the balance setting"
+      },
+      "payment": {
+        "label": "Payment method",
+        "description": "Enable cash and card selection at checkout.",
+        "disabled": "End the day before changing the payment setting."
       }
     } 
   },

@@ -16,7 +16,8 @@
     "endDayBeforeDeletingArchivedStockItems": "Por favor, finaliza el día antes de eliminar los artículos de stock archivados.",
     "endDayBeforeDeletingAllArchivedItems": "Por favor, finaliza el día antes de eliminar todos los elementos archivados.",
     "soundError": "Se produjo un error al actualizar la configuración de sonido.",
-    "discountError": "Se produjo un error al actualizar la configuración de descuentos.."
+    "discountError": "Se produjo un error al actualizar la configuración de descuentos..",
+    "paymentError": "Se produjo un error al actualizar el sistema de pago."
   },
   "overview": {
     "title": "Resumen de la cuenta",
@@ -135,6 +136,11 @@
         "label": "Apertura y cierre de caja",
         "description": "Activa el flujo de apertura y cierre de caja.",
         "disabled": "Finaliza el día antes de cambiar la configuración del saldo."
+      },
+      "payment": {
+        "label": "Método de pago",
+        "description": "Activa la selección de efectivo y tarjeta en el proceso de pago.",
+        "disabled": "Finaliza el día antes de cambiar la configuración de pago."
       }
     }
   },

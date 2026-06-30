@@ -16,7 +16,8 @@
     "endDayBeforeDeletingArchivedStockItems": "Veuillez terminer la journée avant de supprimer les articles de stock archivés.",
     "endDayBeforeDeletingAllArchivedItems": "Veuillez terminer la journée avant de supprimer tous les éléments archivés.",
     "soundError": "Une erreur s'est produite lors de la mise à jour du réglage du son.",
-    "discountError": "Une erreur est survenue lors de la mise à jour du paramètre des remises."
+    "discountError": "Une erreur est survenue lors de la mise à jour du paramètre des remises.",
+    "paymentError": "Une erreur s'est produite lors de la mise à jour du système de paiement."
   },
   "overview": {
     "title": "Aperçu du compte",
@@ -135,6 +136,11 @@
         "label": "Ouverture et fermeture de caisse",
         "description": "Active le processus d’ouverture et de fermeture de caisse.",
         "disabled": "Terminez la journée avant de modifier le solde"
+      },
+      "payment": {
+        "label": "Méthode de paiement",
+        "description": "Active la sélection entre espèces et carte lors du passage en caisse.",
+        "disabled": "Terminez la journée avant de modifier les paramètres de paiement."
       }
     }
   },

@@ -120,7 +120,8 @@ export async function createUserProfileIfNotExists(user:FirebaseUser, name:strin
                     receiptEnabled: false,
                     disableMotion: false,
                     soundEnabled: true,
-                    discountEnabled: true
+                    discountEnabled: true,
+                    paymentMethodSelectionEnabled: false
                 },
                 dayCycle: {
                     active: false,

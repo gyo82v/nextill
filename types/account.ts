@@ -67,6 +67,9 @@ export type PreferencesSectionProps = {
   discountEnabled?: boolean;
   onDiscountEnabledChange?: (nextValue: boolean) => void;
 
+  paymentEnabled?: boolean;
+  onPaymentEnabledChange?: (nextValue: boolean) => void;
+
   dayActive?: boolean
 };
 

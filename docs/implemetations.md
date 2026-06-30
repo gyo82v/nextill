@@ -40,8 +40,6 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Style}{Intro} Style the create new account form component;
 - [✅] {Content}{Intro} Add in the create new acoount component a By creating an account,
         you agree to the Privacy Policy. with link to the page;
-- [Fix] [Till] fix a visual bug, when a user sign in and the day is not active the till page 
-               should immediately render the not active section and not briefly the active section;
 - [✅] {Fix}{App} Fix all the url to match the updated path => till => pos, statistics => reports etc;
 - [✅] {Style}{Pos} Style the till page while the day is not active;
 - [✅] {Content}{Pos} Add a description in the till page while the day is not active;
@@ -97,7 +95,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Utils}{App} create a reusable spinner;
 - [✅] {Utils}{App} create reusable dividers;
 - [✅] {Utils}{App} Add spinnes in all async buttons;
-- [Utils] [App] Add spinners in all pages instead of the text loading;
+- [✅] {Utils}{App} Add spinners in all pages instead of the text loading;
 - [✅] {Utils}{Inputs} Add the show pssw icon in the pssw inputs field;
 - [✅] {Localization}{Pos} Add localization to the till page;
 - [✅] {Localization}{Menu} Add localization to the menu page;
@@ -163,7 +161,6 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Optional}{App} add sounds effects to the till and an option in the account page to disable it;
 - [✅] {Optional}{Pos} decide how to set the till: use a searchbar, filters, divide by categories;
 - [✅] {optional}{menu} Add a search bar in the menu page;
-- [Optional] [Menu] add the option to edit the price of each exisitng dish;
 - [Optional] [App] Add options for cash/cards payment;
 - [✅] {Optional}{Stock} Add in the stock activity cards the date;
 - [✅] {Optional/fix}{Navbar} fix the navbar animation pill; when the sixe on the navbars links changes, 
@@ -183,7 +180,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Optional}{App} Translate the errors messages where necessary;
 - [✅] {Optional}{Pos} fix the scrollbar for the cart section if it makes the app better;
 - [✅] {optional}{app} find a use for the balance feature like adding it into the day overview section with 
-                   the amount of the start*end balance;
-- [Optional] [Motion] find a use for the enable/disable motion in the account;
+        the amount of the start*end balance;
+- [✅] {Optional}{Motion} find a use for the enable/disable motion in the account;
 - [✅] {Optional} {App} add localization in the pos and account page for the discount section;
 - [Optional] add the discount in the receipt;                          

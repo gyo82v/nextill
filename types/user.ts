@@ -21,6 +21,7 @@ export interface UserProfile {
             disableMotion: boolean
             soundEnabled: boolean
             discountEnabled: boolean
+            paymentMethodSelectionEnabled: boolean
         }
         dayCycle: {
             active: boolean

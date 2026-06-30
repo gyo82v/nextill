@@ -16,7 +16,8 @@
     "endDayBeforeDeletingArchivedStockItems": "Bitte beende den Tag, bevor du archivierte Lagerartikel löschst.",
     "endDayBeforeDeletingAllArchivedItems": "Bitte beende den Tag, bevor du alle archivierten Elemente löschst.",
     "soundError": "Beim Aktualisieren der Toneinstellung ist ein Fehler aufgetreten.",
-    "discountError": "Beim Aktualisieren der Rabatt-Einstellung ist ein Fehler aufgetreten."
+    "discountError": "Beim Aktualisieren der Rabatt-Einstellung ist ein Fehler aufgetreten.",
+    "paymentError": "Beim Aktualisieren des Zahlungssystems ist ein Fehler aufgetreten."
   },
   "overview": {
     "title": "Kontoübersicht",
@@ -135,6 +136,11 @@
         "label": "Kassenöffnung und -abschluss",
         "description": "Aktiviere den Ablauf für Kassenöffnung und -abschluss.",
         "disabled": "Beenden Sie den Tag, bevor Sie die Saldo-Einstellung ändern."
+      },
+      "payment": {
+        "label": "Zahlungsmethode",
+        "description": "Aktiviere die Auswahl zwischen Barzahlung und Karte beim Checkout.",
+        "disabled": "Beende den Tag, bevor du die Zahlungseinstellungen änderst."
       }
     }
   },

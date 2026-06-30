@@ -16,7 +16,8 @@
     "endDayBeforeDeletingArchivedStockItems": "Termina la giornata prima di eliminare gli articoli di magazzino archiviati.",
     "endDayBeforeDeletingAllArchivedItems": "Termina la giornata prima di eliminare tutti gli elementi archiviati.",
     "soundError": "Si è verificato un errore durante l'aggiornamento dell'impostazione audio.",
-    "discountError": "Si è verificato un errore durante l'aggiornamento dell'impostazione degli sconti."
+    "discountError": "Si è verificato un errore durante l'aggiornamento dell'impostazione degli sconti.",
+    "paymentError": "Si è verificato un errore durante l'aggiornamento del sistema di pagamento."
   },
   "overview": {
     "title": "Panoramica account",
@@ -135,6 +136,11 @@
         "label": "Apertura e chiusura cassa",
         "description": "Abilita il flusso di apertura e chiusura della cassa.",
         "disabled": "Termina la giornata prima di modificare l’impostazione della cassa"
+      },
+      "payment": {
+        "label": "Metodo di pagamento",
+        "description": "Abilita la selezione di contanti e carta al checkout.",
+        "disabled": "Termina la giornata prima di modificare le impostazioni di pagamento."
       }
     }
   },

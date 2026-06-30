@@ -23,6 +23,8 @@ export default function PreferencesSection({
   onSoundEnabledChange,
   discountEnabled,
   onDiscountEnabledChange,
+  paymentEnabled,
+  onPaymentEnabledChange,
   dayActive
 }: PreferencesSectionProps) {
   const {t} = useTranslation("account")
@@ -144,6 +146,22 @@ export default function PreferencesSection({
                 }}
                 disabled={!onDiscountEnabledChange || dayActive}
                 aria-label={t("preferences.system.discount.label")}
+              />
+            </SettingRow>
+
+            <SettingRow
+              label={t("preferences.system.payment.label")}
+              description={dayActive ? t("preferences.system.payment.disabled") :
+                                       t("preferences.system.payment.description")}
+              disabled={dayActive}
+            >
+              <Switch
+                checked={paymentEnabled ?? false}
+                onCheckedChange={(nextValue) => {
+                  onPaymentEnabledChange?.(nextValue);
+                }}
+                disabled={!onPaymentEnabledChange || dayActive}
+                aria-label={t("preferences.system.payment.label")}
               />
             </SettingRow>
 
