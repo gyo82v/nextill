@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "@/firebase/authProvider";
 import { formatMoney } from "@/lib/money";
 import ConfirmModal from "@/components/ui/modals/ConfirmModal";
@@ -9,6 +9,7 @@ import { FaCircleCheck, FaPrint, FaReceipt } from "react-icons/fa6";
 import type { CheckoutModalProps } from "@/types/pos";
 import { useTranslation } from "react-i18next";
 import CheckoutDiscountSection from "./CheckoutDiscountSection";
+import CheckoutPaymentMethodSection from "./CheckoutPaymentMethodSection";
 import { FiX } from "react-icons/fi";
 
 export default function CheckoutModal({
@@ -31,9 +32,11 @@ export default function CheckoutModal({
   const { profile } = useAuth();
   const currency = profile?.nextillApp.settings.currency ?? "EUR";
   const closingSoon = open && success && !receiptEnabled && !ticketEnabled;
+  const [paymentMethod, setPaymentMethod] = useState<"cash" | "card" | null>(null);
   const { t } = useTranslation("pos");
 
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
+  const paymentEnabled = !!profile?.nextillApp?.settings?.paymentMethodSelectionEnabled
 
   useEffect(() => {
     if (!open || !success || ticketEnabled || receiptEnabled) {
@@ -195,6 +198,12 @@ export default function CheckoutModal({
               discountEnabled={discountEnabled}
               appliedDiscount={appliedDiscount}
               onDiscountChange={onDiscountChange}
+            />
+
+            <CheckoutPaymentMethodSection
+              enabled={paymentEnabled}
+              value={paymentMethod}
+              onChange={setPaymentMethod}
             />
 
             {appliedDiscount ? (

@@ -34,6 +34,7 @@ export default function CheckoutButton({
   const receiptEnabled = profile?.nextillApp.settings.receiptEnabled ?? true;
   const ticketEnabled = profile?.nextillApp.settings.ticketEnabled ?? true;
   const soundEnabled = profile?.nextillApp?.settings?.soundEnabled ?? true;
+  const paymentEnabled = !!profile?.nextillApp?.settings?.paymentMethodSelectionEnabled;
 
   const canCheckout = items.length > 0 && !!user && !!dayKey;
   const discountedTotalMinor = appliedDiscount ? applyDiscount(totalMinor, appliedDiscount)
@@ -87,6 +88,7 @@ export default function CheckoutButton({
         dayKey,
         items: submittedItems,
         totalMinor: discountedTotalMinor,
+        paymentMethod: paymentEnabled   ,
       });
 
       setReceiptItems(submittedItems);
