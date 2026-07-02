@@ -47,6 +47,9 @@ export type CheckoutModalProps = {
   receiptEnabled?: boolean;
   appliedDiscount: Discount |null;
   discountEnabled: boolean
+  paymentEnabled: boolean;
+  paymentMethod: "cash" | "card" | null;
+  onPaymentMethodChange: React.Dispatch<React.SetStateAction<"cash" | "card" | null>>;
   onDiscountChange: React.Dispatch<React.SetStateAction<Discount | null>>;
   onClose: () => void;
   onConfirm: () => void | Promise<void>;

@@ -1,3 +1,287 @@
+
+"use client";
+
+import { useEffect, useState } from "react";
+import { useAuth } from "@/firebase/authProvider";
+import { formatMoney } from "@/lib/money";
+import ConfirmModal from "@/components/ui/modals/ConfirmModal";
+import Button from "@/components/ui/Button";
+import { FaCircleCheck, FaPrint, FaReceipt } from "react-icons/fa6";
+import type { CheckoutModalProps } from "@/types/pos";
+import { useTranslation } from "react-i18next";
+import CheckoutDiscountSection from "./CheckoutDiscountSection";
+import CheckoutPaymentMethodSection from "./CheckoutPaymentMethodSection";
+import { FiX } from "react-icons/fi";
+
+export default function CheckoutModal({
+  open,
+  success,
+  items,
+  totalMinor,
+  appliedDiscount,
+  onDiscountChange,
+  discountEnabled,
+  loading = false,
+  error = null,
+  receiptEnabled = true,
+  ticketEnabled = true,
+  onClose,
+  onConfirm,
+  onPrintStaffTicket,
+  onPrintReceipt,
+  paymentEnabled ,
+  paymentMethod,
+  onPaymentMethodChange,
+}: CheckoutModalProps) {
+  const { profile } = useAuth();
+  const currency = profile?.nextillApp.settings.currency ?? "EUR";
+  const closingSoon = open && success && !receiptEnabled && !ticketEnabled;
+
+  /* 🔹 PAYMENT FEATURE (state only) */
+  const [paymentError, setPaymentError] = useState<string | null>(null);
+
+  const { t } = useTranslation("pos");
+
+  const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
+
+  useEffect(() => {
+    if (!open || !success || ticketEnabled || receiptEnabled) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      onClose();
+    }, 1200);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [open, success, receiptEnabled, ticketEnabled, onClose]);
+
+  const title = success ? t("modal.success.title") : t("modal.title");
+
+  const description = success
+    ? ticketEnabled || receiptEnabled
+      ? t("modal.success.descriptionWithPrinting")
+      : t("modal.success.descriptionWithoutPrinting")
+    : t("modal.description");
+
+  const confirmLabel = success
+    ? "Print ticket"
+    : t("modal.completeOrderButton");
+
+  const cancelLabel = success
+    ? "New order"
+    : t("modal.backToPosButton");
+
+  /* 🔹 PAYMENT-SAFE CONFIRM HANDLER */
+  function handleConfirm() {
+    if (paymentEnabled && !paymentMethod) {
+      setPaymentError(t("checkout.paymentRequired", "Select a payment method"));
+      return;
+    }
+
+    setPaymentError(null);
+    onConfirm();
+  }
+
+  const successFooter = (ticketEnabled || receiptEnabled) ? (
+    <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
+      {ticketEnabled && (
+        <Button
+          type="button"
+          variant="confirm"
+          onClick={onPrintStaffTicket}
+          className="w-full justify-center sm:w-auto"
+        >
+          <FaPrint className="text-sm" aria-hidden="true" />
+          <span>{t("modal.success.staffTicketButton")}</span>
+        </Button>
+      )}
+
+      {receiptEnabled && (
+        <Button
+          type="button"
+          variant="confirm"
+          onClick={onPrintReceipt}
+          className="w-full justify-center sm:w-auto"
+        >
+          <FaReceipt className="text-sm" aria-hidden="true" />
+          <span>{t("modal.success.receiptButton")}</span>
+        </Button>
+      )}
+
+      <Button
+        type="button"
+        variant="primary"
+        onClick={onClose}
+        className="w-full justify-center sm:w-auto"
+      >
+        <span>{t("modal.success.newOrderButton")}</span>
+      </Button>
+    </div>
+  ) : (
+    <div className="space-y-2 text-right">
+      {closingSoon && (
+        <p className="text-sm text-muted-foreground">
+          {t("modal.success.returningText")}
+        </p>
+      )}
+
+      <Button
+        type="button"
+        variant="confirm"
+        onClick={onClose}
+        className="w-full justify-center sm:w-auto"
+      >
+        <span>{t("modal.success.backToPosButton")}</span>
+      </Button>
+    </div>
+  );
+
+  return (
+    <ConfirmModal
+      open={open}
+      onClose={onClose}
+      onConfirm={success ? onPrintStaffTicket : handleConfirm}
+      title={title}
+      description={description}
+      confirmLabel={confirmLabel}
+      cancelLabel={cancelLabel}
+      loading={loading}
+      footer={success ? successFooter : undefined}
+    >
+      <div className="space-y-4">
+        {success ? (
+          <div className="flex items-start gap-3 rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-4">
+            <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-300">
+              <FaCircleCheck className="text-sm" aria-hidden="true" />
+            </span>
+
+            <div className="space-y-1">
+              <p className="font-medium text-foreground">
+                {t("modal.success.bannerTitle")}
+              </p>
+              <p className="text-sm text-muted-foreground">
+                {(ticketEnabled || receiptEnabled)
+                  ? t("modal.success.bannerDescriptionWithPrinting")
+                  : t("modal.success.bannerDescriptionWithoutPrinting")}
+              </p>
+            </div>
+          </div>
+        ) : (
+          <>
+            {/* 🟢 ITEMS LIST — unchanged */}
+            <div className="flex items-start gap-3 rounded-2xl border border-default bg-surface-2 p-4">
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-default bg-surface-1 text-muted-foreground">
+                <FaReceipt className="text-sm" aria-hidden="true" />
+              </span>
+
+              <div className="space-y-1">
+                <p className="font-medium">{t("modal.recapTitle")}</p>
+                <p className="text-sm text-muted-foreground">
+                  {t("modal.recapItems", { count: totalItems })}
+                </p>
+              </div>
+            </div>
+
+            <div className="max-h-72 space-y-2 overflow-y-auto pr-1">
+              {items.map((item, index) => {
+                const lineTotal = item.quantity * item.priceMinor;
+                const name = item.menu?.name ?? item.name ?? "Item";
+
+                return (
+                  <div
+                    key={`${item.id}-${index}`}
+                    className="flex items-start justify-between gap-4 rounded-2xl border border-default bg-surface-2 px-3 py-3"
+                  >
+                    <div className="min-w-0 space-y-1">
+                      <h3 className="truncate text-sm font-semibold leading-tight">
+                        {name}
+                      </h3>
+                      <p className="text-xs text-muted-foreground">
+                        {item.quantity} × {formatMoney(item.priceMinor, currency)}
+                      </p>
+                    </div>
+
+                    <div className="shrink-0 text-right">
+                      <p className="text-sm font-semibold">
+                        {formatMoney(lineTotal, currency)}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* 🟢 DISCOUNT — unchanged */}
+            <CheckoutDiscountSection
+              uid={profile?.uid ?? ""}
+              discountEnabled={discountEnabled}
+              appliedDiscount={appliedDiscount}
+              onDiscountChange={onDiscountChange}
+            />
+
+            {/* 🟡 PAYMENT — new but isolated */}
+            <CheckoutPaymentMethodSection
+              enabled={paymentEnabled}
+              value={paymentMethod}
+              onChange={onPaymentMethodChange}
+            />
+
+            {/* 🟡 PAYMENT ERROR */}
+            {paymentError && (
+              <p className="text-sm text-red-600" role="alert">
+                {paymentError}
+              </p>
+            )}
+
+            {/* 🟢 ACTIVE DISCOUNT ROW — unchanged */}
+            {appliedDiscount && (
+              <div className="flex items-center justify-between px-4 text-sm text-muted-foreground">
+                <span>Discount</span>
+
+                <div className="flex items-center gap-2">
+                  <span>
+                    {appliedDiscount.type === "percentage"
+                      ? `-${appliedDiscount.percentage}%`
+                      : `-${formatMoney(appliedDiscount.valueMinor, currency)}`}
+                  </span>
+
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    onClick={() => onDiscountChange(null)}
+                    aria-label="Remove discount"
+                    className="rounded p-0.5 text-muted-foreground hover:text-foreground hover:bg-surface-3 transition"
+                  >
+                    <FiX className="h-4 w-4" />
+                  </Button>
+                </div>
+              </div>
+            )}
+
+            {/* 🟢 TOTAL — unchanged */}
+            <div className="flex items-center justify-between rounded-2xl border border-default bg-surface-2 px-4 py-3">
+              <span className="text-sm text-muted-foreground">
+                {t("modal.totalLabel")}
+              </span>
+              <span className="text-lg font-semibold">
+                {formatMoney(totalMinor, currency)}
+              </span>
+            </div>
+
+            {error && (
+              <p className="text-sm text-red-600" role="alert">
+                {error}
+              </p>
+            )}
+          </>
+        )}
+      </div>
+    </ConfirmModal>
+  );
+}
+
+/*
 "use client";
 
 import { useEffect, useState } from "react";
@@ -248,3 +532,7 @@ export default function CheckoutModal({
     </ConfirmModal>
   );
 }
+
+*/
+
+
