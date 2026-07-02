@@ -116,5 +116,13 @@
     "title": "Descuento",
     "noDiscount": "Sin descuento",
     "noDiscountDescription": "Ningún descuento aplicado"
+},
+"payment": {
+  "title": "Método de pago",
+  "cash": "Efectivo",
+  "card": "Tarjeta",
+  "label": "Seleccionar método de pago",
+  "placeholder": "Seleccionar método de pago",
+  "error": "Por favor, selecciona un método de pago"
 }
 }

@@ -116,5 +116,13 @@
     "title": "Sconto",
     "noDiscount": "Nessuno sconto",
     "noDiscountDescription": "Nessuno sconto applicato"
+},
+"payment": {
+  "title": "Metodo di pagamento",
+  "cash": "Contanti",
+  "card": "Carta",
+  "label": "Seleziona metodo di pagamento",
+  "placeholder": "Seleziona metodo di pagamento",
+  "error": "Seleziona un metodo di pagamento"
 }
 }

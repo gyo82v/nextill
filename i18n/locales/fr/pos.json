@@ -116,5 +116,13 @@
     "title": "Remise",
     "noDiscount": "Aucune remise",
     "noDiscountDescription": "Aucune remise appliquée"
+},
+"payment": {
+  "title": "Méthode de paiement",
+  "cash": "Espèces",
+  "card": "Carte",
+  "label": "Sélectionner le mode de paiement",
+  "placeholder": "Sélectionner le mode de paiement",
+  "error": "Veuillez sélectionner un mode de paiement"
 }
 }

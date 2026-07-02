@@ -1,7 +1,7 @@
 "use client";
 
 import Select from "../ui/select";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 
 export type PaymentMethod = "cash" | "card" | null;
 
@@ -41,7 +41,7 @@ export default function CheckoutPaymentMethodSection({
         >
           {value ? (
             <span className="font-medium">
-              {t(`payment.methods.${value}`)}
+              {t(`payment.${value}`)}
             </span>
           ) : (
             <span className="text-muted-foreground">
@@ -53,11 +53,11 @@ export default function CheckoutPaymentMethodSection({
         {/* CONTENT */}
         <Select.Content>
           <Select.Item value="cash">
-            <span>{t("payment.methods.cash")}</span>
+            <span>{t("payment.cash")}</span>
           </Select.Item>
 
           <Select.Item value="card">
-            <span>{t("payment.methods.card")}</span>
+            <span>{t("payment.card")}</span>
           </Select.Item>
         </Select.Content>
       </Select.Root>

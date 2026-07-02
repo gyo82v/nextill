@@ -116,5 +116,13 @@
       "title": "Rabatt",
       "noDiscount": "Kein Rabatt",
       "noDiscountDescription": "Kein Rabatt angewendet"
+},
+"payment": {
+  "title": "Zahlungsmethode",
+  "cash": "Bar",
+  "card": "Karte",
+  "label": "Zahlungsmethode auswählen",
+  "placeholder": "Zahlungsmethode auswählen",
+  "error": "Bitte wählen Sie eine Zahlungsmethode aus"
 }
 }

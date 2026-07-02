@@ -75,7 +75,7 @@ export default function CheckoutModal({
   /* 🔹 PAYMENT-SAFE CONFIRM HANDLER */
   function handleConfirm() {
     if (paymentEnabled && !paymentMethod) {
-      setPaymentError(t("checkout.paymentRequired", "Select a payment method"));
+      setPaymentError(t("payment.error"));
       return;
     }
 

@@ -116,5 +116,13 @@
         "title": "Discount",
         "noDiscount": "No Discount",
         "noDiscountDescription": "No discount applied"
+    },
+    "payment": {
+        "title": "Payment method",
+        "cash": "Cash",
+        "card": "Card",
+        "label": "Select payment method",
+        "placeholder": "Select payment method",
+        "error": "Please select a payment method"
     }
 }
