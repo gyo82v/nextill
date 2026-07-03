@@ -183,4 +183,6 @@ NEXTILL IMPLEMENTATION LIST
         the amount of the start*end balance;
 - [✅] {Optional}{Motion} find a use for the enable/disable motion in the account;
 - [✅] {Optional} {App} add localization in the pos and account page for the discount section;
-- [Optional] add the discount in the receipt;                          
+- [Optional] add the discount in the receipt;  
+- [Optional] [Fix/pos] fix the payment section when a new order is started. the value
+                       of the type cash or card should be resetted after each order;

@@ -5,6 +5,7 @@ import { cardBaseStyle } from "@/styles";
 import { FiTrendingUp, FiTrendingDown, FiMinus } from "react-icons/fi";
 import { useTranslation } from "react-i18next";
 import type { DailyOverviewCardProps } from "@/types";
+import DailyOverviewStatsCard from "./DailyOverviewStatsCard";
 
 export default function DailyOverviewCard({
   day,
@@ -34,29 +35,30 @@ export default function DailyOverviewCard({
             {t("dailyOverview.card.transaction", { count: day.transactions })} ·{" "}
             {t("dailyOverview.card.unit", { count: day.unitsSoldTotal ?? 0 })}
           </div>
+           
+          <div className="mt-3 flex flex-col xl:flex-row gap-3">
 
-
-         {day.openingBalance != null && day.closingBalance != null && (
-  <div className="mt-3 rounded-lg border border-border/60 bg-muted/30 px-3 py-2">
-    <div className="flex items-center justify-between gap-3 text-xs">
-      <span className="text-muted-foreground">
-        {t("dailyOverview.card.openingBalance")}
-        </span>
-      <span className="font-medium text-foreground">
-        {formatMoney(day.openingBalance, currency)}
-      </span>
-    </div>
-
-    <div className="mt-1.5 flex items-center justify-between gap-3 text-xs">
-      <span className="text-muted-foreground">
-        {t("dailyOverview.card.closingBalance")}
-      </span>
-      <span className="font-medium text-foreground">
-        {formatMoney(day.closingBalance, currency)}
-      </span>
-    </div>
-  </div>
-)}
+          {
+            day.openingBalance != null && day.closingBalance != null &&
+            <DailyOverviewStatsCard
+              title1={t("dailyOverview.card.openingBalance")}
+              title2={t("dailyOverview.card.closingBalance")}
+              value1={formatMoney(day.openingBalance, currency)}
+              value2={formatMoney(day.closingBalance, currency)}
+            />
+          }
+          
+          {
+            (day.cardEarnings != null || day.cashEarnings != null) &&
+            <DailyOverviewStatsCard
+              title1={t("dailyOverview.card.card")}
+              title2={t("dailyOverview.card.cash")}
+              value1={day.cardEarnings != null ? formatMoney(day.cardEarnings, currency) : "—"}
+              value2={day.cashEarnings != null ? formatMoney(day.cashEarnings, currency) : "—"}
+            />
+          }
+          
+          </div>
         </div>
 
         {/* RIGHT SIDE */}
@@ -89,3 +91,4 @@ export default function DailyOverviewCard({
     </article>
   );
 }
+

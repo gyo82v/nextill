@@ -36,7 +36,9 @@
     "emptyState": "Heute wurden keine Transaktionen erfasst.",
     "hiddenState": "Transaktionen sind ausgeblendet.",
     "transactionId": "Transaktions-ID",
-    "total": "Gesamt"
+    "total": "Gesamt",
+    "cash": "(Bargeld)",
+    "card": "(Kreditkarte)"
   },
   "dailyOverview": {
     "hide": "Ausblenden",
@@ -54,7 +56,9 @@
       "unit_one": "{{count}} Einheit",
       "unit_other": "{{count}} Einheiten",
       "openingBalance": "Eröffnungssaldo",
-      "closingBalance": "Schlusssaldo"
+      "closingBalance": "Schlusssaldo",
+      "card": "Kreditkarte",
+      "cash": "Bargeld"
     }
   }
 }

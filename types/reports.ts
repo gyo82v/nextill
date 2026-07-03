@@ -11,6 +11,8 @@ export type GlobalStats = {
 export type DaySummary = {
   date: string;
   earnings: number;
+  cardEarnings?: number;
+  cashEarnings?: number;
   transactions: number;
   unitsSoldTotal?: number;
   itemsSales?: Record<string, number>;
@@ -38,6 +40,7 @@ export type TransactionDoc = {
   itemCount: number;
   status: string;
   items: TransactionItem[];
+  type?: "cash" | "card" 
 };
 
 export type TransactionRow = TransactionDoc & {

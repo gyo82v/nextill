@@ -36,7 +36,9 @@
     "emptyState": "Nessuna transazione registrata oggi.",
     "hiddenState": "Le transazioni sono nascoste.",
     "transactionId": "ID transazione",
-    "total": "Totale"
+    "total": "Totale",
+    "cash": "(Contanti)",
+    "card": "(Carta)"
   },
   "dailyOverview": {
     "hide": "Nascondi",
@@ -54,7 +56,9 @@
       "unit_one": "{{count}} unità",
       "unit_other": "{{count}} unità",
       "openingBalance": "Saldo iniziale",
-      "closingBalance": "Saldo finale"
+      "closingBalance": "Saldo finale",
+      "cash": "Contanti",
+      "card": "Carta"
     }
   }
 }

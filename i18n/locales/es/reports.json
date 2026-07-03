@@ -36,7 +36,9 @@
     "emptyState": "No se registraron transacciones hoy.",
     "hiddenState": "Las transacciones están ocultas.",
     "transactionId": "ID de transacción",
-    "total": "Total"
+    "total": "Total",
+    "cash": "(Efectivo)",
+    "card": "(Tarjeta de crédito)"
   },
   "dailyOverview": {
     "hide": "Ocultar",
@@ -54,7 +56,9 @@
       "unit_one": "{{count}} unidad",
       "unit_other": "{{count}} unidades",
       "openingBalance": "Saldo inicial",
-      "closingBalance": "Saldo final"
+      "closingBalance": "Saldo final",
+      "card": "Tarjeta de crédito",
+      "cash": "Efectivo"
     }
   }
 }

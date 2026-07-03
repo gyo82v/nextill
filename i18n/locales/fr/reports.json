@@ -36,7 +36,9 @@
     "emptyState": "Aucune transaction enregistrée aujourd’hui.",
     "hiddenState": "Les transactions sont masquées.",
     "transactionId": "ID de transaction",
-    "total": "Total"
+    "total": "Total",
+    "cash": "(Espèces)",
+    "card": "(Carte)"
   },
   "dailyOverview": {
     "hide": "Masquer",
@@ -54,7 +56,9 @@
       "unit_one": "{{count}} unité",
       "unit_other": "{{count}} unités",
       "openingBalance": "Solde d'ouverture",
-      "closingBalance": "Solde de clôture"
+      "closingBalance": "Solde de clôture",
+      "cash": "Espèces",
+      "card": "Carte"
     }
   }
 }
