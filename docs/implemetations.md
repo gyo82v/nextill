@@ -161,7 +161,7 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Optional}{App} add sounds effects to the till and an option in the account page to disable it;
 - [✅] {Optional}{Pos} decide how to set the till: use a searchbar, filters, divide by categories;
 - [✅] {optional}{menu} Add a search bar in the menu page;
-- [Optional] [App] Add options for cash/cards payment;
+- [✅] {Optional}{App} Add options for cash/cards payment;
 - [✅] {Optional}{Stock} Add in the stock activity cards the date;
 - [✅] {Optional/fix}{Navbar} fix the navbar animation pill; when the sixe on the navbars links changes, 
         the pill should resize corretly automatically.
@@ -184,5 +184,5 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Optional}{Motion} find a use for the enable/disable motion in the account;
 - [✅] {Optional} {App} add localization in the pos and account page for the discount section;
 - [Optional] add the discount in the receipt;  
-- [Optional] [Fix/pos] fix the payment section when a new order is started. the value
-                       of the type cash or card should be resetted after each order;
+- [✅] {Optional}{Fix/pos} fix the payment section when a new order is started. the value
+        of the type cash or card should be resetted after each order;
