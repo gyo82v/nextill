@@ -117,14 +117,14 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {A11y}{Privacy-Policy} add accessibility to the privacy-policy page;
 - [✅] {Test}{Account} Test the delete account feature;
 - [✅] {Test}{Account} Test the reset password feature;
-- [Test] [Account] Test the clear all data feature;
+- [✅] {Test}{Account} Test the clear all data feature;
 - [Test] [Account] Test the currency toggle feature;
 - [✅] {Test}{Account} Test the language toggle feature;
-- [Test] [App] Test the darkmode in all pages;
+- [✅] {Test} {Darkmode} Test the darkmode in all pages;
 - [✅] {Test}{App} Test the email confirmation feature;
-- [Test] [Till] Test how the opening and closing balance works;
-- [Test] [App] Test the start/end day cycle;
-- [Test] [App] Test the till, menu , stock and stats;
+- [✅] {Test}{Till} Test how the opening and closing balance works;
+- [✅] {Test}{App} Test the start/end day cycle;
+- [✅] {Test} {App} Test the till, menu , stock and stats;
 - [Test] [App] Run the lighthouse test;
 - [✅] {Fix}{Account} Fix the delete account function; at the moment it deletes only the auth.
         it should delete the firestore users doc associated;
@@ -167,7 +167,6 @@ NEXTILL IMPLEMENTATION LIST
         the pill should resize corretly automatically.
         example: changing language in the account page;
 - [✅] {Optional}{Footer} Fix the footer height, on mobile device, in particular the AppFooter. 
-- [optional] [App] Add the the option to update the current email;
 - [✅] {Optional}{App} Create a custom modal component for the confirmation action like 
         delete account, clear menu, clear stock, clear all etc;
 - [✅] {Optional}{Account} Add a function that will clear all archived items in the stock;
@@ -186,3 +185,5 @@ NEXTILL IMPLEMENTATION LIST
 - [Optional] add the discount in the receipt;  
 - [✅] {Optional}{Fix/pos} fix the payment section when a new order is started. the value
         of the type cash or card should be resetted after each order;
+- [✅] {Optional}{Pos} in the end of day section, when the  balance is enabled disable the end of day 
+        button when no closing balance is inserted;

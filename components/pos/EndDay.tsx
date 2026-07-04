@@ -146,7 +146,7 @@ export default function EndDay({ device }: { device: "mobile" | "desktop" }) {
           loadingText={t("endDay.buttonLoading")}
           onClick={() => setIsConfirmOpen(true)}
           className="w-full justify-center"
-          disabled={loading}
+          disabled={balanceEnabled && !amount.trim()}
         >
           <FaPowerOff className="text-sm" aria-hidden="true" />
           <span>{t("endDay.button")}</span>
