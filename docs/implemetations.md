@@ -125,7 +125,6 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Test}{Till} Test how the opening and closing balance works;
 - [✅] {Test}{App} Test the start/end day cycle;
 - [✅] {Test} {App} Test the till, menu , stock and stats;
-- [Test] [App] Run the lighthouse test;
 - [✅] {Fix}{Account} Fix the delete account function; at the moment it deletes only the auth.
         it should delete the firestore users doc associated;
 - [✅] {Fix}{Account} Fix the clear all data function; it should reset the data of the entire app.
