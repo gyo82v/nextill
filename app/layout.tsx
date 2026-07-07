@@ -16,7 +16,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "NexTill",
+  title: {
+    default: "Nextill",
+    template: "%s",
+  },
   description: "a till simulation",
 };
 
