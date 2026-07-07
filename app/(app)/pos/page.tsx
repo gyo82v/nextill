@@ -111,14 +111,8 @@ export default function PosPage() {
 
   return (
     <>
-      <div className="mx-auto w-full max-w-[1550px] space-y-6 px-4 pt-4 lg:px-10 lg:py-6 lg:pb-6">
-        <header className="space-y-1 mt-6  mb-12">
-          <h1 className="text-2xl font-semibold tracking-tight">{t("title")}</h1>
-          <p className="text-sm text-muted-foreground">
-            {t("description")}
-          </p>
-        </header>
-
+      <div className="mx-auto w-full max-w-[1550px] space-y-6 px-4 lg:px-10 py-10 lg:py-12">
+     
         <div
           className={`grid gap-5 xl:gap-20 lg:grid-cols-[minmax(0,1.45fr)_minmax(22rem,0.85fr)]
                          xl:grid-cols-[minmax(0,1.5fr)_minmax(23rem,0.9fr)]`}
@@ -186,7 +180,4 @@ export default function PosPage() {
     </>
   );
 }
-
-
-
 

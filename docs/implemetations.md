@@ -186,3 +186,6 @@ NEXTILL IMPLEMENTATION LIST
         of the type cash or card should be resetted after each order;
 - [✅] {Optional}{Pos} in the end of day section, when the  balance is enabled disable the end of day 
         button when no closing balance is inserted;
+- [Optional] [App] add another printing button in the cart section. This will not complete the order.
+- [Optional] [App/fix] in the header of the app nextill is diplayed twice;
+- [Optional] [Pos] delete the title and description in the pos page;
