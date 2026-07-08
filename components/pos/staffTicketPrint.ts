@@ -3,10 +3,7 @@
 import i18n from "@/i18n";
 import type { StaffTicketOptions, CheckoutItem } from "@/types/pos";
 
-/**
- * Fixed translator bound to the `pos` namespace.
- * Same behavior as: useTranslation("pos")
- */
+
 function tPos(key: string, options?: Record<string, unknown>) {
   return i18n.getFixedT(i18n.language, "pos")(key, options);
 }
@@ -94,7 +91,7 @@ export function openStaffTicketPrintWindow({
     })
     .join("");
 
-  const ticketTitle = `#${ticketNumber}`;
+  const ticketTitle = `${ticketNumber}`;
 
   const html = `
     <div class="ticket">
@@ -249,7 +246,7 @@ function tPos(key: string, options?: Record<string, unknown>) {
   return i18n.getFixedT(i18n.language, "pos")(key, options);
 }
 
-const CATEGORY_ORDER = ["food", "drink", "bundle", "dessert"] as const;
+const CATEGORY_ORDER = ["food", "bundle", "dessert", "drink"] as const;
 
 function escapeHtml(value: string) {
   return value
@@ -289,16 +286,14 @@ export function openStaffTicketPrintWindow({
   });
 
   const sectionHtml = sections
-    .map((category) => {
+    .map((category, index) => {
       const label = getCategoryLabel(category);
       const categoryItems = grouped.get(category) ?? [];
 
       const rows = categoryItems
         .map((item) => {
           const name =
-            item.menu?.name ??
-            item.name ??
-            tPos("ticket.fallbackItem");
+            item.menu?.name ?? item.name ?? tPos("ticket.fallbackItem");
 
           return `
             <div class="item-row">
@@ -309,18 +304,32 @@ export function openStaffTicketPrintWindow({
         })
         .join("");
 
+      const divider =
+        index === 0
+          ? ""
+          : `
+            <div class="section-divider" aria-hidden="true">
+              <span class="divider-icon">✂</span>
+              <span class="divider-line"></span>
+              <span class="divider-icon">✂</span>
+            </div>
+          `;
+
       return `
         <section class="section">
-          <div class="section-title">${escapeHtml(label)}</div>
-          <div class="section-items">
-            ${rows}
+          ${divider}
+          <div class="section-content">
+            <div class="section-title">${escapeHtml(label)}</div>
+            <div class="section-items">
+              ${rows}
+            </div>
           </div>
         </section>
       `;
     })
     .join("");
 
-  const ticketTitle = `#${ticketNumber}`;
+  const ticketTitle = `${ticketNumber}`;
 
   const html = `
     <div class="ticket">
@@ -367,46 +376,71 @@ export function openStaffTicketPrintWindow({
           }
 
           .ticket-number {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+            letter-spacing: 1px;
           }
 
           .section {
-            padding-top: 8px;
-            margin-top: 8px;
-            border-top: 1px dashed #000;
+            margin-top: 30px;
+            padding-top: 18px;
           }
 
           .section:first-of-type {
-            border-top: 0;
-            padding-top: 0;
             margin-top: 0;
+            padding-top: 0;
+          }
+
+          .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            min-height: 18px;
+          }
+
+          .divider-line {
+            flex: 1;
+            border-top: 2px dashed #000;
+          }
+
+          .divider-icon {
+            font-size: 11px;
+            font-weight: 700;
+            line-height: 1;
+          }
+
+          .section-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 56px;
           }
 
           .section-title {
-            font-size: 12px;
-            font-weight: 700;
+            font-size: 13px;
+            font-weight: 800;
             text-transform: uppercase;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
           }
 
           .section-items {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 6px;
           }
 
           .item-row {
             display: flex;
             align-items: flex-start;
-            gap: 8px;
+            gap: 10px;
           }
 
           .item-qty {
-            min-width: 28px;
+            min-width: 32px;
             flex-shrink: 0;
             font-weight: 700;
           }
@@ -435,5 +469,6 @@ export function openStaffTicketPrintWindow({
 
   printWindow.document.close();
 }
+
 
 */
