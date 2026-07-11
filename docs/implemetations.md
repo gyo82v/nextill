@@ -181,11 +181,10 @@ NEXTILL IMPLEMENTATION LIST
         the amount of the start*end balance;
 - [✅] {Optional}{Motion} find a use for the enable/disable motion in the account;
 - [✅] {Optional} {App} add localization in the pos and account page for the discount section;
-- [Optional] add the discount in the receipt;  
 - [✅] {Optional}{Fix/pos} fix the payment section when a new order is started. the value
         of the type cash or card should be resetted after each order;
 - [✅] {Optional}{Pos} in the end of day section, when the  balance is enabled disable the end of day 
         button when no closing balance is inserted;
-- [Optional] [App] add another printing button in the cart section. This will not complete the order.
-- [Optional] [App/fix] in the header of the app nextill is diplayed twice;
-- [Optional] [Pos] delete the title and description in the pos page;
+- [✅] {Optional}{App} add another printing button in the cart section. This will not complete the order.
+- [✅] {Optional}{Fix} in the header of the app nextill is diplayed twice;
+- [✅] {Optional}{Pos} delete the title and description in the pos page;
