@@ -53,7 +53,6 @@ NEXTILL IMPLEMENTATION LIST
 - [✅] {Style}{Menu} Style the add new item in the menu form component;
 - [✅] {Style}{Menu} Style the current menu list section;
 - [✅] {Style}{Menu} Style the menu page and layout for desktop/mobile;
-- [Fix] [App] Fix the bug where some currency(usd) do not render the symbol but the text;
 - [✅] {Style}{Stock} Style the add new item to the stock form in the stock page;
 - [✅] {Style}{Stock} Style the current stock items list, search bar and filters in the current items 
         section in the stock page;
