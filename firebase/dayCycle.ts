@@ -74,25 +74,3 @@ export async function endDay({ uid, closingBalance }: EndDayProps) {
   });
 }
 
-
-
-/*
-
-export async function endDay({
-  uid,
-  closingBalance,
-}: EndDayProps) {
-  const ref = doc(db, "users", uid);
-
-  await updateDoc(ref, {
-    "nextillApp.dayCycle.active": false,
-    "nextillApp.dayCycle.endedAt": serverTimestamp(),
-    "nextillApp.dayCycle.closingBalance": closingBalance,
-    "nextillApp.dayCycle.dayKey": null,
-  });
-}
-
-
-
-
-*/
